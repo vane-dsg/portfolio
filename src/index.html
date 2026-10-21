@@ -7,8 +7,24 @@
   <meta name="description" content="Vanessa Sousa, UX/UI Designer no Brasil. Há 4+ anos projetando produtos web e mobile.">
   <!-- marca que o JavaScript está ativo (as pílulas usam isso) -->
   <script>document.documentElement.classList.add("js");</script>
-  <!-- tema: a página sempre abre no modo claro (aplicado antes de desenhar, sem piscar) -->
-  <script>document.documentElement.setAttribute("data-theme", "light");</script>
+  <!-- tema: abre no tema do aparelho (claro ou escuro), aplicado antes de desenhar, sem piscar.
+       Enquanto a página carrega, nada faz transição de cor (classe no-anim, tirada em js/main.js). -->
+  <meta name="color-scheme" content="light dark">
+  <script>
+    (function () {
+      var d = document.documentElement;
+      var dark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+      d.setAttribute("data-theme", dark ? "dark" : "light");
+      d.classList.add("no-anim");
+    })();
+  </script>
+  <style>
+    /* cor do fundo já no tema certo, antes do CSS carregar. Fica no body (não no html): assim a cor
+       passa para a tela inteira e a grade quadriculada, que fica atrás do conteúdo, continua visível */
+    html[data-theme="light"] body { background-color: #fafafa; }
+    html[data-theme="dark"] body { background-color: #171717; }
+    .no-anim, .no-anim *, .no-anim *::before, .no-anim *::after { transition: none !important; }
+  </style>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -191,15 +207,17 @@
             <li><i data-lucide="cookie" aria-hidden="true"></i>Viciada em comidas com queijo e goiabada</li>
           </ul>
         </section>
-
-        <!-- Contato -->
-        <footer class="about-contact" data-rise>
-          <p class="ds-body">Vamos conversar?</p>
-          <a class="about-mail" href="mailto:vvsousarte@gmail.com">vvsousarte@gmail.com</a>
-        </footer>
       </div>
     </section>
   </main>
+
+  <!-- ================= Rodapé ================= -->
+  <footer class="site-footer">
+    <div class="container site-footer-inner">
+      <p>Desenvolvido por Vanessa Sousa</p>
+      <a class="site-footer-top" href="#inicio">Voltar para o início <i data-lucide="arrow-up" aria-hidden="true"></i></a>
+    </div>
+  </footer>
 
   <!-- @paginas -->
 

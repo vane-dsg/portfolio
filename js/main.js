@@ -50,6 +50,8 @@
      sol/lua troca o tema e salva a escolha neste navegador.
      --------------------------------------------------------- */
   // há mais de um botão de tema (navegação e página do case): todos fazem a mesma coisa
+  // depois que a página aparece, as transições de cor voltam a funcionar
+  requestAnimationFrame(function () { requestAnimationFrame(function () { document.documentElement.classList.remove("no-anim"); }); });
   var themeBtns = [].slice.call(document.querySelectorAll(".theme-toggle"));
   var themeBtn = themeBtns[0];
   var THEME_EFFECT = "fade";   // "circle" = círculo a partir do botão · "fade" = fade da página inteira
@@ -66,8 +68,13 @@
     var root = document.documentElement;
     function applyTheme(next) {
       root.setAttribute("data-theme", next);
-      try { localStorage.setItem("theme", next); } catch (e) {}
       syncThemeBtn();
+    }
+    // o site acompanha o tema do aparelho: se a pessoa trocar no sistema, a página troca junto
+    var mq = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)");
+    if (mq) {
+      var onSystem = function (e) { applyTheme(e.matches ? "dark" : "light"); };
+      if (mq.addEventListener) mq.addEventListener("change", onSystem); else if (mq.addListener) mq.addListener(onSystem);
     }
     themeBtns.forEach(function (btn) { btn.addEventListener("click", function () {
       var clicked = btn;

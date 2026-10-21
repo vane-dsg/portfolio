@@ -485,15 +485,6 @@ html.lenis, html.lenis body { height: auto; }
 .about-hobbies li { display: flex; align-items: center; gap: 12px; font-family: var(--text-body-family); font-size: var(--text-body-size); line-height: var(--text-body-lh); color: var(--color-text-muted); }
 .about-hobbies svg { width: 20px; height: 20px; flex-shrink: 0; color: var(--color-text); }
 
-.about-contact { margin-top: clamp(64px, 8vw, 104px); padding-top: clamp(32px, 4vw, 48px); border-top: 1px solid var(--color-border); text-align: center; display: grid; gap: 8px; justify-items: center; }
-.about-mail {
-  font-family: var(--text-display-family); font-weight: var(--text-display-weight);
-  font-size: clamp(1.5rem, 3.4vw, 2.5rem); line-height: 1.2; letter-spacing: var(--text-display-ls);
-  color: var(--color-text); text-decoration: none; background-image: linear-gradient(currentColor, currentColor);
-  background-size: 0% 2px; background-repeat: no-repeat; background-position: 0 100%; transition: background-size .35s var(--ease-out);
-}
-.about-mail:hover, .about-mail:focus-visible { background-size: 100% 2px; }
-
 @media (max-width: 720px) {
   .about-intro { grid-template-columns: 1fr; }
   .polaroid { width: min(78%, 240px); }
@@ -1023,3 +1014,21 @@ html.figma-on, html.figma-on * { cursor: none !important; }
    e recorte que o Safari respeita quando o card mexe o mockup no hover */
 .mock-phone--shot { background: #1c1917; -webkit-mask-image: -webkit-radial-gradient(white, black); mask-image: radial-gradient(white, black); isolation: isolate; }
 .mock-screen { -webkit-mask-image: -webkit-radial-gradient(white, black); mask-image: radial-gradient(white, black); isolation: isolate; }
+
+/* ---------- Rodapé: barra cinza clara do design system ---------- */
+.site-footer {
+  position: relative; z-index: 12;
+  background: var(--color-surface-band-solid);
+  border-top: 1px solid var(--color-border);
+}
+.site-footer-inner {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+  padding-block: 28px;
+  font-family: var(--text-body-family); font-size: var(--text-label-size); line-height: 1.5; color: var(--color-text-muted);
+}
+.site-footer-inner p { margin: 0; }
+.site-footer-top { display: inline-flex; align-items: center; gap: 6px; color: var(--color-text-muted); text-decoration: none; transition: color .2s ease; }
+.site-footer-top svg { width: 16px; height: 16px; transition: translate .3s var(--ease-out); }
+.site-footer-top:hover { color: var(--color-text); }
+.site-footer-top:hover svg { translate: 0 -3px; }
+.site-footer-top:focus-visible { outline: 3px solid var(--ring, var(--color-brand)); outline-offset: 4px; border-radius: 4px; }
