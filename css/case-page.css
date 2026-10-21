@@ -777,7 +777,7 @@
 }
 
 /* áreas do sistema (Figma 376:4378): card com contorno, contagem em texto normal e pílulas com borda */
-.cs-areas .cs-area { gap: 8px; padding: 16px; border-radius: 16px; background: rgb(140 140 140 / .06); border: 1px solid rgb(140 140 140 / .25); }
+.cs-areas .cs-area { gap: 8px; padding: 16px; border-radius: 16px; background: rgb(140 140 140 / .06); border: 1px solid var(--color-border); }
 .cs-areas .cs-area:nth-child(5) { align-self: start; }
 .cs-areas .cs-area { min-width: 0; }
 .cs-area-top { align-items: flex-start; }
@@ -785,7 +785,7 @@
 .cs-area-n { white-space: nowrap; flex-shrink: 0; }
 .cs-area-n { font-family: var(--text-body-family); font-size: 16px; line-height: 1.6; color: var(--color-text-muted); }
 .cs-area-mods { margin: 0; gap: 8px; }
-.cs-area-mods li { padding: 6px 12px; border-radius: 999px; background: rgb(140 140 140 / .06); border: 1px solid rgb(140 140 140 / .25); font-family: var(--text-body-family); font-weight: 600; font-size: 14px; line-height: 1.2; color: var(--color-text); }
+.cs-area-mods li { padding: 6px 12px; border-radius: 999px; background: rgb(140 140 140 / .06); border: 1px solid var(--color-border); font-family: var(--text-body-family); font-weight: 600; font-size: 14px; line-height: 1.2; color: var(--color-text); }
 
 /* todos os ícones na cor do texto do título ao lado */
 .cs-highlight svg, .cs-quote footer svg, .cs-ph-label svg, .cs-cycle-loop svg, .cs-solves-k svg, .cs-flow-title svg { color: var(--color-text); }
@@ -805,7 +805,7 @@
 .cs-chain li { display: inline-flex; align-items: center; gap: 8px; font-family: var(--text-body-family); font-weight: 600; font-size: 14px; line-height: 1.2; color: var(--color-text); }
 .cs-chain li > span, .cs-chain li { padding: 0; }
 .cs-chain li::before { content: none; }
-.cs-chain li { padding: 8px 14px; border-radius: 999px; background: rgb(140 140 140 / .06); border: 1px solid rgb(140 140 140 / .25); }
+.cs-chain li { padding: 8px 14px; border-radius: 999px; background: rgb(140 140 140 / .06); border: 1px solid var(--color-border); }
 .cs-chain li + li { position: relative; margin-left: 22px; }
 .cs-chain li + li::after { content: "→"; position: absolute; left: -22px; width: 22px; text-align: center; font-weight: 400; color: var(--color-text-muted); }
 .cs-highlight-text { margin: 24px 0 0; padding: 20px 24px; border-radius: 16px; background: var(--color-surface-band); }

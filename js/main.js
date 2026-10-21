@@ -209,10 +209,9 @@
   var lenis = null;
   if (!reduceMotion && window.Lenis) {
     lenis = new window.Lenis({
-      // mais suave: cada giro da roda anda menos (wheelMultiplier) e a página desliza até parar (lerp)
-      lerp: 0.08,
-      wheelMultiplier: 0.8,
-      smoothWheel: true,
+      // rolagem nativa da roda/trackpad, igual à das páginas dos cases (mesma força em todo o site).
+      // O Lenis fica só para as rolagens animadas (links do menu e abas da pilha).
+      smoothWheel: false,
       prevent: function (node) { return node.classList && (node.classList.contains("case-view") || node.classList.contains("vw") || node.id === "mobile-panel"); }
     });
     (function raf(time) { lenis.raf(time); requestAnimationFrame(raf); })(performance.now());

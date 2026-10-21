@@ -31,7 +31,7 @@
   --color-bg:            var(--neutral-50);
   --color-text:          var(--neutral-900);   /* títulos, rótulos, texto forte */
   --color-text-muted:    var(--neutral-600);   /* texto corrido, valores */
-  --color-border:        rgb(74 99 123 / .25); /* bordas, divisórias, contorno de tags */
+  --color-border:        rgb(140 140 140 / .25); /* Figma "border-strong": bordas, divisórias, contorno de tags */
   --color-surface-band:  rgb(74 99 123 / .06); /* faixa de seção (ex.: "Problema") */
   --color-surface-band-solid: color-mix(in srgb, var(--slate-600) 6%, var(--neutral-50)); /* mesma faixa, opaca (para recortes sobre ela) */
   --color-line:          var(--neutral-900);   /* linhas e pontos da timeline */
