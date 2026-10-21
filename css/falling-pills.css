@@ -1,0 +1,100 @@
+/* =========================================================
+   Pílulas que caem — estilos
+   A camada fica dentro da hero (que precisa de position: relative)
+   e ocupa a primeira tela inteira; as pílulas param no pé dela.
+   A classe "js" no <html> é adicionada por um script inline no <head>.
+   Sem ela (JavaScript desligado), a lista aparece como pílulas estáticas.
+   ========================================================= */
+
+.pills-layer {
+  /* tamanhos da pílula (desktop) */
+  --pill-h: 56px;
+  --pill-px: 24px;
+  --pill-gap: 12px;
+  --pill-font: 15px;
+  --pill-icon: 20px;
+  --pill-fg-default: #1c1917;
+
+  /* DM Mono: a versão mono da família da DM Sans (carrega em qualquer aparelho) */
+  font-family: "DM Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+}
+
+/* celular: pílulas ~20% menores */
+@media (max-width: 639px) {
+  .pills-layer {
+    --pill-h: 44px;
+    --pill-px: 16px;
+    --pill-gap: 8px;
+    --pill-font: 12px;
+    --pill-icon: 16px;
+  }
+}
+
+/* ---------- a pílula ---------- */
+.pill {
+  display: inline-flex; align-items: center; gap: var(--pill-gap);
+  height: var(--pill-h);
+  padding: 0 var(--pill-px);
+  border-radius: 999px;
+  background: var(--pill-bg, #e7e5e4);
+  color: var(--pill-fg, var(--pill-fg-default));
+  font-size: var(--pill-font); font-weight: 500;
+  letter-spacing: .04em; text-transform: uppercase; line-height: 1;
+  white-space: nowrap;
+  user-select: none; -webkit-user-select: none;
+}
+.pill svg, .pill i { width: var(--pill-icon); height: var(--pill-icon); flex-shrink: 0; stroke-width: 2; }
+.pill--icon { width: var(--pill-h); padding: 0; justify-content: center; }
+
+/* ---------- lista: acessível sempre, visível só sem JS ---------- */
+.pills-list {
+  list-style: none; margin: 0; padding: 24px 0;
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;
+}
+.pills-list li {
+  display: inline-flex; align-items: center; height: var(--pill-h); padding: 0 var(--pill-px);
+  border-radius: 999px; background: #e9d5ff; color: var(--pill-fg-default);
+  font-size: var(--pill-font); font-weight: 500; letter-spacing: .04em; text-transform: uppercase;
+}
+.pills-list li:nth-child(7n+1) { background: #fcd34d; }
+.pills-list li:nth-child(7n+2) { background: #a9d4ff; }
+.pills-list li:nth-child(7n+3) { background: #86e0a8; }
+.pills-list li:nth-child(7n+4) { background: #f7c6e0; }
+.pills-list li:nth-child(7n+5) { background: #d9ccff; }
+.pills-list li:nth-child(7n+6) { background: #f7a571; }
+
+.pills-stage { display: none; }
+
+/* ---------- com JavaScript: camada animada sobre a hero ---------- */
+.js .pills-layer {
+  position: absolute; inset: 0;
+  z-index: 5;                    /* acima do conteúdo da hero, abaixo da navegação */
+  pointer-events: none;          /* o texto da hero continua clicável/selecionável */
+}
+.js .pills-stage {
+  display: block;
+  position: absolute; inset: 0;
+  overflow: hidden;              /* pílulas nascem acima e "entram" pelo topo */
+}
+.js .pills-stage .pill {
+  position: absolute; top: 0; left: 0;
+  transform-origin: center center;
+  will-change: transform;
+  visibility: hidden;            /* aparece quando entra no mundo físico */
+  cursor: grab;
+  pointer-events: auto;          /* só as pílulas recebem o mouse/toque */
+  touch-action: none;            /* arrastar a pílula não rola a página */
+}
+.js .pills-stage .pill.is-live { visibility: visible; }
+/* durante o arraste: cursor "grabbing" na página toda e sem selecionar texto */
+.pills-dragging, .pills-dragging * { cursor: grabbing !important; user-select: none !important; -webkit-user-select: none !important; }
+
+/* lista vira só para leitores de tela */
+.js .pills-list {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js .pills-stage .pill { cursor: default; }
+}

@@ -1,0 +1,1024 @@
+/* =========================================================
+   Portfólio — Vanessa Sousa
+   Tokens seguem a anatomia do shadcn/ui (background, foreground,
+   primary, muted, border, ring, radius) + tokens da marca.
+   Valores vindos do Figma (frame "MacBook Air - 2").
+   ========================================================= */
+
+:root {
+  /* Cores e tipografia vêm do design system (css/tokens.css).
+     Estes nomes (anatomia do shadcn/ui) só apontam para os tokens semânticos. */
+  --background: var(--color-bg);
+  --foreground: var(--color-text);
+  --card: var(--color-bg);
+  --primary: var(--color-text);
+  --primary-foreground: var(--color-bg);
+  --muted-foreground: var(--color-text-muted);
+  --accent: var(--color-surface-band);
+  --border: var(--color-border);
+  --ring: var(--color-brand);
+  --radius: 8px;
+
+  /* marca */
+  --brand-purple: var(--color-brand);
+  --highlight: rgba(184, 184, 184, .18);
+  --grid-line: var(--color-grid-line);
+  --grid-size: 32px;   /* mesmo valor de CELL em js/grid-trail.js */
+
+  /* tipografia (tokens do design system) */
+  --font-heading: var(--font-display);
+  --font-sans: var(--font-body);
+
+  --nav-h: 59px;
+  --gutter: clamp(16px, 7.5vw, 96px);
+  --maxw: 1088px;
+  --ease-out: cubic-bezier(.22, 1, .36, 1);
+}
+:root[data-theme="dark"] {
+  --highlight: rgb(255 255 255 / .09);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scrollbar-gutter: stable; scroll-behavior: auto; scroll-padding-top: calc(var(--nav-h) + 16px); }
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--foreground);
+  background-color: var(--background);
+  transition: background-color .3s ease, color .3s ease;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+/* grade quadriculada fixa: não se move com a rolagem.
+   Fica numa camada fixa atrás de tudo (funciona também no Safari do iPhone,
+   que ignora background-attachment: fixed). Quadrados de 32px, linha de 1px.
+   O rastro colorido do mouse é desenhado logo abaixo dela (js/grid-trail.js). */
+body::before {
+  content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background-image:
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: var(--grid-size) var(--grid-size);
+  /* a grade começa na borda de baixo da navegação: logo abaixo dela vem um quadrado inteiro */
+  background-position: 0 calc(var(--nav-h) + env(safe-area-inset-top, 0px));
+}
+.grid-trail { position: fixed; inset: 0; z-index: -2; width: 100%; height: 100%; pointer-events: none; }
+
+img { max-width: 100%; display: block; }
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+a { color: inherit; }
+
+.container {
+  width: 100%;
+  max-width: calc(var(--maxw) + var(--gutter) * 2);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+/* no computador o conteúdo ocupa 70% da largura da tela, centralizado */
+@media (min-width: 1100px) {
+  .container { max-width: none; width: 70vw; padding-inline: 0; }
+  .about .container { max-width: 880px; }
+}
+/* celular: títulos um pouco menores (a escala do texto fica em css/tokens.css) */
+@media (max-width: 640px) {
+  .hero--v2 .hero-title { font-size: clamp(1.875rem, 8.4vw, 2.25rem); }
+  .case-card .case-title { font-size: var(--text-display-card-size-mobile); }
+  .case-desc { font-size: 15px; }
+}
+
+/* =========================================================
+   shadcn/ui — Button
+   ========================================================= */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  height: 37px; padding: 0 16px;
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  font: 600 14px/1 var(--font-sans);
+  white-space: nowrap; text-decoration: none; cursor: pointer;
+  transition: background-color .15s, color .15s, box-shadow .15s;
+}
+.btn svg { width: 17px; height: 17px; flex-shrink: 0; }
+.btn:focus-visible { outline: none; box-shadow: 0 0 0 2px var(--background), 0 0 0 4px var(--ring); }
+.btn-default { background: var(--primary); color: var(--primary-foreground); }
+.btn-default:hover { opacity: .88; }
+.btn-outline { background: var(--card); border-color: var(--border); color: var(--foreground); }
+.btn-outline:hover { background: var(--accent); }
+.btn-icon { width: 40px; height: 40px; padding: 0; }
+.btn-ghost { background: transparent; color: var(--foreground); }
+.btn-ghost:hover { background: var(--accent); }
+
+/* botão de tema: lua no claro, sol no escuro */
+.theme-toggle svg { width: 19px; height: 19px; }
+.theme-toggle .is-sun { display: none; }
+:root[data-theme="dark"] .theme-toggle .is-sun { display: block; }
+:root[data-theme="dark"] .theme-toggle .is-moon { display: none; }
+
+/* troca de tema suave (js/main.js)
+   1. navegadores com View Transitions: fade da página inteira, um pouco mais lento que o padrão
+   2. sem suporte: as cores de todos os elementos fazem a transição juntas */
+::view-transition-old(root),
+::view-transition-new(root) { animation-duration: .55s; animation-timing-function: cubic-bezier(.4, 0, .2, 1); }
+/* efeito "círculo": sem o fade padrão; o tema novo é revelado por um recorte que cresce (JS) */
+:root.theme-vt-circle::view-transition-old(root),
+:root.theme-vt-circle::view-transition-new(root) { animation: none; mix-blend-mode: normal; }
+/* durante a troca, nada faz transição própria: o tema novo já aparece pronto dentro do círculo
+   (senão o fundo ainda estaria clareando/escurecendo e o círculo parecia travar no meio) */
+:root.theme-vt, :root.theme-vt *, :root.theme-vt *::before, :root.theme-vt *::after,
+:root.theme-vt-circle,
+:root.theme-vt-circle *,
+:root.theme-vt-circle *::before,
+:root.theme-vt-circle *::after { transition: none !important; }
+.theme-switching,
+.theme-switching *,
+.theme-switching *::before,
+.theme-switching *::after {
+  transition: background-color .5s ease, color .5s ease, border-color .5s ease,
+              fill .5s ease, stroke .5s ease, box-shadow .5s ease !important;
+}
+
+/* =========================================================
+   Navigation — anatomia do shadcn Navigation Menu
+   ========================================================= */
+.site-nav {
+  position: fixed; inset: 0 0 auto 0; z-index: 50;
+  padding-top: env(safe-area-inset-top, 0px);
+  background: color-mix(in srgb, var(--background) 86%, transparent);
+  backdrop-filter: saturate(160%) blur(12px);
+  -webkit-backdrop-filter: saturate(160%) blur(12px);
+  border-bottom: 1px solid var(--color-grid-line);   /* mesma cor das linhas da grade */
+  transition: transform .35s var(--ease-out);
+}
+.site-nav.is-hidden { transform: translateY(-100%); }
+
+.nav-inner {
+  height: var(--nav-h);
+  display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 16px;
+}
+.nav-brand {
+  font-family: var(--font-heading); font-weight: 700; font-size: 18px;
+  color: var(--foreground); text-decoration: none; justify-self: start; border-radius: 6px;
+}
+.nav-brand:focus-visible { outline: 2px solid var(--ring); outline-offset: 4px; }
+
+.nav-links { display: flex; gap: 8px; list-style: none; margin: 0; padding: 0; }
+.nav-link {
+  display: inline-flex; align-items: center; gap: 4px;
+  height: 32px; padding: 0 8px; border-radius: 6px;
+  font-size: 14px; font-weight: 500; color: var(--muted-foreground); text-decoration: none;
+  transition: color .15s, background-color .15s;
+}
+.nav-link svg { width: 16px; height: 16px; }
+.nav-link:hover { color: var(--foreground); background: var(--accent); }
+.nav-link.is-active { color: var(--foreground); font-weight: 600; }
+.nav-link:focus-visible { outline: none; box-shadow: 0 0 0 2px var(--ring); }
+
+.nav-actions { justify-self: end; display: flex; align-items: center; gap: 8px; }
+.nav-menu-btn { display: none; }
+
+/* =========================================================
+   Menu mobile
+   O painel "sai de dentro" do botão sanduíche: cresce a partir do
+   ponto do botão (transform-origin) e os itens entram em sequência.
+   Ao fechar, faz o caminho contrário e volta para dentro do botão.
+   ========================================================= */
+.mobile-panel { display: none; }
+.nav-backdrop { display: none; }
+
+@media (max-width: 760px) {
+  .nav-inner { grid-template-columns: 1fr auto; }
+  .nav-links { display: none; }
+  .nav-menu-btn { display: inline-flex; position: relative; z-index: 2; }
+  .nav-menu-btn svg { animation: icon-swap .35s var(--ease-out); }
+  @keyframes icon-swap { from { rotate: -90deg; scale: .6; opacity: 0; } }
+
+  /* fundo escurecido e desfocado por trás do menu */
+  .nav-backdrop {
+    display: block; position: fixed; inset: 0; z-index: 60;
+    background: rgb(28 25 23 / .32);
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    opacity: 0; visibility: hidden;
+    /* fecha no mesmo ritmo do painel, para os dois terminarem juntos */
+    transition: opacity .46s cubic-bezier(.65, 0, .35, 1), visibility 0s linear .46s;
+  }
+  .nav-backdrop.is-open { opacity: 1; visibility: visible; transition: opacity .45s var(--ease-out), visibility 0s; }
+
+  /* com o menu aberto, a barra fica acima do fundo, mas só o botão aparece */
+  .site-nav.menu-open { z-index: 70; background: transparent; border-bottom-color: transparent; backdrop-filter: none; -webkit-backdrop-filter: none; }
+  /* ao fechar, a barra continua por cima do fundo até o painel voltar ao botão */
+  .site-nav { transition: transform .35s var(--ease-out), z-index 0s linear .46s, background-color .25s ease .22s, border-color .25s ease .22s; }
+  .site-nav.menu-open { transition: transform .35s var(--ease-out), z-index 0s, background-color .15s ease, border-color .15s ease; }
+  .site-nav .nav-brand { transition: opacity .3s ease .2s; }            /* ao fechar, o nome volta quando o painel já está quase no botão */
+  .site-nav.menu-open .nav-brand { transition: opacity .2s ease; }
+  .site-nav.menu-open .nav-brand { opacity: 0; pointer-events: none; }
+
+  /* O painel se "transforma" a partir do botão: fechado, ele fica recortado
+     num quadrado de 40×40 exatamente em cima do botão; ao abrir, o recorte
+     cresce até o painel inteiro enquanto ele desce para o lugar.
+     Ao fechar, faz o mesmo caminho de volta e some dentro do botão. */
+  .mobile-panel {
+    --btn: 40px;                                             /* tamanho do botão sanduíche */
+    --panel-top: calc(var(--nav-h) + 8px);
+    --to-btn: calc((var(--nav-h) - var(--btn)) / 2 - var(--panel-top));  /* distância até o botão */
+    --ease-open: cubic-bezier(.32, .72, 0, 1);
+    --ease-close: cubic-bezier(.65, 0, .35, 1);
+    display: flex; flex-direction: column;
+    position: absolute; top: calc(var(--panel-top) + env(safe-area-inset-top, 0px)); left: var(--gutter); right: var(--gutter);
+    padding: 10px;
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 16px; box-shadow: 0 24px 48px -16px rgb(0 0 0 / .28);
+    /* fechado: do tamanho e no lugar do botão */
+    translate: 0 var(--to-btn);
+    clip-path: inset(0 0 calc(100% - var(--btn)) calc(100% - var(--btn)) round 8px);
+    opacity: 0; visibility: hidden;
+    transition:
+      clip-path .46s var(--ease-close),
+      translate .46s var(--ease-close),
+      opacity .12s linear .34s,
+      visibility 0s linear .46s;
+  }
+  .site-nav.menu-open .mobile-panel {
+    translate: 0 0;
+    /* aberto: recorte maior que o painel, para a sombra aparecer */
+    clip-path: inset(-40px -40px -72px -40px round 56px);  /* cantos arredondados também no meio da transformação */
+    opacity: 1; visibility: visible;
+    transition:
+      clip-path .55s var(--ease-open),
+      translate .55s var(--ease-open),
+      opacity .08s linear,
+      visibility 0s;
+  }
+  .mobile-panel .nav-link { display: flex; height: 48px; font-size: 17px; padding: 0 14px; gap: 10px; }
+  .mobile-panel .nav-link svg { width: 18px; height: 18px; }
+  .mobile-panel .btn { width: 100%; height: 48px; margin-top: 8px; font-size: 15px; border-radius: 10px; }
+
+  /* conteúdo aparece todo junto (sem um item "atrasado") e some logo no início do fechamento */
+  .mobile-panel > * { opacity: 0; transition: opacity .14s ease; }
+  .site-nav.menu-open .mobile-panel > * { opacity: 1; transition: opacity .3s ease .14s; }
+}
+
+/* =========================================================
+   Header / Hero
+   ========================================================= */
+.hero {
+  /* primeira tela inteira, conteúdo no centro exato (horizontal e vertical) */
+  /* fica presa no topo: a seção de projetos sobe por cima dela */
+  position: sticky; top: 0; z-index: 0;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding-block: calc(var(--nav-h) + 24px);
+  text-align: center;
+}
+.hero-inner { display: flex; flex-direction: column; align-items: center; gap: clamp(28px, 3.6vw, 46px); }
+/* parallax: --hp vai de 0 (gaveta fora da tela) a 1 (gaveta cobrindo tudo), calculado em js/main.js.
+   O conteúdo da hero sobe bem mais devagar que a gaveta, encolhe um pouco e apaga:
+   parece que fica "lá atrás" enquanto os projetos passam na frente. */
+.hero-inner, .hero-scroll { will-change: transform, opacity, filter; }
+.hero-inner {
+  transform: translate3d(0, calc(var(--hp, 0) * -22vh), 0) scale(calc(1 - var(--hp, 0) * .1));
+  /* some rápido: já está invisível quando o topo dos projetos chega a ~60% da tela,
+     então os títulos nunca passam por cima do texto da hero */
+  opacity: clamp(0, calc(1 - var(--hp, 0) * 2.6), 1);
+  filter: blur(calc(var(--hp, 0) * 10px));
+}
+.hero-scroll { transform: translate3d(0, calc(var(--hp, 0) * -6vh), 0); opacity: clamp(0, calc(1 - var(--hp, 0) * 4), 1); }
+.hero.is-gone { visibility: hidden; }   /* já coberta: sem clique nem foco por trás dos projetos */
+.hero-main { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+
+.intro { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.intro-avatar { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; }
+.intro-line {
+  margin: 0; display: flex; align-items: center; gap: 8px;
+  /* estilo "section" do design system */
+  font-family: var(--text-section-family); font-weight: var(--text-section-weight);
+  font-size: var(--text-section-size); line-height: var(--text-section-lh);
+  letter-spacing: var(--text-section-ls); text-transform: uppercase; color: var(--color-text);
+}
+.intro-name { font-weight: inherit; }
+
+/* saudação em vários idiomas: a largura acompanha a palavra, sem pular o nome */
+.greeting { position: relative; display: inline-block; white-space: nowrap; }
+.js .greeting { height: 1.2em; overflow: hidden; transition: width .5s var(--ease-out); }
+.js .greeting-word {
+  position: absolute; right: 0; top: 0;
+  transition: transform .5s var(--ease-out), opacity .5s var(--ease-out);
+}
+.greeting-word.is-leaving { transform: translateY(-100%); opacity: 0; }
+.greeting-word.is-entering { transform: translateY(100%); opacity: 0; }
+
+.hero-title {
+  margin: 0; max-width: 1027px;
+  font-family: var(--font-heading); font-weight: 700;
+  font-size: clamp(2.5rem, 6.25vw, 5rem); line-height: 1.08; letter-spacing: -0.012em;
+  color: var(--foreground);
+  text-wrap: balance;
+}
+.hero-title .serif { font-family: var(--font-serif); font-weight: 400; }
+/* duas linhas fixas a partir do tablet ("Faço produtos complexos" / "parecerem óbvios."),
+   igual em todos os navegadores; no celular o texto corre livre */
+@media (min-width: 641px) {
+  .hero-title { text-wrap: wrap; }
+  .hero-title .hl { display: block; }
+}
+.hero-title .accent { color: var(--brand-purple); font-style: italic; letter-spacing: -0.008em; }
+
+/* destaque cinza com traço embaixo
+   O traço fica na altura exata do "pé" do p da Arbutus Slab (métrica da fonte:
+   o p desce até 0,03em acima do fim da caixa do texto), então as serifas do p
+   se fundem com a linha, como no Figma. */
+.mark {
+  --mark-line: 0.05em;          /* espessura do traço (4px com 80px de fonte) */
+  --mark-drop: 0.03em;          /* distância entre o fim da caixa e o pé do p */
+  background-color: transparent; color: inherit;
+  padding: 0 .06em;
+  background-image: linear-gradient(currentColor, currentColor), linear-gradient(var(--highlight), var(--highlight));
+  background-repeat: no-repeat;
+  background-position: 0 calc(100% - var(--mark-drop)), 0 calc(100% - var(--mark-drop));
+  background-size: 0% var(--mark-line), 0% 0.99em;
+  -webkit-box-decoration-break: clone; box-decoration-break: clone;
+}
+/* =========================================================
+   Entrada da hero ("slide up text", js/main.js)
+   1. as palavras da frase principal sobem de dentro de uma máscara, uma após a outra;
+   2. em seguida, saudação, texto de apoio, pílula e convite para rolar sobem e aparecem;
+   3. o grifo de "produtos complexos" se desenha por último.
+   Sem JS ou com movimento reduzido, tudo já aparece no lugar.
+   ========================================================= */
+html:not(.js) .mark, .hero.is-in .mark { animation: mark .7s .95s var(--ease-out) forwards; }
+@keyframes mark { to { background-size: 100% var(--mark-line), 100% 0.99em; } }
+
+.hero-title .w { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: .14em; margin-bottom: -.14em; }
+.hero-title .wi { display: inline-block; }
+.hero-title .accent .w { padding-right: .08em; margin-right: -.08em; }   /* o itálico não fica cortado pela máscara */
+.hero.is-ready .hero-title .wi {
+  translate: 0 108%; opacity: 0;
+  transition: translate .95s cubic-bezier(.19, 1, .22, 1), opacity .6s ease;
+  transition-delay: calc(var(--wi, 0) * 65ms);
+}
+.hero.is-in .hero-title .wi { translate: 0 0; opacity: 1; }
+
+.js .hero .intro, .js .hero .lede, .js .hero .hero-pills {
+  transition: opacity .8s var(--ease-out), translate .8s cubic-bezier(.19, 1, .22, 1);
+}
+.js .hero:not(.is-in) .intro,
+.js .hero:not(.is-in) .lede,
+.js .hero:not(.is-in) .hero-pills { opacity: 0; translate: 0 14px; }
+.js .hero:not(.is-ready):not(.is-in) .hero-title { opacity: 0; }   /* evita piscar antes de as palavras entrarem na máscara */
+.hero.is-in .intro { transition-delay: .45s; }
+.hero.is-in .lede { transition-delay: .6s; }
+.hero.is-in .hero-pills { transition-delay: .72s; }
+.hero.is-ready .hero-scroll { animation: hero-fade-in .8s .9s ease backwards; }
+@keyframes hero-fade-in { from { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .mark { background-size: 100% var(--mark-line), 100% 0.99em; } }
+
+.lede {
+  margin: 14px 0 0; max-width: 827px;
+  /* estilo "body" do design system */
+  font-family: var(--text-body-family); font-size: var(--text-body-size); line-height: var(--text-body-lh); color: var(--color-text-muted);
+  text-wrap: balance;
+}
+
+.location {
+  margin: 0; display: flex; align-items: center; gap: 10px;
+  /* rótulo de apoio: menor que a saudação e o texto de apoio, com um pouco de espaçamento */
+  font-size: clamp(.875rem, 1.25vw, 1.0625rem); line-height: 1.2; letter-spacing: .06em; text-transform: uppercase;
+}
+.location-dot { width: 4px; height: 4px; border-radius: 50%; background: currentColor; }
+
+/* =========================================================
+   Projetos e Sobre mim
+   Sem fundo próprio: a grade da página continua por trás. Os projetos sobem
+   por cima da hero (presa no topo), que recua e some (--hp em js/main.js).
+   Cards e blocos com [data-rise] entram ligados à rolagem (--p).
+   (A versão "gaveta" com ímã está salva em portfolio-snapshots/v129-com-gaveta.)
+   ========================================================= */
+.sheet { position: relative; z-index: 10; padding-block: clamp(56px, 8vw, 96px) clamp(48px, 6vw, 72px); }
+/* menos rolagem até os projetos: a seção fica 24vh mais perto, mas abre empurrada para fora da tela
+   (--lift em js/main.js) e sobe um pouco mais rápido que a rolagem até chegar ao lugar */
+#trabalho { padding-top: 0; margin-top: -24vh; translate: 0 var(--lift, 24vh); }
+/* Lenis (rolagem suave) */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+/* com um case ou o visualizador aberto, o Lenis para; o site de trás não muda de overflow
+   (mudar o overflow do html soltava a pilha de cards presa e ela pulava de lugar) */
+[data-rise] {
+  --p: 0;
+  opacity: calc(.15 + .85 * var(--p));
+  translate: 0 calc((1 - var(--p)) * 40px);
+}
+@media (prefers-reduced-motion: reduce) { [data-rise] { --p: 1; } }
+
+/* ---------- Sobre mim ---------- */
+.about { padding-bottom: clamp(80px, 10vw, 140px); }
+.about .container { max-width: calc(880px + var(--gutter) * 2); }   /* coluna de leitura */
+.about-intro { display: grid; grid-template-columns: minmax(0, 290px) minmax(0, 1fr); gap: clamp(32px, 5vw, 64px); align-items: center; }
+/* foto em polaroid: moldura branca com a base mais alta, levemente tortinha para a esquerda */
+.polaroid {
+  margin: 0; justify-self: center; width: min(100%, 260px);
+  padding: 12px 12px 52px; background: #fff; border-radius: 3px;
+  box-shadow: 0 1px 2px rgb(0 0 0 / .08), 0 18px 40px -18px rgb(0 0 0 / .35);
+  rotate: -4deg; transition: rotate .5s var(--ease-out);
+}
+.polaroid:hover { rotate: -1.5deg; }
+.polaroid img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 1px; background: #eee; }
+
+/* bio: voluntariado e faculdade logo abaixo */
+.about-meta { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.about-meta li { display: flex; align-items: center; gap: 10px; font-family: var(--text-body-family); font-size: 15px; line-height: 1.5; color: var(--color-text-muted); }
+.about-meta svg { width: 18px; height: 18px; flex-shrink: 0; color: var(--color-text); }
+
+/* ícones de marca (Simple Icons, monocromáticos na cor do texto) */
+.brand-icon { width: 14px; height: 14px; flex-shrink: 0; fill: currentColor; }
+.about-tag { gap: 8px; }
+.about-tag svg:not(.brand-icon) { width: 14px; height: 14px; }
+.about-actions .btn .brand-icon { width: 16px; height: 16px; }
+
+/* experiência em linha do tempo: data à esquerda, ponto e linha, conteúdo à direita */
+.timeline { list-style: none; margin: 0; padding: 0; }
+.timeline > li { position: relative; display: grid; grid-template-columns: 132px minmax(0, 1fr); gap: 0 40px; align-items: baseline; padding-bottom: 32px; }   /* data e cargo na mesma linha de base */
+.timeline > li:last-child { padding-bottom: 0; }
+.timeline > li::before {   /* ponto */
+  content: ""; position: absolute; left: 146px; top: 5px; width: 13px; height: 13px; border-radius: 50%;
+  background: var(--background); border: 1.75px solid var(--color-line); box-sizing: border-box;
+}
+.timeline > li.is-now::before { background: var(--color-line); box-shadow: inset 0 0 0 3px var(--background); }
+.timeline > li:not(:last-child)::after {   /* linha até o próximo ponto */
+  content: ""; position: absolute; left: 152px; top: 22px; bottom: 2px; width: 1px; background: var(--color-line);
+}
+.timeline-when { font-family: var(--text-body-family); font-size: 14px; line-height: 1.6; color: var(--color-text-muted); }   /* alinhada à esquerda, com o título da seção */
+.timeline-body { display: grid; gap: 6px; }
+.about-text { display: grid; gap: 16px; }
+.about-name {
+  margin: 0; font-family: var(--text-display-family); font-weight: var(--text-display-weight);
+  font-size: clamp(1.75rem, 3.2vw, 2.5rem); line-height: 1.15; letter-spacing: var(--text-display-ls); color: var(--color-text);
+}
+.about-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
+.about-actions .btn svg { width: 16px; height: 16px; }
+
+.about-block { margin-top: clamp(56px, 7vw, 88px); display: grid; gap: clamp(20px, 2.4vw, 28px); }
+.about-list { list-style: none; margin: 0; padding: 0; }
+.about-list > li { display: grid; gap: 6px; padding-block: 20px; border-top: 1px solid var(--color-border); }
+.about-list > li:first-child { border-top: 0; padding-top: 0; }
+.about-item-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; }
+.about-when, .about-role { font-family: var(--text-body-family); font-size: 14px; line-height: 1.5; color: var(--color-text-muted); margin: 0; }
+.about-when { flex-shrink: 0; }
+.about-list .ds-body { margin-top: 4px; }
+.about-link { color: var(--color-text); text-decoration: underline; text-underline-offset: 3px; }
+
+.about-skills { display: grid; grid-template-columns: minmax(0, 1fr); gap: 28px; }   /* um grupo embaixo do outro */
+.about-skills > div { display: grid; gap: 12px; align-content: start; }
+.about-tags { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.about-tags .ds-tag { background: var(--background); }   /* fundo da página: a grade não aparece atrás do texto */
+
+.about-hobbies { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 32px; }
+.about-hobbies li { display: flex; align-items: center; gap: 12px; font-family: var(--text-body-family); font-size: var(--text-body-size); line-height: var(--text-body-lh); color: var(--color-text-muted); }
+.about-hobbies svg { width: 20px; height: 20px; flex-shrink: 0; color: var(--color-text); }
+
+.about-contact { margin-top: clamp(64px, 8vw, 104px); padding-top: clamp(32px, 4vw, 48px); border-top: 1px solid var(--color-border); text-align: center; display: grid; gap: 8px; justify-items: center; }
+.about-mail {
+  font-family: var(--text-display-family); font-weight: var(--text-display-weight);
+  font-size: clamp(1.5rem, 3.4vw, 2.5rem); line-height: 1.2; letter-spacing: var(--text-display-ls);
+  color: var(--color-text); text-decoration: none; background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 2px; background-repeat: no-repeat; background-position: 0 100%; transition: background-size .35s var(--ease-out);
+}
+.about-mail:hover, .about-mail:focus-visible { background-size: 100% 2px; }
+
+@media (max-width: 720px) {
+  .about-intro { grid-template-columns: 1fr; }
+  .polaroid { width: min(78%, 240px); }
+  .timeline > li { grid-template-columns: minmax(0, 1fr); padding-left: 32px; gap: 4px; }
+  .timeline > li::before { left: 0; }
+  .timeline > li:not(:last-child)::after { left: 6px; }
+  .timeline-when { text-align: left; }
+  .about-hobbies { grid-template-columns: 1fr; }
+  .about-item-head { flex-direction: column; gap: 2px; }
+}
+
+/* ---------- cabeçalho da seção ---------- */
+.work-head { text-align: left; margin-bottom: clamp(32px, 5vw, 56px); }
+.work-title {
+  /* estilo "section" do design system */
+  margin: 0; font-family: var(--text-section-family); font-weight: var(--text-section-weight);
+  font-size: var(--text-section-size); line-height: var(--text-section-lh);
+  letter-spacing: var(--text-section-ls); text-transform: uppercase; color: var(--color-text);
+}
+
+/* =========================================================
+   Cards de case — 1 por linha
+   Layout: mockups à esquerda (vazando pela borda do card), título grande + descrição + tags à direita.
+   Cores só do design system: o card usa color-surface-band nos dois temas
+   (no claro, um cinza azulado bem leve; no escuro, #282828).
+   Entrada: aparecem apagados e menores e "acendem" conforme sobem na tela.
+   Hover/foco: o card cresce um pouco e os mockups se mexem.
+   ========================================================= */
+.case-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: clamp(20px, 3vw, 32px); }
+
+.case-card {
+  --pad: clamp(20px, 3.4vw, 48px);
+  position: relative; overflow: hidden;
+  display: grid; grid-template-columns: minmax(0, 1fr) min(460px, 44%);
+  column-gap: clamp(32px, 5vw, 64px); align-items: center;
+  min-height: clamp(380px, 36vw, 470px);
+  padding: var(--pad);
+  border-radius: clamp(20px, 2.4vw, 32px);
+  /* mais sólido e com desfoque: o quadradinho colorido da grade passa por trás como um gradiente */
+  background: color-mix(in srgb, var(--color-surface-band-solid) 82%, transparent);
+  -webkit-backdrop-filter: blur(20px) saturate(140%); backdrop-filter: blur(20px) saturate(140%);
+  color: var(--color-text); text-decoration: none;
+  isolation: isolate;
+  /* entrada ligada à rolagem: --p vai de 0 (card entrando pelo pé da tela)
+     a 1 (card no lugar), calculado no JS. Vale igual para todos os cards. */
+  --p: 0;
+  opacity: calc(.35 + .65 * var(--p));
+  translate: 0 calc((1 - var(--p)) * 40px);
+  scale: calc(.96 + .04 * var(--p));
+  transition: scale .45s var(--ease-out), box-shadow .5s var(--ease-out);
+}
+
+/* case "Solicitação de dívida ativa": cor do foco e do cursor (paleta do projeto) */
+.case--dividas {
+  --case-accent: #1d4ed8;
+  --cursor-color: var(--case-accent);
+  --ring: var(--case-accent);
+}
+
+/* case "Meu Ônibus": cor primária do projeto (#38C8C7). Por ser clara, o texto sobre ela é escuro,
+   e o contorno de foco usa um tom mais fechado da mesma cor (o claro some sobre o fundo branco) */
+.case--onibus {
+  --case-accent: #38c8c7;
+  --cursor-color: var(--case-accent);
+  --cursor-ink: #053b3b;
+  --ring: #1a8a89;
+}
+
+/* case "Sistema de gestão": cor primária do design system do projeto (#3EB6A5). Clara: texto escuro
+   na etiqueta do cursor e contorno de foco num tom mais fechado */
+.case--sgdae {
+  --case-accent: #3eb6a5;
+  --cursor-color: var(--case-accent);
+  --cursor-ink: #04332d;
+  --ring: #215d59;
+}
+
+/* case "Cabine de fotos": azul da identidade do evento da UXFor */
+.case--cabine {
+  --case-accent: #3f6fff;
+  --cursor-color: var(--case-accent);
+  --ring: #2f55d4;
+}
+
+/* rótulo de categoria acima de cada lista de cases */
+.case-group { margin: clamp(40px, 5vw, 64px) 0 20px; font-family: var(--text-label-family); font-weight: var(--text-label-weight);
+  font-size: var(--text-label-size); line-height: var(--text-label-lh); letter-spacing: var(--text-label-ls);
+  text-transform: uppercase; color: var(--color-text-muted); text-align: left; }
+.work-head + .case-group { margin-top: clamp(24px, 3vw, 36px); }
+
+/* case "em breve" (sistema de gestão): só uma prévia. Mais apagado, sem hover, sem link e sem o cursor */
+.case-card--soon { opacity: calc((.35 + .65 * var(--p)) * .5); cursor: default; }
+.has-figma-cursor .case-card--soon, .has-figma-cursor .case-card--soon * { cursor: default; }
+.case-card--soon .mock-screen img { object-position: top left; }   /* mostra o título e o começo da tabela */
+
+/* hover e foco: o card fica parado; só o conteúdo (mockups e seta do "Ver case") se mexe */
+.case-card:focus-visible { outline: 3px solid var(--ring); outline-offset: 4px; }
+
+/* texto: à direita, centralizado na altura do mockup */
+.case-panel {
+  grid-column: 2; grid-row: 1;
+  display: flex; flex-direction: column; align-items: flex-start; gap: 20px;
+}
+.case-title {
+  /* estilo "display" do design system, no tamanho de card */
+  margin: 0;
+  font-family: var(--text-display-family); font-weight: var(--text-display-weight);
+  font-size: clamp(var(--text-display-card-size-mobile), 3.1vw, var(--text-display-card-size)); line-height: var(--text-display-lh);
+  letter-spacing: var(--text-display-ls); color: var(--color-text); text-wrap: balance;
+}
+.case-desc { margin: 0; font-family: var(--text-body-family); font-size: var(--text-body-size); line-height: var(--text-body-lh); color: var(--color-text-muted); }
+.case-desc strong { font-weight: 600; color: var(--color-text); }   /* destaque igual ao da legenda do case */
+.case-tags { list-style: none; margin: 4px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.case-tags li {
+  /* estilo "tag" do design system */
+  display: inline-flex; align-items: center; padding: 6px 12px;
+  border-radius: 999px; border: 1px solid var(--color-border);
+  background: transparent;
+  font-family: var(--text-tag-family); font-size: var(--text-tag-size); font-weight: var(--text-tag-weight); line-height: var(--text-tag-lh);
+  color: var(--color-text); white-space: nowrap;
+}
+.case-btn { display: none; }           /* no computador o card inteiro é o link; o botão só aparece no celular */
+.case-btn { height: 40px; background: transparent; border-color: var(--color-border); color: var(--color-text); }
+.case-btn svg { width: 16px; height: 16px; transition: translate .3s var(--ease-out); }
+.case-card:hover .case-btn svg, .case-card:focus-visible .case-btn svg { translate: 3px 0; }
+
+/* área dos mockups: coluna da esquerda, esticada até as bordas de cima, de baixo e da esquerda
+   do card. Os mockups ficam presos no canto e são cortados pela borda do card (como antes,
+   só que espelhado). */
+.case-visual {
+  grid-column: 1; grid-row: 1; align-self: stretch;
+  position: relative; pointer-events: none;
+  margin: calc(-1 * var(--pad)) 0 calc(-1 * var(--pad)) calc(-1 * var(--pad));
+  /* os mockups se medem pela altura desta área (cqh): assim sempre vazam pela base do card,
+     mesmo quando o texto deixa o card mais alto (tela estreita, título longo) */
+  container-type: size;
+}
+
+.case-mock {
+  --lift: 0px; --tilt: 0deg;
+  position: absolute;
+  /* entrada: o mockup desliza para o lugar junto com a rolagem (vindo da esquerda) */
+  translate: calc((1 - var(--p)) * -56px) calc((1 - var(--p)) * 72px);
+  /* só se mexe no hover do card (não segue o mouse) */
+  transform: translate3d(0, var(--lift), 0) rotate(var(--tilt));
+  transition: transform .6s var(--ease-out);
+}
+.case-card:not(.case-card--soon):hover .case-mock,
+.case-card:focus-visible .case-mock { --lift: -12px; --tilt: 1.2deg; }
+.case-card:not(.case-card--soon):hover .case-mock--back,
+.case-card:focus-visible .case-mock--back { --lift: -6px; --tilt: -2deg; }
+
+/* ---------- esqueletos (provisórios, em tons neutros do sistema) ---------- */
+.sk { display: block; height: 10px; border-radius: 6px; background: var(--color-surface-band); }
+
+/* notebook: ancorado no topo e no lado do texto, vaza pela esquerda e pela base do card.
+   Largura = 160% da altura do card: a tela (16:10) fica com a mesma altura do card,
+   começa a 14% do topo e por isso sempre passa 14% da base. */
+.mock-laptop { right: 0; top: 14cqh; width: max(160cqh, 110cqw); }
+.mock-screen { aspect-ratio: 1738 / 978;   /* mesma proporção da tela de consulta: aparece inteira */ background: #fff; border: 10px solid #1c1917; border-bottom: 0; border-radius: 16px 16px 0 0; overflow: hidden; display: flex; flex-direction: column; }
+.mock-screen img { width: 100%; height: 100%; object-fit: cover; object-position: top right; }   /* o notebook vaza pela esquerda: o lado direito (botão Nova solicitação) fica à vista */
+
+/* celulares: grandes, começando perto do topo e vazando pela base.
+   Cada um tem até metade da área; o de trás encosta no da frente (90% da largura). */
+.mock-phone {
+  --w: min(64cqh, 50cqw);
+  /* começa a 10% do topo; se a largura limitar a altura, desce o bastante para ainda vazar 8% pela base */
+  --top: max(10cqh, calc(108cqh - var(--w) * 2.12));
+  top: var(--top); width: var(--w); aspect-ratio: 9 / 19;
+  padding: 44px 14px 0; display: flex; flex-direction: column; gap: 8px;
+  background: var(--color-bg); border: 6px solid #1c1917; border-radius: 26px;   /* cantos de aparelho real, sem exagero */
+}
+.mock-phone { left: calc(4cqw + var(--w) * .78); }   /* o mais alto (da frente) fica à direita, perto do texto */
+.mock-phone.case-mock--back { left: 4cqw; top: calc(var(--top) + 12cqh); }
+/* no card da pilha (mais alto): celulares maiores, ocupando a área toda e vazando pela base */
+.deck .mock-phone { --w: min(58cqh, 46cqw); --top: max(14cqh, calc(104cqh - var(--w) * 2.17)); }   /* sempre vaza pela base */
+.mock-notch { position: absolute; top: 8px; left: 50%; translate: -50% 0; width: 34%; height: 16px; border-radius: 10px; background: #1c1917; }
+/* celular com a tela de verdade (case Meu Ônibus): a imagem já traz a barra de status e o notch */
+.mock-phone--shot { padding: 0; overflow: hidden; aspect-ratio: 786 / 1704; }
+.mock-phone--shot img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.mock-phone .sk-title { width: 60%; height: 12px; }
+.mock-phone .sk-hero, .mock-phone .sk-card { height: 90px; border-radius: 12px; }
+.mock-phone .sk-short { width: 55%; }
+.mock-phone .sk-btn { height: 30px; border-radius: 10px; margin-top: 6px; }
+
+/* navegador: igual ao notebook, vaza pela esquerda e pela base */
+.mock-browser {
+  right: 0; top: 14cqh; width: max(152cqh, 110cqw); aspect-ratio: 16 / 10.5;
+  display: flex; flex-direction: column; overflow: hidden;
+  background: var(--color-bg); border: 1px solid var(--color-border); border-radius: 14px;
+  box-shadow: 0 20px 40px -20px rgb(0 0 0 / .3);
+}
+.mock-chrome { display: flex; align-items: center; gap: 6px; padding: 10px 12px; background: var(--color-bg); border-bottom: 1px solid var(--color-border); }
+.mock-chrome i { width: 10px; height: 10px; border-radius: 50%; background: var(--color-border); }
+.mock-chrome .sk-url { flex: 0 1 50%; margin-left: 12px; height: 14px; }
+.mock-page { flex: 1; padding: 5%; display: flex; flex-direction: column; gap: 6%; }
+.mock-page .sk-title { width: 40%; height: 16px; }
+.sk-grid { flex: 1; display: grid; grid-template-columns: repeat(3, 1fr); gap: 4%; }
+.sk-grid .sk { height: auto; border-radius: 10px; }
+
+/* ---------- celular: texto em cima, mockup embaixo (vazando pela base, como antes) ---------- */
+@media (max-width: 760px) {
+  .case-card { grid-template-columns: 1fr; align-items: start; min-height: 0; padding-bottom: 0; }
+  .case-panel { grid-column: 1; grid-row: 1; gap: 16px; }
+  .case-btn { display: inline-flex; }
+  .case-tags { display: none; }          /* no celular as tags saem do card (continuam na página do case) */
+  .case-title { font-size: var(--text-display-card-size-mobile); }
+  .case-visual { grid-column: 1; grid-row: 2; align-self: auto; height: 168px; margin: 18px calc(-1 * var(--pad)) 0; overflow: hidden; container-type: normal; }
+  /* card mais curto no celular: menos respiro, e o "Ver case"
+     vira um link de texto. Título menor, descrição inteira. */
+  .case-card { --pad: 20px; }
+  .case-panel { gap: 10px; }
+  .case-desc { font-size: 15px; line-height: 1.55; }   /* inteira: a frase do resultado não pode ser cortada */
+  .case-card .case-title { font-size: clamp(var(--text-display-card-size-mobile), 5.6vw, 24px); line-height: 1.15; }
+  /* "Ver case" como link de texto discreto (o card inteiro já é o link) */
+  .case-btn {
+    height: auto; padding: 0; margin-top: 2px; border: 0; background: transparent; gap: 6px;
+    font-size: 14px; font-weight: 600; color: var(--color-text);
+  }
+  .case-btn svg { width: 16px; height: 16px; }
+  /* celulares menores: borda e cantos proporcionais ao tamanho */
+  .mock-phone { border-width: 5px; border-radius: 20px; }
+  .mock-phone .mock-notch { top: 5px; height: 12px; }
+  .case-mock { translate: calc((1 - var(--p)) * 56px) calc((1 - var(--p)) * 72px); }
+  .mock-laptop { width: 130%; left: 10%; right: auto; top: 16px; }
+  .mock-browser { width: 115%; left: 10%; right: auto; top: 12px; }
+  .mock-phone { width: 42%; left: auto; right: 8%; top: 12px; bottom: auto; }
+  .mock-phone.case-mock--back { left: auto; right: 46%; top: 40px; bottom: auto; }
+}
+
+/* sem movimento: tudo já aparece no lugar */
+@media (prefers-reduced-motion: reduce) {
+  .case-card { --p: 1; }
+  .case-mock { transform: none; }
+}
+
+@media (max-width: 639px) {
+  /* no celular a pilha de pílulas é mais alta que a tela comporta junto do texto:
+     reservamos o pé da hero para ela e centralizamos o conteúdo no espaço acima */
+  /* (as pílulas que caem foram removidas: sem espaço reservado no pé da hero) */
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-delay: 0ms !important; transition-duration: .01ms !important; }
+}
+
+
+/* =========================================================
+   Cursor estilo "multiplayer do Figma" sobre os cards
+   Cada card define o texto (data-cursor) e a cor (--cursor-color).
+   Só aparece em computador (mouse); no toque, nada muda.
+   ========================================================= */
+.case-card--blue  { --cursor-color: #2563eb; }
+.case-card--pink  { --cursor-color: #db2777; }
+
+.has-figma-cursor .case-card, .has-figma-cursor .case-card * { cursor: none; }
+
+.figma-cursor {
+  position: fixed; top: 0; left: 0; z-index: 100;
+  pointer-events: none;
+  opacity: 0; scale: .6;
+  transform-origin: 0 0;
+  transition: opacity .15s ease, scale .2s var(--ease-out);
+}
+.figma-cursor.is-on { opacity: 1; scale: 1; }
+.figma-cursor svg {
+  display: block; width: 24px; height: 24px;
+  color: var(--cursor-color, #7c3aed);
+  fill: currentColor; stroke: #fff; stroke-width: 1.5;
+  filter: drop-shadow(0 1px 2px rgb(0 0 0 / .25));
+  translate: -3px -3px;                    /* a ponta da seta fica no ponto do mouse */
+}
+.figma-cursor-label {
+  position: absolute; left: 18px; top: 20px;
+  padding: 5px 10px;
+  border-radius: 4px 12px 12px 12px;
+  background: var(--cursor-color, #7c3aed); color: var(--cursor-ink, #fff);
+  font: 500 13px/1.2 var(--font-sans); white-space: nowrap;
+  box-shadow: 0 2px 8px rgb(0 0 0 / .18);
+}
+
+/* =========================================================
+   Página do case (abre por cima do site)
+   ========================================================= */
+.case-view {
+  position: fixed; inset: 0; z-index: 80;
+  overflow-y: auto; overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+}
+.case-view[hidden] { display: none; }
+.case-view-bg { position: fixed; inset: 0; z-index: -1; background: var(--background); }
+.case-view-scroll { position: relative; min-height: 100%; }
+.case-view ::selection { background: #dbeafe; color: #1e3a8a; }
+
+.case-page {
+  display: flex; flex-direction: column; align-items: flex-start;
+  padding-block: calc(env(safe-area-inset-top, 0px) + clamp(28px, 5vw, 56px)) clamp(64px, 8vw, 120px);
+}
+
+.case-back {
+  position: relative;
+  display: inline-flex; align-items: center; gap: 8px;
+  margin: 0 0 clamp(28px, 4vw, 44px); padding: 6px 0;
+  border: 0; background: transparent;
+  /* estilo "action" do design system */
+  font-family: var(--text-action-family); font-weight: var(--text-action-weight);
+  font-size: var(--text-action-size); line-height: var(--text-action-lh); color: var(--color-text-muted); cursor: pointer;
+  transition: color .2s ease;
+}
+.case-back svg { width: 18px; height: 18px; }
+/* topo do case: Voltar à esquerda e botão de tema à direita (igual à barra fixa) */
+.case-top {
+  width: 100%; margin: 0 0 clamp(28px, 4vw, 44px);
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+}
+.case-top .case-back { margin: 0; }
+/* hover: só muda a cor e uma linha se desenha embaixo, da esquerda para a direita */
+.case-back::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1.5px;
+  background: currentColor; border-radius: 2px;
+  transform: scaleX(0); transform-origin: left center;
+  transition: transform .35s var(--ease-out);
+}
+.case-back:hover { color: var(--color-text); }
+.case-back:hover::after { transform: scaleX(1); }
+.case-back:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }
+
+.case-page-title {
+  /* estilo "display" do design system */
+  margin: 0; max-width: none;
+  font-family: var(--text-display-family); font-weight: var(--text-display-weight);
+  font-size: clamp(2.125rem, 5vw, var(--text-display-size)); line-height: var(--text-display-lh); letter-spacing: var(--text-display-ls);
+  color: var(--color-text); text-wrap: pretty;
+}
+.case-page-lede {
+  /* estilo "body" */
+  margin: clamp(18px, 2.4vw, 28px) 0 0; max-width: none;
+  font-family: var(--text-body-family); font-size: var(--text-body-size); line-height: var(--text-body-lh); color: var(--color-text-muted);
+}
+.case-page-tags { margin-top: 40px; }
+
+/* linha de informações: Papel · Cliente · Período */
+.case-facts {
+  width: 100%; margin: clamp(36px, 5vw, 56px) 0 0; padding: 23px 0;
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px;
+  border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+}
+.case-facts--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.case-facts div { display: flex; flex-direction: column; gap: 10px; }
+.case-facts dt {
+  /* "label" em cinza */
+  font-family: var(--text-label-family); font-weight: var(--text-label-weight); font-size: var(--text-label-size);
+  line-height: var(--text-label-lh); letter-spacing: var(--text-label-ls); text-transform: uppercase; color: var(--color-text-muted);
+}
+.case-facts dd { margin: 0; font-family: var(--text-body-family); font-size: var(--text-body-size); line-height: var(--text-body-lh); color: var(--color-text-muted); }
+
+/* mockup grande: mesmo fundo e composição do card, com o notebook vazando pela base */
+.case-hero-shot {
+  position: relative; width: 100%; margin: clamp(36px, 5vw, 56px) 0 0;
+  height: clamp(300px, 52vw, 620px);
+  border-radius: clamp(20px, 2.4vw, 32px); overflow: hidden;
+  background: var(--case-bg);
+}
+.case-hero-laptop {
+  position: absolute; left: 50%; top: clamp(32px, 6vw, 72px);
+  width: min(86%, 980px); translate: -50% 0;
+}
+
+@media (max-width: 640px) {
+  .case-facts { grid-template-columns: 1fr; gap: 18px; }
+  .case-facts--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .case-hero-laptop { width: 118%; left: 8%; translate: 0 0; }
+}
+
+/* com a página do case aberta, o site de trás não rola: o Lenis para e a página do case (fixa, com
+   overscroll-behavior: contain) recebe a rolagem. O overflow do html não muda, para a pilha não pular. */
+/* sem isso, o espaço reservado para a barra de rolagem do site (scrollbar-gutter) ficava
+   como uma faixa vazia à direita da página do case, e as faixas de seção não encostavam na borda */
+/* a barra de rolagem mantém o espaço: nada pula de lado ao abrir e fechar um case */
+/* com o case aberto, o cursor estilo Figma só aparece sobre o que tem data-cursor (quadros com diagramas) */
+
+/* =========================================================
+   Hero — versão 2 (em teste)
+   Título bem grande ocupando a largura, brilho suave colorido no topo,
+   texto de apoio logo abaixo e o rótulo virando pílulas coloridas.
+   Para voltar à versão anterior: tire a classe "hero--v2" da <section class="hero">.
+   ========================================================= */
+.hero-pills { display: none; }
+
+.hero--v2 .hero-inner { gap: clamp(14px, 1.4vw, 20px); width: 100%; }
+.hero--v2 .hero-main { gap: 0; width: 100%; }
+.hero--v2 .intro { margin-bottom: clamp(16px, 2vw, 28px); }
+.hero--v2 .hero-title {
+  max-width: 100%;
+  font-size: clamp(2.25rem, 5.3vw, 6.25rem); line-height: 1.06; letter-spacing: -0.025em;
+}
+/* "produtos complexos": a Arbutus Slab tem a altura das minúsculas ~10% menor
+   que a da Inter Tight (0,495 × 0,546 do em). Aumentamos na mesma proporção
+   para as duas fontes parecerem do mesmo tamanho. */
+.hero--v2 .hero-title .serif { font-size: 1.1em; letter-spacing: -0.01em; }
+.hero--v2 .lede { margin-top: clamp(16px, 1.8vw, 26px); max-width: 640px; }
+.hero--v2 .location { display: none; }
+.hero--v2 .hero-pills { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; }
+/* mesma pílula das habilidades e ferramentas do "Sobre mim": contorno e fundo preenchido (a grade não aparece atrás) */
+.hero-pill {
+  /* estilo "tag" do design system */
+  display: inline-flex; align-items: center; padding: 6px 12px;
+  border-radius: 999px; border: 1px solid var(--color-border); background: var(--background);
+  font-family: var(--text-tag-family); font-size: var(--text-tag-size); font-weight: var(--text-tag-weight); line-height: var(--text-tag-lh);
+  color: var(--color-text); white-space: nowrap;
+}
+/* conteúdo da hero ~7% da altura da tela acima do centro.
+   Em telas baixas o deslocamento diminui para o texto não encostar na navegação. */
+@media (min-width: 640px) {
+  .hero--v2 { padding-bottom: calc(var(--nav-h) + 24px + clamp(0px, 100svh - 640px, 14svh)); }
+}
+
+/* =========================================================
+   Pé da hero: "Conheça meu trabalho"
+   ========================================================= */
+.hero-scroll {
+  position: absolute; left: 50%; bottom: calc(env(safe-area-inset-bottom, 0px) + clamp(24px, 4vh, 44px)); translate: -50% 0;
+  display: inline-flex; flex-direction: column; align-items: center; gap: 8px;
+  padding: 6px 10px; border-radius: 8px;
+  font-family: var(--text-action-family); font-size: var(--text-action-size); font-weight: var(--text-action-weight); line-height: var(--text-action-lh);
+  color: var(--color-text-muted); text-decoration: none; white-space: nowrap;
+  transition: color .2s ease;
+}
+.hero-scroll svg { width: 18px; height: 18px; animation: hero-nudge 1.8s var(--ease-out) infinite; }
+.hero-scroll:hover { color: var(--brand-purple); }
+.hero-scroll:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }
+@keyframes hero-nudge { 0%, 100% { translate: 0 0; } 50% { translate: 0 5px; } }
+@media (prefers-reduced-motion: reduce) { .hero-scroll svg { animation: none; } }
+
+/* =========================================================
+   Cards em pilha, no formato de pasta (como o "scroll stack deck")
+   Cada card tem uma aba alinhada à esquerda, com um título curto. Ao rolar, o próximo
+   card sobe por cima; os de trás recuam para cima, diminuem e escurecem um pouco
+   (profundidade), deixando as abas empilhadas à mostra.
+   O movimento é calculado em js/main.js (classe .is-live). Sem ele, é uma lista comum.
+   ========================================================= */
+.deck { --tab-h: 48px; --tab-r: 16px; position: relative; }
+.deck-stage { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: clamp(28px, 3vw, 40px); }
+.deck-item { position: relative; padding-top: var(--tab-h); }
+.deck .case-card {
+  --p: 1;
+  min-height: var(--deck-card-h, clamp(460px, 66vh, 720px));   /* card alto (altura calculada em js/main.js para a pilha caber na tela) */
+  background: var(--color-surface-band-solid);
+  -webkit-backdrop-filter: none; backdrop-filter: none;
+  border-top-left-radius: 0;
+  box-shadow: 0 -14px 30px -22px rgb(0 0 0 / .28), 0 24px 48px -32px rgb(0 0 0 / .4);
+}
+/* aba da pasta: mesmo fundo do card, sempre no canto esquerdo, do tamanho do texto */
+.case-tab {
+  position: absolute; z-index: 1; top: 1px; left: 0;
+  height: var(--tab-h); min-width: clamp(180px, 16vw, 230px); max-width: 100%;
+  display: flex; align-items: center; gap: 10px; padding: 0 28px 0 22px; margin: 0; border: 0;
+  border-radius: var(--tab-r) var(--tab-r) 0 0;
+  background: var(--color-surface-band-solid);
+  box-shadow: 0 -12px 24px -20px rgb(0 0 0 / .3);
+  font-family: var(--text-body-family); font-weight: 600; font-size: 15px; line-height: 1;
+  color: var(--color-text); white-space: nowrap; cursor: pointer;
+}
+/* ícone do tipo de projeto: maleta = profissional, pessoa = pessoal */
+.case-tab-ic, .case-tab svg { flex-shrink: 0; width: 18px; height: 18px; color: currentColor; stroke-width: 2; }
+/* cantinho curvo onde a aba encontra a borda de cima do card */
+.case-tab::after {
+  content: ""; position: absolute; bottom: 0; right: calc(-1 * var(--tab-r)); width: var(--tab-r); height: var(--tab-r); pointer-events: none;
+  background: radial-gradient(circle at 100% 0, transparent calc(var(--tab-r) - .5px), var(--color-surface-band-solid) var(--tab-r));
+}
+.tab-fl { display: none; }
+
+/* pilha ativa: profundidade = recua, diminui e escurece conforme fica para trás */
+.deck.is-live .deck-stage {
+  position: sticky; display: block;
+  /* saída igual à hero: --xp vai de 0 a 1 enquanto o "Sobre mim" sobe por cima */
+  transform: translate3d(0, calc(var(--ks, 0px) + var(--xp, 0) * -22vh), 0) scale(calc(1 - var(--xp, 0) * .1));
+  opacity: clamp(0, calc(1 - var(--xp, 0) * 1.05), 1);
+  filter: blur(calc(var(--xp, 0) * 10px));
+  transform-origin: 50% 0;
+}
+.deck.is-live .deck-stage.is-gone { visibility: hidden; }
+.about { z-index: 11; }
+.deck.is-live .deck-item {
+  position: absolute; left: 0; right: 0; top: 0; transform-origin: 50% 0; will-change: transform, filter;
+  filter: brightness(calc(1 - var(--dd, 0) * .045));
+}
+:root[data-theme="dark"] .deck.is-live .deck-item { filter: brightness(calc(1 - var(--dd, 0) * .12)); }
+
+@media (max-width: 760px) {
+  .deck { --tab-h: 40px; --tab-r: 12px; }
+  .case-tab { min-width: 0; padding: 0 20px 0 16px; font-size: 13px; gap: 8px; }
+  .case-tab-ic, .case-tab svg { width: 16px; height: 16px; }
+  /* no celular o card tem pouco respiro em cima: o conteúdo de quem fica atrás some, para não aparecer cortado */
+  .deck .case-card { min-height: var(--deck-card-h, 68svh); grid-template-rows: auto 1fr; }
+  .deck .case-visual { height: auto; min-height: 168px; align-self: stretch; container-type: size; }
+  /* card mais alto: os mockups crescem com a área e continuam vazando pela base */
+  .deck .mock-laptop { width: max(130%, 190cqh); }
+  .deck .mock-phone { width: max(42%, 56cqh); top: 28px; }
+  .deck .mock-phone.case-mock--back { top: 56px; }
+  .deck .mock-phone.case-mock--back { right: calc(8% + max(42%, 56cqh) * .92); }
+}
+/* quem fica atrás na pilha: o conteúdo some, sobra só a aba (nada aparece cortado entre as abas) */
+/* só quando o card de cima já cobriu este por completo (--dd perto de 1); enquanto o próximo sobe, tudo continua visível */
+.deck.is-live .case-card > * { opacity: clamp(0, calc((1 - var(--dd, 0)) * 14), 1); }
+
+
+/* =========================================================
+   Cards de case (computador): texto à esquerda, mockups à direita,
+   vazando pela borda direita e pela base do card
+   ========================================================= */
+@media (min-width: 761px) {
+  .case-card { grid-template-columns: min(460px, 44%) minmax(0, 1fr); }
+  .case-panel { grid-column: 1; }
+  .case-visual { grid-column: 2; margin: calc(-1 * var(--pad)) calc(-1 * var(--pad)) calc(-1 * var(--pad)) 0; }
+  .case-mock { translate: calc((1 - var(--p)) * 56px) calc((1 - var(--p)) * 72px); }
+  .mock-laptop, .mock-browser { right: auto; left: 0; }
+  .mock-screen img { object-position: top left; }
+  /* o celular mais alto (da frente) fica à direita, inteiro dentro do card; o outro atrás, à esquerda */
+  .mock-phone { --w: min(58cqh, 46cqw); left: auto; right: 7cqw; }
+  .mock-phone.case-mock--back { left: auto; right: calc(7cqw + var(--w) * .8); }
+}
+
+/* celulares com a tela de verdade: fundo escuro atrás da imagem (nada claro aparece entre a borda e a tela)
+   e recorte que o Safari respeita quando o card mexe o mockup no hover */
+.mock-phone--shot { background: #1c1917; -webkit-mask-image: -webkit-radial-gradient(white, black); isolation: isolate; }
+.mock-screen { -webkit-mask-image: -webkit-radial-gradient(white, black); isolation: isolate; }

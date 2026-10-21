@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Demo · Pílulas que caem</title>
+  <!-- 1. marca que o JavaScript está ativo -->
+  <script>document.documentElement.classList.add("js");</script>
+  <!-- 2. estilos do componente -->
+  <link rel="stylesheet" href="css/falling-pills.css">
+  <style>
+    /* só para a demo: fundo igual ao do site e uma "hero" de exemplo */
+    body { margin: 0; background: #f5f5f5; font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif; color: #1c1917; }
+    .demo-hero { position: relative; min-height: 100vh; min-height: 100svh; display: grid; place-items: center; text-align: center; padding: 24px; }
+    .demo-hero h1 { margin: 0; font-size: clamp(2rem, 6vw, 4rem); }
+    .demo-after { min-height: 60vh; display: grid; place-items: center; color: #6b6661; }
+  </style>
+</head>
+<body>
+  <!-- 3. a hero precisa de position: relative; a camada fica dentro dela -->
+  <section class="demo-hero">
+    <h1>Conteúdo da hero</h1>
+
+    <div class="pills-layer" data-falling-pills>
+      <div class="pills-stage" aria-hidden="true"></div>
+      <ul class="pills-list" aria-label="Habilidades">
+        <li>Problem Framing</li>
+        <li>UX Research</li>
+        <li>User Interface</li>
+        <li>Design Systems</li>
+        <li>Clear Communication</li>
+        <li>AI-Powered Design</li>
+        <li>Product Strategy</li>
+        <li>Interaction Design</li>
+        <li>Usability Testing</li>
+        <li>Critical Thinking</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="demo-after"><p>Resto da página.</p></div>
+
+  <!-- 4. bibliotecas + script do componente (nesta ordem) -->
+  <script src="https://cdn.jsdelivr.net/npm/lucide@1.48.0/dist/umd/lucide.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/matter-js@0.20.0/build/matter.min.js"></script>
+  <script src="js/falling-pills.js"></script>
+</body>
+</html>

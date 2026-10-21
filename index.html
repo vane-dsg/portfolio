@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<!-- ARQUIVO GERADO por build.mjs. Edite src/index.html e src/cases/*.html -->
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Vanessa Sousa · UX/UI Designer</title>
+  <meta name="description" content="Vanessa Sousa, UX/UI Designer no Brasil. Há 4+ anos projetando produtos web e mobile.">
+  <!-- marca que o JavaScript está ativo (as pílulas usam isso) -->
+  <script>document.documentElement.classList.add("js");</script>
+  <!-- tema: a página sempre abre no modo claro (aplicado antes de desenhar, sem piscar) -->
+  <script>document.documentElement.setAttribute("data-theme", "light");</script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Arbutus+Slab&family=DM+Mono:wght@400;500&family=DM+Sans:ital,opsz,wght@0,9..40,400..800;1,9..40,400&family=Inter+Tight:wght@500;600;700&display=swap">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/case-page.css">
+</head>
+<body>
+<!--BODY-START-->
+  <!-- ================= Navigation ================= -->
+  <header class="site-nav" id="site-nav">
+    <nav class="container nav-inner" aria-label="Principal">
+      <a href="index.html#inicio" class="nav-brand">Vanessa Sousa</a>
+
+      <ul class="nav-links">
+        <li><a class="nav-link is-active" href="index.html#inicio" data-section="inicio">Início</a></li>
+        <li><a class="nav-link" href="index.html#trabalho" data-section="trabalho">Trabalho</a></li>
+        <li><a class="nav-link" href="index.html#sobre" data-section="sobre">Sobre mim</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <!-- tema claro/escuro (js/main.js). Mostra a lua no claro e o sol no escuro. -->
+        <button class="btn btn-ghost btn-icon theme-toggle" id="theme-toggle" type="button" aria-label="Ativar modo escuro">
+          <i data-lucide="moon" class="theme-icon is-moon" aria-hidden="true"></i>
+          <i data-lucide="sun" class="theme-icon is-sun" aria-hidden="true"></i>
+        </button>
+        <button class="btn btn-outline btn-icon nav-menu-btn" id="menu-btn" type="button"
+                aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-panel">
+          <i data-lucide="menu" aria-hidden="true"></i>
+        </button>
+      </div>
+    </nav>
+
+    <div class="mobile-panel" id="mobile-panel">
+      <a class="nav-link is-active" href="index.html#inicio" data-section="inicio">Início</a>
+      <a class="nav-link" href="index.html#trabalho" data-section="trabalho">Trabalho</a>
+      <a class="nav-link" href="index.html#sobre" data-section="sobre">Sobre mim</a>
+    </div>
+  </header>
+  <!-- fundo escuro e desfocado do menu mobile (toque fecha o menu) -->
+  <div class="nav-backdrop" id="nav-backdrop" aria-hidden="true"></div>
+
+  <main>
+    <!-- ================= Header / Hero ================= -->
+    <section class="hero hero--v2" id="inicio" aria-labelledby="hero-title">
+      <div class="container hero-inner">
+        <div class="hero-main">
+          <div class="intro">
+            <img class="intro-avatar" src="assets/avatar-pb.webp" width="50" height="50" alt="">
+            <p class="intro-line">
+              <span class="sr-only">Olá, me chamo</span>
+              <!-- a saudação muda de idioma (js/main.js) -->
+              <span class="greeting" id="greeting" aria-hidden="true"><span class="greeting-word" lang="pt-BR">Olá, me chamo</span></span>
+              <span class="intro-name">Vanessa</span>
+            </p>
+          </div>
+
+          <h1 class="hero-title" id="hero-title">
+            <span class="hl">Faço <mark class="mark serif">produtos complexos</mark></span> <span class="hl">parecerem <em class="accent">óbvios.</em></span>
+          </h1>
+
+          <p class="lede">Há 4+ anos projetando produtos web e mobile, criando experiências intuitivas que os usuários <em>gostam</em> de usar.</p>
+        </div>
+
+        <p class="location">UX/UI Designer <span class="location-dot" aria-hidden="true"></span> Brasil</p>
+        <!-- versão 2 da hero: o rótulo acima vira pílulas (troque "hero--v2" por "hero" para voltar) -->
+        <ul class="hero-pills" aria-label="Sobre mim">
+          <li class="hero-pill">UX/UI Designer</li>
+        </ul>
+      </div>
+
+      <!-- convite para rolar até os projetos -->
+      <a class="hero-scroll" href="#trabalho">
+        Conheça meu trabalho
+        <i data-lucide="arrow-down" aria-hidden="true"></i>
+      </a>
+    </section>
+
+    <!-- ================= Projetos: sobem por cima da hero, que recua e some (js/main.js) ================= -->
+    <section class="sheet" id="trabalho" aria-labelledby="trabalho-title">
+      <div class="container">
+        <h2 class="sr-only" id="trabalho-title">Projetos em destaque</h2>
+
+        <!-- Cards dos cases em pilha, no formato de pasta (aba com um título curto em cima).
+             Ao rolar, cada card sobe por cima do anterior, que recua e fica com a aba à mostra (js/main.js).
+             Sem movimento (prefers-reduced-motion), viram uma lista comum. -->
+        <div class="deck" data-deck>
+          <ul class="deck-stage">
+          <li class="deck-item case--dividas" style="--i:0">
+            <button class="case-tab" type="button" tabindex="-1" aria-hidden="true"><span class="tab-fl"></span><i data-lucide="briefcase" class="case-tab-ic"></i><span class="case-tab-text">Solicitação de dívidas</span></button>
+            <a class="case-card case--dividas" href="#case-dividas" data-case="case-dividas" data-cursor="Ver case">
+              <div class="case-panel">
+                <h3 class="case-title">Redesenho do envio da dívida ativa de um estado</h3>
+                <p class="case-desc">Evoluí um fluxo de envio para um sistema em que o servidor cadastra, acompanha e corrige suas solicitações <strong>com autonomia.</strong></p>
+                <ul class="case-tags" aria-label="Tags">
+                  <li>Setor público</li><li>Problem solving</li>
+                </ul>
+                <span class="btn btn-outline case-btn">Ver case <i data-lucide="arrow-right" aria-hidden="true"></i></span>
+              </div>
+              <div class="case-visual">
+                <div class="case-mock mock-laptop" aria-hidden="true">
+                  <div class="mock-screen">
+                    <img src="assets/cases/v2/03-depois.webp" width="1738" height="978" alt="" decoding="async">
+                  </div>
+                </div>
+              </div>
+            </a>
+          </li>
+          <li class="deck-item case--sgdae" style="--i:1">
+            <button class="case-tab" type="button" tabindex="-1" aria-hidden="true"><span class="tab-fl"></span><i data-lucide="briefcase" class="case-tab-ic"></i><span class="case-tab-text">Gestão da dívida ativa</span></button>
+            <a class="case-card case--sgdae" href="#case-sgdae" data-case="case-sgdae" data-cursor="Ver case">
+              <div class="case-panel">
+                <h3 class="case-title">Sistema de gestão da dívida ativa de um estado</h3>
+                <p class="case-desc">Construí do zero um sistema que reúne todo o ciclo da dívida ativa de um estado a partir de um sistema legado.</p>
+                <ul class="case-tags" aria-label="Tags">
+                  <li>Design System</li><li>Sistema complexo</li>
+                </ul>
+                <span class="btn btn-outline case-btn">Ver case <i data-lucide="arrow-right" aria-hidden="true"></i></span>
+              </div>
+              <div class="case-visual">
+                <div class="case-mock mock-laptop" aria-hidden="true">
+                  <div class="mock-screen">
+                    <img src="assets/cases/sgdae/capa-ds.webp" width="2100" height="1321" alt="" decoding="async">
+                  </div>
+                </div>
+              </div>
+            </a>
+          </li>
+          <li class="deck-item case--cabine" style="--i:2">
+            <button class="case-tab" type="button" tabindex="-1" aria-hidden="true"><span class="tab-fl"></span><i data-lucide="user" class="case-tab-ic"></i><span class="case-tab-text">Cabine de fotos</span></button>
+            <a class="case-card case--cabine" href="#case-cabine" data-case="case-cabine" data-cursor="Ver case">
+              <div class="case-panel">
+                <h3 class="case-title">Cabine de fotos para um evento de design</h3>
+                <p class="case-desc">Criei com IA, sem programar, uma cabine que funcionou sozinha no evento e gerou <strong>mais de 50 sessões de fotos.</strong></p>
+                <ul class="case-tags" aria-label="Tags">
+                  <li>Design com IA</li><li>Projeto voluntário</li>
+                </ul>
+                <span class="btn btn-outline case-btn">Ver case <i data-lucide="arrow-right" aria-hidden="true"></i></span>
+              </div>
+              <div class="case-visual">
+                <div class="case-mock case-mock--back mock-phone mock-phone--shot" aria-hidden="true">
+                  <img src="assets/cases/cabine/celular-camera.webp" width="590" height="1278" alt="" decoding="async">
+                </div>
+                <div class="case-mock mock-phone mock-phone--shot" aria-hidden="true">
+                  <img src="assets/cases/cabine/celular-templates.webp" width="590" height="1278" alt="" decoding="async">
+                </div>
+              </div>
+            </a>
+          </li>
+          <li class="deck-item case--onibus" style="--i:3">
+            <button class="case-tab" type="button" tabindex="-1" aria-hidden="true"><span class="tab-fl"></span><i data-lucide="user" class="case-tab-ic"></i><span class="case-tab-text">Meu Ônibus</span></button>
+            <a class="case-card case--onibus" href="#case-onibus" data-case="case-onibus" data-cursor="Ver case">
+              <div class="case-panel">
+                <h3 class="case-title">Redesenho do app de transporte público Meu Ônibus</h3>
+                <p class="case-desc">Um redesign focado em repensar a experiência por completo, para atender às <strong>necessidades reais dos usuários.</strong></p>
+                <ul class="case-tags" aria-label="Tags">
+                  <li>Mobile</li><li>Pesquisa com usuários</li>
+                </ul>
+                <span class="btn btn-outline case-btn">Ver case <i data-lucide="arrow-right" aria-hidden="true"></i></span>
+              </div>
+              <div class="case-visual">
+              <div class="case-mock case-mock--back mock-phone mock-phone--shot" aria-hidden="true">
+                <img src="assets/cases/onibus/carteira.webp" width="786" height="1704" alt="" decoding="async">
+              </div>
+              <div class="case-mock mock-phone mock-phone--shot" aria-hidden="true">
+                <img src="assets/cases/onibus/inicio-depois.webp" width="786" height="1704" alt="" decoding="async">
+              </div>
+              </div>
+            </a>
+          </li>
+
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= Sobre mim: entra do mesmo jeito que os projetos ([data-rise]) ================= -->
+    <section class="sheet about" id="sobre" aria-labelledby="sobre-title">
+      <div class="container">
+        <h2 class="sr-only" id="sobre-title">Sobre mim</h2>
+
+        <!-- foto em polaroid, bio e ações -->
+        <div class="about-intro" data-rise>
+          <figure class="polaroid" data-cursor="eu aqui">
+            <img src="assets/vanessa-sobre.webp" width="843" height="1053" alt="Vanessa Sousa sorrindo, com cabelo ruivo e camiseta roxa da UXFor." loading="lazy" decoding="async">
+          </figure>
+          <div class="about-text">
+            <h3 class="about-name">Vanessa Sousa</h3>
+            <p class="ds-body">Oie! 👋 Sou UX/UI Designer e desenho produtos desde 2021. Acredito em design centrado no usuário e meu objetivo é projetar telas que os usuários gostem de usar. Amo ensinar (palestras, workshops, aulas...) sobre os assuntos que estudo, principalmente sobre design systems e IA no contexto de interfaces e experiência do usuário.</p>
+            <ul class="about-meta">
+              <li><i data-lucide="heart-handshake" aria-hidden="true"></i>Voluntária <a class="about-link" href="https://www.instagram.com/uxfor.br/" target="_blank" rel="noopener">@uxfor.br</a></li>
+              <li><i data-lucide="graduation-cap" aria-hidden="true"></i>Análise e Desenvolvimento de Sistemas ∙ Unifor</li>
+            </ul>
+            <div class="about-actions">
+              <!-- o PDF do currículo entra em assets/ na migração para o Claude Code -->
+              <a class="btn btn-default" href="assets/curriculo-vanessa-sousa.pdf" download><i data-lucide="download" aria-hidden="true"></i>Baixar resumo</a>
+              <a class="btn btn-outline" href="https://www.linkedin.com/in/vsousarte/" target="_blank" rel="noopener"><svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Experiência em linha do tempo -->
+        <section class="about-block" aria-labelledby="sobre-exp" data-rise>
+          <h3 class="ds-section" id="sobre-exp">Experiência</h3>
+          <ol class="timeline">
+            <li class="is-now">
+              <span class="timeline-when">Jun 2025 · atual</span>
+              <div class="timeline-body">
+                <h4 class="ds-label">Procuradoria Geral do Estado do Ceará</h4>
+                <p class="about-role">UX/UI Designer · Fortaleza</p>
+                <p class="ds-body">Criei o design system e todas as telas do Sistema da Dívida Ativa do Estado (SGDAE) e do Portal das Origens. Mapeio dores, fluxos e regras de negócio com os usuários e ajudei a consolidar o processo de design e a cultura de UX na instituição.</p>
+              </div>
+            </li>
+            <li>
+              <span class="timeline-when">Jan · Nov 2023</span>
+              <div class="timeline-body">
+                <h4 class="ds-label">Cotabox</h4>
+                <p class="about-role">São Paulo · remoto</p>
+                <p class="ds-body">Fiz melhorias em um produto B2B seguindo o design system e o processo de design da empresa, junto com os times de produto e desenvolvimento.</p>
+              </div>
+            </li>
+            <li>
+              <span class="timeline-when">Fev 2022 · 2025</span>
+              <div class="timeline-body">
+                <h4 class="ds-label">Instituto Iracema de Pesquisa e Inovação</h4>
+                <p class="about-role">Ceará</p>
+                <p class="ds-body">Conduzi pesquisas e testes de usabilidade em projetos de acessibilidade, saúde e mobilidade urbana, com usuários em sua maioria cegos ou com baixa visão. Criei, prototipei e testei telas web e mobile junto com os desenvolvedores.</p>
+              </div>
+            </li>
+            <li>
+              <span class="timeline-when">Desde 2020</span>
+              <div class="timeline-body">
+                <h4 class="ds-label">Freelancer</h4>
+                <p class="ds-body">Projetos de UX/UI e trabalhos gráficos: posts para redes sociais, ilustrações e diagramação.</p>
+              </div>
+            </li>
+          </ol>
+        </section>
+
+        <!-- Habilidades e ferramentas -->
+        <section class="about-block" aria-labelledby="sobre-skills" data-rise>
+          <h3 class="ds-section" id="sobre-skills">Habilidades e ferramentas</h3>
+          <div class="about-skills">
+            <div><h4 class="ds-label">Design</h4><ul class="about-tags"><li class="ds-tag">Product Design</li><li class="ds-tag">UX Research</li><li class="ds-tag">Testes de usabilidade</li><li class="ds-tag">Design systems</li><li class="ds-tag">Interaction Design</li><li class="ds-tag">Wireframes e protótipos</li><li class="ds-tag">IA no processo de design</li></ul></div>
+            <div><h4 class="ds-label">Ferramentas</h4><ul class="about-tags"><li class="ds-tag about-tag"><svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15.852 8.981h-4.588V0h4.588c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.491-4.49 4.491zM12.735 7.51h3.117c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019h-3.117V7.51zm0 1.471H8.148c-2.476 0-4.49-2.014-4.49-4.49S5.672 0 8.148 0h4.588v8.981zm-4.587-7.51c-1.665 0-3.019 1.355-3.019 3.019s1.354 3.02 3.019 3.02h3.117V1.471H8.148zm4.587 15.019H8.148c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h4.588v8.98zM8.148 8.981c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h3.117V8.981H8.148zM8.172 24c-2.489 0-4.515-2.014-4.515-4.49s2.014-4.49 4.49-4.49h4.588v4.441c0 2.503-2.047 4.539-4.563 4.539zm-.024-7.51a3.023 3.023 0 0 0-3.019 3.019c0 1.665 1.365 3.019 3.044 3.019 1.705 0 3.093-1.376 3.093-3.068v-2.97H8.148zm7.704 0h-.098c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h.098c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.49-4.49 4.49zm-.097-7.509c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h.098c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019h-.098z"/></svg>Figma</li><li class="ds-tag about-tag"><svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15.852 8.981h-4.588V0h4.588c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.491-4.49 4.491zM12.735 7.51h3.117c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019h-3.117V7.51zm0 1.471H8.148c-2.476 0-4.49-2.014-4.49-4.49S5.672 0 8.148 0h4.588v8.981zm-4.587-7.51c-1.665 0-3.019 1.355-3.019 3.019s1.354 3.02 3.019 3.02h3.117V1.471H8.148zm4.587 15.019H8.148c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h4.588v8.98zM8.148 8.981c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h3.117V8.981H8.148zM8.172 24c-2.489 0-4.515-2.014-4.515-4.49s2.014-4.49 4.49-4.49h4.588v4.441c0 2.503-2.047 4.539-4.563 4.539zm-.024-7.51a3.023 3.023 0 0 0-3.019 3.019c0 1.665 1.365 3.019 3.044 3.019 1.705 0 3.093-1.376 3.093-3.068v-2.97H8.148zm7.704 0h-.098c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h.098c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.49-4.49 4.49zm-.097-7.509c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h.098c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019h-.098z"/></svg>FigJam</li><li class="ds-tag about-tag"><svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22.84 2.9982v17.9987c.0086 1.6473-1.3197 2.9897-2.967 2.9984a2.9808 2.9808 0 01-.3677-.0208c-1.528-.226-2.6477-1.5558-2.6105-3.1V3.1204c-.0369-1.5458 1.0856-2.8762 2.6157-3.1 1.6361-.1915 3.1178.9796 3.3093 2.6158.014.1201.0208.241.0202.3619zM4.1326 18.0548c-1.6417 0-2.9726 1.331-2.9726 2.9726C1.16 22.6691 2.4909 24 4.1326 24s2.9726-1.3309 2.9726-2.9726-1.331-2.9726-2.9726-2.9726zm7.8728-9.0098c-.0171 0-.0342 0-.0513.0003-1.6495.0904-2.9293 1.474-2.891 3.1256v7.9846c0 2.167.9535 3.4825 2.3505 3.763 1.6118.3266 3.1832-.7152 3.5098-2.327.04-.1974.06-.3983.0593-.5998v-8.9585c.003-1.6474-1.33-2.9852-2.9773-2.9882z"/></svg>Google Analytics</li><li class="ds-tag about-tag"><i data-lucide="scan-eye" aria-hidden="true"></i>Clarity</li><li class="ds-tag about-tag"><svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19.57 17.04l-1.997-1.316-1.665 2.782-1.937-.567-1.706 2.604.087.82 9.274-1.71-.538-5.794zm-8.649-2.498l1.488-.204c.241.108.409.15.697.223.45.117.97.23 1.741-.16.18-.088.553-.43.704-.625l6.096-1.106.622 7.527-10.444 1.882zm11.325-2.712l-.602.115L20.488 0 .789 2.285l2.427 19.693 2.306-.334c-.184-.263-.471-.581-.96-.989-.68-.564-.44-1.522-.039-2.127.53-1.022 3.26-2.322 3.106-3.956-.056-.594-.15-1.368-.702-1.898-.02.22.017.432.017.432s-.227-.289-.34-.683c-.112-.15-.2-.199-.319-.4-.085.233-.073.503-.073.503s-.186-.437-.216-.807c-.11.166-.137.48-.137.48s-.241-.69-.186-1.062c-.11-.323-.436-.965-.343-2.424.6.421 1.924.321 2.44-.439.171-.251.288-.939-.086-2.293-.24-.868-.835-2.16-1.066-2.651l-.028.02c.122.395.374 1.223.47 1.625.293 1.218.372 1.642.234 2.204-.116.488-.397.808-1.107 1.165-.71.358-1.653-.514-1.713-.562-.69-.55-1.224-1.447-1.284-1.883-.062-.477.275-.763.445-1.153-.243.07-.514.192-.514.192s.323-.334.722-.624c.165-.109.262-.178.436-.323a9.762 9.762 0 0 0-.456.003s.42-.227.855-.392c-.318-.014-.623-.003-.623-.003s.937-.419 1.678-.727c.509-.208 1.006-.147 1.286.257.367.53.752.817 1.569.996.501-.223.653-.337 1.284-.509.554-.61.99-.688.99-.688s-.216.198-.274.51c.314-.249.66-.455.66-.455s-.134.164-.259.426l.03.043c.366-.22.797-.394.797-.394s-.123.156-.268.358c.277-.002.838.012 1.056.037 1.285.028 1.552-1.374 2.045-1.55.618-.22.894-.353 1.947.68.903.888 1.609 2.477 1.259 2.833-.294.295-.874-.115-1.516-.916a3.466 3.466 0 0 1-.716-1.562 1.533 1.533 0 0 0-.497-.85s.23.51.23.96c0 .246.03 1.165.424 1.68-.039.076-.057.374-.1.43-.458-.554-1.443-.95-1.604-1.067.544.445 1.793 1.468 2.273 2.449.453.927.186 1.777.416 1.997.065.063.976 1.197 1.15 1.767.306.994.019 2.038-.381 2.685l-1.117.174c-.163-.045-.273-.068-.42-.153.08-.143.241-.5.243-.572l-.063-.111c-.348.492-.93.97-1.414 1.245-.633.359-1.363.304-1.838.156-1.348-.415-2.623-1.327-2.93-1.566 0 0-.01.191.048.234.34.383 1.119 1.077 1.872 1.56l-1.605.177.759 5.908c-.337.048-.39.071-.757.124-.325-1.147-.946-1.895-1.624-2.332-.599-.384-1.424-.47-2.214-.314l-.05.059a2.851 2.851 0 0 1 1.863.444c.654.413 1.181 1.481 1.375 2.124.248.822.42 1.7-.248 2.632-.476.662-1.864 1.028-2.986.237.3.481.705.876 1.25.95.809.11 1.577-.03 2.106-.574.452-.464.69-1.434.628-2.456l.714-.104.258 1.834 11.827-1.424zM15.05 6.848c-.034.075-.085.125-.007.37l.004.014.013.032.032.073c.14.287.295.558.552.696.067-.011.136-.019.207-.023.242-.01.395.028.492.08.009-.048.01-.119.005-.222-.018-.364.072-.982-.626-1.308-.264-.122-.634-.084-.757.068a.302.302 0 0 1 .058.013c.186.066.06.13.027.207m1.958 3.392c-.092-.05-.52-.03-.821.005-.574.068-1.193.267-1.328.372-.247.191-.135.523.047.66.511.382.96.638 1.432.575.29-.038.546-.497.728-.914.124-.288.124-.598-.058-.698m-5.077-2.942c.162-.154-.805-.355-1.556.156-.554.378-.571 1.187-.041 1.646.053.046.096.078.137.104a4.77 4.77 0 0 1 1.396-.412c.113-.125.243-.345.21-.745-.044-.542-.455-.456-.146-.749"/></svg>Datadog</li><li class="ds-tag about-tag"><svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M10.53 10.73c-.1-.31-.19-.61-.29-.92-.1-.31-.19-.6-.27-.89-.08-.28-.15-.54-.22-.78h-.02c-.09.43-.2.86-.34 1.29-.15.48-.3.98-.46 1.48-.14.51-.29.98-.44 1.4h2.54c-.06-.211-.14-.46-.23-.721-.09-.269-.18-.559-.27-.859zM19.75.3H4.25C1.9.3 0 2.2 0 4.55v14.9c0 2.35 1.9 4.25 4.25 4.25h15.5c2.35 0 4.25-1.9 4.25-4.25V4.55C24 2.2 22.1.3 19.75.3zM14.7 16.83h-2.091c-.069.01-.139-.04-.159-.11l-.82-2.38H7.91l-.76 2.35c-.02.09-.1.15-.19.141H5.08c-.11 0-.14-.061-.11-.18L8.19 7.38c.03-.1.06-.21.1-.33.04-.21.06-.43.06-.65-.01-.05.03-.1.08-.11h2.59c.08 0 .12.03.13.08l3.65 10.3c.03.109 0 .16-.1.16zm3.4-.15c0 .11-.039.16-.129.16H16.01c-.1 0-.15-.061-.15-.16v-7.7c0-.1.041-.14.131-.14h1.98c.09 0 .129.05.129.14v7.7zm-.209-9.03c-.231.24-.571.37-.911.35-.33.01-.65-.12-.891-.35-.23-.25-.35-.58-.34-.92-.01-.34.12-.66.359-.89.242-.23.562-.35.892-.35.391 0 .689.12.91.35.22.24.34.56.33.89.01.34-.11.67-.349.92z"/></svg>Illustrator</li><li class="ds-tag about-tag"><svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9.85 8.42c-.37-.15-.77-.21-1.18-.2-.26 0-.49 0-.68.01-.2-.01-.34 0-.41.01v3.36c.14.01.27.02.39.02h.53c.39 0 .78-.06 1.15-.18.32-.09.6-.28.82-.53.21-.25.31-.59.31-1.03.01-.31-.07-.62-.23-.89-.17-.26-.41-.46-.7-.57zM19.75.3H4.25C1.9.3 0 2.2 0 4.55v14.899c0 2.35 1.9 4.25 4.25 4.25h15.5c2.35 0 4.25-1.9 4.25-4.25V4.55C24 2.2 22.1.3 19.75.3zm-7.391 11.65c-.399.56-.959.98-1.609 1.22-.68.25-1.43.34-2.25.34-.24 0-.4 0-.5-.01s-.24-.01-.43-.01v3.209c.01.07-.04.131-.11.141H5.52c-.08 0-.12-.041-.12-.131V6.42c0-.07.03-.11.1-.11.17 0 .33 0 .56-.01.24-.01.49-.01.76-.02s.56-.01.87-.02c.31-.01.61-.01.91-.01.82 0 1.5.1 2.06.31.5.17.96.45 1.34.82.32.32.57.71.73 1.14.149.42.229.85.229 1.3.001.86-.199 1.57-.6 2.13zm7.091 3.89c-.28.4-.671.709-1.12.891-.49.209-1.09.318-1.811.318-.459 0-.91-.039-1.359-.129-.35-.061-.7-.17-1.02-.32-.07-.039-.121-.109-.111-.189v-1.74c0-.029.011-.07.041-.09.029-.02.06-.01.09.01.39.23.8.391 1.24.49.379.1.779.15 1.18.15.38 0 .65-.051.83-.141.16-.07.27-.24.27-.42 0-.141-.08-.27-.24-.4-.16-.129-.489-.279-.979-.471-.51-.18-.979-.42-1.42-.719-.31-.221-.569-.51-.761-.85-.159-.32-.239-.67-.229-1.021 0-.43.12-.84.341-1.21.25-.4.619-.72 1.049-.92.469-.239 1.059-.349 1.769-.349.41 0 .83.03 1.24.09.3.04.59.12.86.23.039.01.08.05.1.09.01.04.02.08.02.12v1.63c0 .04-.02.08-.05.1-.09.02-.14.02-.18 0-.3-.16-.62-.27-.96-.34-.37-.08-.74-.13-1.12-.13-.2-.01-.41.02-.601.07-.129.03-.24.1-.31.2-.05.08-.08.18-.08.27s.04.18.101.26c.09.11.209.2.34.27.229.12.47.23.709.33.541.18 1.061.43 1.541.73.33.209.6.49.789.83.16.318.24.67.23 1.029.011.471-.129.94-.389 1.331z"/></svg>Photoshop</li></ul></div>
+            <div><h4 class="ds-label">IA</h4><ul class="about-tags"><li class="ds-tag about-tag"><svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m4.7144 15.9555 4.7174-2.6471.079-.2307-.079-.1275h-.2307l-.7893-.0486-2.6956-.0729-2.3375-.0971-2.2646-.1214-.5707-.1215-.5343-.7042.0546-.3522.4797-.3218.686.0608 1.5179.1032 2.2767.1578 1.6514.0972 2.4468.255h.3886l.0546-.1579-.1336-.0971-.1032-.0972L6.973 9.8356l-2.55-1.6879-1.3356-.9714-.7225-.4918-.3643-.4614-.1578-1.0078.6557-.7225.8803.0607.2246.0607.8925.686 1.9064 1.4754 2.4893 1.8336.3643.3035.1457-.1032.0182-.0728-.164-.2733-1.3539-2.4467-1.445-2.4893-.6435-1.032-.17-.6194c-.0607-.255-.1032-.4674-.1032-.7285L6.287.1335 6.6997 0l.9957.1336.419.3642.6192 1.4147 1.0018 2.2282 1.5543 3.0296.4553.8985.2429.8318.091.255h.1579v-.1457l.1275-1.706.2368-2.0947.2307-2.6957.0789-.7589.3764-.9107.7468-.4918.5828.2793.4797.686-.0668.4433-.2853 1.8517-.5586 2.9021-.3643 1.9429h.2125l.2429-.2429.9835-1.3053 1.6514-2.0643.7286-.8196.85-.9046.5464-.4311h1.0321l.759 1.1293-.34 1.1657-1.0625 1.3478-.8804 1.1414-1.2628 1.7-.7893 1.36.0729.1093.1882-.0183 2.8535-.607 1.5421-.2794 1.8396-.3157.8318.3886.091.3946-.3278.8075-1.967.4857-2.3072.4614-3.4364.8136-.0425.0304.0486.0607 1.5482.1457.6618.0364h1.621l3.0175.2247.7892.522.4736.6376-.079.4857-1.2142.6193-1.6393-.3886-3.825-.9107-1.3113-.3279h-.1822v.1093l1.0929 1.0686 2.0035 1.8092 2.5075 2.3314.1275.5768-.3218.4554-.34-.0486-2.2039-1.6575-.85-.7468-1.9246-1.621h-.1275v.17l.4432.6496 2.3436 3.5214.1214 1.0807-.17.3521-.6071.2125-.6679-.1214-1.3721-1.9246L14.38 17.959l-1.1414-1.9428-.1397.079-.674 7.2552-.3156.3703-.7286.2793-.6071-.4614-.3218-.7468.3218-1.4753.3886-1.9246.3157-1.53.2853-1.9004.17-.6314-.0121-.0425-.1397.0182-1.4328 1.9672-2.1796 2.9446-1.7243 1.8456-.4128.164-.7164-.3704.0667-.6618.4008-.5889 2.386-3.0357 1.4389-1.882.929-1.0868-.0062-.1579h-.0546l-6.3385 4.1164-1.1293.1457-.4857-.4554.0608-.7467.2307-.2429 1.9064-1.3114Z"/></svg>Claude</li><li class="ds-tag about-tag"><svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.0729zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.872zm16.5963 3.8558L13.1038 8.364 15.1192 7.2a.0757.0757 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.407-.667zm2.0107-3.0231l-.142-.0852-4.7735-2.7818a.7759.7759 0 0 0-.7854 0L9.409 9.2297V6.8974a.0662.0662 0 0 1 .0284-.0615l4.8303-2.7866a4.4992 4.4992 0 0 1 6.6802 4.66zM8.3065 12.863l-2.02-1.1638a.0804.0804 0 0 1-.038-.0567V6.0742a4.4992 4.4992 0 0 1 7.3757-3.4537l-.142.0805L8.704 5.459a.7948.7948 0 0 0-.3927.6813zm1.0976-2.3654l2.602-1.4998 2.6069 1.4998v2.9994l-2.5974 1.4997-2.6067-1.4997Z"/></svg>ChatGPT</li><li class="ds-tag about-tag"><svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15.852 8.981h-4.588V0h4.588c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.491-4.49 4.491zM12.735 7.51h3.117c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019h-3.117V7.51zm0 1.471H8.148c-2.476 0-4.49-2.014-4.49-4.49S5.672 0 8.148 0h4.588v8.981zm-4.587-7.51c-1.665 0-3.019 1.355-3.019 3.019s1.354 3.02 3.019 3.02h3.117V1.471H8.148zm4.587 15.019H8.148c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h4.588v8.98zM8.148 8.981c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h3.117V8.981H8.148zM8.172 24c-2.489 0-4.515-2.014-4.515-4.49s2.014-4.49 4.49-4.49h4.588v4.441c0 2.503-2.047 4.539-4.563 4.539zm-.024-7.51a3.023 3.023 0 0 0-3.019 3.019c0 1.665 1.365 3.019 3.044 3.019 1.705 0 3.093-1.376 3.093-3.068v-2.97H8.148zm7.704 0h-.098c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h.098c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.49-4.49 4.49zm-.097-7.509c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h.098c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019h-.098z"/></svg>Figma Make</li><li class="ds-tag about-tag"><svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14.066 6.028v2.22h5.729q.075-.001.148.005l-5.853 5.752a2 2 0 0 1-.024-.309V8.247h-2.353v5.45c0 2.322 1.935 4.222 4.258 4.222h5.675v-2.22h-5.675q-.03 0-.059-.003l5.729-5.629q.006.082.006.166v5.465H24v-5.465a4.204 4.204 0 0 0-4.205-4.205zM0 8.245l8.28 9.266c.839.94 2.396.346 2.396-.914V8.245H8.19v5.44l-4.86-5.44Z"/></svg>v0</li><li class="ds-tag about-tag"><svg class="brand-icon" viewBox="0 0 256 261" aria-hidden="true" focusable="false"><path d="M76.812 0c42.423 0 76.813 34.48 76.813 77.015v29.27h25.563c42.423 0 76.812 34.481 76.812 77.015s-34.39 77.015-76.812 77.015H0v-183.3C0 34.48 34.39 0 76.812 0"/></svg>Lovable</li></ul></div>
+            <div><h4 class="ds-label">Também sei</h4><ul class="about-tags"><li class="ds-tag about-tag"><svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z"/></svg>HTML</li><li class="ds-tag about-tag"><svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M0 0v20.16A3.84 3.84 0 0 0 3.84 24h16.32A3.84 3.84 0 0 0 24 20.16V3.84A3.84 3.84 0 0 0 20.16 0Zm14.256 13.08c1.56 0 2.28 1.08 2.304 2.64h-1.608c.024-.288-.048-.6-.144-.84-.096-.192-.288-.264-.552-.264-.456 0-.696.264-.696.84-.024.576.288.888.768 1.08.72.288 1.608.744 1.92 1.296q.432.648.432 1.656c0 1.608-.912 2.592-2.496 2.592-1.656 0-2.4-1.032-2.424-2.688h1.68c0 .792.264 1.176.792 1.176.264 0 .456-.072.552-.24.192-.312.24-1.176-.048-1.512-.312-.408-.912-.6-1.32-.816q-.828-.396-1.224-.936c-.24-.36-.36-.888-.36-1.536 0-1.44.936-2.472 2.424-2.448m5.4 0c1.584 0 2.304 1.08 2.328 2.64h-1.608c0-.288-.048-.6-.168-.84-.096-.192-.264-.264-.528-.264-.48 0-.72.264-.72.84s.288.888.792 1.08c.696.288 1.608.744 1.92 1.296.264.432.408.984.408 1.656.024 1.608-.888 2.592-2.472 2.592-1.68 0-2.424-1.056-2.448-2.688h1.68c0 .744.264 1.176.792 1.176.264 0 .456-.072.552-.24.216-.312.264-1.176-.048-1.512-.288-.408-.888-.6-1.32-.816-.552-.264-.96-.576-1.2-.936s-.36-.888-.36-1.536c-.024-1.44.912-2.472 2.4-2.448m-11.031.018c.711-.006 1.419.198 1.839.63.432.432.672 1.128.648 1.992H9.336c.024-.456-.096-.792-.432-.96-.312-.144-.768-.048-.888.24-.12.264-.192.576-.168.864v3.504c0 .744.264 1.128.768 1.128a.65.65 0 0 0 .552-.264c.168-.24.192-.552.168-.84h1.776c.096 1.632-.984 2.712-2.568 2.688-1.536 0-2.496-.864-2.472-2.472v-4.032c0-.816.24-1.44.696-1.848.432-.408 1.146-.624 1.857-.63"/></svg>CSS</li><li class="ds-tag about-tag"><svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65l.046.067zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.711-.33.689-1.18.601-1.566.48-.396-.196-.597-.466-.83-.855-.063-.105-.11-.196-.127-.196l-1.825 1.125c.305.63.75 1.172 1.324 1.517.855.51 2.004.675 3.207.405.783-.226 1.458-.691 1.811-1.411.51-.93.402-2.07.397-3.346.012-2.054 0-4.109 0-6.179l.004-.056z"/></svg>JavaScript</li><li class="ds-tag about-tag"><svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M11.915 0 11.7.215C9.515 2.4 7.47 6.39 6.046 10.483c-1.064 1.024-3.633 2.81-3.711 3.551-.093.87 1.746 2.611 1.55 3.235-.198.625-1.304 1.408-1.014 1.939.1.188.823.011 1.277-.491a13.389 13.389 0 0 0-.017 2.14c.076.906.27 1.668.643 2.232.372.563.956.911 1.667.911.397 0 .727-.114 1.024-.264.298-.149.571-.33.91-.5.68-.34 1.634-.666 3.53-.604 1.903.062 2.872.39 3.559.704.687.314 1.15.664 1.925.664.767 0 1.395-.336 1.807-.9.412-.563.631-1.33.72-2.24.06-.623.055-1.32 0-2.066.454.45 1.117.604 1.213.424.29-.53-.816-1.314-1.013-1.937-.198-.624 1.642-2.366 1.549-3.236-.08-.748-2.707-2.568-3.748-3.586C16.428 6.374 14.308 2.394 12.13.215zm.175 6.038a2.95 2.95 0 0 1 2.943 2.942 2.95 2.95 0 0 1-2.943 2.943A2.95 2.95 0 0 1 9.148 8.98a2.95 2.95 0 0 1 2.942-2.942zM8.685 7.983a3.515 3.515 0 0 0-.145.997c0 1.951 1.6 3.55 3.55 3.55 1.95 0 3.55-1.598 3.55-3.55 0-.329-.046-.648-.132-.951.334.095.64.208.915.336a42.699 42.699 0 0 1 2.042 5.829c.678 2.545 1.01 4.92.846 6.607-.082.844-.29 1.51-.606 1.94-.315.431-.713.651-1.315.651-.593 0-.932-.27-1.673-.61-.741-.338-1.825-.694-3.792-.758-1.974-.064-3.073.293-3.821.669-.375.188-.659.373-.911.5s-.466.2-.752.2c-.53 0-.876-.209-1.16-.64-.285-.43-.474-1.101-.545-1.948-.141-1.693.176-4.069.823-6.614a43.155 43.155 0 0 1 1.934-5.783c.348-.167.749-.31 1.192-.425zm-3.382 4.362a.216.216 0 0 1 .13.031c-.166.56-.323 1.116-.463 1.665a33.849 33.849 0 0 0-.547 2.555 3.9 3.9 0 0 0-.2-.39c-.58-1.012-.914-1.642-1.16-2.08.315-.24 1.679-1.755 2.24-1.781zm13.394.01c.562.027 1.926 1.543 2.24 1.783-.246.438-.58 1.068-1.16 2.08a4.428 4.428 0 0 0-.163.309 32.354 32.354 0 0 0-.562-2.49 40.579 40.579 0 0 0-.482-1.652.216.216 0 0 1 .127-.03z"/></svg>Java</li><li class="ds-tag about-tag"><svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14.314 0L2.3 12 6 15.7 21.684.013h-7.357zm.014 11.072L7.857 17.53l6.47 6.47H21.7l-6.46-6.468 6.46-6.46h-7.37z"/></svg>Flutter</li></ul></div>
+          </div>
+        </section>
+
+        <!-- Fora do trabalho -->
+        <section class="about-block" aria-labelledby="sobre-fora" data-rise>
+          <h3 class="ds-section" id="sobre-fora">Fora do trabalho</h3>
+          <ul class="about-hobbies">
+            <li><i data-lucide="book-open" aria-hidden="true"></i>Adoro leituras diversas</li>
+            <li><i data-lucide="dumbbell" aria-hidden="true"></i>Vou (quase) todos os dias para a academia</li>
+            <li><i data-lucide="music" aria-hidden="true"></i>Gosto de música instrumental e experimental</li>
+            <li><i data-lucide="trees" aria-hidden="true"></i>Descanso ao ar livre</li>
+            <li><i data-lucide="coffee" aria-hidden="true"></i>Amo cafeterias superfaturadas</li>
+            <li><i data-lucide="cookie" aria-hidden="true"></i>Viciada em comidas com queijo e goiabada</li>
+          </ul>
+        </section>
+
+        <!-- Contato -->
+        <footer class="about-contact" data-rise>
+          <p class="ds-body">Vamos conversar?</p>
+          <a class="about-mail" href="mailto:vvsousarte@gmail.com">vvsousarte@gmail.com</a>
+        </footer>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= Página do case 1 =================
+       Abre por cima do site com uma transição tipo "smart animate":
+       o fundo cresce a partir do card e título e tags viajam
+       até a nova posição (js/case-view.js). Os elementos com data-flip
+       são os que "viajam"; os com data-fade só aparecem. -->
+  <div class="case-view case--dividas" id="case-dividas" role="dialog" aria-modal="true" aria-labelledby="case-dividas-title" hidden>
+    <div class="case-view-bg" aria-hidden="true"></div>
+    <!-- barra fixa da página do case: aparece depois do mockup grande (js/case-page.js) -->
+    <!-- barra fixa da página do case: igual à navegação do site, some ao rolar para baixo
+         e volta ao rolar para cima (js/case-page.js) -->
+    <div class="case-bar">
+      <div class="container case-bar-inner">
+        <button class="case-back case-bar-back" type="button" data-case-close><i data-lucide="arrow-left" aria-hidden="true"></i>Voltar</button>
+        <!-- tema claro/escuro também dentro do case (mesmo comportamento do botão da navegação) -->
+        <button class="btn btn-ghost btn-icon theme-toggle" type="button" aria-label="Ativar modo escuro">
+          <i data-lucide="moon" class="theme-icon is-moon" aria-hidden="true"></i>
+          <i data-lucide="sun" class="theme-icon is-sun" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+    <article class="case-view-scroll">
+      <!-- ================= Topo do case (Figma: Case PDO — Web 1440, nó 263:8) ================= -->
+      <div class="container case-page">
+        <!-- topo do case: mesma composição da barra (Voltar à esquerda, tema à direita) -->
+        <div class="case-top" data-fade>
+          <button class="case-back" type="button" data-case-close>
+            <i data-lucide="arrow-left" aria-hidden="true"></i>
+            Voltar
+          </button>
+          <button class="btn btn-ghost btn-icon theme-toggle" type="button" aria-label="Ativar modo escuro">
+            <i data-lucide="moon" class="theme-icon is-moon" aria-hidden="true"></i>
+            <i data-lucide="sun" class="theme-icon is-sun" aria-hidden="true"></i>
+          </button>
+        </div>
+
+        <div class="cs-hero">
+          <div class="cs-hero-text">
+            <h1 class="case-page-title" id="case-dividas-title" data-flip="title">Redesenho do envio da dívida ativa de um estado</h1>
+            <p class="ds-body case-page-lede" data-fade>Evoluí um fluxo de envio para um sistema em que o servidor cadastra, acompanha e corrige suas solicitações <strong>com autonomia.</strong></p>
+            <ul class="case-tags case-page-tags" aria-label="Tags" data-flip="tags">
+              <li>Setor público</li><li>Problem solving</li>
+            </ul>
+          </div>
+
+          <!-- notebook com a tela nova (abre como foto) -->
+          <figure class="case-hero-shot" data-fade>
+            <div class="laptop">
+              <div class="laptop-screen cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar a tela de solicitações">
+                <img src="assets/cases/v2/03-depois.webp" width="1738" height="978" alt="Tela de solicitações redesenhada: cards de resumo por status, busca e tabela de solicitações.">
+                <span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span>
+              </div>
+              <div class="laptop-base" aria-hidden="true"></div>
+            </div>
+          </figure>
+        </div>
+
+        <dl class="case-facts case-facts--4" data-fade>
+          <div><dt>Meu papel</dt><dd>UX/UI Designer</dd></div>
+          <div><dt>Cliente</dt><dd>Procuradoria</dd></div>
+          <div><dt>Equipe</dt><dd>1 designer, 1 analista de requisitos, 4 devs e 2 QAs</dd></div>
+          <div><dt>Período</dt><dd>2 meses</dd></div>
+        </dl>
+
+        <div class="case-role" data-fade>
+          <h2 class="ds-label">O que eu fiz</h2>
+          <p class="ds-body">Redesenhei os fluxos e defini regras, campos e comportamentos junto com o procurador responsável, a coordenação da área e os times de requisitos e desenvolvimento.</p>
+        </div>
+      </div>
+
+      <!-- ================= Conteúdo do case =================
+           Roteiro: contexto → proto-personas → problema → redesenho do fluxo →
+           solução (antes e depois de cada etapa) → próximas iterações → o que vou medir.
+           Faixas (.is-band) seguem o Figma. Estilos de texto: css/tokens.css + DESIGN-SYSTEM.md -->
+      <div class="cs-body">
+
+        <!-- Contexto -->
+        <section class="cs-section is-band" id="cs-contexto" aria-labelledby="cs-contexto-t">
+          <div class="container">
+            <header class="cs-head" data-reveal>
+              <h2 class="ds-section" id="cs-contexto-t">Contexto</h2>
+              <p class="ds-body">Quando alguém deixa de pagar um valor ao estado (como uma multa), o órgão que gerou a cobrança não pode cobrar sozinho. Quem faz isso é a procuradoria: ela recebe e analisa a dívida e, se estiver tudo certo, a registra oficialmente, permitindo que o estado faça a cobrança. Por isso, todo órgão público precisa enviar suas dívidas para lá.</p>
+            </header>
+
+            <div class="cs-route">
+              <div class="cs-route-track" aria-hidden="true"><span></span><span class="is-me"></span><span></span></div>
+              <ol class="cs-cols cs-route-cols" aria-label="Caminho da dívida até a cobrança" data-reveal>
+                <li>
+                  <div class="cs-item-head"><h3 class="ds-label">Dívida no órgão de origem</h3></div>
+                  <p class="ds-body">Um órgão do estado (como secretarias, autarquias), gera multas que não foram pagas e a dívida precisa ser enviada à procuradoria para ser cobrada.</p>
+                </li>
+                <li class="is-me">
+                  <div class="cs-item-head"><h3 class="ds-label">Solicitação da dívida</h3><span class="ds-tag">Estamos aqui!</span></div>
+                  <p class="ds-body">O servidor do órgão informa os dados da dívida, os devedores e os débitos e envia a solicitação. Depois, acompanha o status e corrige ou responde quando a procuradoria aponta um problema.</p>
+                </li>
+                <li>
+                  <div class="cs-item-head"><h3 class="ds-label">Gerenciamento da dívida</h3><i data-lucide="arrow-up-right" class="cs-item-go" aria-hidden="true"></i></div>
+                  <p class="ds-body">A solicitação é deferida automaticamente ou analisada pela procuradoria. Depois de inscrita, a dívida passa a ser gerenciada e cobrada pelo estado.</p>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </section>
+
+        <!-- Proto-personas -->
+        <section class="cs-section container" id="cs-personas" aria-labelledby="cs-personas-t">
+          <header class="cs-head" data-reveal>
+            <h2 class="ds-section" id="cs-personas-t">Proto-personas</h2>
+            <p class="ds-body">Com o prazo que tínhamos, quase tudo que eu sabia sobre esses usuários veio dos stakeholders, que acompanhavam de perto os erros e as dúvidas deles.</p>
+          </header>
+
+          <div class="cs-personas" data-reveal>
+            <article class="cs-persona">
+              <div class="cs-persona-top">
+                <h3 class="ds-label cs-icon-label"><i data-lucide="user-star" aria-hidden="true"></i>Servidor de um órgão estadual - quem envia</h3>
+                <p class="ds-body">35 a 60 anos · não é da área jurídica · pouca familiaridade digital</p>
+              </div>
+              <div class="cs-persona-goal">
+                <h4 class="ds-label cs-icon-label"><i data-lucide="sparkles" aria-hidden="true"></i>Objetivo</h4>
+                <p class="ds-body">Enviar a dívida certa e saber em que etapa ela está.</p>
+              </div>
+              <div class="cs-persona-cols">
+                <div>
+                  <h4 class="ds-label cs-icon-label"><i data-lucide="scan-heart" aria-hidden="true"></i>Necessidades</h4>
+                  <ul class="cs-list">
+                    <li>ver só os campos do órgão dele</li>
+                    <li>saber o que falta antes de enviar</li>
+                    <li>acompanhar e corrigir a solicitação depois do envio</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="ds-label cs-icon-label"><i data-lucide="frown" aria-hidden="true"></i>Dores</h4>
+                  <ul class="cs-list">
+                    <li>campos bloqueados ou que não se aplicam ao órgão</li>
+                    <li>nenhum aviso do que falta para continuar</li>
+                    <li>depois do envio, não vê o status nem consegue corrigir erros</li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+
+            <article class="cs-persona">
+              <div class="cs-persona-top">
+                <h3 class="ds-label cs-icon-label"><i data-lucide="user-search" aria-hidden="true"></i>Analista da dívida ativa - quem recebe e corrige</h3>
+                <p class="ds-body">Trabalha no setor da dívida ativa da procuradoria · confere as solicitações de todos os órgãos</p>
+              </div>
+              <div class="cs-persona-goal">
+                <h4 class="ds-label cs-icon-label"><i data-lucide="sparkles" aria-hidden="true"></i>Objetivo</h4>
+                <p class="ds-body">Encontrar os erros e deixar a solicitação pronta para ser inscrita.</p>
+              </div>
+              <div class="cs-persona-cols">
+                <div>
+                  <h4 class="ds-label cs-icon-label"><i data-lucide="scan-heart" aria-hidden="true"></i>Necessidades</h4>
+                  <ul class="cs-list">
+                    <li>apontar o erro para o órgão dentro do sistema;</li>
+                    <li>receber a correção no próprio sistema;</li>
+                    <li>parar de editar a inscrição à mão.</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="ds-label cs-icon-label"><i data-lucide="frown" aria-hidden="true"></i>Dores</h4>
+                  <ul class="cs-list">
+                    <li>para cada erro, abria um chamado;</li>
+                    <li>a resposta do órgão chegava por e-mail;</li>
+                    <li>editava a inscrição à mão.</li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+          </div>
+          <p class="ds-body cs-note" data-reveal>Antes, os dois dependiam de chamados e e-mails para resolver qualquer erro.</p>
+        </section>
+
+        <!-- Problema: quadro de análise (abre em tela cheia com zoom) -->
+        <section class="cs-section container" id="cs-problema" aria-labelledby="cs-problema-t">
+          <header class="cs-head" data-reveal>
+            <h2 class="ds-section" id="cs-problema-t">Problema</h2>
+            <p class="ds-body">Percorri o fluxo de envio no sistema antigo como se fosse um servidor e fui anotando cada ponto onde ele poderia ter dificuldade e levantei possíveis soluções. O que acontecia depois do envio foi relatado pelos stakeholders.</p>
+          </header>
+          <div data-reveal>
+            <figure class="cs-diagram cs-diagram--board" data-viewer="diagram" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar o quadro de problemas e soluções">
+              <img src="assets/cases/v2/quadro-problemas.webp" width="5155" height="1709" loading="lazy" decoding="async" alt="Quadro de análise do sistema antigo: as abas do envio com pontos numerados, notas vermelhas com os problemas e verdes com as primeiras ideias de solução, e o ciclo de correção depois do envio.">
+              <span class="cs-expand" aria-hidden="true"><i data-lucide="maximize-2"></i></span>
+            </figure>
+            <p class="ds-body cs-cap">Em vermelho, os problemas. Em verde, as primeiras ideias de solução.</p>
+          </div>
+        </section>
+
+        <!-- Redesenho do fluxo: decisões negociadas + fluxograma -->
+        <section class="cs-section is-band" id="cs-redesenho" aria-labelledby="cs-redesenho-t">
+          <div class="container">
+            <header class="cs-head" data-reveal>
+              <h2 class="ds-section" id="cs-redesenho-t">Redesenho do fluxo</h2>
+              <p class="ds-body">Quando apresentei as soluções aos stakeholders, surgiram outras questões que vieram de pedidos deles, do prazo, e do que era viável tecnicamente. Essas decisões foram negociadas e iteraram o fluxo final.</p>
+            </header>
+
+            <ol class="cs-decisions" data-reveal>
+              <li><h3 class="ds-label">01.&nbsp; Mesma base visual do sistema de gestão</h3><p class="ds-body">Os dois sistemas precisavam sair rápido. Então <strong>reaproveitei fluxo, componentes e comportamentos</strong> que eu já tinha desenhado para o Sistema de Gestão.</p></li>
+              <li><h3 class="ds-label">02.&nbsp; Uma inscrição por solicitação</h3><p class="ds-body">Isso significa anexar o mesmo documento e repetir o número do processo em cada inscrição. Escolhemos assim porque misturar várias inscrições no mesmo cadastro <strong>gerava conflito</strong>. Em compensação o preenchimento do formulário ficou <strong>mais linear e intuitivo</strong>.</p></li>
+              <li><h3 class="ds-label">03.&nbsp; Campos definidos pela origem</h3><p class="ds-body">No Sistema de Gestão, que também desenhei, quem tem permissão, ao cadastrar a origem da dívida, <strong>seleciona quais campos aparecem</strong> no cadastro da solicitação para cada órgão.</p></li>
+              <li><h3 class="ds-label">04.&nbsp; Histórico de edições da solicitação</h3><p class="ds-body">O servidor agora poderia solicitar edições, então elas deveriam ser registradas. <strong>Junto com o time de desenvolvimento</strong>, pelo prazo e viabilidade técnica, decidimos que cada edição viraria uma nova solicitação, agrupada na original por uma seta de expandir.</p></li>
+              <li><h3 class="ds-label">05.&nbsp; Timeline do status da solicitação</h3><p class="ds-body">Foi sugerido um botão de histórico ao lado do status, numa tabela que já tinha muitas colunas e informações. Sugeri que a própria pill ficasse clicável e levasse ao histórico, <strong>sem ocupar mais espaço</strong>.</p></li>
+            </ol>
+
+            <div data-reveal>
+              <figure class="cs-diagram cs-diagram--flow" data-viewer="diagram" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar o fluxograma do sistema">
+                <img src="assets/cases/v2/fluxograma.webp" width="4450" height="3155" loading="lazy" decoding="async" alt="Fluxograma do sistema: acesso, nova solicitação em 3 etapas, consulta e acompanhamento com os status, edição da solicitação, inscrições e condições para análise no Sistema de Gestão.">
+                <span class="cs-expand" aria-hidden="true"><i data-lucide="maximize-2"></i></span>
+              </figure>
+            </div>
+          </div>
+        </section>
+
+        <!-- Solução: antes e depois de cada etapa. O título de cada etapa fica preso no topo
+             enquanto a tela e o texto sobem por baixo (parallax em js/case-page.js) -->
+        <section class="cs-section cs-solution" id="cs-solucao" aria-labelledby="cs-solucao-t">
+          <header class="container cs-head" data-reveal>
+            <h2 class="ds-section" id="cs-solucao-t">Solução</h2>
+            <p class="ds-body">O antes e depois de cada etapa, na ordem do envio.</p>
+          </header>
+
+          <div class="cs-steps">
+            <article class="cs-step">
+              <header class="cs-step-head"><div class="container"><h3 class="ds-section">01&nbsp; Dados da dívida</h3><span class="ds-section">Antes</span></div></header>
+              <div class="container cs-step-body">
+                <figure class="cs-shot cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar a tela antiga de cadastro do processo"><img src="assets/cases/v2/01-antes.webp" width="1740" height="978" loading="lazy" decoding="async" alt="Sistema antigo: aba Cadastro Processo, com campos bloqueados já preenchidos e o tipo de procedimento fixo em solicitação de inscrição."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure>
+                <ul class="cs-list cs-step-text">
+                  <li>Os campos bloqueados vinham preenchidos com dados que o sistema já tinha. Como não eram editáveis, não precisavam aparecer.</li>
+                  <li>O tipo de procedimento era sempre "solicitação de inscrição", que é justamente a ação que o usuário está fazendo.</li>
+                  <li>Campos como placa e chassi apareciam para todo órgão. O servidor precisava saber de antemão quais se aplicavam à dívida dele.</li>
+                  <li>Os anexos ficavam numa aba separada, o servidor precisava ler um texto para saber o que anexar.</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="cs-step">
+              <header class="cs-step-head"><div class="container"><h3 class="ds-section">01&nbsp; Dados da dívida</h3><span class="ds-section">Depois</span></div></header>
+              <div class="container cs-step-body">
+                <figure class="cs-shot cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar a nova etapa de dados da dívida"><img src="assets/cases/v2/01-depois.webp" width="1738" height="978" loading="lazy" decoding="async" alt="Novo cadastro, etapa 1 de 3: dados da dívida com os campos do órgão, declaração e anexos na mesma etapa."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure>
+                <ul class="cs-list cs-step-text">
+                  <li>Os campos com informações que o sistema já tinha saíram da tela, o servidor preenche só o que precisa.</li>
+                  <li>Aparecem só os campos definidos para o órgão, configurados no Sistema de Gestão.</li>
+                  <li>Os anexos viraram uma seção desta etapa, e o tipo de documento é escolhido numa lista.</li>
+                  <li>Os outros números viraram dois campos opcionais, tipo de número e número, para quando ainda forem necessários.</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="cs-step">
+              <header class="cs-step-head"><div class="container"><h3 class="ds-section">02&nbsp; Devedores e débitos</h3><span class="ds-section">Antes</span></div></header>
+              <div class="container cs-step-body">
+                <figure class="cs-shot cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar a tela antiga de dados da dívida"><img src="assets/cases/v2/02-antes.webp" width="1740" height="978" loading="lazy" decoding="async" alt="Sistema antigo: aba Dados da Dívida com 14 campos, devedor, corresponsável e a lista de débitos e de inscrições na mesma tela."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure>
+                <ul class="cs-list cs-step-text">
+                  <li>14 campos apareciam de uma vez, vários travados sem dizer por quê.</li>
+                  <li>Só permitia adicionar um contato e endereço por devedor, o que tornava a cobrança mais difícil.</li>
+                  <li>O servidor cadastrava os devedores numa aba e só na seguinte os ligava à inscrição. Era preciso saber de antemão que cada devedor podia pertencer a uma inscrição diferente.</li>
+                  <li>Os débitos dividiam a tela com os dados da dívida e o vínculo com o devedor.</li>
+                  <li>A lista de débitos não mostrava a soma, então o servidor não conferia o valor final.</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="cs-step">
+              <header class="cs-step-head"><div class="container"><h3 class="ds-section">02.1&nbsp; Devedores</h3><span class="ds-section">Depois</span></div></header>
+              <div class="container cs-step-body">
+                <figure class="cs-shot cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar o novo modal de adicionar devedor"><img src="assets/cases/v2/02-depois-devedores.webp" width="1738" height="978" loading="lazy" decoding="async" alt="Novo cadastro, etapa 2: modal Adicionar devedor com seções de endereços e contatos, cada uma com vários itens."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure>
+                <ul class="cs-list cs-step-text">
+                  <li>O devedor é adicionado num modal próprio, com contatos e endereços em seções separadas.</li>
+                  <li>Cada devedor aceita vários contatos e endereços.</li>
+                  <li>A lista mostra quem já foi incluído antes de seguir, e quando está vazia a tela diz o que fazer.</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="cs-step">
+              <header class="cs-step-head"><div class="container"><h3 class="ds-section">02.2&nbsp; Débitos</h3><span class="ds-section">Depois</span></div></header>
+              <div class="container cs-step-body">
+                <figure class="cs-shot cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar a nova etapa de débitos"><img src="assets/cases/v2/02-depois-debitos.webp" width="1738" height="978" loading="lazy" decoding="async" alt="Novo cadastro, etapa 3: débitos com os campos em linha, botão Adicionar e a tabela com o total e a quantidade de débitos."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure>
+                <ul class="cs-list cs-step-text">
+                  <li>Os débitos ganharam uma etapa própria, com os campos em linha e a tabela logo abaixo.</li>
+                  <li>Adicionar fica junto dos campos do débito, e Enviar solicitação é a ação principal.</li>
+                  <li>A tabela mostra o total e a quantidade de débitos, atualizados a cada adição.</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="cs-step">
+              <header class="cs-step-head"><div class="container"><h3 class="ds-section">03&nbsp; Consulta das solicitações</h3><span class="ds-section">Antes</span></div></header>
+              <div class="container cs-step-body">
+                <figure class="cs-shot cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar a lista antiga de processos"><img src="assets/cases/v2/03-antes.webp" width="1738" height="978" loading="lazy" decoding="async" alt="Sistema antigo: lista de processos recebidos, com muitas colunas e sem o status da solicitação."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure>
+                <p class="ds-body cs-step-text">Depois do envio, o servidor via uma lista de processos que não mostrava em que etapa estava o pedido dele.</p>
+              </div>
+            </article>
+
+            <article class="cs-step">
+              <header class="cs-step-head"><div class="container"><h3 class="ds-section">03&nbsp; Consulta das solicitações</h3><span class="ds-section">Depois</span></div></header>
+              <div class="container cs-step-body">
+                <figure class="cs-shot cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar a nova consulta de solicitações"><img src="assets/cases/v2/03-depois.webp" width="1738" height="978" decoding="async" alt="Nova consulta de solicitações: cards de resumo por status no topo, busca, filtros e tabela com o status de cada solicitação."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure>
+                <p class="ds-body cs-step-text">Uma consulta própria para as solicitações, com o status de cada uma e cards de resumo no topo.</p>
+              </div>
+            </article>
+
+            <article class="cs-step">
+              <header class="cs-step-head"><div class="container"><h3 class="ds-section">04&nbsp; Visualizar</h3><span class="ds-section">Iteração</span></div></header>
+              <div class="container cs-step-body">
+                <figure class="cs-shot cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar a nova tela de visualizar a solicitação"><img src="assets/cases/v2/04-visualizar.webp" width="1738" height="978" loading="lazy" decoding="async" alt="Nova tela da solicitação: status enviada para análise no topo, abas de dados da dívida, devedores, débitos e histórico, e os anexos."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure>
+                <p class="ds-body cs-step-text">Uma tela reúne tudo da solicitação, com o status no topo.</p>
+              </div>
+            </article>
+
+            <article class="cs-step cs-step--text">
+              <header class="cs-step-head"><div class="container"><h3 class="ds-section">05&nbsp; Editar/responder</h3><span class="ds-section">Antes</span></div></header>
+              <div class="container cs-step-body">
+                <p class="ds-body cs-step-text">Para cada erro, o analista abria um chamado, esperava a resposta por e-mail e editava a inscrição à mão.</p>
+              </div>
+            </article>
+
+            <article class="cs-step">
+              <header class="cs-step-head"><div class="container"><h3 class="ds-section">05&nbsp; Editar/responder</h3><span class="ds-section">Depois</span></div></header>
+              <div class="container cs-step-body">
+                <figure class="cs-shot cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar o histórico com ação necessária"><img src="assets/cases/v2/04-depois.webp" width="1738" height="978" loading="lazy" decoding="async" alt="Histórico da solicitação: aviso de ação necessária com a mensagem do analista e os botões Responder e Editar."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure>
+                <p class="ds-body cs-step-text">O analista aponta o erro, e o servidor recebe o aviso no sistema e por e-mail, com um botão que leva direto à solicitação, onde pode editar ou só responder.</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- Próximas iterações -->
+        <section class="cs-section is-band" id="cs-proximas" aria-labelledby="cs-proximas-t">
+          <div class="container">
+            <header class="cs-head" data-reveal>
+              <h2 class="ds-section" id="cs-proximas-t">Próximas iterações</h2>
+              <p class="ds-body">O que eu mudaria na próxima versão.</p>
+            </header>
+            <ol class="cs-cols cs-next" data-reveal>
+              <li><h3 class="ds-label">01.&nbsp; Devedor em drawer, com contato e endereço inline</h3><p class="ds-body">O drawer manteria a lista de devedores à vista e evitaria abrir um formulário por cima do outro para cadastrar contatos e endereços.</p></li>
+              <li><h3 class="ds-label">02.&nbsp; Etapa de revisão antes de enviar</h3><p class="ds-body">Uma tela de leitura final reunindo todos os dados preenchidos e atalhos para editar, o servidor poderia conferir a solicitação inteira antes de enviar.</p></li>
+              <li><h3 class="ds-label">03.&nbsp; Ação necessária já mostrando o motivo</h3><p class="ds-body">Com o motivo na própria mensagem, o servidor decide na hora se precisa editar ou só responder, sem abrir a solicitação.</p></li>
+            </ol>
+          </div>
+        </section>
+
+        <!-- O que vou medir -->
+        <section class="cs-section container" id="cs-medir" aria-labelledby="cs-medir-t">
+          <header class="cs-head" data-reveal>
+            <h2 class="ds-section" id="cs-medir-t">O que vou medir após o lançamento</h2>
+          </header>
+          <ol class="cs-measures" data-reveal>
+            <li class="ds-label">01.&nbsp; Tempo para enviar uma solicitação.</li>
+            <li class="ds-label">02.&nbsp; Chamados e e-mails abertos para cadastrar ou corrigir solicitações.</li>
+            <li class="ds-label">03.&nbsp; Solicitações devolvidas com ação necessária.</li>
+          </ol>
+        </section>
+
+        <footer class="cs-end container">
+          <button class="btn btn-outline" type="button" data-case-close><i data-lucide="arrow-left" aria-hidden="true"></i>Voltar para os projetos</button>
+        </footer>
+      </div>
+    </article>
+  </div>
+
+  <!-- ================= Página do case: Sistema de gestão da dívida ativa (SGDAE) =================
+       NDA: sem nome de estado, órgão ou sistema. Nas telas exportadas do Figma, a URL e os nomes
+       de órgãos reais foram trocados por textos neutros. -->
+  <div class="case-view case--sgdae" id="case-sgdae" role="dialog" aria-modal="true" aria-labelledby="case-sgdae-title" hidden>
+    <div class="case-view-bg" aria-hidden="true"></div>
+    <div class="case-bar">
+      <div class="container case-bar-inner">
+        <button class="case-back case-bar-back" type="button" data-case-close><i data-lucide="arrow-left" aria-hidden="true"></i>Voltar</button>
+        <button class="btn btn-ghost btn-icon theme-toggle" type="button" aria-label="Ativar modo escuro">
+          <i data-lucide="moon" class="theme-icon is-moon" aria-hidden="true"></i>
+          <i data-lucide="sun" class="theme-icon is-sun" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+    <article class="case-view-scroll">
+      <div class="container case-page">
+        <div class="case-top" data-fade>
+          <button class="case-back" type="button" data-case-close><i data-lucide="arrow-left" aria-hidden="true"></i>Voltar</button>
+          <button class="btn btn-ghost btn-icon theme-toggle" type="button" aria-label="Ativar modo escuro">
+            <i data-lucide="moon" class="theme-icon is-moon" aria-hidden="true"></i>
+            <i data-lucide="sun" class="theme-icon is-sun" aria-hidden="true"></i>
+          </button>
+        </div>
+
+        <div class="cs-hero">
+          <div class="cs-hero-text">
+            <h1 class="case-page-title" id="case-sgdae-title" data-flip="title">Sistema de gestão da dívida ativa de um estado</h1>
+            <p class="ds-body case-page-lede" data-fade>Construí do zero um sistema que reúne todo o ciclo da dívida ativa de um estado a partir de um sistema legado.</p>
+            <ul class="case-tags case-page-tags" aria-label="Tags" data-flip="tags"><li>Design System</li><li>Sistema complexo</li></ul>
+          </div>
+          <figure class="case-hero-shot" data-fade>
+            <div class="laptop">
+              <div class="laptop-screen cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar a vitrine do design system">
+                <img src="assets/cases/sgdae/capa-ds.webp" width="2100" height="1321" alt="Vitrine do design system do sistema: paleta, botões, controles, tipografia, tabela e campos.">
+                <span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span>
+              </div>
+              <div class="laptop-base" aria-hidden="true"></div>
+            </div>
+          </figure>
+        </div>
+
+        <dl class="case-facts case-facts--4" data-fade>
+          <div><dt>Meu papel</dt><dd>Product Designer</dd></div>
+          <div><dt>Cliente</dt><dd>Procuradoria</dd></div>
+          <div><dt>Equipe</dt><dd>1 designer, 1 analista de requisitos, 10 devs e 4 QAs</dd></div>
+          <div><dt>Período</dt><dd>1 ano e 2 meses</dd></div>
+        </dl>
+
+        <div class="case-role" data-fade>
+          <h2 class="ds-label">O que eu fiz</h2>
+          <p class="ds-body">Fui a única designer do projeto. Desenhei os fluxos, as telas web e mobile de todo o MVP e o design system, junto com o <a class="cs-inline-link" href="#case-dividas" data-goto-case="case-dividas">sistema de envio das solicitações <i data-lucide="arrow-up-right" aria-hidden="true"></i></a></p>
+        </div>
+        <ul class="cs-stats cs-stats--hero" data-fade aria-label="O projeto em números"><li><span class="cs-stat-n">21</span><span class="cs-stat-l">Módulos</span></li><li><span class="cs-stat-n">~86</span><span class="cs-stat-l">Fluxos de usuário</span></li><li><span class="cs-stat-n">~370</span><span class="cs-stat-l">Telas (270 web, 100 mobile)</span></li><li><span class="cs-stat-n">60</span><span class="cs-stat-l">Componentes no design system</span></li></ul>
+      </div>
+
+      <!-- Roteiro (Figma "Case PDO — Web (1440)"): contexto → metodologia → caderno → problema →
+           quem usa → design system → padronização → solução → próximos passos -->
+      <div class="cs-body">
+
+        <section class="cs-section is-band" id="sg-contexto" aria-labelledby="sg-contexto-t">
+          <div class="container">
+            <header class="cs-head" data-reveal>
+              <h2 class="ds-section" id="sg-contexto-t">Contexto</h2>
+              <p class="ds-body">A dívida ativa reúne os débitos que não foram pagos ao estado e passam a ser cobrados pela procuradoria. Ela sustenta uma parte importante da arrecadação estadual.</p>
+            </header>
+            <div class="cs-cols cs-cols--2" data-reveal>
+              <div class="cs-head"><h3 class="ds-label">Como era</h3><p class="ds-body">Toda a gestão rodava num sistema de mainframe, desenvolvido e mantido por outro órgão do estado e dividido em várias aplicações de terminal.</p></div>
+              <div class="cs-head"><h3 class="ds-label">Objetivo</h3><p class="ds-body">Substituir o legado por um sistema próprio da procuradoria, reunindo o ciclo completo da dívida em um só lugar.</p></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="cs-section container" id="sg-metodologia" aria-labelledby="sg-metodologia-t">
+          <header class="cs-head" data-reveal>
+            <h2 class="ds-section" id="sg-metodologia-t">Metodologia</h2>
+            <p class="ds-body">O sistema tem muitos fluxos, e cada um passava pelo mesmo ciclo dentro das sprints, com reuniões duas vezes por semana. O prazo era curto, então os stakeholders só viam telas em alta fidelidade e prototipadas.</p>
+          </header>
+          <ol class="cs-rowlist" data-reveal><li><span class="cs-rowlist-n">01</span><div><h3 class="ds-label">Planning</h3><p class="ds-body">Definimos qual módulo seria desenhado na sprint.</p></div></li><li><span class="cs-rowlist-n">02</span><div><h3 class="ds-label">Entender o problema</h3><p class="ds-body">Reunião com os stakeholders e conversa com especialistas da área.</p></div></li><li><span class="cs-rowlist-n">03</span><div><h3 class="ds-label">Alta fidelidade</h3><p class="ds-body">Eu desenhava as telas já em alta fidelidade e prototipadas.</p></div></li><li><span class="cs-rowlist-n">04</span><div><h3 class="ds-label">Revisão</h3><p class="ds-body">Na reunião seguinte, apareciam correções e pedidos de mudança no fluxo.</p></div></li><li><span class="cs-rowlist-n">05</span><div><h3 class="ds-label">Ajustes</h3><p class="ds-body">Eu ajustava e levava a nova versão para a reunião seguinte, até o fluxo fechar.</p></div></li></ol>
+          <p class="ds-body cs-cycle-loop" data-reveal><i data-lucide="refresh-cw" aria-hidden="true"></i>O ciclo se repetia a cada módulo.</p>
+        </section>
+
+        <section class="cs-section container" id="sg-caderno" aria-labelledby="sg-caderno-t">
+          <header class="cs-head" data-reveal>
+            <h2 class="ds-section" id="sg-caderno-t">Meu caderno</h2>
+            <p class="ds-body">Diagramas e mapas de jornada não eram uma entrega esperada, mas eu precisava deles para entender as regras de cada módulo e história de usuário. Então fazia tudo no meu caderno, durante e depois das reuniões.</p>
+          </header>
+          <div class="cs-notebooks" data-reveal><figure class="cs-notebook cs-notebook--tall cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar a foto 1 do caderno"><span class="cs-notebook-page"><img src="assets/cases/sgdae/caderno-1.webp" width="1039" height="1280" loading="lazy" decoding="async" alt="Página do caderno com o fluxo de pagamentos desenhado à mão: busca de inscrições, tipo de dedução, classificação e parcelamento."></span><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><figure class="cs-notebook cs-notebook--wide cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar a foto 2 do caderno"><span class="cs-notebook-page"><img src="assets/cases/sgdae/caderno-2.webp" width="1280" height="997" loading="lazy" decoding="async" alt="Página do caderno com rascunhos de telas de consulta, filtros e relatórios, e anotações de dúvidas."></span><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><figure class="cs-notebook cs-notebook--wide cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar a foto 3 do caderno"><span class="cs-notebook-page"><img src="assets/cases/sgdae/caderno-3.webp" width="1280" height="1056" loading="lazy" decoding="async" alt="Página do caderno com uma lista de ajustes e dúvidas sobre cadastro, filtros e mobile."></span><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure></div>
+        </section>
+
+        <section class="cs-section container" id="sg-problema" aria-labelledby="sg-problema-t">
+          <header class="cs-head" data-reveal>
+            <h2 class="ds-section" id="sg-problema-t">Problema</h2>
+            <p class="ds-body">O que tornava a gestão da dívida ativa lenta e difícil de controlar.</p>
+          </header>
+          <ul class="cs-pains cs-pains--row" data-reveal><li class="cs-pain"><h3 class="ds-label">Gestão fragmentada</h3><p class="ds-body">Inscrição, pagamentos, parcelamentos e cobrança ficavam em aplicações separadas, cada uma com seu acesso. Não existia uma visão única da dívida.</p></li><li class="cs-pain"><h3 class="ds-label">Dependência externa</h3><p class="ds-body">O legado era mantido por outro órgão, numa plataforma antiga e difícil de evoluir. Parte das operações dependia de chamados, e qualquer melhoria fugia do controle de quem usava o sistema.</p></li><li class="cs-pain"><h3 class="ds-label">Processos manuais</h3><p class="ds-body">Cálculos feitos por fora, sem simulação, documentos montados à mão e processos físicos deixavam o trabalho lento e sujeito a erro.</p></li><li class="cs-pain"><h3 class="ds-label">Pouca rastreabilidade</h3><p class="ds-body">Era difícil entender a situação de uma dívida e acompanhar suas etapas, sem histórico claro nem relatórios.</p></li></ul>
+          <div class="cs-legacy" data-reveal>
+            <figure class="cs-shot cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar a tela legada de consulta de devedores"><img src="assets/cases/sgdae/legado-1-consulta-devedores.webp" width="1176" height="1009" loading="lazy" decoding="async" alt="Sistema legado em terminal: busca da inscrição com um menu de consultas. Dados ocultados."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><figure class="cs-shot cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar a tela legada de dados cadastrais"><img src="assets/cases/sgdae/legado-2-dados-cadastrais.webp" width="1176" height="1009" loading="lazy" decoding="async" alt="Sistema legado em terminal: dados cadastrais da inscrição, com os campos ocultados."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><figure class="cs-shot cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar a tela legada de saldo devedor"><img src="assets/cases/sgdae/legado-3-saldo-devedor.webp" width="1176" height="1009" loading="lazy" decoding="async" alt="Sistema legado em terminal: saldo devedor e parcelas, sem simulação. Valores ocultados."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure>
+          </div>
+          <p class="ds-body cs-cap" data-reveal>Sistema legado: cada informação da dívida em uma tela de terminal diferente.</p>
+        </section>
+
+        <section class="cs-section container" id="sg-quem" aria-labelledby="sg-quem-t">
+          <header class="cs-head" data-reveal>
+            <h2 class="ds-section" id="sg-quem-t">Quem usa</h2>
+            <p class="ds-body">Na dívida ativa, cada servidor tem atribuições diferentes, e o que cada um pode fazer no sistema é definido pelo seu perfil de acesso. Para entender as dores da equipe como um todo, conversei com a coordenação do setor, que acompanha de perto o trabalho dos servidores e concentra os problemas que eles relatam no dia a dia.</p>
+          </header>
+          <div class="cs-persona-grid" data-reveal><div><h3 class="ds-label cs-icon-label"><i data-lucide="user-star" aria-hidden="true"></i>Servidor da dívida ativa</h3><ul class="cs-list"><li>Usa o sistema todos os dias e acessa só as funções liberadas para o seu perfil</li><li>Conhece bem as regras da dívida ativa</li><li>Atende contribuintes, pessoalmente ou no balcão virtual, que querem negociar ou entender a situação das suas dívidas</li></ul></div><div><h3 class="ds-label cs-icon-label"><i data-lucide="sparkles" aria-hidden="true"></i>Objetivos</h3><ul class="cs-list"><li>Dar ao contribuinte uma resposta clara e na hora</li><li>Resolver cada atendimento sem depender de outros sistemas ou de outro órgão</li><li>Ter segurança de que valores e documentos estão corretos</li></ul></div><div><h3 class="ds-label cs-icon-label"><i data-lucide="scan-heart" aria-hidden="true"></i>Necessidades</h3><ul class="cs-list"><li>Encontrar rápido os dados da dívida</li><li>Ver tudo sobre ela em um só lugar</li><li>Calcular valores e condições de pagamento no próprio sistema</li><li>Gerar documentos prontos, sem retrabalho</li></ul></div><div><h3 class="ds-label cs-icon-label"><i data-lucide="frown" aria-hidden="true"></i>Dores</h3><ul class="cs-list"><li>Informação espalhada em várias aplicações</li><li>Não conseguir dizer ao contribuinte quanto ele vai pagar</li><li>Montar documentos copiando dados das telas</li><li>Depender de chamados para operações como a compensação</li></ul></div></div>
+          <div class="cs-sub" data-reveal>
+            <h3 class="ds-section">O que dizem</h3>
+            <p class="ds-body">As dores na voz da equipe.</p>
+          </div>
+          <ul class="cs-voices" data-reveal><li><h3 class="ds-label">Informação espalhada em vários sistemas</h3><blockquote class="ds-body"><p>“Se eu quero acessar só o sistema da dívida, eu coloco aqui “dívida” e boto usuário e senha. Se eu quiser ver a questão de pagamento, aí eu coloco outra aplicação. […] Para a gente ver o parcelamento, já é em outra aplicação.”</p></blockquote></li><li><h3 class="ds-label">Não conseguir negociar com o contribuinte</h3><blockquote class="ds-body"><p>“Não, o sistema não permite visualizar quando ele pode pagar. […] Tem várias regras […] que o sistema não mostra, não tem uma tela pra fazer isso. Aí não dá para dizer quanto fica a parcela, por exemplo, o contribuinte tem que analisar a situação dele, e ele mesmo calcular.”</p></blockquote></li><li><h3 class="ds-label">Documentos montados à mão</h3><blockquote class="ds-body"><p>“Como o sistema não disponibiliza, a gente só copia e cola […] aí tem que formatar. Normalmente a gente manda aquele que tem no [portal do contribuinte]. Só que, às vezes, eles querem algo mais detalhado, que não tem lá.”</p></blockquote></li><li><h3 class="ds-label">Depender de outro órgão</h3><blockquote class="ds-body"><p>“Nesse caso de compensação, a gente não tem acesso. A gente vai abrindo chamado. […] Tem vezes que dizendo que está sendo compensado, mas de fato não está.”</p></blockquote></li></ul>
+        </section>
+
+        <section class="cs-section container" id="sg-ds" aria-labelledby="sg-ds-t">
+          <header class="cs-head" data-reveal>
+            <h2 class="ds-section" id="sg-ds-t">Design system</h2>
+            <p class="ds-body">O sistema é desenvolvido em Angular, então construí a maior parte dos componentes com base na biblioteca PrimeNG, que o time já usava. Assim, o desenvolvimento não precisava criar componentes do zero. Para as necessidades que a biblioteca não cobria, criei componentes específicos, e toda a estrutura de tokens foi criada por mim, e é ela que dá ao sistema uma identidade própria sobre a biblioteca.</p>
+            <p class="ds-body">O design system evoluiu e foi sendo documentado ao longo do projeto, e hoje é a referência entregue ao desenvolvimento.</p>
+          </header>
+          <div class="cs-media" data-reveal><figure class="cs-shot cs-shot--flat cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar a visão geral do design system"><img src="assets/cases/sgdae/ds-overview.webp" width="2858" height="1708" loading="lazy" decoding="async" alt="Visão geral do design system: paleta, botões, controles, tipografia, tabela, campos, feedback, diálogo, status e navegação."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure></div>
+          <div class="cs-media-pair cs-media-pair--ds" data-reveal>
+            <figure class="cs-media-cap"><figure class="cs-shot cs-shot--flat cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar a organização dos tokens"><img src="assets/cases/sgdae/ds-tokens.webp" width="666" height="915" loading="lazy" decoding="async" alt="Variáveis do design system no Figma: coleções Primitives, Semantic e Appearance, com os tokens de superfície e de ação."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><figcaption>Organização dos tokens.</figcaption></figure>
+            <figure class="cs-media-cap"><figure class="cs-shot cs-shot--flat cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar a organização do arquivo"><img src="assets/cases/sgdae/ds-arquivo.webp" width="395" height="920" loading="lazy" decoding="async" alt="Páginas do arquivo do design system: estilos, padrões e componentes."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><figcaption>Organização do arquivo.</figcaption></figure>
+          </div>
+        </section>
+
+        <section class="cs-section container" id="sg-padrao" aria-labelledby="sg-padrao-t">
+          <header class="cs-head" data-reveal>
+            <h2 class="ds-section" id="sg-padrao-t">Padronização</h2>
+            <p class="ds-body">Todas as telas usam o mesmo componente de layout de página: menu lateral, barra superior, cabeçalho da página e área de conteúdo. Sobre essa base, a maioria dos módulos repete os mesmos tipos de tela: consultar (lista com filtros), visualizar (cabeçalho e abas), cadastrar ou editar (formulário).</p>
+          </header>
+          <div class="cs-media" data-reveal><figure class="cs-shot cs-shot--flat cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar o padrão de consulta"><img src="assets/cases/sgdae/ds-padrao-consulta.webp" width="2858" height="513" loading="lazy" decoding="async" alt="Padrão de consulta no web: sem filtros, com o painel de filtros aberto, com filtros aplicados e com muitos filtros ativos."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure></div>
+          <div class="cs-media-pair cs-media-pair--padrao" data-reveal>
+            <figure class="cs-shot cs-shot--flat cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar os padrões de cadastro e edição"><img src="assets/cases/sgdae/ds-cadastro.webp" width="1137" height="1694" loading="lazy" decoding="async" alt="Padrões de cadastro, edição e formulários de endereço e contato."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><figure class="cs-shot cs-shot--flat cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar o padrão de visualização e histórico"><img src="assets/cases/sgdae/ds-historico.webp" width="2239" height="1718" loading="lazy" decoding="async" alt="Padrão da tela de visualização e do fluxo de histórico, com a versão inicial e as melhorias."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure>
+          </div>
+          <ul class="cs-cols cs-effects" data-reveal><li><h3 class="ds-label">Para quem usa</h3><p class="ds-body">Aprender um módulo é aprender todos. As ações e as informações estão sempre no mesmo lugar.</p></li><li><h3 class="ds-label">Para o time</h3><p class="ds-body">Os desenvolvedores implementaram a estrutura uma vez e reaproveitaram em outros módulos.</p></li><li><h3 class="ds-label">Para o projeto</h3><p class="ds-body">Foi o que tornou possível entregar cerca de 370 telas com consistência.</p></li></ul>
+        </section>
+
+        <section class="cs-section container" id="sg-solucao" aria-labelledby="sg-solucao-t">
+          <header class="cs-head" data-reveal>
+            <h2 class="ds-section" id="sg-solucao-t">Solução</h2>
+            <p class="ds-body">Todo o ciclo da dívida em um sistema. O MVP tem 21 módulos, organizados em cinco grandes áreas.</p>
+          </header>
+          <ul class="cs-areas" data-reveal><li class="cs-area"><div class="cs-area-top"><h4 class="ds-label">Cadastro e inscrição</h4><span class="cs-area-n">7 módulos</span></div><p class="ds-body">Do cadastro ao histórico completo da dívida.</p><ul class="cs-area-mods" aria-label="Módulos"><li>Inscrição</li><li>Contribuinte</li><li>Origem do débito</li><li>Tipos de receita e produtos</li><li>Fases da dívida</li><li>Livro eletrônico</li><li>Prescrição</li></ul></li><li class="cs-area"><div class="cs-area-top"><h4 class="ds-label">Pagamento e negociação</h4><span class="cs-area-n">6 módulos</span></div><p class="ds-body">Simulação e registro de pagamentos, acordos e garantias.</p><ul class="cs-area-mods" aria-label="Módulos"><li>Pagamento à vista</li><li>Parcelamento</li><li>Compensação</li><li>Formas de dedução</li><li>Guias de pagamento</li><li>Garantias</li></ul></li><li class="cs-area"><div class="cs-area-top"><h4 class="ds-label">Cálculo</h4><span class="cs-area-n">3 módulos</span></div><p class="ds-body">Atualização de valores com regras configuráveis.</p><ul class="cs-area-mods" aria-label="Módulos"><li>Juros e correção monetária</li><li>Índices de correção</li><li>Encargos e honorários</li></ul></li><li class="cs-area"><div class="cs-area-top"><h4 class="ds-label">Gestão</h4><span class="cs-area-n">3 módulos</span></div><p class="ds-body">Controle, acesso e acompanhamento.</p><ul class="cs-area-mods" aria-label="Módulos"><li>Relatórios</li><li>Usuários e permissões</li><li>Autenticação</li></ul></li><li class="cs-area"><div class="cs-area-top"><h4 class="ds-label">Cobrança</h4><span class="cs-area-n">2 módulos</span></div><p class="ds-body">Ações de cobrança extrajudicial.</p><ul class="cs-area-mods" aria-label="Módulos"><li>Protesto</li><li>Cadastro de inadimplentes</li></ul></li></ul>
+
+          <div class="cs-sub" data-reveal><h3 class="ds-section">Fluxos em destaque</h3></div>
+
+          <div class="cs-flow">
+            <h4 class="cs-flow-title" data-reveal><i data-lucide="sparkle" aria-hidden="true"></i>Dados da inscrição</h4>
+              <div class="cs-flow-row" data-reveal>
+                <figure class="cs-shot cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar a tela de consulta de inscrições"><img src="assets/cases/sgdae/web-consulta-filtros.webp" width="2100" height="1186" loading="lazy" decoding="async" alt="Tela de consulta de inscrições com o painel lateral de filtros de busca aberto."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure>
+                <div class="cs-flow-text"><p class="ds-body">A busca aceita qualquer dado do devedor. São muitos campos de busca possíveis: se ficassem fixos no topo, empurrariam a lista para baixo, mesmo quando o analista só quer pesquisar por um número de inscrição. Por isso ficaram num painel lateral.</p></div>
+              </div>
+              <div class="cs-flow-row" data-reveal>
+                <figure class="cs-shot cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar a tela de detalhes da inscrição"><img src="assets/cases/sgdae/web-dados-gerais.webp" width="2100" height="1182" loading="lazy" decoding="async" alt="Detalhes da inscrição: abas na lateral e os dados gerais, com o prazo de prescrição em destaque."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure>
+                <div class="cs-flow-text"><p class="ds-body">Abas na inscrição em vez de páginas separadas. A pessoa troca de assunto sem perder o contexto do devedor. Ordenei as abas pela frequência de uso.</p></div>
+              </div>
+              <div class="cs-flow-row" data-reveal>
+                <figure class="cs-shot cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar a aba de deduções da inscrição"><img src="assets/cases/sgdae/web-deducoes-inscricao.webp" width="2100" height="1182" loading="lazy" decoding="async" alt="Aba Deduções da inscrição, com a tabela de deduções e o resumo de valores ao lado."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure>
+                <div class="cs-flow-text"><p class="ds-body">Extratos, CDA e termo de parcelamento também saem prontos do sistema, sem copiar e formatar dados das telas.</p></div>
+              </div>
+              <div class="cs-flow-row cs-flow-row--phones" data-reveal>
+                <div class="cs-mphones"><figure class="cs-mphone cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar a consulta no celular"><img src="assets/cases/sgdae/mob-consulta.webp" width="639" height="1386" loading="lazy" decoding="async" alt="Consulta de inscrições no celular, em cards."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><figure class="cs-mphone cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar os dados da dívida no celular"><img src="assets/cases/sgdae/mob-dados.webp" width="640" height="1387" loading="lazy" decoding="async" alt="Dados da dívida no celular."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><figure class="cs-mphone cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar as deduções no celular"><img src="assets/cases/sgdae/mob-deducoes.webp" width="634" height="1374" loading="lazy" decoding="async" alt="Deduções no celular, com o resumo de valores no topo."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure></div>
+                <div class="cs-flow-text"><p class="ds-body">Pelo que percebi do dia a dia da equipe, edições e cadastros continuariam sendo feitos no computador. Por isso usei degradação graciosa: em 17 dos 21 módulos, o mobile tem só a visualização e o histórico, para consultas rápidas quando surgir a necessidade.</p></div>
+              </div>
+          </div>
+
+          <div class="cs-flow">
+            <h4 class="cs-flow-title" data-reveal><i data-lucide="sparkle" aria-hidden="true"></i>Simulação de pagamento</h4>
+            <p class="ds-body cs-flow-intro" data-reveal>Contribuintes iam pessoalmente à procuradoria perguntar quanto pagariam à vista, com o desconto de um edital, ou parcelando. O sistema antigo não fazia esse cálculo, e muitas vezes o contribuinte era orientado a calcular por conta própria ou a procurar outro sistema, depois de já ter se deslocado até lá.</p>
+              <div class="cs-flow-row" data-reveal>
+                <figure class="cs-shot cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar a consulta de deduções"><img src="assets/cases/sgdae/web-deducoes.webp" width="2100" height="1182" loading="lazy" decoding="async" alt="Consulta de deduções separadas por tipo, com status, saldo e dias de atraso."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure>
+                <div class="cs-flow-text"><p class="ds-body">As deduções ficam separadas por tipo, à vista, parcelado e compensação, com o status, o saldo e os dias de atraso de cada uma. A simulação começa por aqui.</p></div>
+              </div>
+              <div class="cs-flow-row" data-reveal>
+                <figure class="cs-shot cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar a tela de simulação"><img src="assets/cases/sgdae/web-simular.webp" width="2100" height="1182" loading="lazy" decoding="async" alt="Simulação de dedução: inscrições selecionadas na tabela e, ao lado, tipo de pagamento, desconto e o resumo com o valor original e o valor com desconto."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure>
+                <div class="cs-flow-text"><p class="ds-body">Agora a simulação acontece numa única tela. O analista seleciona as inscrições, escolhe o tipo de pagamento e o desconto, e o sistema calcula o resto.</p><p class="ds-body">O resumo mostra o valor original e o valor com desconto. A simulação pode ser baixada para o contribuinte ou virar o pedido de parcelamento.</p></div>
+              </div>
+          </div>
+        </section>
+
+        <section class="cs-section is-band" id="sg-proximos" aria-labelledby="sg-proximos-t">
+          <div class="container">
+            <header class="cs-head" data-reveal><h2 class="ds-section" id="sg-proximos-t">Próximos passos</h2></header>
+            <ol class="cs-rowlist" data-reveal><li><span class="cs-rowlist-n">01</span><div><p class="ds-body">Acompanhar os usuários usando o sistema, para recolher feedbacks reais.</p></div></li><li><span class="cs-rowlist-n">02</span><div><p class="ds-body">Fazer testes de usabilidade após o lançamento, começando pela visualização da inscrição, que é o fluxo mais usado. Depois, a simulação de pagamento, medindo quantas consultas dos contribuintes viram deduções.</p></div></li><li><span class="cs-rowlist-n">03</span><div><p class="ds-body">Melhorar o fluxo e a usabilidade de algumas telas de cadastro, para deixar os formulários menos densos.</p></div></li></ol>
+          </div>
+        </section>
+
+        <footer class="cs-end container">
+          <button class="btn btn-outline" type="button" data-case-close><i data-lucide="arrow-left" aria-hidden="true"></i>Voltar para os projetos</button>
+        </footer>
+      </div>
+    </article>
+  </div>
+
+  <!-- ================= Página do case: Cabine de fotos da UXFor ================= -->
+  <div class="case-view case--cabine" id="case-cabine" role="dialog" aria-modal="true" aria-labelledby="case-cabine-title" hidden>
+    <div class="case-view-bg" aria-hidden="true"></div>
+    <div class="case-bar">
+      <div class="container case-bar-inner">
+        <button class="case-back case-bar-back" type="button" data-case-close><i data-lucide="arrow-left" aria-hidden="true"></i>Voltar</button>
+        <button class="btn btn-ghost btn-icon theme-toggle" type="button" aria-label="Ativar modo escuro">
+          <i data-lucide="moon" class="theme-icon is-moon" aria-hidden="true"></i>
+          <i data-lucide="sun" class="theme-icon is-sun" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+    <article class="case-view-scroll">
+      <div class="container case-page">
+        <div class="case-top" data-fade>
+          <button class="case-back" type="button" data-case-close><i data-lucide="arrow-left" aria-hidden="true"></i>Voltar</button>
+          <button class="btn btn-ghost btn-icon theme-toggle" type="button" aria-label="Ativar modo escuro">
+            <i data-lucide="moon" class="theme-icon is-moon" aria-hidden="true"></i>
+            <i data-lucide="sun" class="theme-icon is-sun" aria-hidden="true"></i>
+          </button>
+        </div>
+
+        <div class="cs-hero">
+          <div class="cs-hero-text">
+            <h1 class="case-page-title" id="case-cabine-title" data-flip="title">Cabine de fotos para um evento de design</h1>
+            <p class="ds-body case-page-lede" data-fade>Criei uma experiência de cabine de fotos com IA, da concepção visual à experiência funcional, em apenas um dia e sem escrever uma linha de código.</p>
+            <ul class="case-tags case-page-tags" aria-label="Tags" data-flip="tags"><li>Design com IA</li><li>Projeto voluntário</li></ul>
+          </div>
+          <figure class="case-hero-shot cs-hero-img" data-fade>
+            <div class="cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar a cabine no notebook e no celular"><img src="assets/cases/cabine/hero.webp" width="2131" height="1265" decoding="async" alt="Notebook com a tela Suas fotos estão prontas e o QR code, ao lado de um celular com os templates de stories."></div>
+          </figure>
+        </div>
+
+        <dl class="case-facts" data-fade>
+          <div><dt>Meu papel</dt><dd>Ideia, fluxo, UX/UI e direção do desenvolvimento com IA</dd></div>
+          <div><dt>Ferramentas</dt><dd>Figma, Claude, VS Code, Supabase e GitHub Pages</dd></div>
+          <div><dt>Tipo de projeto</dt><dd>Trabalho voluntário</dd></div>
+        </dl>
+      </div>
+
+      <div class="cs-body">
+
+        <section class="cs-section container" id="cb-objetivo" aria-labelledby="cb-objetivo-t">
+          <header class="cs-head" data-fade>
+            <h2 class="ds-section" id="cb-objetivo-t">Objetivo</h2>
+            <p class="ds-body">Fui a um evento que aconteceu no mesmo espaço que o evento da comunidade iria acontecer uma semana depois, lá tinha uma cabine de estudos individual, e a gente pensou: por que não utilizar esse espaço para fazer uma cabine de fotos pro nosso evento?</p>
+          </header>
+          <ol class="cs-numlist" data-fade><li><span class="cs-numlist-n">01</span><p class="ds-body">Possibilitar que os participantes registrassem o evento com uma <strong>experiência diferente e divertida.</strong></p></li><li><span class="cs-numlist-n">02</span><p class="ds-body">Cada <strong>stories postado</strong> levaria a identidade visual do evento e o <a class="cs-inline-link" href="https://www.instagram.com/uxfor.br/" target="_blank" rel="noopener">@uxfor.br</a>.</p></li></ol>
+        </section>
+
+        <section class="cs-section is-band" id="cb-desafios" aria-labelledby="cb-desafios-t">
+          <div class="container">
+            <header class="cs-head" data-reveal><h2 class="ds-section" id="cb-desafios-t">Desafios</h2></header>
+            <ul class="cs-cols cs-effects" data-reveal><li><h3 class="ds-label">Uso rápido e sem instrução</h3><p class="ds-body">A pessoa chega, tira as fotos e vai embora. A aplicação precisava ser fácil e intuitiva.</p></li><li><h3 class="ds-label">Envio para o celular</h3><p class="ds-body">As fotos tinham que sair do notebook e chegar no celular de cada pessoa, prontas pra postar.</p></li><li><h3 class="ds-label">Sem orçamento</h3><p class="ds-body">Projeto voluntário, sem orçamento para ferramentas pagas de hospedagem.</p></li></ul>
+          </div>
+        </section>
+
+        <section class="cs-section container" id="cb-processo" aria-labelledby="cb-processo-t">
+          <header class="cs-head" data-reveal><h2 class="ds-section" id="cb-processo-t">Processo</h2></header>
+          <div class="cs-step-block">
+            <h3 class="ds-label" data-reveal>01. Comecei pelo problema</h3>
+            <p class="ds-body" data-reveal>Antes de qualquer tela, escrevi para a IA como se fosse um briefing: o cenário (um notebook numa cabine, durante um evento), quem ia usar, o que acontecia passo a passo e o que a pessoa levava no final. Com esse contexto, a IA precisou adivinhar menos e perguntou o que faltava.</p>
+            <div class="cs-chat" data-reveal>
+              <div class="cs-chat-row"><img class="cs-chat-av" src="assets/avatar-pb.webp" width="48" height="48" alt=""><div class="cs-chat-body"><h4 class="ds-label">O que eu disse</h4><blockquote class="cs-chat-prompt ds-body">
+                  <p>quero fazer uma aplicação que vai servir para o seguinte cenário:</p>
+                  <ul><li>vou deixar meu notebook disponível em uma cabine durante um evento para as pessoas entrarem nela para tirar fotos</li><li>ao entrar na cabine vai clicar em tirar foto</li><li>o comportamento da tela deve se assemelhar à uma cabine de fotos real</li></ul>
+                  <ol><li>Irá aparecer um contador de 3 segundos para a pessoa se preparar para tirar a foto</li><li>isso irá se repetir 3 vezes (3 fotos)</li><li>o sistema, ao tirar as 3 fotos, vai disponibilizar um qr code na tela, que poderá ser lido com o celular</li><li>ao abrir o qr code pelo celular, as fotos aparecem dentro do template que vou fazer (template já feito para colocar no story do instagram) e as fotos separadas também (fotos individuais)</li></ol>
+                  <p>minhas perguntas antes de começar esse projeto:</p>
+                  <ol><li>como fazer essa integração entre o sistema que vai rodar no web e no mobile</li><li>posso deixar a aplicação só local? ou seria interessante hospedar em algum lugar? (pensei no github)</li></ol>
+                </blockquote></div></div>
+              <div class="cs-chat-row"><span class="cs-chat-av cs-chat-av--claude"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m4.7144 15.9555 4.7174-2.6471.079-.2307-.079-.1275h-.2307l-.7893-.0486-2.6956-.0729-2.3375-.0971-2.2646-.1214-.5707-.1215-.5343-.7042.0546-.3522.4797-.3218.686.0608 1.5179.1032 2.2767.1578 1.6514.0972 2.4468.255h.3886l.0546-.1579-.1336-.0971-.1032-.0972L6.973 9.8356l-2.55-1.6879-1.3356-.9714-.7225-.4918-.3643-.4614-.1578-1.0078.6557-.7225.8803.0607.2246.0607.8925.686 1.9064 1.4754 2.4893 1.8336.3643.3035.1457-.1032.0182-.0728-.164-.2733-1.3539-2.4467-1.445-2.4893-.6435-1.032-.17-.6194c-.0607-.255-.1032-.4674-.1032-.7285L6.287.1335 6.6997 0l.9957.1336.419.3642.6192 1.4147 1.0018 2.2282 1.5543 3.0296.4553.8985.2429.8318.091.255h.1579v-.1457l.1275-1.706.2368-2.0947.2307-2.6957.0789-.7589.3764-.9107.7468-.4918.5828.2793.4797.686-.0668.4433-.2853 1.8517-.5586 2.9021-.3643 1.9429h.2125l.2429-.2429.9835-1.3053 1.6514-2.0643.7286-.8196.85-.9046.5464-.4311h1.0321l.759 1.1293-.34 1.1657-1.0625 1.3478-.8804 1.1414-1.2628 1.7-.7893 1.36.0729.1093.1882-.0183 2.8535-.607 1.5421-.2794 1.8396-.3157.8318.3886.091.3946-.3278.8075-1.967.4857-2.3072.4614-3.4364.8136-.0425.0304.0486.0607 1.5482.1457.6618.0364h1.621l3.0175.2247.7892.522.4736.6376-.079.4857-1.2142.6193-1.6393-.3886-3.825-.9107-1.3113-.3279h-.1822v.1093l1.0929 1.0686 2.0035 1.8092 2.5075 2.3314.1275.5768-.3218.4554-.34-.0486-2.2039-1.6575-.85-.7468-1.9246-1.621h-.1275v.17l.4432.6496 2.3436 3.5214.1214 1.0807-.17.3521-.6071.2125-.6679-.1214-1.3721-1.9246L14.38 17.959l-1.1414-1.9428-.1397.079-.674 7.2552-.3156.3703-.7286.2793-.6071-.4614-.3218-.7468.3218-1.4753.3886-1.9246.3157-1.53.2853-1.9004.17-.6314-.0121-.0425-.1397.0182-1.4328 1.9672-2.1796 2.9446-1.7243 1.8456-.4128.164-.7164-.3704.0667-.6618.4008-.5889 2.386-3.0357 1.4389-1.882.929-1.0868-.0062-.1579h-.0546l-6.3385 4.1164-1.1293.1457-.4857-.4554.0608-.7467.2307-.2429 1.9064-1.3114Z"/></svg></span><div class="cs-chat-body"><h4 class="ds-label">O que o Claude respondeu</h4><p class="ds-body">Com base no meu prompt, ele me orientou sobre toda a arquitetura da solução: fluxo inicial, como integrar a cabine web ao celular via QR Code, hospedar a aplicação, armazenar e disponibilizar as fotos na nuvem, além de antecipar limitações técnicas, riscos e estados de erro. Tudo isso antes de escrever qualquer código.</p></div></div>
+            </div>
+          </div>
+          <div class="cs-step-block">
+            <h3 class="ds-label" data-reveal>02. Design no Figma</h3>
+            <p class="ds-body" data-reveal>Com base no fluxo que o Claude me entregou, desenhei a tela de espera, a câmera, a tela do QR code e a página do celular com a identidade visual do evento. Depois mandei os links dos frames para a IA e pedi que ela construísse seguindo esse layout.</p>
+            <div class="cs-media" data-reveal><figure class="cs-shot cs-shot--flat cs-shot--figma cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar as telas no Figma"><img src="assets/cases/cabine/figma-frames.webp" width="2198" height="893" loading="lazy" decoding="async" alt="Telas desenhadas no Figma: tela de espera, câmera, contagem, fotos prontas com o QR code e as telas do celular."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure></div>
+          </div>
+          <div class="cs-step-block">
+            <h3 class="ds-label" data-reveal>03. Decidir como construir</h3>
+            <p class="ds-body" data-reveal>Eu não conhecia as ferramentas, então em cada decisão pedi para a IA me mostrar as opções e o que mudava em cada uma. A escolha final foi minha.</p>
+            <div class="cs-table-wrap cs-table-wrap--3" data-reveal><table class="cs-table cs-table--3" aria-label="Decisões de construção"><thead><tr><th scope="col">Decisão</th><th scope="col">Escolha</th><th scope="col">Por quê</th></tr></thead><tbody><tr><th scope="row">Onde fazer o código</th><td data-label="Escolha">Pasta no VS Code, com HTML, CSS e JavaScript, sem framework</td><td data-label="Por quê">Um site pequeno, que eu conseguia abrir e testar sozinha</td></tr><tr><th scope="row">Onde guardar as fotos</th><td data-label="Escolha">Supabase</td><td data-label="Por quê">Gratuito e com armazenamento suficiente para o evento.</td></tr><tr><th scope="row">Onde publicar</th><td data-label="Escolha">GitHub Pages</td><td data-label="Por quê">Grátis e com https, que a câmera exige</td></tr></tbody></table></div>
+          </div>
+          <div class="cs-step-block">
+            <h3 class="ds-label" data-reveal>04. Desenvolvimento</h3>
+            <p class="ds-body" data-reveal>Conectei a pasta do projeto ao Claude, e ele criou e editou os arquivos lá dentro. Meu trabalho foi um ciclo: pedir, testar no VS Code e voltar dizendo o que estava certo e o que precisava mudar. No Supabase, mandava print de cada etapa caso eu travasse. Aprendi o que é um bucket, pra que serve uma regra de acesso e qual chave pode ficar no código.</p>
+          </div>
+          <div class="cs-step-block">
+            <h3 class="ds-label" data-reveal>05. Testes e bugs</h3>
+            <p class="ds-body" data-reveal>Nada saiu perfeito de primeira. Para cada bug, eu dizia à IA o que aconteceu, onde aconteceu e mandava um print.</p>
+            <div class="cs-table-wrap cs-table-wrap--3" data-reveal><table class="cs-table cs-table--3" aria-label="Bugs encontrados nos testes"><thead><tr><th scope="col">Bug</th><th scope="col">O que acontecia</th><th scope="col">Como foi resolvido</th></tr></thead><tbody><tr><th scope="row">Filtro no Safari</th><td data-label="O que acontecia">As fotos em preto e branco eram salvas coloridas</td><td data-label="Como foi resolvido">O filtro passou a ser aplicado na própria imagem, pixel a pixel</td></tr><tr><th scope="row">Granulado no celular</th><td data-label="O que acontecia">Na prévia da câmera, o filtro se mexia e ficava forte demais</td><td data-label="Como foi resolvido">O efeito foi refeito pra ficar parado e mais leve</td></tr><tr><th scope="row">Imagens quebradas</th><td data-label="O que acontecia">Alguns desenhos do template não apareciam</td><td data-label="Como foi resolvido">Os arquivos SVG foram simplificados</td></tr></tbody></table></div>
+          </div>
+          <div class="cs-step-block">
+            <h3 class="ds-label" data-reveal>06. Iterações</h3>
+            <div class="cs-iter" data-reveal>
+              <div class="cs-iter-item"><figure class="cs-iter-phone cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar a câmera no celular"><img src="assets/cases/cabine/iter-camera.webp" width="588" height="1228" loading="lazy" decoding="async" alt="Câmera da cabine aberta no celular, com os filtros e o botão de tirar foto."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><div class="cs-head"><h4 class="ds-label">Durante o evento: fotos pelo celular</h4><p class="ds-body">Percebi que algumas pessoas poderiam não ir até a cabine, mas iam querer o template. O site passou a funcionar também no celular. Então espalhei o QR code para o site pelo local do evento.</p></div></div>
+              <div class="cs-iter-item"><figure class="cs-iter-phone cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar a escolha entre câmera e galeria"><img src="assets/cases/cabine/iter-escolha.webp" width="588" height="1228" loading="lazy" decoding="async" alt="Tela do celular com as opções Tirar foto e Selecionar da galeria."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><div class="cs-head"><h4 class="ds-label">Depois do evento: fotos da galeria</h4><p class="ds-body">O pessoal quis continuar usando o template com fotos que tinham tirado. Para isso, antes da câmera, entrou uma tela com duas opções: tirar foto ou selecionar da galeria. Quem escolhe a galeria recebe as fotos selecionadas nos templates de stories.</p></div></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="cs-section is-band" id="cb-resultado" aria-labelledby="cb-resultado-t">
+          <div class="container">
+            <div class="cs-result" data-reveal>
+              <div class="cs-head">
+                <h2 class="ds-section" id="cb-resultado-t">Resultado</h2>
+                <p class="cs-result-n">50+</p>
+                <p class="ds-body"><strong>Sessões de fotos no evento.</strong> Cada sessão é alguém que tirou (ou selecionou) fotos e recebeu o template de stories pronto, com a identidade da UXFor.</p>
+              </div>
+              <figure class="cs-result-img cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar o mosaico de stories"><img src="assets/cases/cabine/resultado-stories.webp" width="1489" height="1317" loading="lazy" decoding="async" alt="Mosaico de stories feitos na cabine, com os rostos desfocados."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure>
+            </div>
+          </div>
+        </section>
+
+        <section class="cs-section container" id="cb-aprendi" aria-labelledby="cb-aprendi-t">
+          <header class="cs-head" data-reveal><h2 class="ds-section" id="cb-aprendi-t">O que eu aprendi</h2></header>
+          <ol class="cs-numlist" data-reveal><li><span class="cs-numlist-n">01</span><p class="ds-body">A IA escreve o código, mas as decisões de design continuam sendo minhas. Fui eu que observei o que construir, como cada tela devia ser, quando algo estava errado e o que mudar depois que as pessoas usaram.</p></li><li><span class="cs-numlist-n">02</span><p class="ds-body">Um bom prompt parece um briefing. Cenário, quem usa, o que acontece e o resultado esperado. Quanto mais contexto, menos a IA precisa adivinhar.</p></li><li><span class="cs-numlist-n">03</span><p class="ds-body">Testar e corrigir após cada resposta.</p></li><li><span class="cs-numlist-n">04</span><p class="ds-body">A ideia funcionou por ser um projeto simples. Era um site pequeno, sem login e sem pagamento. Caso houvesse dados sensíveis, alguém que entende de código precisaria revisar o que a IA escreveu, principalmente por segurança.</p></li></ol>
+        </section>
+
+        <footer class="cs-end container">
+          <button class="btn btn-outline" type="button" data-case-close><i data-lucide="arrow-left" aria-hidden="true"></i>Voltar para os projetos</button>
+        </footer>
+      </div>
+    </article>
+  </div>
+
+  <!-- ================= Página do case 2: Meu Ônibus =================
+       Mesma estrutura e componentes do case 1. Telas de celular em fila no antes e depois.
+       Cor de destaque do projeto: #38C8C7 (.case--onibus em css/styles.css). -->
+  <div class="case-view case--onibus" id="case-onibus" role="dialog" aria-modal="true" aria-labelledby="case-onibus-title" hidden>
+    <div class="case-view-bg" aria-hidden="true"></div>
+    <div class="case-bar">
+      <div class="container case-bar-inner">
+        <button class="case-back case-bar-back" type="button" data-case-close><i data-lucide="arrow-left" aria-hidden="true"></i>Voltar</button>
+        <button class="btn btn-ghost btn-icon theme-toggle" type="button" aria-label="Ativar modo escuro">
+          <i data-lucide="moon" class="theme-icon is-moon" aria-hidden="true"></i>
+          <i data-lucide="sun" class="theme-icon is-sun" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+    <article class="case-view-scroll">
+      <div class="container case-page">
+        <div class="case-top" data-fade>
+          <button class="case-back" type="button" data-case-close>
+            <i data-lucide="arrow-left" aria-hidden="true"></i>
+            Voltar
+          </button>
+          <button class="btn btn-ghost btn-icon theme-toggle" type="button" aria-label="Ativar modo escuro">
+            <i data-lucide="moon" class="theme-icon is-moon" aria-hidden="true"></i>
+            <i data-lucide="sun" class="theme-icon is-sun" aria-hidden="true"></i>
+          </button>
+        </div>
+
+        <div class="cs-hero">
+          <div class="cs-hero-text">
+            <h1 class="case-page-title" id="case-onibus-title" data-flip="title">Redesenho do app de transporte público Meu Ônibus</h1>
+            <p class="ds-body case-page-lede" data-fade>Um redesign focado em repensar a experiência por completo, para atender às <strong>necessidades reais dos usuários.</strong></p>
+            <ul class="case-tags case-page-tags" aria-label="Tags" data-flip="tags">
+              <li>Mobile</li><li>Pesquisa com usuários</li>
+            </ul>
+          </div>
+          <figure class="case-hero-shot cs-hero-img" data-fade>
+            <div class="cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar a nova tela inicial e a carteira"><img src="assets/cases/onibus/hero-phones.webp" width="1697" height="1398" decoding="async" alt="Dois celulares com o app redesenhado: a tela inicial com o mapa e a parada mais próxima, e a carteira com os cartões de transporte."></div>
+          </figure>
+        </div>
+
+        <dl class="case-facts" data-fade>
+          <div><dt>Meu papel</dt><dd>UX/UI Designer</dd></div>
+          <div><dt>Tipo</dt><dd>Projeto pessoal</dd></div>
+          <div><dt>Período</dt><dd>3 meses</dd></div>
+        </dl>
+
+        <div class="case-role" data-fade>
+          <h2 class="ds-label">O que eu fiz</h2>
+          <p class="ds-body">Fiz a pesquisa com usuários, a persona e o mapa de jornada, e redesenhei os fluxos e as telas do app, dos rascunhos às telas finais.</p>
+        </div>
+      </div>
+
+      <!-- Roteiro: contexto → pesquisa → persona → problema → rascunhos e prioridades →
+           solução (antes e depois) → conclusão -->
+      <div class="cs-body">
+
+        <!-- Contexto -->
+        <section class="cs-section is-band" id="on-contexto" aria-labelledby="on-contexto-t">
+          <div class="container">
+            <header class="cs-head" data-reveal>
+              <h2 class="ds-section" id="on-contexto-t">Contexto</h2>
+              <p class="ds-body">O Meu Ônibus é o app do transporte coletivo de Fortaleza, feito para reunir num lugar só duas tarefas do dia a dia de quem anda de ônibus.</p>
+            </header>
+
+            <div class="cs-stack cs-context" data-reveal>
+              <div class="cs-head">
+                <h3 class="ds-label">O que o app faz</h3>
+                <ul class="cs-context-list">
+                  <li><h4 class="ds-label cs-icon-label"><i data-lucide="clock" aria-hidden="true"></i>Horários nas paradas</h4><p class="ds-body">Mostra em tempo real quando cada ônibus passa na parada.</p></li>
+                  <li><h4 class="ds-label cs-icon-label"><i data-lucide="credit-card" aria-hidden="true"></i>Recarga do cartão</h4><p class="ds-body">Recarrega o cartão de transporte sem ir a um posto.</p></li>
+                </ul>
+              </div>
+              <div class="cs-head">
+                <h3 class="ds-label">O que mudou</h3>
+                <ul class="cs-context-list">
+                  <li><h4 class="ds-label cs-icon-label"><i data-lucide="circle-alert" aria-hidden="true"></i>Problemas de uso</h4><p class="ds-body">Com o tempo, os fluxos ficaram confusos, as informações mal organizadas e a interface pouco intuitiva.</p></li>
+                  <li><h4 class="ds-label cs-icon-label"><i data-lucide="split" aria-hidden="true"></i>Dois apps</h4><p class="ds-body">As funções foram divididas: um app para consultar e recarregar os cartões e outro só para os horários.</p></li>
+                </ul>
+              </div>
+            </div>
+            <p class="ds-body cs-note" data-reveal>Este é um redesign não oficial, feito para estudo. Não tem ligação com o app nem com quem o desenvolve.</p>
+          </div>
+        </section>
+
+        <!-- Pesquisa -->
+        <section class="cs-section container" id="on-pesquisa" aria-labelledby="on-pesquisa-t">
+          <header class="cs-head" data-reveal>
+            <h2 class="ds-section" id="on-pesquisa-t">Pesquisa</h2>
+            <p class="ds-body">Uso o app no dia a dia, então comecei pela minha experiência. Depois fui ver se outros usuários passavam pelo mesmo.</p>
+          </header>
+          <div class="cs-stack" data-reveal>
+            <div class="cs-head">
+              <h3 class="ds-label">Avaliações nas lojas</h3>
+              <p class="ds-body">Analisei os comentários em destaque dos dois apps na App Store e na Play Store. Fiquei com os que explicavam onde o usuário travava e descartei os vagos, como "o app é ruim" ou "trava demais".</p>
+              <div class="cs-quotes">
+                <blockquote class="cs-quote">
+                  <p class="ds-body">"Ao abrir, poderia mostrar os pontos de ônibus e seus horários de forma rápida, mas exige vários cliques para visualizar as informações."</p>
+                  <footer><i data-lucide="star" aria-hidden="true"></i>1,0 · útil para 317 pessoas</footer>
+                </blockquote>
+                <blockquote class="cs-quote">
+                  <p class="ds-body">"A visualização do saldo é complicada, exigindo vários cliques, e a cor da fonte não contrasta bem com o fundo."</p>
+                  <footer><i data-lucide="star" aria-hidden="true"></i>1,0 · útil para 159 pessoas</footer>
+                </blockquote>
+              </div>
+            </div>
+            <div class="cs-head">
+              <h3 class="ds-label">Observação presencial</h3>
+              <p class="ds-body">5 pessoas usaram as principais funções do app enquanto eu observava, com este roteiro:</p>
+              <ol class="cs-list cs-questions">
+                                <li>Como é ver o horário do ônibus?</li>
+                <li>Como é ver o saldo do cartão de transporte?</li>
+                <li>Como é recarregar o cartão?</li>
+              </ol>
+            </div>
+          </div>
+          <div data-reveal>
+            <figure class="cs-diagram cs-diagram--research" data-viewer="diagram" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar o quadro da pesquisa presencial">
+              <img src="assets/cases/onibus/pesquisa-quadro.webp" width="3520" height="2188" loading="lazy" decoding="async" alt="Quadro da pesquisa presencial: cada pergunta do roteiro com as respostas dos participantes e as ideias de solução que surgiram.">
+              <span class="cs-expand" aria-hidden="true"><i data-lucide="maximize-2"></i></span>
+            </figure>
+            <p class="ds-body cs-cap">Em roxo, as respostas. Em verde, as ideias que surgiram.</p>
+          </div>
+        </section>
+
+        <!-- Persona -->
+        <section class="cs-section container" id="on-persona" aria-labelledby="on-persona-t">
+          <header class="cs-head" data-reveal>
+            <h2 class="ds-section" id="on-persona-t">Persona</h2>
+            <p class="ds-body">Criei a persona a partir da pesquisa, principalmente das sessões presenciais. Ela me ajudou a definir quais problemas priorizar.</p>
+          </header>
+          <div class="cs-personas" data-reveal>
+            <article class="cs-persona">
+              <div class="cs-persona-top">
+                <div class="cs-persona-id">
+                  <img class="cs-persona-photo" src="assets/cases/onibus/persona.webp" width="321" height="321" alt="Foto da persona Ana Carolina.">
+                  <div>
+                    <h3 class="ds-label">Ana Carolina, 20 anos</h3>
+                    <p class="ds-body">Estudante de Publicidade em Fortaleza · mora longe do centro · pega ônibus todo dia para a faculdade</p>
+                  </div>
+                </div>
+              </div>
+              <blockquote class="cs-persona-quote">
+                <p class="ds-body">"É tão frustrante quando o aplicativo diz que o ônibus está chegando e ele demora mais 20 minutos! (...) Imagine entrar no ônibus e descobrir que não tem crédito na carteirinha!"</p>
+              </blockquote>
+              <div class="cs-persona-cols cs-persona-cols--3">
+                <div>
+                  <h4 class="ds-label cs-icon-label"><i data-lucide="sparkles" aria-hidden="true"></i>Objetivos</h4>
+                  <ul class="cs-list">
+                    <li>ir e voltar da faculdade rápido, aproveitando o tempo</li>
+                    <li>ter horários e itinerários confiáveis para planejar o trajeto</li>
+                    <li>recarregar o cartão de forma prática, sem ir a um posto</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="ds-label cs-icon-label"><i data-lucide="frown" aria-hidden="true"></i>Frustrações</h4>
+                  <ul class="cs-list">
+                    <li>precisa de vários cliques para ver o saldo da carteirinha</li>
+                    <li>precisa sair do app e abrir outro para recarregar</li>
+                    <li>já confiou na previsão e o ônibus não apareceu ou demorou muito</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="ds-label cs-icon-label"><i data-lucide="smartphone" aria-hidden="true"></i>Comportamentos</h4>
+                  <ul class="cs-list">
+                    <li>usa o app todo dia para ver a previsão e planejar o trajeto</li>
+                    <li>prefere apps que economizam tempo e simplificam a rotina</li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- Mapa de jornada -->
+        <section class="cs-section container" id="on-jornada" aria-labelledby="on-jornada-t">
+          <header class="cs-head" data-reveal>
+            <h2 class="ds-section" id="on-jornada-t">Mapa de jornada</h2>
+            <p class="ds-body">O que o usuário faz, pensa e sente em cada etapa, e o que poderia melhorar.</p>
+          </header>
+          <div data-reveal>
+            <figure class="cs-diagram cs-diagram--journey" data-viewer="diagram" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar o mapa de jornada">
+              <img src="assets/cases/onibus/jornada.webp" width="3950" height="1920" loading="lazy" decoding="async" alt="Mapa de jornada em cinco etapas (abertura do app, localização da parada, consulta de horários, visualização do saldo e recarga), com o que o usuário faz, pensa, sente e as melhorias.">
+              <span class="cs-expand" aria-hidden="true"><i data-lucide="maximize-2"></i></span>
+            </figure>
+          </div>
+        </section>
+
+        <!-- Principais problemas -->
+        <section class="cs-section container" id="on-problema" aria-labelledby="on-problema-t">
+          <header class="cs-head" data-reveal>
+            <h2 class="ds-section" id="on-problema-t">Principais problemas</h2>
+            <p class="ds-body">Após passar por toda a etapa de pesquisa, consegui definir quais dores eram mais relevantes.</p>
+          </header>
+          <ol class="cs-decisions" data-reveal>
+            <li><h3 class="ds-label">01.&nbsp; Saldo e recarga</h3><p class="ds-body"><strong>Ver o saldo exige vários cliques</strong>, e o fluxo de recarga é demorado e confuso.</p></li>
+            <li><h3 class="ds-label">02.&nbsp; Divisão dos apps</h3><p class="ds-body">Para recarregar, o usuário <strong>precisa sair do Meu Ônibus e abrir outro app.</strong></p></li>
+            <li><h3 class="ds-label">03.&nbsp; Usabilidade e navegação</h3><p class="ds-body">Itinerários difíceis de encontrar, interface confusa e muitos cliques.</p></li>
+            <li><h3 class="ds-label">04.&nbsp; Design e acessibilidade</h3><p class="ds-body">Pouco contraste e texto com cor parecida com a do fundo, difícil de ler para idosos e pessoas com baixa visão.</p></li>
+          </ol>
+        </section>
+
+        <!-- Wireframes -->
+        <section class="cs-section is-band" id="on-rascunhos" aria-labelledby="on-rascunhos-t">
+          <div class="container">
+            <header class="cs-head" data-reveal>
+              <h2 class="ds-section" id="on-rascunhos-t">Wireframes</h2>
+              <p class="ds-body">Desenhei os novos fluxos à mão antes de ir para o Figma.</p>
+            </header>
+            <ol class="cs-decisions" data-reveal>
+              <li><h3 class="ds-label">01.&nbsp; Menos cliques no fluxo antigo</h3><p class="ds-body">Revisitei o fluxo antigo para encurtá-lo e deixar as tarefas <strong>mais simples.</strong></p></li>
+              <li><h3 class="ds-label">02.&nbsp; Saldo e recarga primeiro</h3><p class="ds-body">Priorizei <strong>a consulta do saldo e a recarga</strong>: ver o saldo exigia vários cliques, e recarregar exigia outro app.</p></li>
+            </ol>
+            <div data-reveal>
+              <figure class="cs-diagram cs-diagram--sketch" data-viewer="diagram" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar os wireframes">
+                <img src="assets/cases/onibus/rascunhos.webp" width="3898" height="1462" loading="lazy" decoding="async" alt="Wireframes à mão dos novos fluxos: tela inicial com saldo e busca, pesquisa e resultado da linha, e recarga com valores e formas de pagamento.">
+                <span class="cs-expand" aria-hidden="true"><i data-lucide="maximize-2"></i></span>
+              </figure>
+            </div>
+          </div>
+        </section>
+
+        <!-- Solução: antes e depois, com as telas do fluxo em fila -->
+        <section class="cs-section cs-solution" id="on-solucao" aria-labelledby="on-solucao-t">
+          <header class="container cs-head" data-reveal>
+            <h2 class="ds-section" id="on-solucao-t">Resultado</h2>
+            <p class="ds-body">O antes e depois de cada fluxo.</p>
+          </header>
+          <div class="cs-steps">
+            <article class="cs-step">
+              <header class="cs-step-head"><div class="container"><h3 class="ds-section">01&nbsp; Início</h3><span class="ds-section">Antes</span></div></header>
+              <div class="container cs-step-body cs-step-body--phones"><div class="cs-step-grid" data-n="2"><div class="cs-phones"><figure class="cs-phone cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar: tela inicial antiga, mapa afastado"><img src="assets/cases/onibus/inicio-antes-1.webp" width="591" height="1280" loading="lazy" decoding="async" alt="App antigo ao abrir: mapa da América do Sul, muito afastado da cidade."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><figure class="cs-phone cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar: tela inicial antiga, mapa cheio de marcadores"><img src="assets/cases/onibus/inicio-antes-2.webp" width="591" height="1280" loading="lazy" decoding="async" alt="App antigo com zoom no mapa: dezenas de marcadores de ônibus sobrepostos."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure></div>
+                <div class="cs-step-text"><ul class="cs-list"><li>Ao abrir o app, o mapa aparece longe da cidade. É preciso dar zoom até o círculo para ver as paradas próximas.</li><li>Com o zoom, são tantos marcadores que o mapa fica confuso.</li></ul></div></div></div>
+            </article>
+            <article class="cs-step">
+              <header class="cs-step-head"><div class="container"><h3 class="ds-section">01&nbsp; Início</h3><span class="ds-section">Depois</span></div></header>
+              <div class="container cs-step-body cs-step-body--phones"><div class="cs-step-grid" data-n="1"><div class="cs-phones"><figure class="cs-phone cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar: nova tela inicial"><img src="assets/cases/onibus/inicio-depois.webp" width="786" height="1704" loading="lazy" decoding="async" alt="Nova tela inicial: saldo da carteirinha no topo, busca e mapa com a parada mais próxima, as linhas e o tempo até cada ônibus chegar."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure></div>
+                <div class="cs-step-text"><p class="ds-body">O app já abre na parada mais próxima, com as linhas que passam nela e quanto tempo falta para cada ônibus.</p><p class="ds-body cs-highlight"><i data-lucide="star" aria-hidden="true"></i><span>O saldo do cartão principal fica no topo da tela inicial, sem nenhum clique.</span></p></div></div></div>
+            </article>
+            <article class="cs-step">
+              <header class="cs-step-head"><div class="container"><h3 class="ds-section">02&nbsp; Pesquisa</h3><span class="ds-section">Antes</span></div></header>
+              <div class="container cs-step-body cs-step-body--phones"><div class="cs-step-grid" data-n="4"><div class="cs-phones"><figure class="cs-phone cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar: busca antiga com resultados errados"><img src="assets/cases/onibus/pesquisa-antes-1.webp" width="739" height="1600" loading="lazy" decoding="async" alt="Busca antiga pelo número 029 trazendo resultados de outros lugares do mundo."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><figure class="cs-phone cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar: busca antiga sem o campo de pesquisa"><img src="assets/cases/onibus/pesquisa-antes-2.webp" width="739" height="1600" loading="lazy" decoding="async" alt="Busca antiga em que o campo some ao digitar."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><figure class="cs-phone cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar: escolha do sentido da linha"><img src="assets/cases/onibus/pesquisa-antes-3.webp" width="720" height="1561" loading="lazy" decoding="async" alt="Modal Escolha o trajeto, para escolher o sentido da linha."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><figure class="cs-phone cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar: linha no mapa com pouco contraste"><img src="assets/cases/onibus/pesquisa-antes-4.webp" width="720" height="1561" loading="lazy" decoding="async" alt="Linha no mapa com pouco contraste e a lista de ônibus abaixo."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure></div>
+                <div class="cs-step-text"><ul class="cs-list"><li>A pesquisa falha se o filtro certo não for escolhido antes. Pesquisei o número da linha com o filtro "Local" marcado e não achei nada.</li><li>O campo de pesquisa some ao digitar.</li><li>Depois de escolher um sentido, é preciso pesquisar tudo de novo para trocar.</li><li>O contraste é ruim, e os marcadores do mapa abrem a mesma tela em qualquer filtro.</li></ul></div></div></div>
+            </article>
+            <article class="cs-step">
+              <header class="cs-step-head"><div class="container"><h3 class="ds-section">02&nbsp; Pesquisa</h3><span class="ds-section">Depois</span></div></header>
+              <div class="container cs-step-body cs-step-body--phones"><div class="cs-step-grid" data-n="3"><div class="cs-phones"><figure class="cs-phone cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar: pesquisa por linhas"><img src="assets/cases/onibus/pesquisa-linhas.webp" width="786" height="1704" loading="lazy" decoding="async" alt="Nova pesquisa na aba Linhas, com linhas sugeridas."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><figure class="cs-phone cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar: pesquisa por paradas"><img src="assets/cases/onibus/pesquisa-paradas.webp" width="786" height="1704" loading="lazy" decoding="async" alt="Nova pesquisa na aba Paradas, com paradas sugeridas e as linhas de cada uma."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><figure class="cs-phone cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar: pesquisa por viagem"><img src="assets/cases/onibus/pesquisa-viagem.webp" width="786" height="1704" loading="lazy" decoding="async" alt="Nova pesquisa na aba Viagem, com origem, destino e as combinações de linhas."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure></div>
+                <div class="cs-step-text"><ul class="cs-list"><li>Linhas, paradas e viagem viraram abas da mesma pesquisa, e cada uma já mostra sugestões antes de digitar.</li><li>Na aba Viagem, o usuário informa onde está e para onde vai e vê as combinações de linhas com o tempo total.</li></ul></div></div></div>
+            </article>
+            <article class="cs-step">
+              <header class="cs-step-head"><div class="container"><h3 class="ds-section">02.1&nbsp; Resultados da pesquisa</h3><span class="ds-section">Depois</span></div></header>
+              <div class="container cs-step-body cs-step-body--phones"><div class="cs-step-grid" data-n="3"><div class="cs-phones"><figure class="cs-phone cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar: itinerário da linha"><img src="assets/cases/onibus/linha.webp" width="786" height="1704" loading="lazy" decoding="async" alt="Itinerário da linha Náutico com todas as paradas e o botão Trocar sentido."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><figure class="cs-phone cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar: linhas de uma parada"><img src="assets/cases/onibus/parada.webp" width="786" height="1704" loading="lazy" decoding="async" alt="Parada Avenida 13 de maio com todas as linhas e o tempo de cada uma."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><figure class="cs-phone cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar: trajeto da viagem"><img src="assets/cases/onibus/viagem.webp" width="786" height="1704" loading="lazy" decoding="async" alt="Trajeto da viagem no mapa, com horário de chegada e onde descer."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure></div>
+                <div class="cs-step-text"><ul class="cs-list"><li>A linha mostra o itinerário inteiro, e dá para trocar o sentido na mesma tela.</li><li>A parada mostra todas as linhas que passam nela e quanto falta para cada uma.</li><li>A viagem mostra o trajeto no mapa, o horário de chegada e onde descer.</li></ul></div></div></div>
+            </article>
+            <article class="cs-step">
+              <header class="cs-step-head"><div class="container"><h3 class="ds-section">03&nbsp; Saldo e recarga</h3><span class="ds-section">Antes</span></div></header>
+              <div class="container cs-step-body cs-step-body--phones"><div class="cs-step-grid" data-n="4"><div class="cs-phones"><figure class="cs-phone cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar: aviso de saída para outro app"><img src="assets/cases/onibus/recarga-antes-1.webp" width="739" height="1600" loading="lazy" decoding="async" alt="Aviso do app antigo dizendo que o usuário será levado para outro ambiente para recarregar."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><figure class="cs-phone cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar: app de recarga"><img src="assets/cases/onibus/recarga-antes-2.webp" width="739" height="1600" loading="lazy" decoding="async" alt="Tela inicial do app de recarga, com vários botões de cartão e de QR Code."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><figure class="cs-phone cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar: escolha do cartão"><img src="assets/cases/onibus/recarga-antes-3.webp" width="739" height="1600" loading="lazy" decoding="async" alt="Lista de cartões que precisa ser escolhida antes de ver o saldo. Nomes e números borrados."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><figure class="cs-phone cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar: saldo no fim da tela"><img src="assets/cases/onibus/recarga-antes-4.webp" width="739" height="1600" loading="lazy" decoding="async" alt="Tela do cartão com o saldo no fim, depois de três botões. Número borrado."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure></div>
+                <div class="cs-step-text"><ul class="cs-list"><li>Para recarregar, o usuário saía do Meu Ônibus e precisava usar outro app.</li><li>Mesmo no app de recarga, o saldo ficava escondido entre vários botões.</li><li>Era preciso escolher o cartão antes de ver o saldo, um clique a mais.</li><li>O saldo, que é a informação mais procurada, ficava no fim da tela.</li></ul></div></div></div>
+            </article>
+            <article class="cs-step">
+              <header class="cs-step-head"><div class="container"><h3 class="ds-section">03&nbsp; Carteira</h3><span class="ds-section">Depois</span></div></header>
+              <div class="container cs-step-body cs-step-body--phones"><div class="cs-step-grid" data-n="1"><div class="cs-phones"><figure class="cs-phone cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar: nova carteira"><img src="assets/cases/onibus/carteira.webp" width="786" height="1704" loading="lazy" decoding="async" alt="Nova carteira com a carteirinha de estudante e o vale transporte, o saldo de cada um e o botão Recarregar."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure></div>
+                <div class="cs-step-text"><p class="ds-body">A carteira reúne os cartões de transporte, cada um com o saldo e o botão de recarregar.</p><p class="ds-body cs-highlight"><i data-lucide="star" aria-hidden="true"></i><span>O usuário escolhe o cartão que mais consulta, e o saldo dele passa a aparecer na tela inicial.</span></p></div></div></div>
+            </article>
+            <article class="cs-step cs-step--free">
+              <header class="cs-step-head"><div class="container"><h3 class="ds-section">03.1&nbsp; Recarga</h3><span class="ds-section">Depois</span></div></header>
+              <div class="container cs-step-body cs-step-body--phones"><div class="cs-step-grid" data-n="3"><div class="cs-phones"><figure class="cs-phone cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar: nova recarga em uma tela"><img src="assets/cases/onibus/recarga-completa.webp" width="786" height="2104" loading="lazy" decoding="async" alt="Nova recarga em uma tela: valores sugeridos, outro valor, formas de pagamento e recarga automática."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><figure class="cs-phone cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar: recarga automática"><img src="assets/cases/onibus/recarga-auto.webp" width="786" height="1914" loading="lazy" decoding="async" alt="Recarga automática ligada, com os cartões de crédito cadastrados."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><figure class="cs-phone cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar: pagamento confirmado"><img src="assets/cases/onibus/recarga-ok.webp" width="786" height="1704" loading="lazy" decoding="async" alt="Tela de pagamento confirmado."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure></div>
+                <div class="cs-step-text"><p class="ds-body cs-highlight"><i data-lucide="star" aria-hidden="true"></i><span>Todo o fluxo de recarga em uma tela só, dentro do Meu Ônibus: valor, forma de pagamento e confirmação.</span></p><p class="ds-body cs-highlight"><i data-lucide="star" aria-hidden="true"></i><span>Recarga automática: o usuário cadastra um cartão de crédito, e o cartão de transporte é recarregado sozinho quando o saldo fica menor que uma passagem.</span></p></div></div></div>
+            </article>
+          </div>
+        </section>
+
+        <!-- O que mudou no uso do app -->
+        <section class="cs-section container" id="on-mudou" aria-labelledby="on-mudou-t">
+          <header class="cs-head" data-reveal>
+            <h2 class="ds-section" id="on-mudou-t">O que mudou no uso do app</h2>
+          </header>
+          <div class="cs-table-wrap" data-reveal>
+              <table class="cs-table" aria-labelledby="on-mudou-t">
+                <thead><tr><th scope="col">Tarefa</th><th scope="col">Antes</th><th scope="col">Depois</th></tr></thead>
+                <tbody>
+                  <tr><th scope="row">Ver o saldo</th><td data-label="Antes">No mínimo 3 a 4 etapas, em outro app, com o saldo no fim da tela</td><td data-label="Depois"><strong>Na tela inicial, sem nenhum clique</strong></td></tr>
+                  <tr><th scope="row">Recarregar o cartão</th><td data-label="Antes">Sair do Meu Ônibus e usar outro app</td><td data-label="Depois"><strong>Numa tela só, dentro do app, com opção de recarga automática</strong></td></tr>
+                  <tr><th scope="row">Achar a parada mais próxima</th><td data-label="Antes">Dar zoom no mapa até encontrar as paradas</td><td data-label="Depois">O app já abre na parada mais próxima, com o tempo de cada ônibus</td></tr>
+                  <tr><th scope="row">Pesquisar uma linha</th><td data-label="Antes">Falhava sem o filtro certo, e o campo sumia ao digitar</td><td data-label="Depois">Abas de linhas, paradas e viagem, com sugestões antes de digitar</td></tr>
+                  <tr><th scope="row">Trocar o sentido</th><td data-label="Antes">Refazer a pesquisa inteira</td><td data-label="Depois">Um botão na própria tela da linha</td></tr>
+                </tbody>
+              </table>
+          </div>
+        </section>
+
+        <!-- Conclusão -->
+        <section class="cs-section is-band" id="on-conclusao" aria-labelledby="on-conclusao-t">
+          <div class="container">
+            <header class="cs-head" data-reveal>
+              <h2 class="ds-section" id="on-conclusao-t">Conclusão</h2>
+              <p class="ds-body">Ouvir e observar outros usuários foi essencial para propor soluções assertivas, antes de supor qualquer coisa.</p>
+            </header>
+          </div>
+        </section>
+
+        <footer class="cs-end container">
+          <button class="btn btn-outline" type="button" data-case-close><i data-lucide="arrow-left" aria-hidden="true"></i>Voltar para os projetos</button>
+        </footer>
+      </div>
+    </article>
+  </div>
+
+<!--BODY-END-->
+
+  <script src="https://cdn.jsdelivr.net/npm/lucide@1.48.0/dist/umd/lucide.min.js"></script>
+  <script src="js/vendor/lenis.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/grid-trail.js"></script>
+  <script src="js/case-view.js"></script>
+  <script src="js/case-page.js"></script>
+  <script src="js/viewer.js"></script>
+</body>
+</html>

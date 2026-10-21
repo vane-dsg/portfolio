@@ -1,0 +1,157 @@
+<!-- =========================================================
+     Case: cabine
+     Este arquivo tem duas partes:
+     1. @card   → o card do case na pilha da home
+     2. @pagina → a página do case (abre ao clicar no card)
+     Depois de editar, rode: node build.mjs
+     ========================================================= -->
+
+<!-- @card -->
+          <li class="deck-item case--cabine">
+            <button class="case-tab" type="button" tabindex="-1" aria-hidden="true"><span class="tab-fl"></span><i data-lucide="user" class="case-tab-ic"></i><span class="case-tab-text">Cabine de fotos</span></button>
+            <a class="case-card case--cabine" href="#case-cabine" data-case="case-cabine" data-cursor="Ver case">
+              <div class="case-panel">
+                <h3 class="case-title">Cabine de fotos para um evento de design</h3>
+                <p class="case-desc">Criei com IA, sem programar, uma cabine que funcionou sozinha no evento e gerou <strong>mais de 50 sessões de fotos.</strong></p>
+                <ul class="case-tags" aria-label="Tags">
+                  <li>Design com IA</li><li>Projeto voluntário</li>
+                </ul>
+                <span class="btn btn-outline case-btn">Ver case <i data-lucide="arrow-right" aria-hidden="true"></i></span>
+              </div>
+              <div class="case-visual">
+                <div class="case-mock case-mock--back mock-phone mock-phone--shot" aria-hidden="true">
+                  <img src="assets/cases/cabine/celular-camera.webp" width="590" height="1278" alt="" decoding="async">
+                </div>
+                <div class="case-mock mock-phone mock-phone--shot" aria-hidden="true">
+                  <img src="assets/cases/cabine/celular-templates.webp" width="590" height="1278" alt="" decoding="async">
+                </div>
+              </div>
+            </a>
+          </li>
+
+<!-- @pagina -->
+  <!-- ================= Página do case: Cabine de fotos da UXFor ================= -->
+  <div class="case-view case--cabine" id="case-cabine" role="dialog" aria-modal="true" aria-labelledby="case-cabine-title" hidden>
+    <div class="case-view-bg" aria-hidden="true"></div>
+    <div class="case-bar">
+      <div class="container case-bar-inner">
+        <button class="case-back case-bar-back" type="button" data-case-close><i data-lucide="arrow-left" aria-hidden="true"></i>Voltar</button>
+        <button class="btn btn-ghost btn-icon theme-toggle" type="button" aria-label="Ativar modo escuro">
+          <i data-lucide="moon" class="theme-icon is-moon" aria-hidden="true"></i>
+          <i data-lucide="sun" class="theme-icon is-sun" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+    <article class="case-view-scroll">
+      <div class="container case-page">
+        <div class="case-top" data-fade>
+          <button class="case-back" type="button" data-case-close><i data-lucide="arrow-left" aria-hidden="true"></i>Voltar</button>
+          <button class="btn btn-ghost btn-icon theme-toggle" type="button" aria-label="Ativar modo escuro">
+            <i data-lucide="moon" class="theme-icon is-moon" aria-hidden="true"></i>
+            <i data-lucide="sun" class="theme-icon is-sun" aria-hidden="true"></i>
+          </button>
+        </div>
+
+        <div class="cs-hero">
+          <div class="cs-hero-text">
+            <h1 class="case-page-title" id="case-cabine-title" data-flip="title">Cabine de fotos para um evento de design</h1>
+            <p class="ds-body case-page-lede" data-fade>Criei uma experiência de cabine de fotos com IA, da concepção visual à experiência funcional, em apenas um dia e sem escrever uma linha de código.</p>
+            <ul class="case-tags case-page-tags" aria-label="Tags" data-flip="tags"><li>Design com IA</li><li>Projeto voluntário</li></ul>
+          </div>
+          <figure class="case-hero-shot cs-hero-img" data-fade>
+            <div class="cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar a cabine no notebook e no celular"><img src="assets/cases/cabine/hero.webp" width="2131" height="1265" decoding="async" alt="Notebook com a tela Suas fotos estão prontas e o QR code, ao lado de um celular com os templates de stories."></div>
+          </figure>
+        </div>
+
+        <dl class="case-facts" data-fade>
+          <div><dt>Meu papel</dt><dd>Ideia, fluxo, UX/UI e direção do desenvolvimento com IA</dd></div>
+          <div><dt>Ferramentas</dt><dd>Figma, Claude, VS Code, Supabase e GitHub Pages</dd></div>
+          <div><dt>Tipo de projeto</dt><dd>Trabalho voluntário</dd></div>
+        </dl>
+      </div>
+
+      <div class="cs-body">
+
+        <section class="cs-section container" id="cb-objetivo" aria-labelledby="cb-objetivo-t">
+          <header class="cs-head" data-fade>
+            <h2 class="ds-section" id="cb-objetivo-t">Objetivo</h2>
+            <p class="ds-body">Fui a um evento que aconteceu no mesmo espaço que o evento da comunidade iria acontecer uma semana depois, lá tinha uma cabine de estudos individual, e a gente pensou: por que não utilizar esse espaço para fazer uma cabine de fotos pro nosso evento?</p>
+          </header>
+          <ol class="cs-numlist" data-fade><li><span class="cs-numlist-n">01</span><p class="ds-body">Possibilitar que os participantes registrassem o evento com uma <strong>experiência diferente e divertida.</strong></p></li><li><span class="cs-numlist-n">02</span><p class="ds-body">Cada <strong>stories postado</strong> levaria a identidade visual do evento e o <a class="cs-inline-link" href="https://www.instagram.com/uxfor.br/" target="_blank" rel="noopener">@uxfor.br</a>.</p></li></ol>
+        </section>
+
+        <section class="cs-section is-band" id="cb-desafios" aria-labelledby="cb-desafios-t">
+          <div class="container">
+            <header class="cs-head" data-reveal><h2 class="ds-section" id="cb-desafios-t">Desafios</h2></header>
+            <ul class="cs-cols cs-effects" data-reveal><li><h3 class="ds-label">Uso rápido e sem instrução</h3><p class="ds-body">A pessoa chega, tira as fotos e vai embora. A aplicação precisava ser fácil e intuitiva.</p></li><li><h3 class="ds-label">Envio para o celular</h3><p class="ds-body">As fotos tinham que sair do notebook e chegar no celular de cada pessoa, prontas pra postar.</p></li><li><h3 class="ds-label">Sem orçamento</h3><p class="ds-body">Projeto voluntário, sem orçamento para ferramentas pagas de hospedagem.</p></li></ul>
+          </div>
+        </section>
+
+        <section class="cs-section container" id="cb-processo" aria-labelledby="cb-processo-t">
+          <header class="cs-head" data-reveal><h2 class="ds-section" id="cb-processo-t">Processo</h2></header>
+          <div class="cs-step-block">
+            <h3 class="ds-label" data-reveal>01. Comecei pelo problema</h3>
+            <p class="ds-body" data-reveal>Antes de qualquer tela, escrevi para a IA como se fosse um briefing: o cenário (um notebook numa cabine, durante um evento), quem ia usar, o que acontecia passo a passo e o que a pessoa levava no final. Com esse contexto, a IA precisou adivinhar menos e perguntou o que faltava.</p>
+            <div class="cs-chat" data-reveal>
+              <div class="cs-chat-row"><img class="cs-chat-av" src="assets/avatar-pb.webp" width="48" height="48" alt=""><div class="cs-chat-body"><h4 class="ds-label">O que eu disse</h4><blockquote class="cs-chat-prompt ds-body">
+                  <p>quero fazer uma aplicação que vai servir para o seguinte cenário:</p>
+                  <ul><li>vou deixar meu notebook disponível em uma cabine durante um evento para as pessoas entrarem nela para tirar fotos</li><li>ao entrar na cabine vai clicar em tirar foto</li><li>o comportamento da tela deve se assemelhar à uma cabine de fotos real</li></ul>
+                  <ol><li>Irá aparecer um contador de 3 segundos para a pessoa se preparar para tirar a foto</li><li>isso irá se repetir 3 vezes (3 fotos)</li><li>o sistema, ao tirar as 3 fotos, vai disponibilizar um qr code na tela, que poderá ser lido com o celular</li><li>ao abrir o qr code pelo celular, as fotos aparecem dentro do template que vou fazer (template já feito para colocar no story do instagram) e as fotos separadas também (fotos individuais)</li></ol>
+                  <p>minhas perguntas antes de começar esse projeto:</p>
+                  <ol><li>como fazer essa integração entre o sistema que vai rodar no web e no mobile</li><li>posso deixar a aplicação só local? ou seria interessante hospedar em algum lugar? (pensei no github)</li></ol>
+                </blockquote></div></div>
+              <div class="cs-chat-row"><span class="cs-chat-av cs-chat-av--claude"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m4.7144 15.9555 4.7174-2.6471.079-.2307-.079-.1275h-.2307l-.7893-.0486-2.6956-.0729-2.3375-.0971-2.2646-.1214-.5707-.1215-.5343-.7042.0546-.3522.4797-.3218.686.0608 1.5179.1032 2.2767.1578 1.6514.0972 2.4468.255h.3886l.0546-.1579-.1336-.0971-.1032-.0972L6.973 9.8356l-2.55-1.6879-1.3356-.9714-.7225-.4918-.3643-.4614-.1578-1.0078.6557-.7225.8803.0607.2246.0607.8925.686 1.9064 1.4754 2.4893 1.8336.3643.3035.1457-.1032.0182-.0728-.164-.2733-1.3539-2.4467-1.445-2.4893-.6435-1.032-.17-.6194c-.0607-.255-.1032-.4674-.1032-.7285L6.287.1335 6.6997 0l.9957.1336.419.3642.6192 1.4147 1.0018 2.2282 1.5543 3.0296.4553.8985.2429.8318.091.255h.1579v-.1457l.1275-1.706.2368-2.0947.2307-2.6957.0789-.7589.3764-.9107.7468-.4918.5828.2793.4797.686-.0668.4433-.2853 1.8517-.5586 2.9021-.3643 1.9429h.2125l.2429-.2429.9835-1.3053 1.6514-2.0643.7286-.8196.85-.9046.5464-.4311h1.0321l.759 1.1293-.34 1.1657-1.0625 1.3478-.8804 1.1414-1.2628 1.7-.7893 1.36.0729.1093.1882-.0183 2.8535-.607 1.5421-.2794 1.8396-.3157.8318.3886.091.3946-.3278.8075-1.967.4857-2.3072.4614-3.4364.8136-.0425.0304.0486.0607 1.5482.1457.6618.0364h1.621l3.0175.2247.7892.522.4736.6376-.079.4857-1.2142.6193-1.6393-.3886-3.825-.9107-1.3113-.3279h-.1822v.1093l1.0929 1.0686 2.0035 1.8092 2.5075 2.3314.1275.5768-.3218.4554-.34-.0486-2.2039-1.6575-.85-.7468-1.9246-1.621h-.1275v.17l.4432.6496 2.3436 3.5214.1214 1.0807-.17.3521-.6071.2125-.6679-.1214-1.3721-1.9246L14.38 17.959l-1.1414-1.9428-.1397.079-.674 7.2552-.3156.3703-.7286.2793-.6071-.4614-.3218-.7468.3218-1.4753.3886-1.9246.3157-1.53.2853-1.9004.17-.6314-.0121-.0425-.1397.0182-1.4328 1.9672-2.1796 2.9446-1.7243 1.8456-.4128.164-.7164-.3704.0667-.6618.4008-.5889 2.386-3.0357 1.4389-1.882.929-1.0868-.0062-.1579h-.0546l-6.3385 4.1164-1.1293.1457-.4857-.4554.0608-.7467.2307-.2429 1.9064-1.3114Z"/></svg></span><div class="cs-chat-body"><h4 class="ds-label">O que o Claude respondeu</h4><p class="ds-body">Com base no meu prompt, ele me orientou sobre toda a arquitetura da solução: fluxo inicial, como integrar a cabine web ao celular via QR Code, hospedar a aplicação, armazenar e disponibilizar as fotos na nuvem, além de antecipar limitações técnicas, riscos e estados de erro. Tudo isso antes de escrever qualquer código.</p></div></div>
+            </div>
+          </div>
+          <div class="cs-step-block">
+            <h3 class="ds-label" data-reveal>02. Design no Figma</h3>
+            <p class="ds-body" data-reveal>Com base no fluxo que o Claude me entregou, desenhei a tela de espera, a câmera, a tela do QR code e a página do celular com a identidade visual do evento. Depois mandei os links dos frames para a IA e pedi que ela construísse seguindo esse layout.</p>
+            <div class="cs-media" data-reveal><figure class="cs-shot cs-shot--flat cs-shot--figma cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar as telas no Figma"><img src="assets/cases/cabine/figma-frames.webp" width="2198" height="893" loading="lazy" decoding="async" alt="Telas desenhadas no Figma: tela de espera, câmera, contagem, fotos prontas com o QR code e as telas do celular."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure></div>
+          </div>
+          <div class="cs-step-block">
+            <h3 class="ds-label" data-reveal>03. Decidir como construir</h3>
+            <p class="ds-body" data-reveal>Eu não conhecia as ferramentas, então em cada decisão pedi para a IA me mostrar as opções e o que mudava em cada uma. A escolha final foi minha.</p>
+            <div class="cs-table-wrap cs-table-wrap--3" data-reveal><table class="cs-table cs-table--3" aria-label="Decisões de construção"><thead><tr><th scope="col">Decisão</th><th scope="col">Escolha</th><th scope="col">Por quê</th></tr></thead><tbody><tr><th scope="row">Onde fazer o código</th><td data-label="Escolha">Pasta no VS Code, com HTML, CSS e JavaScript, sem framework</td><td data-label="Por quê">Um site pequeno, que eu conseguia abrir e testar sozinha</td></tr><tr><th scope="row">Onde guardar as fotos</th><td data-label="Escolha">Supabase</td><td data-label="Por quê">Gratuito e com armazenamento suficiente para o evento.</td></tr><tr><th scope="row">Onde publicar</th><td data-label="Escolha">GitHub Pages</td><td data-label="Por quê">Grátis e com https, que a câmera exige</td></tr></tbody></table></div>
+          </div>
+          <div class="cs-step-block">
+            <h3 class="ds-label" data-reveal>04. Desenvolvimento</h3>
+            <p class="ds-body" data-reveal>Conectei a pasta do projeto ao Claude, e ele criou e editou os arquivos lá dentro. Meu trabalho foi um ciclo: pedir, testar no VS Code e voltar dizendo o que estava certo e o que precisava mudar. No Supabase, mandava print de cada etapa caso eu travasse. Aprendi o que é um bucket, pra que serve uma regra de acesso e qual chave pode ficar no código.</p>
+          </div>
+          <div class="cs-step-block">
+            <h3 class="ds-label" data-reveal>05. Testes e bugs</h3>
+            <p class="ds-body" data-reveal>Nada saiu perfeito de primeira. Para cada bug, eu dizia à IA o que aconteceu, onde aconteceu e mandava um print.</p>
+            <div class="cs-table-wrap cs-table-wrap--3" data-reveal><table class="cs-table cs-table--3" aria-label="Bugs encontrados nos testes"><thead><tr><th scope="col">Bug</th><th scope="col">O que acontecia</th><th scope="col">Como foi resolvido</th></tr></thead><tbody><tr><th scope="row">Filtro no Safari</th><td data-label="O que acontecia">As fotos em preto e branco eram salvas coloridas</td><td data-label="Como foi resolvido">O filtro passou a ser aplicado na própria imagem, pixel a pixel</td></tr><tr><th scope="row">Granulado no celular</th><td data-label="O que acontecia">Na prévia da câmera, o filtro se mexia e ficava forte demais</td><td data-label="Como foi resolvido">O efeito foi refeito pra ficar parado e mais leve</td></tr><tr><th scope="row">Imagens quebradas</th><td data-label="O que acontecia">Alguns desenhos do template não apareciam</td><td data-label="Como foi resolvido">Os arquivos SVG foram simplificados</td></tr></tbody></table></div>
+          </div>
+          <div class="cs-step-block">
+            <h3 class="ds-label" data-reveal>06. Iterações</h3>
+            <div class="cs-iter" data-reveal>
+              <div class="cs-iter-item"><figure class="cs-iter-phone cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar a câmera no celular"><img src="assets/cases/cabine/iter-camera.webp" width="588" height="1228" loading="lazy" decoding="async" alt="Câmera da cabine aberta no celular, com os filtros e o botão de tirar foto."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><div class="cs-head"><h4 class="ds-label">Durante o evento: fotos pelo celular</h4><p class="ds-body">Percebi que algumas pessoas poderiam não ir até a cabine, mas iam querer o template. O site passou a funcionar também no celular. Então espalhei o QR code para o site pelo local do evento.</p></div></div>
+              <div class="cs-iter-item"><figure class="cs-iter-phone cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar a escolha entre câmera e galeria"><img src="assets/cases/cabine/iter-escolha.webp" width="588" height="1228" loading="lazy" decoding="async" alt="Tela do celular com as opções Tirar foto e Selecionar da galeria."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><div class="cs-head"><h4 class="ds-label">Depois do evento: fotos da galeria</h4><p class="ds-body">O pessoal quis continuar usando o template com fotos que tinham tirado. Para isso, antes da câmera, entrou uma tela com duas opções: tirar foto ou selecionar da galeria. Quem escolhe a galeria recebe as fotos selecionadas nos templates de stories.</p></div></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="cs-section is-band" id="cb-resultado" aria-labelledby="cb-resultado-t">
+          <div class="container">
+            <div class="cs-result" data-reveal>
+              <div class="cs-head">
+                <h2 class="ds-section" id="cb-resultado-t">Resultado</h2>
+                <p class="cs-result-n">50+</p>
+                <p class="ds-body"><strong>Sessões de fotos no evento.</strong> Cada sessão é alguém que tirou (ou selecionou) fotos e recebeu o template de stories pronto, com a identidade da UXFor.</p>
+              </div>
+              <figure class="cs-result-img cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar o mosaico de stories"><img src="assets/cases/cabine/resultado-stories.webp" width="1489" height="1317" loading="lazy" decoding="async" alt="Mosaico de stories feitos na cabine, com os rostos desfocados."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure>
+            </div>
+          </div>
+        </section>
+
+        <section class="cs-section container" id="cb-aprendi" aria-labelledby="cb-aprendi-t">
+          <header class="cs-head" data-reveal><h2 class="ds-section" id="cb-aprendi-t">O que eu aprendi</h2></header>
+          <ol class="cs-numlist" data-reveal><li><span class="cs-numlist-n">01</span><p class="ds-body">A IA escreve o código, mas as decisões de design continuam sendo minhas. Fui eu que observei o que construir, como cada tela devia ser, quando algo estava errado e o que mudar depois que as pessoas usaram.</p></li><li><span class="cs-numlist-n">02</span><p class="ds-body">Um bom prompt parece um briefing. Cenário, quem usa, o que acontece e o resultado esperado. Quanto mais contexto, menos a IA precisa adivinhar.</p></li><li><span class="cs-numlist-n">03</span><p class="ds-body">Testar e corrigir após cada resposta.</p></li><li><span class="cs-numlist-n">04</span><p class="ds-body">A ideia funcionou por ser um projeto simples. Era um site pequeno, sem login e sem pagamento. Caso houvesse dados sensíveis, alguém que entende de código precisaria revisar o que a IA escreveu, principalmente por segurança.</p></li></ol>
+        </section>
+
+        <footer class="cs-end container">
+          <button class="btn btn-outline" type="button" data-case-close><i data-lucide="arrow-left" aria-hidden="true"></i>Voltar para os projetos</button>
+        </footer>
+      </div>
+    </article>
+  </div>

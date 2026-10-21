@@ -1,0 +1,17 @@
+# sistema (Mac e Windows)
+.DS_Store
+Thumbs.db
+
+# editor
+.vscode/
+*.code-workspace
+
+# Node (caso instale algo no futuro)
+node_modules/
+
+# configurações locais do Claude Code (a skill continua no repositório)
+.claude/settings.local.json
+
+# arquivos temporários
+*.log
+*.tmp

@@ -1,0 +1,390 @@
+<!-- =========================================================
+     Case: dividas
+     Este arquivo tem duas partes:
+     1. @card   → o card do case na pilha da home
+     2. @pagina → a página do case (abre ao clicar no card)
+     Depois de editar, rode: node build.mjs
+     ========================================================= -->
+
+<!-- @card -->
+          <li class="deck-item case--dividas">
+            <button class="case-tab" type="button" tabindex="-1" aria-hidden="true"><span class="tab-fl"></span><i data-lucide="briefcase" class="case-tab-ic"></i><span class="case-tab-text">Solicitação de dívidas</span></button>
+            <a class="case-card case--dividas" href="#case-dividas" data-case="case-dividas" data-cursor="Ver case">
+              <div class="case-panel">
+                <h3 class="case-title">Redesenho do envio da dívida ativa de um estado</h3>
+                <p class="case-desc">Evoluí um fluxo de envio para um sistema em que o servidor cadastra, acompanha e corrige suas solicitações <strong>com autonomia.</strong></p>
+                <ul class="case-tags" aria-label="Tags">
+                  <li>Setor público</li><li>Problem solving</li>
+                </ul>
+                <span class="btn btn-outline case-btn">Ver case <i data-lucide="arrow-right" aria-hidden="true"></i></span>
+              </div>
+              <div class="case-visual">
+                <div class="case-mock mock-laptop" aria-hidden="true">
+                  <div class="mock-screen">
+                    <img src="assets/cases/v2/03-depois.webp" width="1738" height="978" alt="" decoding="async">
+                  </div>
+                </div>
+              </div>
+            </a>
+          </li>
+
+<!-- @pagina -->
+  <!-- ================= Página do case 1 =================
+       Abre por cima do site com uma transição tipo "smart animate":
+       o fundo cresce a partir do card e título e tags viajam
+       até a nova posição (js/case-view.js). Os elementos com data-flip
+       são os que "viajam"; os com data-fade só aparecem. -->
+  <div class="case-view case--dividas" id="case-dividas" role="dialog" aria-modal="true" aria-labelledby="case-dividas-title" hidden>
+    <div class="case-view-bg" aria-hidden="true"></div>
+    <!-- barra fixa da página do case: aparece depois do mockup grande (js/case-page.js) -->
+    <!-- barra fixa da página do case: igual à navegação do site, some ao rolar para baixo
+         e volta ao rolar para cima (js/case-page.js) -->
+    <div class="case-bar">
+      <div class="container case-bar-inner">
+        <button class="case-back case-bar-back" type="button" data-case-close><i data-lucide="arrow-left" aria-hidden="true"></i>Voltar</button>
+        <!-- tema claro/escuro também dentro do case (mesmo comportamento do botão da navegação) -->
+        <button class="btn btn-ghost btn-icon theme-toggle" type="button" aria-label="Ativar modo escuro">
+          <i data-lucide="moon" class="theme-icon is-moon" aria-hidden="true"></i>
+          <i data-lucide="sun" class="theme-icon is-sun" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+    <article class="case-view-scroll">
+      <!-- ================= Topo do case (Figma: Case PDO — Web 1440, nó 263:8) ================= -->
+      <div class="container case-page">
+        <!-- topo do case: mesma composição da barra (Voltar à esquerda, tema à direita) -->
+        <div class="case-top" data-fade>
+          <button class="case-back" type="button" data-case-close>
+            <i data-lucide="arrow-left" aria-hidden="true"></i>
+            Voltar
+          </button>
+          <button class="btn btn-ghost btn-icon theme-toggle" type="button" aria-label="Ativar modo escuro">
+            <i data-lucide="moon" class="theme-icon is-moon" aria-hidden="true"></i>
+            <i data-lucide="sun" class="theme-icon is-sun" aria-hidden="true"></i>
+          </button>
+        </div>
+
+        <div class="cs-hero">
+          <div class="cs-hero-text">
+            <h1 class="case-page-title" id="case-dividas-title" data-flip="title">Redesenho do envio da dívida ativa de um estado</h1>
+            <p class="ds-body case-page-lede" data-fade>Evoluí um fluxo de envio para um sistema em que o servidor cadastra, acompanha e corrige suas solicitações <strong>com autonomia.</strong></p>
+            <ul class="case-tags case-page-tags" aria-label="Tags" data-flip="tags">
+              <li>Setor público</li><li>Problem solving</li>
+            </ul>
+          </div>
+
+          <!-- notebook com a tela nova (abre como foto) -->
+          <figure class="case-hero-shot" data-fade>
+            <div class="laptop">
+              <div class="laptop-screen cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar a tela de solicitações">
+                <img src="assets/cases/v2/03-depois.webp" width="1738" height="978" alt="Tela de solicitações redesenhada: cards de resumo por status, busca e tabela de solicitações.">
+                <span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span>
+              </div>
+              <div class="laptop-base" aria-hidden="true"></div>
+            </div>
+          </figure>
+        </div>
+
+        <dl class="case-facts case-facts--4" data-fade>
+          <div><dt>Meu papel</dt><dd>UX/UI Designer</dd></div>
+          <div><dt>Cliente</dt><dd>Procuradoria</dd></div>
+          <div><dt>Equipe</dt><dd>1 designer, 1 analista de requisitos, 4 devs e 2 QAs</dd></div>
+          <div><dt>Período</dt><dd>2 meses</dd></div>
+        </dl>
+
+        <div class="case-role" data-fade>
+          <h2 class="ds-label">O que eu fiz</h2>
+          <p class="ds-body">Redesenhei os fluxos e defini regras, campos e comportamentos junto com o procurador responsável, a coordenação da área e os times de requisitos e desenvolvimento.</p>
+        </div>
+      </div>
+
+      <!-- ================= Conteúdo do case =================
+           Roteiro: contexto → proto-personas → problema → redesenho do fluxo →
+           solução (antes e depois de cada etapa) → próximas iterações → o que vou medir.
+           Faixas (.is-band) seguem o Figma. Estilos de texto: css/tokens.css + DESIGN-SYSTEM.md -->
+      <div class="cs-body">
+
+        <!-- Contexto -->
+        <section class="cs-section is-band" id="cs-contexto" aria-labelledby="cs-contexto-t">
+          <div class="container">
+            <header class="cs-head" data-reveal>
+              <h2 class="ds-section" id="cs-contexto-t">Contexto</h2>
+              <p class="ds-body">Quando alguém deixa de pagar um valor ao estado (como uma multa), o órgão que gerou a cobrança não pode cobrar sozinho. Quem faz isso é a procuradoria: ela recebe e analisa a dívida e, se estiver tudo certo, a registra oficialmente, permitindo que o estado faça a cobrança. Por isso, todo órgão público precisa enviar suas dívidas para lá.</p>
+            </header>
+
+            <div class="cs-route">
+              <div class="cs-route-track" aria-hidden="true"><span></span><span class="is-me"></span><span></span></div>
+              <ol class="cs-cols cs-route-cols" aria-label="Caminho da dívida até a cobrança" data-reveal>
+                <li>
+                  <div class="cs-item-head"><h3 class="ds-label">Dívida no órgão de origem</h3></div>
+                  <p class="ds-body">Um órgão do estado (como secretarias, autarquias), gera multas que não foram pagas e a dívida precisa ser enviada à procuradoria para ser cobrada.</p>
+                </li>
+                <li class="is-me">
+                  <div class="cs-item-head"><h3 class="ds-label">Solicitação da dívida</h3><span class="ds-tag">Estamos aqui!</span></div>
+                  <p class="ds-body">O servidor do órgão informa os dados da dívida, os devedores e os débitos e envia a solicitação. Depois, acompanha o status e corrige ou responde quando a procuradoria aponta um problema.</p>
+                </li>
+                <li>
+                  <div class="cs-item-head"><h3 class="ds-label">Gerenciamento da dívida</h3><i data-lucide="arrow-up-right" class="cs-item-go" aria-hidden="true"></i></div>
+                  <p class="ds-body">A solicitação é deferida automaticamente ou analisada pela procuradoria. Depois de inscrita, a dívida passa a ser gerenciada e cobrada pelo estado.</p>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </section>
+
+        <!-- Proto-personas -->
+        <section class="cs-section container" id="cs-personas" aria-labelledby="cs-personas-t">
+          <header class="cs-head" data-reveal>
+            <h2 class="ds-section" id="cs-personas-t">Proto-personas</h2>
+            <p class="ds-body">Com o prazo que tínhamos, quase tudo que eu sabia sobre esses usuários veio dos stakeholders, que acompanhavam de perto os erros e as dúvidas deles.</p>
+          </header>
+
+          <div class="cs-personas" data-reveal>
+            <article class="cs-persona">
+              <div class="cs-persona-top">
+                <h3 class="ds-label cs-icon-label"><i data-lucide="user-star" aria-hidden="true"></i>Servidor de um órgão estadual - quem envia</h3>
+                <p class="ds-body">35 a 60 anos · não é da área jurídica · pouca familiaridade digital</p>
+              </div>
+              <div class="cs-persona-goal">
+                <h4 class="ds-label cs-icon-label"><i data-lucide="sparkles" aria-hidden="true"></i>Objetivo</h4>
+                <p class="ds-body">Enviar a dívida certa e saber em que etapa ela está.</p>
+              </div>
+              <div class="cs-persona-cols">
+                <div>
+                  <h4 class="ds-label cs-icon-label"><i data-lucide="scan-heart" aria-hidden="true"></i>Necessidades</h4>
+                  <ul class="cs-list">
+                    <li>ver só os campos do órgão dele</li>
+                    <li>saber o que falta antes de enviar</li>
+                    <li>acompanhar e corrigir a solicitação depois do envio</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="ds-label cs-icon-label"><i data-lucide="frown" aria-hidden="true"></i>Dores</h4>
+                  <ul class="cs-list">
+                    <li>campos bloqueados ou que não se aplicam ao órgão</li>
+                    <li>nenhum aviso do que falta para continuar</li>
+                    <li>depois do envio, não vê o status nem consegue corrigir erros</li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+
+            <article class="cs-persona">
+              <div class="cs-persona-top">
+                <h3 class="ds-label cs-icon-label"><i data-lucide="user-search" aria-hidden="true"></i>Analista da dívida ativa - quem recebe e corrige</h3>
+                <p class="ds-body">Trabalha no setor da dívida ativa da procuradoria · confere as solicitações de todos os órgãos</p>
+              </div>
+              <div class="cs-persona-goal">
+                <h4 class="ds-label cs-icon-label"><i data-lucide="sparkles" aria-hidden="true"></i>Objetivo</h4>
+                <p class="ds-body">Encontrar os erros e deixar a solicitação pronta para ser inscrita.</p>
+              </div>
+              <div class="cs-persona-cols">
+                <div>
+                  <h4 class="ds-label cs-icon-label"><i data-lucide="scan-heart" aria-hidden="true"></i>Necessidades</h4>
+                  <ul class="cs-list">
+                    <li>apontar o erro para o órgão dentro do sistema;</li>
+                    <li>receber a correção no próprio sistema;</li>
+                    <li>parar de editar a inscrição à mão.</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="ds-label cs-icon-label"><i data-lucide="frown" aria-hidden="true"></i>Dores</h4>
+                  <ul class="cs-list">
+                    <li>para cada erro, abria um chamado;</li>
+                    <li>a resposta do órgão chegava por e-mail;</li>
+                    <li>editava a inscrição à mão.</li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+          </div>
+          <p class="ds-body cs-note" data-reveal>Antes, os dois dependiam de chamados e e-mails para resolver qualquer erro.</p>
+        </section>
+
+        <!-- Problema: quadro de análise (abre em tela cheia com zoom) -->
+        <section class="cs-section container" id="cs-problema" aria-labelledby="cs-problema-t">
+          <header class="cs-head" data-reveal>
+            <h2 class="ds-section" id="cs-problema-t">Problema</h2>
+            <p class="ds-body">Percorri o fluxo de envio no sistema antigo como se fosse um servidor e fui anotando cada ponto onde ele poderia ter dificuldade e levantei possíveis soluções. O que acontecia depois do envio foi relatado pelos stakeholders.</p>
+          </header>
+          <div data-reveal>
+            <figure class="cs-diagram cs-diagram--board" data-viewer="diagram" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar o quadro de problemas e soluções">
+              <img src="assets/cases/v2/quadro-problemas.webp" width="5155" height="1709" loading="lazy" decoding="async" alt="Quadro de análise do sistema antigo: as abas do envio com pontos numerados, notas vermelhas com os problemas e verdes com as primeiras ideias de solução, e o ciclo de correção depois do envio.">
+              <span class="cs-expand" aria-hidden="true"><i data-lucide="maximize-2"></i></span>
+            </figure>
+            <p class="ds-body cs-cap">Em vermelho, os problemas. Em verde, as primeiras ideias de solução.</p>
+          </div>
+        </section>
+
+        <!-- Redesenho do fluxo: decisões negociadas + fluxograma -->
+        <section class="cs-section is-band" id="cs-redesenho" aria-labelledby="cs-redesenho-t">
+          <div class="container">
+            <header class="cs-head" data-reveal>
+              <h2 class="ds-section" id="cs-redesenho-t">Redesenho do fluxo</h2>
+              <p class="ds-body">Quando apresentei as soluções aos stakeholders, surgiram outras questões que vieram de pedidos deles, do prazo, e do que era viável tecnicamente. Essas decisões foram negociadas e iteraram o fluxo final.</p>
+            </header>
+
+            <ol class="cs-decisions" data-reveal>
+              <li><h3 class="ds-label">01.&nbsp; Mesma base visual do sistema de gestão</h3><p class="ds-body">Os dois sistemas precisavam sair rápido. Então <strong>reaproveitei fluxo, componentes e comportamentos</strong> que eu já tinha desenhado para o Sistema de Gestão.</p></li>
+              <li><h3 class="ds-label">02.&nbsp; Uma inscrição por solicitação</h3><p class="ds-body">Isso significa anexar o mesmo documento e repetir o número do processo em cada inscrição. Escolhemos assim porque misturar várias inscrições no mesmo cadastro <strong>gerava conflito</strong>. Em compensação o preenchimento do formulário ficou <strong>mais linear e intuitivo</strong>.</p></li>
+              <li><h3 class="ds-label">03.&nbsp; Campos definidos pela origem</h3><p class="ds-body">No Sistema de Gestão, que também desenhei, quem tem permissão, ao cadastrar a origem da dívida, <strong>seleciona quais campos aparecem</strong> no cadastro da solicitação para cada órgão.</p></li>
+              <li><h3 class="ds-label">04.&nbsp; Histórico de edições da solicitação</h3><p class="ds-body">O servidor agora poderia solicitar edições, então elas deveriam ser registradas. <strong>Junto com o time de desenvolvimento</strong>, pelo prazo e viabilidade técnica, decidimos que cada edição viraria uma nova solicitação, agrupada na original por uma seta de expandir.</p></li>
+              <li><h3 class="ds-label">05.&nbsp; Timeline do status da solicitação</h3><p class="ds-body">Foi sugerido um botão de histórico ao lado do status, numa tabela que já tinha muitas colunas e informações. Sugeri que a própria pill ficasse clicável e levasse ao histórico, <strong>sem ocupar mais espaço</strong>.</p></li>
+            </ol>
+
+            <div data-reveal>
+              <figure class="cs-diagram cs-diagram--flow" data-viewer="diagram" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar o fluxograma do sistema">
+                <img src="assets/cases/v2/fluxograma.webp" width="4450" height="3155" loading="lazy" decoding="async" alt="Fluxograma do sistema: acesso, nova solicitação em 3 etapas, consulta e acompanhamento com os status, edição da solicitação, inscrições e condições para análise no Sistema de Gestão.">
+                <span class="cs-expand" aria-hidden="true"><i data-lucide="maximize-2"></i></span>
+              </figure>
+            </div>
+          </div>
+        </section>
+
+        <!-- Solução: antes e depois de cada etapa. O título de cada etapa fica preso no topo
+             enquanto a tela e o texto sobem por baixo (parallax em js/case-page.js) -->
+        <section class="cs-section cs-solution" id="cs-solucao" aria-labelledby="cs-solucao-t">
+          <header class="container cs-head" data-reveal>
+            <h2 class="ds-section" id="cs-solucao-t">Solução</h2>
+            <p class="ds-body">O antes e depois de cada etapa, na ordem do envio.</p>
+          </header>
+
+          <div class="cs-steps">
+            <article class="cs-step">
+              <header class="cs-step-head"><div class="container"><h3 class="ds-section">01&nbsp; Dados da dívida</h3><span class="ds-section">Antes</span></div></header>
+              <div class="container cs-step-body">
+                <figure class="cs-shot cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar a tela antiga de cadastro do processo"><img src="assets/cases/v2/01-antes.webp" width="1740" height="978" loading="lazy" decoding="async" alt="Sistema antigo: aba Cadastro Processo, com campos bloqueados já preenchidos e o tipo de procedimento fixo em solicitação de inscrição."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure>
+                <ul class="cs-list cs-step-text">
+                  <li>Os campos bloqueados vinham preenchidos com dados que o sistema já tinha. Como não eram editáveis, não precisavam aparecer.</li>
+                  <li>O tipo de procedimento era sempre "solicitação de inscrição", que é justamente a ação que o usuário está fazendo.</li>
+                  <li>Campos como placa e chassi apareciam para todo órgão. O servidor precisava saber de antemão quais se aplicavam à dívida dele.</li>
+                  <li>Os anexos ficavam numa aba separada, o servidor precisava ler um texto para saber o que anexar.</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="cs-step">
+              <header class="cs-step-head"><div class="container"><h3 class="ds-section">01&nbsp; Dados da dívida</h3><span class="ds-section">Depois</span></div></header>
+              <div class="container cs-step-body">
+                <figure class="cs-shot cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar a nova etapa de dados da dívida"><img src="assets/cases/v2/01-depois.webp" width="1738" height="978" loading="lazy" decoding="async" alt="Novo cadastro, etapa 1 de 3: dados da dívida com os campos do órgão, declaração e anexos na mesma etapa."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure>
+                <ul class="cs-list cs-step-text">
+                  <li>Os campos com informações que o sistema já tinha saíram da tela, o servidor preenche só o que precisa.</li>
+                  <li>Aparecem só os campos definidos para o órgão, configurados no Sistema de Gestão.</li>
+                  <li>Os anexos viraram uma seção desta etapa, e o tipo de documento é escolhido numa lista.</li>
+                  <li>Os outros números viraram dois campos opcionais, tipo de número e número, para quando ainda forem necessários.</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="cs-step">
+              <header class="cs-step-head"><div class="container"><h3 class="ds-section">02&nbsp; Devedores e débitos</h3><span class="ds-section">Antes</span></div></header>
+              <div class="container cs-step-body">
+                <figure class="cs-shot cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar a tela antiga de dados da dívida"><img src="assets/cases/v2/02-antes.webp" width="1740" height="978" loading="lazy" decoding="async" alt="Sistema antigo: aba Dados da Dívida com 14 campos, devedor, corresponsável e a lista de débitos e de inscrições na mesma tela."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure>
+                <ul class="cs-list cs-step-text">
+                  <li>14 campos apareciam de uma vez, vários travados sem dizer por quê.</li>
+                  <li>Só permitia adicionar um contato e endereço por devedor, o que tornava a cobrança mais difícil.</li>
+                  <li>O servidor cadastrava os devedores numa aba e só na seguinte os ligava à inscrição. Era preciso saber de antemão que cada devedor podia pertencer a uma inscrição diferente.</li>
+                  <li>Os débitos dividiam a tela com os dados da dívida e o vínculo com o devedor.</li>
+                  <li>A lista de débitos não mostrava a soma, então o servidor não conferia o valor final.</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="cs-step">
+              <header class="cs-step-head"><div class="container"><h3 class="ds-section">02.1&nbsp; Devedores</h3><span class="ds-section">Depois</span></div></header>
+              <div class="container cs-step-body">
+                <figure class="cs-shot cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar o novo modal de adicionar devedor"><img src="assets/cases/v2/02-depois-devedores.webp" width="1738" height="978" loading="lazy" decoding="async" alt="Novo cadastro, etapa 2: modal Adicionar devedor com seções de endereços e contatos, cada uma com vários itens."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure>
+                <ul class="cs-list cs-step-text">
+                  <li>O devedor é adicionado num modal próprio, com contatos e endereços em seções separadas.</li>
+                  <li>Cada devedor aceita vários contatos e endereços.</li>
+                  <li>A lista mostra quem já foi incluído antes de seguir, e quando está vazia a tela diz o que fazer.</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="cs-step">
+              <header class="cs-step-head"><div class="container"><h3 class="ds-section">02.2&nbsp; Débitos</h3><span class="ds-section">Depois</span></div></header>
+              <div class="container cs-step-body">
+                <figure class="cs-shot cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar a nova etapa de débitos"><img src="assets/cases/v2/02-depois-debitos.webp" width="1738" height="978" loading="lazy" decoding="async" alt="Novo cadastro, etapa 3: débitos com os campos em linha, botão Adicionar e a tabela com o total e a quantidade de débitos."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure>
+                <ul class="cs-list cs-step-text">
+                  <li>Os débitos ganharam uma etapa própria, com os campos em linha e a tabela logo abaixo.</li>
+                  <li>Adicionar fica junto dos campos do débito, e Enviar solicitação é a ação principal.</li>
+                  <li>A tabela mostra o total e a quantidade de débitos, atualizados a cada adição.</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="cs-step">
+              <header class="cs-step-head"><div class="container"><h3 class="ds-section">03&nbsp; Consulta das solicitações</h3><span class="ds-section">Antes</span></div></header>
+              <div class="container cs-step-body">
+                <figure class="cs-shot cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar a lista antiga de processos"><img src="assets/cases/v2/03-antes.webp" width="1738" height="978" loading="lazy" decoding="async" alt="Sistema antigo: lista de processos recebidos, com muitas colunas e sem o status da solicitação."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure>
+                <p class="ds-body cs-step-text">Depois do envio, o servidor via uma lista de processos que não mostrava em que etapa estava o pedido dele.</p>
+              </div>
+            </article>
+
+            <article class="cs-step">
+              <header class="cs-step-head"><div class="container"><h3 class="ds-section">03&nbsp; Consulta das solicitações</h3><span class="ds-section">Depois</span></div></header>
+              <div class="container cs-step-body">
+                <figure class="cs-shot cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar a nova consulta de solicitações"><img src="assets/cases/v2/03-depois.webp" width="1738" height="978" decoding="async" alt="Nova consulta de solicitações: cards de resumo por status no topo, busca, filtros e tabela com o status de cada solicitação."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure>
+                <p class="ds-body cs-step-text">Uma consulta própria para as solicitações, com o status de cada uma e cards de resumo no topo.</p>
+              </div>
+            </article>
+
+            <article class="cs-step">
+              <header class="cs-step-head"><div class="container"><h3 class="ds-section">04&nbsp; Visualizar</h3><span class="ds-section">Iteração</span></div></header>
+              <div class="container cs-step-body">
+                <figure class="cs-shot cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar a nova tela de visualizar a solicitação"><img src="assets/cases/v2/04-visualizar.webp" width="1738" height="978" loading="lazy" decoding="async" alt="Nova tela da solicitação: status enviada para análise no topo, abas de dados da dívida, devedores, débitos e histórico, e os anexos."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure>
+                <p class="ds-body cs-step-text">Uma tela reúne tudo da solicitação, com o status no topo.</p>
+              </div>
+            </article>
+
+            <article class="cs-step cs-step--text">
+              <header class="cs-step-head"><div class="container"><h3 class="ds-section">05&nbsp; Editar/responder</h3><span class="ds-section">Antes</span></div></header>
+              <div class="container cs-step-body">
+                <p class="ds-body cs-step-text">Para cada erro, o analista abria um chamado, esperava a resposta por e-mail e editava a inscrição à mão.</p>
+              </div>
+            </article>
+
+            <article class="cs-step">
+              <header class="cs-step-head"><div class="container"><h3 class="ds-section">05&nbsp; Editar/responder</h3><span class="ds-section">Depois</span></div></header>
+              <div class="container cs-step-body">
+                <figure class="cs-shot cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar o histórico com ação necessária"><img src="assets/cases/v2/04-depois.webp" width="1738" height="978" loading="lazy" decoding="async" alt="Histórico da solicitação: aviso de ação necessária com a mensagem do analista e os botões Responder e Editar."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure>
+                <p class="ds-body cs-step-text">O analista aponta o erro, e o servidor recebe o aviso no sistema e por e-mail, com um botão que leva direto à solicitação, onde pode editar ou só responder.</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- Próximas iterações -->
+        <section class="cs-section is-band" id="cs-proximas" aria-labelledby="cs-proximas-t">
+          <div class="container">
+            <header class="cs-head" data-reveal>
+              <h2 class="ds-section" id="cs-proximas-t">Próximas iterações</h2>
+              <p class="ds-body">O que eu mudaria na próxima versão.</p>
+            </header>
+            <ol class="cs-cols cs-next" data-reveal>
+              <li><h3 class="ds-label">01.&nbsp; Devedor em drawer, com contato e endereço inline</h3><p class="ds-body">O drawer manteria a lista de devedores à vista e evitaria abrir um formulário por cima do outro para cadastrar contatos e endereços.</p></li>
+              <li><h3 class="ds-label">02.&nbsp; Etapa de revisão antes de enviar</h3><p class="ds-body">Uma tela de leitura final reunindo todos os dados preenchidos e atalhos para editar, o servidor poderia conferir a solicitação inteira antes de enviar.</p></li>
+              <li><h3 class="ds-label">03.&nbsp; Ação necessária já mostrando o motivo</h3><p class="ds-body">Com o motivo na própria mensagem, o servidor decide na hora se precisa editar ou só responder, sem abrir a solicitação.</p></li>
+            </ol>
+          </div>
+        </section>
+
+        <!-- O que vou medir -->
+        <section class="cs-section container" id="cs-medir" aria-labelledby="cs-medir-t">
+          <header class="cs-head" data-reveal>
+            <h2 class="ds-section" id="cs-medir-t">O que vou medir após o lançamento</h2>
+          </header>
+          <ol class="cs-measures" data-reveal>
+            <li class="ds-label">01.&nbsp; Tempo para enviar uma solicitação.</li>
+            <li class="ds-label">02.&nbsp; Chamados e e-mails abertos para cadastrar ou corrigir solicitações.</li>
+            <li class="ds-label">03.&nbsp; Solicitações devolvidas com ação necessária.</li>
+          </ol>
+        </section>
+
+        <footer class="cs-end container">
+          <button class="btn btn-outline" type="button" data-case-close><i data-lucide="arrow-left" aria-hidden="true"></i>Voltar para os projetos</button>
+        </footer>
+      </div>
+    </article>
+  </div>

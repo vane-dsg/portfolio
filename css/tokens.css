@@ -1,0 +1,127 @@
+/* =========================================================
+   Design system — Vanessa Sousa (portfólio)
+   Fonte: Figma "Portfólio", frames "Case PDO — Web (1440)"
+   light (232:1682) e dark (231:1225). Out/2026.
+
+   Camadas: primitivos → semânticos (light/dark).
+   O resto do CSS usa SÓ os semânticos (--color-*, --text-*).
+   Documentação: DESIGN-SYSTEM.md
+   ========================================================= */
+
+:root {
+  /* ---------- primitivos: cor ---------- */
+  --neutral-50:  #fafafa;
+  --neutral-300: #d4d4d4;
+  --neutral-600: #525252;
+  --neutral-700: #404040;
+  --neutral-850: #282828;
+  --neutral-900: #171717;
+  --slate-600:   #4a637b;          /* usado com transparência (bordas e faixas) */
+
+  --purple-600: #7c3aed;           /* marca: "óbvios" da hero, foco */
+  --pink-400:   #ff71e5;           /* rastro da grade */
+  --sky-400:    #3dadff;           /* rastro da grade */
+
+  /* ---------- primitivos: tipografia ---------- */
+  --font-display: "Inter Tight", "Helvetica Neue", Helvetica, Arial, sans-serif;  /* Inter no Figma */
+  --font-body: "DM Sans", -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, "Segoe UI", Roboto, sans-serif;
+  --font-serif: "Arbutus Slab", Georgia, "Times New Roman", serif;               /* só na frase da hero */
+
+  /* ---------- semânticos: cor (light) ---------- */
+  --color-bg:            var(--neutral-50);
+  --color-text:          var(--neutral-900);   /* títulos, rótulos, texto forte */
+  --color-text-muted:    var(--neutral-600);   /* texto corrido, valores */
+  --color-border:        rgb(74 99 123 / .25); /* bordas, divisórias, contorno de tags */
+  --color-surface-band:  rgb(74 99 123 / .06); /* faixa de seção (ex.: "Problema") */
+  --color-surface-band-solid: color-mix(in srgb, var(--slate-600) 6%, var(--neutral-50)); /* mesma faixa, opaca (para recortes sobre ela) */
+  --color-line:          var(--neutral-900);   /* linhas e pontos da timeline */
+  --color-grid-line:     #ececef;              /* grade do fundo e borda da navegação */
+  --color-brand:         var(--purple-600);
+
+  /* ---------- semânticos: tipografia ----------
+     cada estilo = família / peso / tamanho / entrelinha / espaçamento / caixa */
+  --text-display-family: var(--font-display);  --text-display-weight: 700;
+  --text-display-size: clamp(30px, 18px + 3.19vw, 64px); --text-display-lh: 1.08; --text-display-ls: -0.015em;
+  --text-display-card-size: clamp(22px, 14.25px + 2.07vw, 44px);   /* mesmo estilo display, no tamanho de card (título dos cards de case) */
+  --text-display-card-size-mobile: var(--text-display-card-size);   /* título dos cards de case no celular (até 760px) */
+
+  --text-section-family: var(--font-body);  --text-section-weight: 800;
+  --text-section-size: clamp(14px, 13.3px + .19vw, 16px); --text-section-lh: 1.3; --text-section-ls: .04em;   /* MAIÚSCULAS */
+
+  --text-heading-family: var(--font-display);  --text-heading-weight: 700;
+  --text-heading-size: clamp(24px, 21.2px + .75vw, 32px); --text-heading-lh: 1.15; --text-heading-ls: -0.015em;   /* frase de seção no case */
+
+  --text-title-family: var(--font-display);  --text-title-weight: 700;
+  --text-title-size: clamp(18px, 17.3px + .19vw, 20px); --text-title-lh: 1.3; --text-title-ls: -0.005em;       /* título de card e de item */
+
+  --text-label-family: var(--font-body);  --text-label-weight: 700;
+  --text-label-size: clamp(13px, 12.65px + .094vw, 14px); --text-label-lh: 1.6; --text-label-ls: .04em;         /* MAIÚSCULAS */
+
+  --text-body-family: var(--font-body);  --text-body-weight: 400;
+  --text-body-size: clamp(16px, 15.3px + .19vw, 18px); --text-body-lh: 1.6; --text-body-ls: 0;
+
+  --text-action-family: var(--font-body);  --text-action-weight: 500;
+  --text-action-size: clamp(15px, 14.65px + .094vw, 16px); --text-action-lh: 1; --text-action-ls: 0;
+
+  --text-tag-family: var(--font-body);  --text-tag-weight: 600;
+  --text-tag-size: clamp(13px, 12.65px + .094vw, 14px); --text-tag-lh: 1.2; --text-tag-ls: 0;
+
+  color-scheme: light;
+}
+
+/* textos responsivos: cada tamanho cresce de forma contínua entre o celular (375px) e o desktop (1440px)
+   display 30→64 · card 22→44 · heading 24→32 · title 18→20 · body 16→18 · section 14→16 · label/tag 13→14 */
+
+/* ---------- semânticos: cor (dark) ---------- */
+:root[data-theme="dark"] {
+  --color-bg:            var(--neutral-900);
+  --color-text:          var(--neutral-50);
+  --color-text-muted:    var(--neutral-300);
+  --color-border:        var(--neutral-700);
+  --color-surface-band:  var(--neutral-850);
+  --color-surface-band-solid: var(--neutral-850);
+  --color-line:          var(--neutral-50);
+  --color-grid-line:     #232323;
+  color-scheme: dark;
+}
+
+/* ---------- estilos de texto (use estas classes ou os mesmos tokens) ---------- */
+.ds-display {
+  font-family: var(--text-display-family); font-weight: var(--text-display-weight);
+  font-size: clamp(2.125rem, 5vw, var(--text-display-size)); line-height: var(--text-display-lh);
+  letter-spacing: var(--text-display-ls); color: var(--color-text);
+}
+.ds-section {
+  margin: 0; font-family: var(--text-section-family); font-weight: var(--text-section-weight);
+  font-size: var(--text-section-size); line-height: var(--text-section-lh);
+  letter-spacing: var(--text-section-ls); text-transform: uppercase; color: var(--color-text);
+}
+.ds-heading {
+  margin: 0; font-family: var(--text-heading-family); font-weight: var(--text-heading-weight);
+  font-size: clamp(1.625rem, 3vw, var(--text-heading-size)); line-height: var(--text-heading-lh);
+  letter-spacing: var(--text-heading-ls); color: var(--color-text); text-wrap: balance;
+}
+.ds-title {
+  margin: 0; font-family: var(--text-title-family); font-weight: var(--text-title-weight);
+  font-size: var(--text-title-size); line-height: var(--text-title-lh);
+  letter-spacing: var(--text-title-ls); color: var(--color-text); text-wrap: balance;
+}
+.ds-label {
+  margin: 0; font-family: var(--text-label-family); font-weight: var(--text-label-weight);
+  font-size: var(--text-label-size); line-height: var(--text-label-lh);
+  letter-spacing: var(--text-label-ls); text-transform: uppercase; color: var(--color-text);
+}
+.ds-body {
+  margin: 0; font-family: var(--text-body-family); font-weight: var(--text-body-weight);
+  font-size: var(--text-body-size); line-height: var(--text-body-lh); color: var(--color-text-muted);
+}
+.ds-action {
+  font-family: var(--text-action-family); font-weight: var(--text-action-weight);
+  font-size: var(--text-action-size); line-height: var(--text-action-lh); color: var(--color-text-muted);
+}
+.ds-tag {
+  display: inline-flex; align-items: center; padding: 6px 12px; border-radius: 999px;
+  border: 1px solid var(--color-border); background: transparent; white-space: nowrap;
+  font-family: var(--text-tag-family); font-weight: var(--text-tag-weight);
+  font-size: var(--text-tag-size); line-height: var(--text-tag-lh); color: var(--color-text);
+}

@@ -1,0 +1,226 @@
+<!-- =========================================================
+     Case: sgdae
+     Este arquivo tem duas partes:
+     1. @card   → o card do case na pilha da home
+     2. @pagina → a página do case (abre ao clicar no card)
+     Depois de editar, rode: node build.mjs
+     ========================================================= -->
+
+<!-- @card -->
+          <li class="deck-item case--sgdae">
+            <button class="case-tab" type="button" tabindex="-1" aria-hidden="true"><span class="tab-fl"></span><i data-lucide="briefcase" class="case-tab-ic"></i><span class="case-tab-text">Gestão da dívida ativa</span></button>
+            <a class="case-card case--sgdae" href="#case-sgdae" data-case="case-sgdae" data-cursor="Ver case">
+              <div class="case-panel">
+                <h3 class="case-title">Sistema de gestão da dívida ativa de um estado</h3>
+                <p class="case-desc">Construí do zero um sistema que reúne todo o ciclo da dívida ativa de um estado a partir de um sistema legado.</p>
+                <ul class="case-tags" aria-label="Tags">
+                  <li>Design System</li><li>Sistema complexo</li>
+                </ul>
+                <span class="btn btn-outline case-btn">Ver case <i data-lucide="arrow-right" aria-hidden="true"></i></span>
+              </div>
+              <div class="case-visual">
+                <div class="case-mock mock-laptop" aria-hidden="true">
+                  <div class="mock-screen">
+                    <img src="assets/cases/sgdae/capa-ds.webp" width="2100" height="1321" alt="" decoding="async">
+                  </div>
+                </div>
+              </div>
+            </a>
+          </li>
+
+<!-- @pagina -->
+  <!-- ================= Página do case: Sistema de gestão da dívida ativa (SGDAE) =================
+       NDA: sem nome de estado, órgão ou sistema. Nas telas exportadas do Figma, a URL e os nomes
+       de órgãos reais foram trocados por textos neutros. -->
+  <div class="case-view case--sgdae" id="case-sgdae" role="dialog" aria-modal="true" aria-labelledby="case-sgdae-title" hidden>
+    <div class="case-view-bg" aria-hidden="true"></div>
+    <div class="case-bar">
+      <div class="container case-bar-inner">
+        <button class="case-back case-bar-back" type="button" data-case-close><i data-lucide="arrow-left" aria-hidden="true"></i>Voltar</button>
+        <button class="btn btn-ghost btn-icon theme-toggle" type="button" aria-label="Ativar modo escuro">
+          <i data-lucide="moon" class="theme-icon is-moon" aria-hidden="true"></i>
+          <i data-lucide="sun" class="theme-icon is-sun" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+    <article class="case-view-scroll">
+      <div class="container case-page">
+        <div class="case-top" data-fade>
+          <button class="case-back" type="button" data-case-close><i data-lucide="arrow-left" aria-hidden="true"></i>Voltar</button>
+          <button class="btn btn-ghost btn-icon theme-toggle" type="button" aria-label="Ativar modo escuro">
+            <i data-lucide="moon" class="theme-icon is-moon" aria-hidden="true"></i>
+            <i data-lucide="sun" class="theme-icon is-sun" aria-hidden="true"></i>
+          </button>
+        </div>
+
+        <div class="cs-hero">
+          <div class="cs-hero-text">
+            <h1 class="case-page-title" id="case-sgdae-title" data-flip="title">Sistema de gestão da dívida ativa de um estado</h1>
+            <p class="ds-body case-page-lede" data-fade>Construí do zero um sistema que reúne todo o ciclo da dívida ativa de um estado a partir de um sistema legado.</p>
+            <ul class="case-tags case-page-tags" aria-label="Tags" data-flip="tags"><li>Design System</li><li>Sistema complexo</li></ul>
+          </div>
+          <figure class="case-hero-shot" data-fade>
+            <div class="laptop">
+              <div class="laptop-screen cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar a vitrine do design system">
+                <img src="assets/cases/sgdae/capa-ds.webp" width="2100" height="1321" alt="Vitrine do design system do sistema: paleta, botões, controles, tipografia, tabela e campos.">
+                <span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span>
+              </div>
+              <div class="laptop-base" aria-hidden="true"></div>
+            </div>
+          </figure>
+        </div>
+
+        <dl class="case-facts case-facts--4" data-fade>
+          <div><dt>Meu papel</dt><dd>Product Designer</dd></div>
+          <div><dt>Cliente</dt><dd>Procuradoria</dd></div>
+          <div><dt>Equipe</dt><dd>1 designer, 1 analista de requisitos, 10 devs e 4 QAs</dd></div>
+          <div><dt>Período</dt><dd>1 ano e 2 meses</dd></div>
+        </dl>
+
+        <div class="case-role" data-fade>
+          <h2 class="ds-label">O que eu fiz</h2>
+          <p class="ds-body">Fui a única designer do projeto. Desenhei os fluxos, as telas web e mobile de todo o MVP e o design system, junto com o <a class="cs-inline-link" href="#case-dividas" data-goto-case="case-dividas">sistema de envio das solicitações <i data-lucide="arrow-up-right" aria-hidden="true"></i></a></p>
+        </div>
+        <ul class="cs-stats cs-stats--hero" data-fade aria-label="O projeto em números"><li><span class="cs-stat-n">21</span><span class="cs-stat-l">Módulos</span></li><li><span class="cs-stat-n">~86</span><span class="cs-stat-l">Fluxos de usuário</span></li><li><span class="cs-stat-n">~370</span><span class="cs-stat-l">Telas (270 web, 100 mobile)</span></li><li><span class="cs-stat-n">60</span><span class="cs-stat-l">Componentes no design system</span></li></ul>
+      </div>
+
+      <!-- Roteiro (Figma "Case PDO — Web (1440)"): contexto → metodologia → caderno → problema →
+           quem usa → design system → padronização → solução → próximos passos -->
+      <div class="cs-body">
+
+        <section class="cs-section is-band" id="sg-contexto" aria-labelledby="sg-contexto-t">
+          <div class="container">
+            <header class="cs-head" data-reveal>
+              <h2 class="ds-section" id="sg-contexto-t">Contexto</h2>
+              <p class="ds-body">A dívida ativa reúne os débitos que não foram pagos ao estado e passam a ser cobrados pela procuradoria. Ela sustenta uma parte importante da arrecadação estadual.</p>
+            </header>
+            <div class="cs-cols cs-cols--2" data-reveal>
+              <div class="cs-head"><h3 class="ds-label">Como era</h3><p class="ds-body">Toda a gestão rodava num sistema de mainframe, desenvolvido e mantido por outro órgão do estado e dividido em várias aplicações de terminal.</p></div>
+              <div class="cs-head"><h3 class="ds-label">Objetivo</h3><p class="ds-body">Substituir o legado por um sistema próprio da procuradoria, reunindo o ciclo completo da dívida em um só lugar.</p></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="cs-section container" id="sg-metodologia" aria-labelledby="sg-metodologia-t">
+          <header class="cs-head" data-reveal>
+            <h2 class="ds-section" id="sg-metodologia-t">Metodologia</h2>
+            <p class="ds-body">O sistema tem muitos fluxos, e cada um passava pelo mesmo ciclo dentro das sprints, com reuniões duas vezes por semana. O prazo era curto, então os stakeholders só viam telas em alta fidelidade e prototipadas.</p>
+          </header>
+          <ol class="cs-rowlist" data-reveal><li><span class="cs-rowlist-n">01</span><div><h3 class="ds-label">Planning</h3><p class="ds-body">Definimos qual módulo seria desenhado na sprint.</p></div></li><li><span class="cs-rowlist-n">02</span><div><h3 class="ds-label">Entender o problema</h3><p class="ds-body">Reunião com os stakeholders e conversa com especialistas da área.</p></div></li><li><span class="cs-rowlist-n">03</span><div><h3 class="ds-label">Alta fidelidade</h3><p class="ds-body">Eu desenhava as telas já em alta fidelidade e prototipadas.</p></div></li><li><span class="cs-rowlist-n">04</span><div><h3 class="ds-label">Revisão</h3><p class="ds-body">Na reunião seguinte, apareciam correções e pedidos de mudança no fluxo.</p></div></li><li><span class="cs-rowlist-n">05</span><div><h3 class="ds-label">Ajustes</h3><p class="ds-body">Eu ajustava e levava a nova versão para a reunião seguinte, até o fluxo fechar.</p></div></li></ol>
+          <p class="ds-body cs-cycle-loop" data-reveal><i data-lucide="refresh-cw" aria-hidden="true"></i>O ciclo se repetia a cada módulo.</p>
+        </section>
+
+        <section class="cs-section container" id="sg-caderno" aria-labelledby="sg-caderno-t">
+          <header class="cs-head" data-reveal>
+            <h2 class="ds-section" id="sg-caderno-t">Meu caderno</h2>
+            <p class="ds-body">Diagramas e mapas de jornada não eram uma entrega esperada, mas eu precisava deles para entender as regras de cada módulo e história de usuário. Então fazia tudo no meu caderno, durante e depois das reuniões.</p>
+          </header>
+          <div class="cs-notebooks" data-reveal><figure class="cs-notebook cs-notebook--tall cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar a foto 1 do caderno"><span class="cs-notebook-page"><img src="assets/cases/sgdae/caderno-1.webp" width="1039" height="1280" loading="lazy" decoding="async" alt="Página do caderno com o fluxo de pagamentos desenhado à mão: busca de inscrições, tipo de dedução, classificação e parcelamento."></span><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><figure class="cs-notebook cs-notebook--wide cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar a foto 2 do caderno"><span class="cs-notebook-page"><img src="assets/cases/sgdae/caderno-2.webp" width="1280" height="997" loading="lazy" decoding="async" alt="Página do caderno com rascunhos de telas de consulta, filtros e relatórios, e anotações de dúvidas."></span><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><figure class="cs-notebook cs-notebook--wide cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar a foto 3 do caderno"><span class="cs-notebook-page"><img src="assets/cases/sgdae/caderno-3.webp" width="1280" height="1056" loading="lazy" decoding="async" alt="Página do caderno com uma lista de ajustes e dúvidas sobre cadastro, filtros e mobile."></span><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure></div>
+        </section>
+
+        <section class="cs-section container" id="sg-problema" aria-labelledby="sg-problema-t">
+          <header class="cs-head" data-reveal>
+            <h2 class="ds-section" id="sg-problema-t">Problema</h2>
+            <p class="ds-body">O que tornava a gestão da dívida ativa lenta e difícil de controlar.</p>
+          </header>
+          <ul class="cs-pains cs-pains--row" data-reveal><li class="cs-pain"><h3 class="ds-label">Gestão fragmentada</h3><p class="ds-body">Inscrição, pagamentos, parcelamentos e cobrança ficavam em aplicações separadas, cada uma com seu acesso. Não existia uma visão única da dívida.</p></li><li class="cs-pain"><h3 class="ds-label">Dependência externa</h3><p class="ds-body">O legado era mantido por outro órgão, numa plataforma antiga e difícil de evoluir. Parte das operações dependia de chamados, e qualquer melhoria fugia do controle de quem usava o sistema.</p></li><li class="cs-pain"><h3 class="ds-label">Processos manuais</h3><p class="ds-body">Cálculos feitos por fora, sem simulação, documentos montados à mão e processos físicos deixavam o trabalho lento e sujeito a erro.</p></li><li class="cs-pain"><h3 class="ds-label">Pouca rastreabilidade</h3><p class="ds-body">Era difícil entender a situação de uma dívida e acompanhar suas etapas, sem histórico claro nem relatórios.</p></li></ul>
+          <div class="cs-legacy" data-reveal>
+            <figure class="cs-shot cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar a tela legada de consulta de devedores"><img src="assets/cases/sgdae/legado-1-consulta-devedores.webp" width="1176" height="1009" loading="lazy" decoding="async" alt="Sistema legado em terminal: busca da inscrição com um menu de consultas. Dados ocultados."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><figure class="cs-shot cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar a tela legada de dados cadastrais"><img src="assets/cases/sgdae/legado-2-dados-cadastrais.webp" width="1176" height="1009" loading="lazy" decoding="async" alt="Sistema legado em terminal: dados cadastrais da inscrição, com os campos ocultados."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><figure class="cs-shot cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar a tela legada de saldo devedor"><img src="assets/cases/sgdae/legado-3-saldo-devedor.webp" width="1176" height="1009" loading="lazy" decoding="async" alt="Sistema legado em terminal: saldo devedor e parcelas, sem simulação. Valores ocultados."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure>
+          </div>
+          <p class="ds-body cs-cap" data-reveal>Sistema legado: cada informação da dívida em uma tela de terminal diferente.</p>
+        </section>
+
+        <section class="cs-section container" id="sg-quem" aria-labelledby="sg-quem-t">
+          <header class="cs-head" data-reveal>
+            <h2 class="ds-section" id="sg-quem-t">Quem usa</h2>
+            <p class="ds-body">Na dívida ativa, cada servidor tem atribuições diferentes, e o que cada um pode fazer no sistema é definido pelo seu perfil de acesso. Para entender as dores da equipe como um todo, conversei com a coordenação do setor, que acompanha de perto o trabalho dos servidores e concentra os problemas que eles relatam no dia a dia.</p>
+          </header>
+          <div class="cs-persona-grid" data-reveal><div><h3 class="ds-label cs-icon-label"><i data-lucide="user-star" aria-hidden="true"></i>Servidor da dívida ativa</h3><ul class="cs-list"><li>Usa o sistema todos os dias e acessa só as funções liberadas para o seu perfil</li><li>Conhece bem as regras da dívida ativa</li><li>Atende contribuintes, pessoalmente ou no balcão virtual, que querem negociar ou entender a situação das suas dívidas</li></ul></div><div><h3 class="ds-label cs-icon-label"><i data-lucide="sparkles" aria-hidden="true"></i>Objetivos</h3><ul class="cs-list"><li>Dar ao contribuinte uma resposta clara e na hora</li><li>Resolver cada atendimento sem depender de outros sistemas ou de outro órgão</li><li>Ter segurança de que valores e documentos estão corretos</li></ul></div><div><h3 class="ds-label cs-icon-label"><i data-lucide="scan-heart" aria-hidden="true"></i>Necessidades</h3><ul class="cs-list"><li>Encontrar rápido os dados da dívida</li><li>Ver tudo sobre ela em um só lugar</li><li>Calcular valores e condições de pagamento no próprio sistema</li><li>Gerar documentos prontos, sem retrabalho</li></ul></div><div><h3 class="ds-label cs-icon-label"><i data-lucide="frown" aria-hidden="true"></i>Dores</h3><ul class="cs-list"><li>Informação espalhada em várias aplicações</li><li>Não conseguir dizer ao contribuinte quanto ele vai pagar</li><li>Montar documentos copiando dados das telas</li><li>Depender de chamados para operações como a compensação</li></ul></div></div>
+          <div class="cs-sub" data-reveal>
+            <h3 class="ds-section">O que dizem</h3>
+            <p class="ds-body">As dores na voz da equipe.</p>
+          </div>
+          <ul class="cs-voices" data-reveal><li><h3 class="ds-label">Informação espalhada em vários sistemas</h3><blockquote class="ds-body"><p>“Se eu quero acessar só o sistema da dívida, eu coloco aqui “dívida” e boto usuário e senha. Se eu quiser ver a questão de pagamento, aí eu coloco outra aplicação. […] Para a gente ver o parcelamento, já é em outra aplicação.”</p></blockquote></li><li><h3 class="ds-label">Não conseguir negociar com o contribuinte</h3><blockquote class="ds-body"><p>“Não, o sistema não permite visualizar quando ele pode pagar. […] Tem várias regras […] que o sistema não mostra, não tem uma tela pra fazer isso. Aí não dá para dizer quanto fica a parcela, por exemplo, o contribuinte tem que analisar a situação dele, e ele mesmo calcular.”</p></blockquote></li><li><h3 class="ds-label">Documentos montados à mão</h3><blockquote class="ds-body"><p>“Como o sistema não disponibiliza, a gente só copia e cola […] aí tem que formatar. Normalmente a gente manda aquele que tem no [portal do contribuinte]. Só que, às vezes, eles querem algo mais detalhado, que não tem lá.”</p></blockquote></li><li><h3 class="ds-label">Depender de outro órgão</h3><blockquote class="ds-body"><p>“Nesse caso de compensação, a gente não tem acesso. A gente vai abrindo chamado. […] Tem vezes que dizendo que está sendo compensado, mas de fato não está.”</p></blockquote></li></ul>
+        </section>
+
+        <section class="cs-section container" id="sg-ds" aria-labelledby="sg-ds-t">
+          <header class="cs-head" data-reveal>
+            <h2 class="ds-section" id="sg-ds-t">Design system</h2>
+            <p class="ds-body">O sistema é desenvolvido em Angular, então construí a maior parte dos componentes com base na biblioteca PrimeNG, que o time já usava. Assim, o desenvolvimento não precisava criar componentes do zero. Para as necessidades que a biblioteca não cobria, criei componentes específicos, e toda a estrutura de tokens foi criada por mim, e é ela que dá ao sistema uma identidade própria sobre a biblioteca.</p>
+            <p class="ds-body">O design system evoluiu e foi sendo documentado ao longo do projeto, e hoje é a referência entregue ao desenvolvimento.</p>
+          </header>
+          <div class="cs-media" data-reveal><figure class="cs-shot cs-shot--flat cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar a visão geral do design system"><img src="assets/cases/sgdae/ds-overview.webp" width="2858" height="1708" loading="lazy" decoding="async" alt="Visão geral do design system: paleta, botões, controles, tipografia, tabela, campos, feedback, diálogo, status e navegação."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure></div>
+          <div class="cs-media-pair cs-media-pair--ds" data-reveal>
+            <figure class="cs-media-cap"><figure class="cs-shot cs-shot--flat cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar a organização dos tokens"><img src="assets/cases/sgdae/ds-tokens.webp" width="666" height="915" loading="lazy" decoding="async" alt="Variáveis do design system no Figma: coleções Primitives, Semantic e Appearance, com os tokens de superfície e de ação."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><figcaption>Organização dos tokens.</figcaption></figure>
+            <figure class="cs-media-cap"><figure class="cs-shot cs-shot--flat cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar a organização do arquivo"><img src="assets/cases/sgdae/ds-arquivo.webp" width="395" height="920" loading="lazy" decoding="async" alt="Páginas do arquivo do design system: estilos, padrões e componentes."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><figcaption>Organização do arquivo.</figcaption></figure>
+          </div>
+        </section>
+
+        <section class="cs-section container" id="sg-padrao" aria-labelledby="sg-padrao-t">
+          <header class="cs-head" data-reveal>
+            <h2 class="ds-section" id="sg-padrao-t">Padronização</h2>
+            <p class="ds-body">Todas as telas usam o mesmo componente de layout de página: menu lateral, barra superior, cabeçalho da página e área de conteúdo. Sobre essa base, a maioria dos módulos repete os mesmos tipos de tela: consultar (lista com filtros), visualizar (cabeçalho e abas), cadastrar ou editar (formulário).</p>
+          </header>
+          <div class="cs-media" data-reveal><figure class="cs-shot cs-shot--flat cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar o padrão de consulta"><img src="assets/cases/sgdae/ds-padrao-consulta.webp" width="2858" height="513" loading="lazy" decoding="async" alt="Padrão de consulta no web: sem filtros, com o painel de filtros aberto, com filtros aplicados e com muitos filtros ativos."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure></div>
+          <div class="cs-media-pair cs-media-pair--padrao" data-reveal>
+            <figure class="cs-shot cs-shot--flat cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar os padrões de cadastro e edição"><img src="assets/cases/sgdae/ds-cadastro.webp" width="1137" height="1694" loading="lazy" decoding="async" alt="Padrões de cadastro, edição e formulários de endereço e contato."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><figure class="cs-shot cs-shot--flat cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar o padrão de visualização e histórico"><img src="assets/cases/sgdae/ds-historico.webp" width="2239" height="1718" loading="lazy" decoding="async" alt="Padrão da tela de visualização e do fluxo de histórico, com a versão inicial e as melhorias."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure>
+          </div>
+          <ul class="cs-cols cs-effects" data-reveal><li><h3 class="ds-label">Para quem usa</h3><p class="ds-body">Aprender um módulo é aprender todos. As ações e as informações estão sempre no mesmo lugar.</p></li><li><h3 class="ds-label">Para o time</h3><p class="ds-body">Os desenvolvedores implementaram a estrutura uma vez e reaproveitaram em outros módulos.</p></li><li><h3 class="ds-label">Para o projeto</h3><p class="ds-body">Foi o que tornou possível entregar cerca de 370 telas com consistência.</p></li></ul>
+        </section>
+
+        <section class="cs-section container" id="sg-solucao" aria-labelledby="sg-solucao-t">
+          <header class="cs-head" data-reveal>
+            <h2 class="ds-section" id="sg-solucao-t">Solução</h2>
+            <p class="ds-body">Todo o ciclo da dívida em um sistema. O MVP tem 21 módulos, organizados em cinco grandes áreas.</p>
+          </header>
+          <ul class="cs-areas" data-reveal><li class="cs-area"><div class="cs-area-top"><h4 class="ds-label">Cadastro e inscrição</h4><span class="cs-area-n">7 módulos</span></div><p class="ds-body">Do cadastro ao histórico completo da dívida.</p><ul class="cs-area-mods" aria-label="Módulos"><li>Inscrição</li><li>Contribuinte</li><li>Origem do débito</li><li>Tipos de receita e produtos</li><li>Fases da dívida</li><li>Livro eletrônico</li><li>Prescrição</li></ul></li><li class="cs-area"><div class="cs-area-top"><h4 class="ds-label">Pagamento e negociação</h4><span class="cs-area-n">6 módulos</span></div><p class="ds-body">Simulação e registro de pagamentos, acordos e garantias.</p><ul class="cs-area-mods" aria-label="Módulos"><li>Pagamento à vista</li><li>Parcelamento</li><li>Compensação</li><li>Formas de dedução</li><li>Guias de pagamento</li><li>Garantias</li></ul></li><li class="cs-area"><div class="cs-area-top"><h4 class="ds-label">Cálculo</h4><span class="cs-area-n">3 módulos</span></div><p class="ds-body">Atualização de valores com regras configuráveis.</p><ul class="cs-area-mods" aria-label="Módulos"><li>Juros e correção monetária</li><li>Índices de correção</li><li>Encargos e honorários</li></ul></li><li class="cs-area"><div class="cs-area-top"><h4 class="ds-label">Gestão</h4><span class="cs-area-n">3 módulos</span></div><p class="ds-body">Controle, acesso e acompanhamento.</p><ul class="cs-area-mods" aria-label="Módulos"><li>Relatórios</li><li>Usuários e permissões</li><li>Autenticação</li></ul></li><li class="cs-area"><div class="cs-area-top"><h4 class="ds-label">Cobrança</h4><span class="cs-area-n">2 módulos</span></div><p class="ds-body">Ações de cobrança extrajudicial.</p><ul class="cs-area-mods" aria-label="Módulos"><li>Protesto</li><li>Cadastro de inadimplentes</li></ul></li></ul>
+
+          <div class="cs-sub" data-reveal><h3 class="ds-section">Fluxos em destaque</h3></div>
+
+          <div class="cs-flow">
+            <h4 class="cs-flow-title" data-reveal><i data-lucide="sparkle" aria-hidden="true"></i>Dados da inscrição</h4>
+              <div class="cs-flow-row" data-reveal>
+                <figure class="cs-shot cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar a tela de consulta de inscrições"><img src="assets/cases/sgdae/web-consulta-filtros.webp" width="2100" height="1186" loading="lazy" decoding="async" alt="Tela de consulta de inscrições com o painel lateral de filtros de busca aberto."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure>
+                <div class="cs-flow-text"><p class="ds-body">A busca aceita qualquer dado do devedor. São muitos campos de busca possíveis: se ficassem fixos no topo, empurrariam a lista para baixo, mesmo quando o analista só quer pesquisar por um número de inscrição. Por isso ficaram num painel lateral.</p></div>
+              </div>
+              <div class="cs-flow-row" data-reveal>
+                <figure class="cs-shot cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar a tela de detalhes da inscrição"><img src="assets/cases/sgdae/web-dados-gerais.webp" width="2100" height="1182" loading="lazy" decoding="async" alt="Detalhes da inscrição: abas na lateral e os dados gerais, com o prazo de prescrição em destaque."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure>
+                <div class="cs-flow-text"><p class="ds-body">Abas na inscrição em vez de páginas separadas. A pessoa troca de assunto sem perder o contexto do devedor. Ordenei as abas pela frequência de uso.</p></div>
+              </div>
+              <div class="cs-flow-row" data-reveal>
+                <figure class="cs-shot cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar a aba de deduções da inscrição"><img src="assets/cases/sgdae/web-deducoes-inscricao.webp" width="2100" height="1182" loading="lazy" decoding="async" alt="Aba Deduções da inscrição, com a tabela de deduções e o resumo de valores ao lado."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure>
+                <div class="cs-flow-text"><p class="ds-body">Extratos, CDA e termo de parcelamento também saem prontos do sistema, sem copiar e formatar dados das telas.</p></div>
+              </div>
+              <div class="cs-flow-row cs-flow-row--phones" data-reveal>
+                <div class="cs-mphones"><figure class="cs-mphone cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar a consulta no celular"><img src="assets/cases/sgdae/mob-consulta.webp" width="639" height="1386" loading="lazy" decoding="async" alt="Consulta de inscrições no celular, em cards."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><figure class="cs-mphone cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar os dados da dívida no celular"><img src="assets/cases/sgdae/mob-dados.webp" width="640" height="1387" loading="lazy" decoding="async" alt="Dados da dívida no celular."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><figure class="cs-mphone cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar as deduções no celular"><img src="assets/cases/sgdae/mob-deducoes.webp" width="634" height="1374" loading="lazy" decoding="async" alt="Deduções no celular, com o resumo de valores no topo."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure></div>
+                <div class="cs-flow-text"><p class="ds-body">Pelo que percebi do dia a dia da equipe, edições e cadastros continuariam sendo feitos no computador. Por isso usei degradação graciosa: em 17 dos 21 módulos, o mobile tem só a visualização e o histórico, para consultas rápidas quando surgir a necessidade.</p></div>
+              </div>
+          </div>
+
+          <div class="cs-flow">
+            <h4 class="cs-flow-title" data-reveal><i data-lucide="sparkle" aria-hidden="true"></i>Simulação de pagamento</h4>
+            <p class="ds-body cs-flow-intro" data-reveal>Contribuintes iam pessoalmente à procuradoria perguntar quanto pagariam à vista, com o desconto de um edital, ou parcelando. O sistema antigo não fazia esse cálculo, e muitas vezes o contribuinte era orientado a calcular por conta própria ou a procurar outro sistema, depois de já ter se deslocado até lá.</p>
+              <div class="cs-flow-row" data-reveal>
+                <figure class="cs-shot cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar a consulta de deduções"><img src="assets/cases/sgdae/web-deducoes.webp" width="2100" height="1182" loading="lazy" decoding="async" alt="Consulta de deduções separadas por tipo, com status, saldo e dias de atraso."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure>
+                <div class="cs-flow-text"><p class="ds-body">As deduções ficam separadas por tipo, à vista, parcelado e compensação, com o status, o saldo e os dias de atraso de cada uma. A simulação começa por aqui.</p></div>
+              </div>
+              <div class="cs-flow-row" data-reveal>
+                <figure class="cs-shot cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar a tela de simulação"><img src="assets/cases/sgdae/web-simular.webp" width="2100" height="1182" loading="lazy" decoding="async" alt="Simulação de dedução: inscrições selecionadas na tabela e, ao lado, tipo de pagamento, desconto e o resumo com o valor original e o valor com desconto."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure>
+                <div class="cs-flow-text"><p class="ds-body">Agora a simulação acontece numa única tela. O analista seleciona as inscrições, escolhe o tipo de pagamento e o desconto, e o sistema calcula o resto.</p><p class="ds-body">O resumo mostra o valor original e o valor com desconto. A simulação pode ser baixada para o contribuinte ou virar o pedido de parcelamento.</p></div>
+              </div>
+          </div>
+        </section>
+
+        <section class="cs-section is-band" id="sg-proximos" aria-labelledby="sg-proximos-t">
+          <div class="container">
+            <header class="cs-head" data-reveal><h2 class="ds-section" id="sg-proximos-t">Próximos passos</h2></header>
+            <ol class="cs-rowlist" data-reveal><li><span class="cs-rowlist-n">01</span><div><p class="ds-body">Acompanhar os usuários usando o sistema, para recolher feedbacks reais.</p></div></li><li><span class="cs-rowlist-n">02</span><div><p class="ds-body">Fazer testes de usabilidade após o lançamento, começando pela visualização da inscrição, que é o fluxo mais usado. Depois, a simulação de pagamento, medindo quantas consultas dos contribuintes viram deduções.</p></div></li><li><span class="cs-rowlist-n">03</span><div><p class="ds-body">Melhorar o fluxo e a usabilidade de algumas telas de cadastro, para deixar os formulários menos densos.</p></div></li></ol>
+          </div>
+        </section>
+
+        <footer class="cs-end container">
+          <button class="btn btn-outline" type="button" data-case-close><i data-lucide="arrow-left" aria-hidden="true"></i>Voltar para os projetos</button>
+        </footer>
+      </div>
+    </article>
+  </div>

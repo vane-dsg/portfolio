@@ -1,0 +1,164 @@
+<!-- =========================================================
+     MODELO DE CASE NOVO
+     Como usar:
+     1. Copie este arquivo para src/cases/<nome>.html (ex.: src/cases/app-saude.html)
+     2. Troque "SLUG" pelo nome do arquivo em TODO o arquivo (ex.: SLUG → app-saude)
+     3. Preencha os textos marcados com [ ... ] e troque as imagens em assets/cases/SLUG/
+     4. Apague as seções que não têm insumo (nunca invente conteúdo)
+     5. Adicione o nome em src/cases/ordem.txt, na posição em que o card deve aparecer
+     6. Crie a cor do case em css/styles.css:
+          .case--SLUG { --case-accent: #xxxxxx; --cursor-color: var(--case-accent); --ring: #xxxxxx; }
+     7. Rode: node build.mjs
+     Regras de texto, ordem das seções e medidas: .claude/skills/case-portfolio-vanessa/SKILL.md
+     ========================================================= -->
+
+<!-- @card -->
+<li class="deck-item case--SLUG">
+  <!-- ícone: "briefcase" = projeto profissional, "user" = projeto pessoal -->
+  <button class="case-tab" type="button" tabindex="-1" aria-hidden="true"><span class="tab-fl"></span><i data-lucide="user" class="case-tab-ic"></i><span class="case-tab-text">[Nome curto]</span></button>
+  <a class="case-card case--SLUG" href="#case-SLUG" data-case="case-SLUG" data-cursor="Ver case">
+    <div class="case-panel">
+      <!-- o título tem que ser IGUAL ao título da página do case -->
+      <h3 class="case-title">[Título do case]</h3>
+      <p class="case-desc">[Uma frase sobre o que foi feito, com o resultado em] <strong>[negrito no fim.]</strong></p>
+      <ul class="case-tags" aria-label="Tags">
+        <li>[Tag 1]</li><li>[Tag 2]</li>
+      </ul>
+      <span class="btn btn-outline case-btn">Ver case <i data-lucide="arrow-right" aria-hidden="true"></i></span>
+    </div>
+    <div class="case-visual">
+      <!-- WEB: notebook. Para MOBILE, troque por dois celulares:
+      <div class="case-mock case-mock--back mock-phone mock-phone--shot" aria-hidden="true"><img src="assets/cases/SLUG/tela-2.webp" width="590" height="1278" alt="" decoding="async"></div>
+      <div class="case-mock mock-phone mock-phone--shot" aria-hidden="true"><img src="assets/cases/SLUG/tela-1.webp" width="590" height="1278" alt="" decoding="async"></div>
+      -->
+      <div class="case-mock mock-laptop" aria-hidden="true">
+        <div class="mock-screen">
+          <img src="assets/cases/SLUG/capa.webp" width="2100" height="1182" alt="" decoding="async">
+        </div>
+      </div>
+    </div>
+  </a>
+</li>
+
+<!-- @pagina -->
+<div class="case-view case--SLUG" id="case-SLUG" role="dialog" aria-modal="true" aria-labelledby="case-SLUG-title" hidden>
+  <div class="case-view-bg" aria-hidden="true"></div>
+  <div class="case-bar">
+    <div class="container case-bar-inner">
+      <button class="case-back case-bar-back" type="button" data-case-close><i data-lucide="arrow-left" aria-hidden="true"></i>Voltar</button>
+      <button class="btn btn-ghost btn-icon theme-toggle" type="button" aria-label="Ativar modo escuro">
+        <i data-lucide="moon" class="theme-icon is-moon" aria-hidden="true"></i>
+        <i data-lucide="sun" class="theme-icon is-sun" aria-hidden="true"></i>
+      </button>
+    </div>
+  </div>
+  <article class="case-view-scroll">
+    <div class="container case-page">
+      <div class="case-top" data-fade>
+        <button class="case-back" type="button" data-case-close><i data-lucide="arrow-left" aria-hidden="true"></i>Voltar</button>
+        <button class="btn btn-ghost btn-icon theme-toggle" type="button" aria-label="Ativar modo escuro">
+          <i data-lucide="moon" class="theme-icon is-moon" aria-hidden="true"></i>
+          <i data-lucide="sun" class="theme-icon is-sun" aria-hidden="true"></i>
+        </button>
+      </div>
+
+      <!-- ================= Topo ================= -->
+      <div class="cs-hero">
+        <div class="cs-hero-text">
+          <h1 class="case-page-title" id="case-SLUG-title" data-flip="title">[Título do case]</h1>
+          <p class="ds-body case-page-lede" data-fade>[1 a 2 frases: o que foi feito e para quem.]</p>
+          <ul class="case-tags case-page-tags" aria-label="Tags" data-flip="tags"><li>[Tag 1]</li><li>[Tag 2]</li></ul>
+        </div>
+        <!-- WEB: notebook. Para mockup pronto do Figma (ex.: celulares), use:
+        <figure class="case-hero-shot cs-hero-img" data-fade>
+          <div class="cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar [descrição]"><img src="assets/cases/SLUG/hero.webp" width="0000" height="0000" decoding="async" alt="[o que a imagem mostra]"></div>
+        </figure>
+        -->
+        <figure class="case-hero-shot" data-fade>
+          <div class="laptop">
+            <div class="laptop-screen cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar [descrição da tela]">
+              <img src="assets/cases/SLUG/capa.webp" width="2100" height="1182" alt="[o que a tela mostra]">
+              <span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span>
+            </div>
+            <div class="laptop-base" aria-hidden="true"></div>
+          </div>
+        </figure>
+      </div>
+
+      <!-- ================= Ficha (3 ou 4 itens; com 4 use class="case-facts case-facts--4") ================= -->
+      <dl class="case-facts case-facts--4" data-fade>
+        <div><dt>Meu papel</dt><dd>[UX/UI Designer]</dd></div>
+        <div><dt>[Cliente ou Tipo]</dt><dd>[...]</dd></div>
+        <div><dt>[Equipe ou Ferramentas]</dt><dd>[...]</dd></div>
+        <div><dt>Período</dt><dd>[...]</dd></div>
+      </dl>
+
+      <div class="case-role" data-fade>
+        <h2 class="ds-label">O que eu fiz</h2>
+        <p class="ds-body">[1 parágrafo, primeira pessoa, frases curtas.]</p>
+      </div>
+    </div>
+
+    <!-- ================= Seções: escolha o roteiro na skill (A, B, C ou D). Abaixo, os blocos mais usados. ================= -->
+    <div class="cs-body">
+
+      <!-- Seção em faixa (fundo diferente): use class="cs-section is-band" + div.container -->
+      <section class="cs-section is-band" id="SLUG-contexto" aria-labelledby="SLUG-contexto-t">
+        <div class="container">
+          <header class="cs-head" data-reveal>
+            <h2 class="ds-section" id="SLUG-contexto-t">Contexto</h2>
+            <p class="ds-body">[1 a 3 frases.]</p>
+          </header>
+          <div class="cs-cols cs-cols--2" data-reveal>
+            <div class="cs-head"><h3 class="ds-label">[Como era]</h3><p class="ds-body">[...]</p></div>
+            <div class="cs-head"><h3 class="ds-label">[Objetivo]</h3><p class="ds-body">[...]</p></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Problema: até 4 cards (viram quadro 2×2 em telas médias e lista no celular) -->
+      <section class="cs-section container" id="SLUG-problema" aria-labelledby="SLUG-problema-t">
+        <header class="cs-head" data-reveal>
+          <h2 class="ds-section" id="SLUG-problema-t">Problema</h2>
+          <p class="ds-body">[1 frase.]</p>
+        </header>
+        <ul class="cs-pains cs-pains--row" data-reveal>
+          <li class="cs-pain"><h3 class="ds-label">[Dor 1]</h3><p class="ds-body">[...]</p></li>
+          <li class="cs-pain"><h3 class="ds-label">[Dor 2]</h3><p class="ds-body">[...]</p></li>
+          <li class="cs-pain"><h3 class="ds-label">[Dor 3]</h3><p class="ds-body">[...]</p></li>
+          <li class="cs-pain"><h3 class="ds-label">[Dor 4]</h3><p class="ds-body">[...]</p></li>
+        </ul>
+      </section>
+
+      <!-- Solução: tela à esquerda, texto à direita (o que a tela faz → efeito para o usuário) -->
+      <section class="cs-section container" id="SLUG-solucao" aria-labelledby="SLUG-solucao-t">
+        <header class="cs-head" data-reveal>
+          <h2 class="ds-section" id="SLUG-solucao-t">Solução</h2>
+          <p class="ds-body">[1 frase sobre o que as telas mostram.]</p>
+        </header>
+        <div class="cs-flow">
+          <h3 class="cs-flow-title" data-reveal><i data-lucide="sparkle" aria-hidden="true"></i>[Nome do fluxo]</h3>
+          <div class="cs-flow-row" data-reveal>
+            <figure class="cs-shot cs-photo" data-viewer="photo" data-cursor="Clique para bisbilhotar" role="button" tabindex="0" aria-label="Ampliar [tela]"><img src="assets/cases/SLUG/tela-1.webp" width="2100" height="1182" loading="lazy" decoding="async" alt="[o que a tela mostra]"><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure>
+            <div class="cs-flow-text"><p class="ds-body">[1 a 3 frases.]</p></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Lista numerada (próximos passos, o que medir, o que aprendi) -->
+      <section class="cs-section is-band" id="SLUG-proximos" aria-labelledby="SLUG-proximos-t">
+        <div class="container">
+          <header class="cs-head" data-reveal><h2 class="ds-section" id="SLUG-proximos-t">Próximos passos</h2></header>
+          <ol class="cs-rowlist" data-reveal>
+            <li><span class="cs-rowlist-n">01</span><div><p class="ds-body">[...]</p></div></li>
+            <li><span class="cs-rowlist-n">02</span><div><p class="ds-body">[...]</p></div></li>
+          </ol>
+        </div>
+      </section>
+
+      <footer class="cs-end container">
+        <button class="btn btn-outline" type="button" data-case-close><i data-lucide="arrow-left" aria-hidden="true"></i>Voltar para os projetos</button>
+      </footer>
+    </div>
+  </article>
+</div>

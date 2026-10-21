@@ -1,0 +1,945 @@
+/* =========================================================
+   Página do case
+   Segue o design system (css/tokens.css + DESIGN-SYSTEM.md):
+   cores só por tokens semânticos (--color-*), textos pelas
+   classes .ds-section, .ds-label, .ds-body, .ds-tag.
+   Layout: frame "Case PDO — Web (1440)" no Figma (light e dark).
+   ========================================================= */
+
+.case-view {
+  --bar-h: 56px;
+  --cs-gap-section: clamp(72px, 9vw, 104px);   /* entre seções */
+  --cs-gap-block: clamp(32px, 4vw, 56px);      /* entre o cabeçalho da seção e o conteúdo */
+  --text-body-size: 16px;                       /* no case, o estilo body do Figma é 16/160% */
+}
+.case-view ::selection { background: var(--color-text); color: var(--color-bg); }
+.case-view .case-page { padding-bottom: 0; }
+
+/* ---------- barra fixa com o "Voltar" (some ao descer, volta ao subir) ---------- */
+.case-bar {
+  position: sticky; top: 0; z-index: 5;
+  height: var(--bar-h); margin-bottom: calc(-1 * var(--bar-h));   /* não empurra o conteúdo */
+  background: color-mix(in srgb, var(--color-bg) 88%, transparent);
+  backdrop-filter: saturate(160%) blur(12px); -webkit-backdrop-filter: saturate(160%) blur(12px);
+  border-bottom: 1px solid var(--color-border);
+  translate: 0 -100%; visibility: hidden;
+  transition: translate .35s var(--ease-out), visibility 0s .35s;
+}
+.case-bar.is-visible { translate: 0 0; visibility: visible; transition: translate .35s var(--ease-out); }
+.case-bar-inner { height: 100%; display: flex; align-items: center; gap: 16px; }
+.case-bar-back { margin: 0; }
+.case-bar .theme-toggle { margin-left: auto; }   /* tema no lado direito da barra */
+
+/* ---------- topo: título e notebook lado a lado (Figma 263:16 + 263:131) ---------- */
+.cs-hero {
+  width: 100%; display: grid; grid-template-columns: minmax(0, 500fr) minmax(0, 554fr);
+  gap: clamp(32px, 3vw, 34px); align-items: center;
+}
+.cs-hero-text { display: flex; flex-direction: column; align-items: flex-start; }
+.case-view .case-page-title { font-size: clamp(2.125rem, 4vw, 48px); line-height: 1.2; text-wrap: pretty; }
+.case-view .case-page-lede { margin-top: 32px; font-size: var(--text-body-size); }
+.case-view .case-page-tags { margin-top: 16px; }
+.case-view .case-facts { margin-top: clamp(64px, 8vw, 122px); }
+.case-role { margin-top: clamp(48px, 5vw, 80px); display: grid; gap: 12px; }
+
+/* notebook */
+.case-view .case-hero-shot { width: 100%; height: auto; margin: 0; padding: 0; overflow: visible; border-radius: 0; background: none; }
+.laptop { width: 100%; }
+.laptop-screen {
+  padding: clamp(5px, 1.3%, 8px);
+  background: #1c1c1e; border-radius: clamp(10px, 1.6vw, 16px) clamp(10px, 1.6vw, 16px) 4px 4px;
+  box-shadow: inset 0 0 0 1px #3a3a3c;
+}
+.laptop-screen img { display: block; width: 100%; height: auto; aspect-ratio: 1738 / 978; object-fit: cover; object-position: top left; border-radius: clamp(3px, .4vw, 5px); background: #e7e5e4; }
+.laptop-base {
+  --bh: clamp(8px, 1.1vw, 14px);
+  position: relative; width: 112%; margin-left: -6%; height: var(--bh);
+  background: linear-gradient(#3a3a3d, #2a2a2c 30%, #232325);
+  border-radius: 3px 3px var(--bh) var(--bh);
+}
+.laptop-base::before {
+  content: ""; position: absolute; left: 50%; top: 0; translate: -50% 0;
+  width: 13%; height: 32%; border-radius: 0 0 10px 10px; background: #18181a;
+}
+
+/* ---------- seções ----------
+   .is-band pinta a faixa de ponta a ponta (a sombra larga + clip-path estendem o fundo além do container). */
+.cs-section { padding-block: clamp(64px, 7vw, 96px);   /* mesmo respiro em todas as seções, com ou sem faixa */ scroll-margin-top: calc(var(--bar-h) - 40px); }
+.cs-section.is-band {
+  --cs-ring: var(--color-surface-band-solid);   /* recorte dos pontos da linha do tempo */
+  padding-block: clamp(64px, 7vw, 96px);
+  background: var(--color-surface-band);
+  box-shadow: 0 0 0 100vmax var(--color-surface-band); clip-path: inset(0 -100vmax);
+}
+/* duas seções sem faixa seguidas: os respiros não somam (fica a mesma distância de uma troca de faixa) */
+.cs-section:not(.is-band) + .cs-section:not(.is-band) { padding-top: 0; }
+.cs-body > .cs-section:first-child { margin-top: clamp(48px, 5vw, 64px); }
+.cs-head { display: grid; gap: 20px; }
+.cs-head > .ds-body { max-width: none; }
+.ds-body strong { font-weight: 600; color: var(--color-text); }   /* destaque no texto corrido */
+.cs-note { margin-top: var(--cs-gap-block); }
+
+/* colunas de itens: rótulo + texto */
+.cs-cols { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px; }
+.cs-cols > li { display: grid; align-content: start; gap: 12px; }
+
+/* listas com marcador (personas e solução) */
+.cs-list { margin: 0; padding-left: 24px; }
+.cs-list li {
+  font-family: var(--text-body-family); font-size: var(--text-body-size); line-height: var(--text-body-lh);
+  color: var(--color-text-muted);
+}
+.cs-list li::marker { color: var(--color-text-muted); }
+.cs-icon-label { display: flex; align-items: center; gap: 10px; }
+.cs-icon-label svg { flex-shrink: 0; width: 24px; height: 24px; color: var(--color-text); stroke-width: 1.75; }
+
+/* ---------- Contexto: linha do tempo + 3 colunas ---------- */
+.cs-route { margin-top: 48px; }
+.cs-route-track {
+  position: relative; height: 16px; margin-bottom: 12px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.cs-route-track::before { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: var(--color-line); }
+.cs-route-track span {
+  position: relative; width: 16px; height: 16px; border-radius: 50%;
+  background: var(--cs-ring, var(--color-bg)); border: 1.75px solid var(--color-line);
+  box-shadow: 0 0 0 14px var(--cs-ring, var(--color-bg));   /* respiro entre o ponto e a linha */
+}
+.cs-route-track span.is-me {
+  border: 0; background: var(--color-line);
+  box-shadow: inset 0 0 0 4px var(--cs-ring, var(--color-bg)), 0 0 0 3.5px var(--color-line), 0 0 0 17.5px var(--cs-ring, var(--color-bg));
+}
+.cs-route-cols > li { gap: 8px; padding-block: 12px 0; }
+.cs-item-head { display: flex; align-items: center; gap: 12px; min-height: 31px; }
+.cs-item-go { width: 24px; height: 24px; margin-left: auto; color: var(--color-text); flex-shrink: 0; }
+
+/* ---------- Proto-personas (Figma 263:99) ---------- */
+.cs-personas { margin-top: var(--cs-gap-block); display: grid; gap: 24px; }
+.cs-persona {
+  border: 1px solid var(--color-border); border-radius: 20px; overflow: hidden;
+  background: var(--color-surface-band);
+}
+.cs-persona-top { display: grid; gap: 12px; padding: 32px; }
+.cs-persona-goal {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px;
+  padding: 16px 32px; border-top: 1px solid var(--color-border);
+}
+.cs-persona-goal .ds-body { color: var(--color-text-muted); }
+.cs-persona-cols { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--color-border); }
+.cs-persona-cols > div { display: grid; align-content: start; gap: 12px; padding: 24px 32px; }
+.cs-persona-cols > div + div { border-left: 1px solid var(--color-border); }
+
+/* ---------- Quadros com diagramas (abrem em tela cheia, js/viewer.js) ---------- */
+.cs-diagram {
+  position: relative; margin: var(--cs-gap-block) 0 0;
+  display: grid; place-items: center;
+  border-radius: 20px; overflow: hidden; cursor: zoom-in;
+  /* os diagramas são claros: o quadro fica claro nos dois temas, com grade de pontos */
+  background-color: #fafafa;
+  background-image: radial-gradient(circle, rgb(0 0 0 / .09) 1px, transparent 1.4px);
+  background-size: 14px 14px;
+  transition: box-shadow .4s var(--ease-out);
+}
+.cs-diagram:hover { box-shadow: 0 24px 48px -32px rgb(0 0 0 / .45); }
+.cs-diagram:focus-visible { outline: 3px solid var(--ring); outline-offset: 4px; }
+.cs-diagram img { display: block; width: 100%; height: auto; transition: scale .6s var(--ease-out); }
+.cs-diagram:hover img { scale: 1.015; }
+.cs-diagram--board { padding: 3.75% 3.2% 5.2%; }               /* 1100 × 398 com o quadro a 35/41 px */
+.cs-diagram--flow  { padding: 3.9% 0 7.8%; }
+.cs-diagram--flow img { width: 80.3%; }                         /* 890 de 1108 */
+.cs-expand {
+  position: absolute; right: 2.3%; bottom: 26px; display: grid; place-items: center;
+  width: 24px; height: 24px; border-radius: 6px; color: #171717;   /* pequeno: avisa sem cobrir a tela */
+  transition: background-color .2s ease, scale .3s var(--ease-out);
+}
+.cs-expand svg { width: 13px; height: 13px; }
+.cs-diagram:hover .cs-expand { background: rgb(0 0 0 / .06); scale: 1.08; }
+.cs-cap { margin-top: 16px; text-align: center; }   /* legenda colada ao quadro que ela explica */
+.has-figma-cursor [data-cursor], .has-figma-cursor [data-cursor] * { cursor: none; }
+
+/* ---------- Redesenho do fluxo: decisões numeradas com divisórias ---------- */
+.cs-decisions { list-style: none; margin: var(--cs-gap-block) 0 0; padding: 0; }
+.cs-decisions > li { display: grid; gap: 12px; padding-block: 20px; }
+.cs-decisions > li:first-child { padding-top: 0; }
+.cs-decisions > li + li { border-top: 1px solid var(--color-border); }
+
+/* ---------- Solução: título da etapa preso no topo, tela e texto sobem por baixo ---------- */
+.cs-solution { padding-bottom: clamp(32px, 4vw, 48px); }
+.cs-steps { margin-top: clamp(24px, 3vw, 44px); }
+.cs-step { position: relative; padding-bottom: 44px; }
+.cs-step-head {
+  position: sticky; top: 0; z-index: 3;
+  background: var(--color-bg);
+  transition: top .35s var(--ease-out);
+}
+.case-view.bar-on .cs-step-head { top: calc(var(--bar-h) - 1px); }   /* fica logo abaixo da barra do "Voltar" */
+.cs-step-head .container { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; padding-block: 32px; }
+.cs-step-head .ds-section:last-child { flex-shrink: 0; }
+.cs-step-body {
+  display: grid; grid-template-columns: minmax(0, 695fr) minmax(0, 373fr); gap: 51px; align-items: start;
+  padding-top: 0;
+}
+.cs-step--text .cs-step-body { grid-template-columns: minmax(0, 1fr); }
+.cs-shot {
+  position: relative; margin: 0; border-radius: 8px; overflow: hidden;
+  background: #f7f7f7;
+}
+.cs-shot img { display: block; width: 100%; height: auto; }
+
+/* fotos que abrem por cima da página (js/viewer.js) */
+.cs-photo { cursor: zoom-in; }
+.laptop-screen.cs-photo { position: relative; }
+/* ícone de ampliar nas fotos: só no toque (no computador o cursor "Clique para bisbilhotar" já avisa) */
+.cs-expand--photo {
+  right: 8px; bottom: 8px;
+  background: rgb(255 255 255 / .6); box-shadow: 0 1px 3px rgb(0 0 0 / .12);
+  -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px);
+}
+/* nas telas de celular, ainda menor */
+.cs-phone .cs-expand--photo { width: 20px; height: 20px; right: 6px; bottom: 6px; border-radius: 5px; }
+.cs-phone .cs-expand--photo svg { width: 11px; height: 11px; }
+.cs-photo:hover .cs-expand--photo { scale: 1.08; }
+@media (max-width: 900px) { .cs-photo:not(.cs-phone) .cs-expand--photo { right: 8px; bottom: 8px; } }
+.cs-photo:focus-visible { outline: 3px solid var(--ring); outline-offset: 4px; }
+.cs-shot.cs-photo img { transition: scale .6s var(--ease-out); }
+.cs-shot.cs-photo:hover img { scale: 1.02; }
+
+/* =========================================================
+   Case Meu Ônibus (telas de celular)
+   ========================================================= */
+/* topo: dois celulares no lugar do notebook */
+/* a área dos celulares tem a mesma proporção do notebook dos outros cases (tela 1738 × 978 + base),
+   e os celulares se medem pela altura dela */
+.cs-hero-phones { width: 100%; aspect-ratio: 3 / 2; container-type: size; display: flex; justify-content: center; align-items: flex-start; gap: 6cqh; }
+.cs-hero-phones .cs-phone { width: 41cqh; flex: 0 0 auto; border-radius: 4.5cqh; }
+.cs-hero-phones .cs-phone + .cs-phone { margin-top: 11cqh; }
+
+/* celular: só a tela, com cantos de aparelho e uma borda fina (as imagens já trazem a barra de status) */
+.cs-phone {
+  position: relative; margin: 0; min-width: 0;
+  border-radius: 18px; overflow: hidden;
+  border: 1px solid var(--color-border); background: #f7f7f7;
+}
+.cs-phone img { display: block; width: 100%; height: auto; transition: scale .6s var(--ease-out); }
+.cs-phone.cs-photo:hover img { scale: 1.02; }
+
+/* antes e depois: as telas do fluxo em fila, o texto ao lado */
+/* telas à esquerda, texto (até 340px) à direita. As telas têm 168px; quando a etapa tem mais telas
+   e o espaço aperta, elas diminuem juntas até 120px. Abaixo disso, a etapa quebra:
+   as telas ficam centralizadas e o texto vai para baixo. --n = quantidade de telas da etapa. */
+.cs-step-body--phones { display: block; container-type: inline-size; }
+.cs-step-grid { display: grid; grid-template-columns: max-content minmax(0, 340px); justify-content: space-between; gap: 48px; align-items: start; }
+.cs-phones {
+  --pw: clamp(120px, (100cqw - 388px - (var(--n) - 1) * 14px) / var(--n), 168px);
+  display: flex; gap: 14px; align-items: flex-start;
+}
+.cs-step-grid[data-n="1"] { --n: 1; } .cs-step-grid[data-n="2"] { --n: 2; }
+.cs-step-grid[data-n="3"] { --n: 3; } .cs-step-grid[data-n="4"] { --n: 4; }
+/* quebra: quando as telas chegariam abaixo de 120px ao lado do texto, elas ficam centralizadas
+   e o texto vai para baixo */
+@container (max-width: 909px) {
+  .cs-step-grid[data-n="4"] { grid-template-columns: minmax(0, 1fr); justify-items: center; gap: 28px; }
+  .cs-step-grid[data-n="4"] > .cs-phones { --pw: clamp(110px, (100cqw - 42px) / 4, 168px); }
+  .cs-step-grid[data-n="4"] > .cs-step-text { width: 100%; max-width: 560px; }
+}
+@container (max-width: 775px) {
+  .cs-step-grid[data-n="3"] { grid-template-columns: minmax(0, 1fr); justify-items: center; gap: 28px; }
+  .cs-step-grid[data-n="3"] > .cs-phones { --pw: clamp(110px, (100cqw - 28px) / 3, 168px); }
+  .cs-step-grid[data-n="3"] > .cs-step-text { width: 100%; max-width: 560px; }
+}
+@container (max-width: 641px) {
+  .cs-step-grid[data-n="2"] { grid-template-columns: minmax(0, 1fr); justify-items: center; gap: 28px; }
+  .cs-step-grid[data-n="2"] > .cs-phones { --pw: clamp(110px, (100cqw - 14px) / 2, 168px); }
+  .cs-step-grid[data-n="2"] > .cs-step-text { width: 100%; max-width: 560px; }
+}
+@container (max-width: 507px) {
+  .cs-step-grid[data-n="1"] { grid-template-columns: minmax(0, 1fr); justify-items: center; gap: 28px; }
+  .cs-step-grid[data-n="1"] > .cs-phones { --pw: clamp(110px, (100cqw - 0px) / 1, 168px); }
+  .cs-step-grid[data-n="1"] > .cs-step-text { width: 100%; max-width: 560px; }
+}
+
+.cs-phones .cs-phone { flex: 0 0 var(--pw); border-radius: calc(var(--pw) * .075); }   /* canto proporcional à tela */
+
+/* texto da etapa: tópicos e, embaixo, os destaques num bloco neutro com estrela */
+.cs-step-text { display: grid; gap: 16px; align-content: start; }
+.cs-step-text > p { margin: 0; }
+.cs-highlight { display: flex; gap: 12px; align-items: flex-start; margin: 0; padding: 14px 16px; border-radius: 12px; background: var(--color-surface-band); border: 1px solid var(--color-border); }
+.cs-highlight svg { flex-shrink: 0; width: 18px; height: 18px; margin-top: 3px; color: var(--ring); fill: currentColor; }
+
+/* destaque e inovação dentro da lista do depois */
+
+
+/* pesquisa: duas colunas, com as avaliações citadas */
+.cs-cols--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: var(--cs-gap-block); gap: clamp(32px, 4vw, 56px); }
+.cs-cols--2 > div { align-content: start; }
+.cs-stack { display: grid; gap: clamp(40px, 5vw, 56px); margin-top: var(--cs-gap-block); }   /* blocos um embaixo do outro */
+/* contexto do Meu Ônibus: dois blocos, cada um com itens de ícone + texto */
+.cs-context-list { list-style: none; margin: 8px 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px clamp(32px, 4vw, 56px); }
+.cs-context-list > li { display: grid; gap: 8px; align-content: start; }
+.cs-context > div + div { padding-top: clamp(32px, 4vw, 48px); border-top: 1px solid var(--color-border); }   /* linha entre "o que o app faz" e "o que mudou" */
+.cs-stack.cs-context { gap: clamp(32px, 4vw, 48px); }
+
+/* conclusão: tabela do antes e depois */
+.cs-table-wrap { margin-top: var(--cs-gap-block); }
+.cs-table { width: 100%; border-collapse: collapse; font-family: var(--text-body-family); font-size: var(--text-body-size); line-height: var(--text-body-lh); }
+.cs-table caption { text-align: left; padding-bottom: 16px; }
+.cs-table th, .cs-table td { text-align: left; vertical-align: top; padding: 14px 16px 14px 0; border-bottom: 1px solid var(--color-border); }
+.cs-table thead th { font-family: var(--text-label-family); font-weight: var(--text-label-weight); font-size: var(--text-label-size); letter-spacing: var(--text-label-ls); text-transform: uppercase; color: var(--color-text-muted); }
+.cs-table tbody th { font-weight: 600; color: var(--color-text); width: 24%; }
+.cs-table td { color: var(--color-text-muted); width: 38%; }
+.cs-table td strong { font-weight: 600; color: var(--color-text); }
+.cs-quotes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 8px; }
+.cs-quote { margin: 0; padding: 20px; background: var(--color-surface-band); border-radius: 12px; display: grid; gap: 10px; align-content: space-between; }
+.cs-quote p { margin: 0; }
+.cs-quote footer { display: flex; align-items: center; gap: 6px; font-family: var(--text-body-family); font-size: 13px; line-height: 1.4; color: var(--color-text-muted); }
+.cs-quote footer svg { width: 14px; height: 14px; color: #f59e0b; fill: currentColor; }
+.cs-questions { margin: 0; padding-left: 22px; display: grid; gap: 6px; }
+
+/* persona de verdade: mesmo card das proto-personas, com foto, citação e três colunas */
+.cs-persona-id { display: flex; align-items: center; gap: 20px; }
+.cs-persona-photo { width: 72px; height: 72px; flex-shrink: 0; border-radius: 50%; object-fit: cover; }
+.cs-persona-id > div { display: grid; gap: 6px; }
+.cs-persona-quote { margin: 0; padding: 20px 32px; border-top: 1px solid var(--color-border); }
+.cs-persona-quote p { font-style: italic; }
+.cs-persona-cols--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+/* quatro grupos de dores */
+.cs-cols--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: var(--cs-gap-block); gap: 32px; }
+.cs-sub { margin-top: clamp(48px, 6vw, 72px); display: grid; gap: 12px; }
+.cs-diagram--journey { padding: 3% 3.2% 5%; background-image: none; background-color: #fff; }
+.cs-diagram--research { padding: 3% 3.6% 5%; background-image: none; background-color: #f9f6fe; }
+.cs-diagram--research img { width: 76%; }   /* o quadro é alto: menor na página, inteiro ao ampliar */
+.cs-diagram--sketch { padding: 3% 2.6% 5%; background-image: none; background-color: #fff; }
+
+/* ---------- Próximas iterações e o que vou medir ---------- */
+.cs-next { margin-top: var(--cs-gap-block); gap: 48px; }
+.cs-measures { list-style: none; margin: 40px 0 0; padding: 0; }
+.cs-measures > li { padding-block: 16px; }
+.cs-measures > li:first-child { padding-top: 0; }
+.cs-measures > li + li { border-top: 1px solid var(--color-border); }
+
+/* ---------- fim ---------- */
+.cs-end { display: flex; justify-content: center; padding-block: clamp(32px, 4vw, 48px) clamp(72px, 10vw, 120px); }
+.nowrap { white-space: nowrap; }
+
+/* ---------- celular e tablet ---------- */
+@media (max-width: 900px) {
+  .cs-hero { grid-template-columns: 1fr; gap: 48px; }
+  .cs-cols, .cs-persona-cols { grid-template-columns: 1fr; gap: 32px; }
+  .cs-persona-cols { gap: 0; }
+  .cs-persona-cols > div + div { border-left: 0; border-top: 1px solid var(--color-border); }
+  .cs-persona-top { padding: 24px; }
+  .cs-persona-goal { padding: 16px 24px; }
+  .cs-persona-cols > div { padding: 20px 24px; }
+  .cs-step-body { grid-template-columns: 1fr; gap: 24px; }
+  .cs-step-head .container { padding-block: 20px; }
+  .cs-expand { right: 12px; bottom: 12px; }
+  .cs-cap { margin-top: 24px; }
+
+  /* timeline na vertical: um ponto ao lado de cada item, ligado ao próximo */
+  .cs-route-track { display: none; }
+  .cs-route-cols { gap: 8px; padding-left: 36px; }
+  .cs-route-cols > li { position: relative; padding-block: 0 16px; }
+  .cs-route-cols > li::before {
+    content: ""; position: absolute; z-index: 2; left: -36px; top: 7.5px;
+    width: 16px; height: 16px; border-radius: 50%; box-sizing: border-box;
+    background: var(--cs-ring, var(--color-bg)); border: 1.75px solid var(--color-line);
+    box-shadow: 0 0 0 8px var(--cs-ring, var(--color-bg));
+  }
+  .cs-route-cols > li.is-me::before {
+    border: 0; background: var(--color-line);
+    box-shadow: inset 0 0 0 4px var(--cs-ring, var(--color-bg)), 0 0 0 3.5px var(--color-line), 0 0 0 11.5px var(--cs-ring, var(--color-bg));
+  }
+  .cs-route-cols > li:not(:last-child)::after {
+    content: ""; position: absolute; z-index: 1; left: -28.5px; top: 15.5px;
+    width: 1px; height: calc(100% + 8px); background: var(--color-line);
+  }
+  /* seta fica logo depois do título */
+  .cs-item-go { margin-left: 0; }
+
+  .cs-context-list { grid-template-columns: 1fr; }
+  .cs-table thead { display: none; }
+  .cs-table tr { display: grid; gap: 6px; padding: 16px 0; border-bottom: 1px solid var(--color-border); }
+  .cs-table th, .cs-table td, .cs-table tbody th, .cs-table td { display: block; width: auto; padding: 0; border: 0; }
+  .cs-table td::before { content: attr(data-label) ": "; font-weight: 600; color: var(--color-text); }
+  .cs-quotes { grid-template-columns: 1fr; }
+  .cs-persona-id { flex-direction: column; align-items: flex-start; gap: 14px; }
+  .cs-cols--2, .cs-cols--4, .cs-persona-cols--3 { grid-template-columns: 1fr; }
+  .cs-persona-quote { padding: 16px 24px; }
+}
+
+/* celular: as telas viram uma fila que rola para o lado (a próxima aparece pela metade) */
+@media (max-width: 640px) {
+  .cs-step-grid { grid-template-columns: minmax(0, 1fr) !important; justify-items: stretch !important; gap: 24px; }
+  .cs-step-grid > .cs-step-text { max-width: none; }
+  .cs-phones { justify-content: safe center;
+    overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none;
+    margin-inline: calc(-1 * var(--gutter, 16px)); padding: 4px var(--gutter, 16px) 16px;
+    scroll-padding-inline: var(--gutter, 16px);
+  }
+  .cs-phones::-webkit-scrollbar { display: none; }
+  .cs-phones .cs-phone { scroll-snap-align: start; }
+  .cs-step-grid[data-n] > .cs-phones { --pw: min(56vw, 230px) !important; }
+}
+@media (max-width: 640px) {
+  .laptop-base { width: 108%; margin-left: -4%; }
+}
+
+/* =========================================================
+   Visualizador: diagramas em tela cheia (zoom e mover) e fotos por cima da página
+   ========================================================= */
+.vw { position: fixed; inset: 0; z-index: 200; }
+.vw[hidden] { display: none; }
+.vw-backdrop { position: absolute; inset: 0; }
+.vw.is-photo .vw-backdrop {
+  background: rgb(10 10 10 / .62);
+  backdrop-filter: blur(14px) saturate(120%); -webkit-backdrop-filter: blur(14px) saturate(120%);
+}
+.vw.is-diagram .vw-backdrop {
+  background-color: #fafafa;
+  background-image: radial-gradient(circle, rgb(0 0 0 / .09) 1px, transparent 1.4px);
+  background-size: 14px 14px;
+}
+.vw-stage { position: absolute; inset: 0; overflow: hidden; touch-action: none; }
+.vw .vw-stage { cursor: default; }
+.vw .vw-stage.is-over { cursor: zoom-in; }
+.vw.is-zoomed .vw-stage.is-over { cursor: zoom-out; }
+.vw .vw-stage.is-dragging { cursor: grabbing; }
+.vw-img {
+  position: absolute; left: 0; top: 0; max-width: none; transform-origin: 0 0;
+  user-select: none; -webkit-user-drag: none;   /* sem will-change: a camada não fica presa a um bitmap pequeno */
+}
+.vw.is-photo .vw-img { border-radius: 10px; box-shadow: 0 30px 80px -20px rgb(0 0 0 / .6); }
+.vw-close {
+  position: absolute; z-index: 2; top: calc(env(safe-area-inset-top, 0px) + 16px); right: 16px;
+  width: 44px; height: 44px; display: grid; place-items: center; border-radius: 999px; cursor: pointer;
+  border: 1px solid rgb(0 0 0 / .12); background: rgb(255 255 255 / .92); color: #171717;
+  box-shadow: 0 6px 20px -8px rgb(0 0 0 / .35);
+  transition: scale .25s var(--ease-out), background-color .2s ease;
+}
+.vw-close:hover { scale: 1.06; background: #fff; }
+.vw-close:focus-visible { outline: 3px solid var(--ring); outline-offset: 3px; }
+.vw-close svg { width: 20px; height: 20px; }
+.vw-hint { display: none !important;
+  position: absolute; z-index: 2; left: 50%; bottom: calc(env(safe-area-inset-bottom, 0px) + 20px); translate: -50% 0;
+  margin: 0; padding: 8px 14px; border-radius: 999px; white-space: nowrap;
+  font-family: var(--text-body-family); font-size: 14px; font-weight: 500; line-height: 1.2;
+  background: rgb(23 23 23 / .86); color: #fafafa;
+}
+.vw-hint kbd {
+  font: inherit; font-weight: 700; padding: 1px 6px; margin-inline: 2px; border-radius: 5px;
+  border: 1px solid rgb(255 255 255 / .3);
+}
+.vw-chrome { transition: opacity .3s ease; }
+.vw:not(.is-ready) .vw-chrome { opacity: 0; }
+/* toque: sem dica de teclado */
+@media (hover: none), (pointer: coarse) { .vw-hint { display: none; } }
+
+/* =========================================================
+   Seções aparecem ao rolar (js/case-page.js marca .is-in)
+   Os filhos diretos de [data-reveal] sobem e aparecem em sequência.
+   ========================================================= */
+.js .case-view [data-reveal] > * {
+  opacity: 0; translate: 0 36px;
+  transition: opacity .7s ease, translate .9s var(--ease-out);
+  transition-delay: calc(var(--ri, 0) * 90ms);
+}
+.js .case-view [data-reveal].is-in > * { opacity: 1; translate: 0 0; }
+/* =========================================================
+   Espaços reservados (SGDAE): mostram onde cada tela/foto entra
+   ========================================================= */
+.cs-ph {
+  position: relative; margin: 0; width: 100%;
+  display: grid; grid-template-columns: minmax(0, 1fr); align-content: center; justify-items: center; gap: 8px; padding: 20px; text-align: center; min-width: 0; overflow: hidden;
+  background: var(--color-surface-band); border: 1.5px dashed var(--color-border); border-radius: 12px;
+  color: var(--color-text-muted);
+}
+.cs-ph-label { display: inline-flex; flex-direction: column; align-items: center; gap: 8px; max-width: 36ch; text-wrap: balance;
+  font-family: var(--text-body-family); font-size: 15px; line-height: 1.4; font-weight: 600; color: var(--color-text); }
+.cs-ph-label svg { width: 16px; height: 16px; flex-shrink: 0; color: var(--case-accent); }
+.cs-ph-path { max-width: 100%; overflow-wrap: anywhere; font-family: "DM Mono", ui-monospace, monospace; font-size: 12px; line-height: 1.4; color: var(--color-text-muted); }
+.cs-ph--web   { aspect-ratio: 1738 / 978; }
+.cs-ph--phone { aspect-ratio: 786 / 1704; width: min(200px, 100%); border-radius: 22px; padding: 14px; }
+.cs-ph--photo { aspect-ratio: 4 / 3; }
+.cs-ph--wide  { aspect-ratio: 16 / 7; }
+.cs-ph--doc   { aspect-ratio: 1 / 1.414; }
+.cs-ph--strip { aspect-ratio: 16 / 3; }
+.cs-ph--phone .cs-ph-label, .cs-ph--doc .cs-ph-label { font-size: 14px; }
+.cs-ph--in-laptop { aspect-ratio: 1440 / 820; border-radius: 0; border: 0; background: var(--color-surface-band-solid); }
+
+.cs-ph-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.cs-ph-grid--phones { display: flex; flex-wrap: wrap; gap: 16px; }
+.cs-ph-gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 24px; }
+.cs-ph-gallery--1 { grid-template-columns: minmax(0, 560px); }
+.cs-ph-stack { display: grid; gap: 16px; margin-top: var(--cs-gap-block); }
+.cs-step-shots { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; min-width: 0; }
+
+/* ciclo de trabalho: 5 etapas numeradas lado a lado */
+.cs-cycle { list-style: none; margin: var(--cs-gap-block) 0 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 24px; counter-reset: none; }
+.cs-cycle > li { display: grid; align-content: start; gap: 10px; padding-top: 16px; border-top: 2px solid var(--color-line); }
+.cs-cycle > li p { margin: 0; }
+.cs-cycle-n { font-family: "DM Mono", ui-monospace, monospace; font-size: 13px; color: var(--color-text-muted); }
+.cs-cycle-loop { display: flex; align-items: center; gap: 10px; margin: 24px 0 0; }
+.cs-cycle-loop svg { width: 18px; height: 18px; color: var(--case-accent); flex-shrink: 0; }
+
+/* dores: cards com a citação em destaque */
+.cs-pains { list-style: none; margin: var(--cs-gap-block) 0 0; padding: 0; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 16px; }
+.cs-pain { grid-column: span 2; }
+.cs-pain:nth-child(n+4) { grid-column: span 3; }   /* 3 em cima, 2 embaixo, sem buraco */
+.cs-pain { display: grid; grid-template-rows: auto auto 1fr; gap: 10px; padding: 24px; background: var(--color-bg); border: 1px solid var(--color-border); border-radius: 12px; }
+.cs-pain p { margin: 0; }
+.cs-pain-quote { margin: 8px 0 0; align-self: end; font-family: var(--text-title-family); font-weight: 600; font-size: 19px; line-height: 1.35; color: var(--color-text); text-wrap: pretty; }
+.cs-cap--left { text-align: left; }
+
+/* números grandes */
+.cs-stats { list-style: none; margin: var(--cs-gap-block) 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; }
+.cs-stats--5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.cs-stats > li { display: grid; align-content: start; gap: 6px; padding-top: 16px; border-top: 1px solid var(--color-border); }
+.cs-stat-n { font-family: var(--text-display-family); font-weight: var(--text-display-weight); font-size: clamp(36px, 4vw, 52px); line-height: 1; letter-spacing: var(--text-display-ls); color: var(--color-text); }
+.cs-stat-l { font-family: var(--text-body-family); font-size: 15px; line-height: 1.4; color: var(--color-text-muted); }
+
+/* tabela antes/depois com só duas colunas */
+.cs-table--2 td { width: 50%; }
+.cs-table--2 td:first-child { padding-right: 32px; }
+
+/* números logo abaixo da capa: sem linha em cima (a ficha já fecha com uma) */
+.cs-stats--hero { margin-top: clamp(32px, 4vw, 48px); }
+.cs-stats--hero > li { border-top: 0; padding-top: 0; }
+
+/* 4 dores: grade 2 × 2 */
+.cs-pains--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.cs-pains--4 .cs-pain, .cs-pains--4 .cs-pain:nth-child(n+4) { grid-column: auto; grid-template-rows: auto 1fr; }
+.cs-quotes--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 0; }
+.cs-quotes--3 .cs-quote p { font-family: var(--text-title-family); font-weight: 600; font-size: 18px; line-height: 1.4; color: var(--color-text); }
+
+/* mapa das cinco áreas do MVP */
+.cs-areas { list-style: none; margin: var(--cs-gap-block) 0 0; padding: 0; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 16px; }
+.cs-area { grid-column: span 2; display: grid; align-content: start; gap: 10px; padding: 24px; border: 1px solid var(--color-border); border-radius: 12px; background: var(--color-bg); }
+.cs-area:nth-child(n+4) { grid-column: span 3; }
+.cs-area p { margin: 0; }
+.cs-area-top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.cs-area-n { font-family: "DM Mono", ui-monospace, monospace; font-size: 12px; color: var(--color-text-muted); white-space: nowrap; }
+.cs-area-mods { list-style: none; margin: 6px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.cs-area-mods li { padding: 4px 10px; border-radius: 999px; background: var(--color-surface-band); font-family: var(--text-body-family); font-size: 13px; line-height: 1.4; color: var(--color-text); }
+
+/* antes e depois dentro da etapa */
+.cs-ba { margin: 0; font-family: var(--text-label-family); font-weight: var(--text-label-weight); font-size: var(--text-label-size); letter-spacing: var(--text-label-ls); text-transform: uppercase; color: var(--color-text-muted); }
+.cs-ba ~ .cs-ba { margin-top: 16px; }
+
+/* galeria: o resto do sistema */
+.cs-ph-grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.cs-gallery { display: grid; gap: 16px; margin-top: 24px; }
+.cs-gallery-row { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 16px; }
+.cs-gallery-row .cs-ph--doc { width: min(300px, 100%); }
+
+/* layout único: 4 tipos de tela e os efeitos */
+.cs-ph-grid--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.cs-ph-grid--4 .cs-ph { padding: 12px; }
+.cs-ph-grid--4 .cs-ph-path { font-size: 11px; }
+.cs-effects { margin-top: var(--cs-gap-block); }
+.cs-stats--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.cs-sub--first { margin-top: clamp(32px, 4vw, 48px); }
+.cs-sub + .cs-table-wrap, .cs-sub + .cs-stats { margin-top: 20px; }
+
+/* documentos em leque */
+.cs-fan { display: flex; justify-content: center; align-items: flex-end; margin-top: 32px; padding: 16px 0 8px; }
+.cs-fan > .cs-ph { width: min(240px, 26%); flex-shrink: 0; background: var(--color-surface-band-solid); box-shadow: 0 1px 0 var(--color-border); }
+.cs-fan > .cs-ph + .cs-ph { margin-left: -3%; }
+.cs-fan > .cs-ph:nth-child(1) { rotate: -6deg; translate: 0 14px; }
+.cs-fan > .cs-ph:nth-child(2) { rotate: -2deg; }
+.cs-fan > .cs-ph:nth-child(3) { rotate: 2deg; }
+.cs-fan > .cs-ph:nth-child(4) { rotate: 6deg; translate: 0 14px; }
+
+/* telas do legado no Problema: três lado a lado */
+.cs-legacy { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 40px; }
+.cs-legacy + .cs-cap { margin-top: 16px; }
+
+/* dores da persona, cada uma com a fala da equipe */
+.cs-pain-quotes { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.cs-pain-quotes li { display: grid; gap: 4px; font-family: var(--text-body-family); font-size: var(--text-body-size); line-height: var(--text-body-lh); color: var(--color-text-muted); }
+.cs-pain-quotes strong { font-weight: 600; color: var(--color-text); }
+.cs-pain-quotes q { font-style: italic; }
+
+/* fluxo contado em passos: tela + legenda numerada */
+.cs-walk { list-style: none; margin: 0; padding: 0; display: grid; gap: 28px; }
+.cs-walk > li { display: grid; gap: 12px; }
+.cs-walk .cs-ph--doc { width: min(320px, 100%); }
+.cs-walk-cap { margin: 0; display: flex; gap: 10px; align-items: baseline; font-family: var(--text-body-family); font-size: var(--text-body-size); line-height: var(--text-body-lh); color: var(--color-text-muted); }
+.cs-walk-n { flex-shrink: 0; display: inline-grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; translate: 0 -1px;
+  background: var(--case-accent); color: var(--cursor-ink, #fff); font-family: "DM Mono", ui-monospace, monospace; font-size: 12px; font-weight: 500; }
+.cs-walk + .cs-ba { margin-top: 28px; }
+/* o texto acompanha os passos enquanto a pessoa rola (no celular ele vem antes das telas) */
+@media (min-width: 901px) { .cs-step-body:has(.cs-walk) > .cs-step-text { position: sticky; top: 120px; } }
+@media (max-width: 900px) { .cs-step-body:has(.cs-walk) > .cs-step-text { order: -1; } }
+
+/* a dor da pesquisa que o fluxo resolve */
+.cs-solves { display: grid; gap: 8px; padding: 16px 18px; border-radius: 12px; background: var(--color-surface-band); }
+.cs-solves p { margin: 0; }
+.cs-solves-k { display: flex; align-items: center; gap: 8px; font-family: var(--text-label-family); font-weight: var(--text-label-weight); font-size: var(--text-label-size); letter-spacing: var(--text-label-ls); text-transform: uppercase; color: var(--color-text-muted); }
+.cs-solves-k svg { width: 14px; height: 14px; color: var(--ring, var(--case-accent)); }
+.cs-solves-t { display: grid; gap: 4px; font-family: var(--text-body-family); font-size: var(--text-body-size); line-height: var(--text-body-lh); color: var(--color-text-muted); }
+.cs-solves-t strong { font-weight: 600; color: var(--color-text); }
+.cs-solves-t q { font-style: italic; }
+
+@media (max-width: 900px) {
+  .cs-cycle { grid-template-columns: 1fr; gap: 0; }
+  .cs-cycle > li { grid-template-columns: 40px 1fr; column-gap: 12px; row-gap: 4px; padding-block: 16px; border-top: 1px solid var(--color-border); }
+  .cs-cycle > li > .cs-cycle-n { grid-row: span 2; }
+  .cs-stats, .cs-stats--5 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cs-pains, .cs-pains--4, .cs-quotes--3 { grid-template-columns: 1fr; }
+  .cs-areas { grid-template-columns: 1fr; }
+  .cs-area, .cs-area:nth-child(n+4) { grid-column: auto; }
+  .cs-ph-grid--3, .cs-ph-grid--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cs-stats--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .cs-pain, .cs-pain:nth-child(n+4) { grid-column: auto; }
+}
+@media (max-width: 640px) {
+  .cs-ph-grid, .cs-ph-gallery, .cs-ph-grid--3, .cs-legacy { grid-template-columns: 1fr; }
+  .cs-gallery-row { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
+  .cs-gallery-row > * { flex: 0 0 auto; width: 160px; }
+  .cs-gallery-row .cs-ph--doc { width: 220px; }
+  .cs-fan { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .cs-fan > .cs-ph { width: auto; rotate: none !important; translate: none !important; margin: 0 !important; }
+  .cs-ph--strip { aspect-ratio: 16 / 6; }
+  .cs-ph--wide { aspect-ratio: 4 / 3; }
+  .cs-ph-label { font-size: 14px; }
+  .cs-ph-path { font-size: 11px; }
+  .cs-pain-quote { font-size: 17px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js .case-view [data-reveal] > * { opacity: 1; translate: none; transition: none; }
+}
+
+/* a página do case é um contêiner de rolagem: sem contorno ao receber foco (os itens dentro têm o deles) */
+.case-view:focus, .case-view:focus-visible { outline: none; }
+
+/* colunas logo depois do título da seção ganham o respiro de bloco */
+.cs-head + .cs-cols { margin-top: var(--cs-gap-block); }
+
+/* =========================================================
+   Case SGDAE (versão final do Figma "Case PDO — Web (1440)")
+   ========================================================= */
+/* link para o outro case dentro do texto */
+.cs-inline-link { font-weight: 600; color: var(--color-text); text-decoration: none; white-space: nowrap; }
+.cs-inline-link svg { width: 15px; height: 15px; vertical-align: -2px; transition: translate .25s var(--ease-out); }
+.cs-inline-link:hover { text-decoration: underline; text-underline-offset: 3px; }
+.cs-inline-link:hover svg { translate: 2px -2px; }
+.cs-inline-link:focus-visible { outline: 2px solid var(--ring); outline-offset: 3px; border-radius: 4px; }
+
+/* lista numerada em linhas (metodologia, próximos passos) */
+.cs-rowlist { list-style: none; margin: var(--cs-gap-block) 0 0; padding: 0; }
+.cs-rowlist > li { display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 0 12px; padding-block: 20px; border-bottom: 1px solid var(--color-border); }
+.cs-rowlist > li:first-child { padding-top: 0; }
+.cs-rowlist > li:last-child { border-bottom: 0; }
+.cs-rowlist > li > div { display: grid; gap: 6px; }
+.cs-rowlist p { margin: 0; }
+.cs-rowlist-n { font-family: var(--text-label-family); font-weight: var(--text-label-weight); font-size: var(--text-label-size); line-height: var(--text-label-lh); letter-spacing: var(--text-label-ls); color: var(--color-text); }
+
+/* caderno: cada foto vira um caderno de capa dura, com o elástico e a dobra no meio */
+.cs-notebooks {
+  margin-top: var(--cs-gap-block);
+  display: grid; grid-template-columns: minmax(0, .78fr) minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(20px, 3vw, 40px); align-items: center; padding-block: 12px;
+}
+.cs-notebook {
+  --tilt: 0deg;
+  position: relative; margin: 0; padding: clamp(6px, .7vw, 10px);
+  background: #23272e; border-radius: 10px 14px 14px 10px;
+  box-shadow: 0 1px 0 rgb(255 255 255 / .06) inset, 0 18px 36px -18px rgb(0 0 0 / .45), 0 4px 10px -4px rgb(0 0 0 / .25);
+  rotate: var(--tilt); transition: rotate .5s var(--ease-out), translate .5s var(--ease-out);
+}
+.cs-notebook:nth-child(1) { --tilt: -3deg; }
+.cs-notebook:nth-child(2) { --tilt: 2deg; }
+.cs-notebook:nth-child(3) { --tilt: -1.5deg; }
+.cs-notebook:hover { rotate: 0deg; translate: 0 -6px; }
+.cs-notebook-page { position: relative; display: block; overflow: hidden; border-radius: 4px; background: #f4efe4; }
+.cs-notebook-page img { display: block; width: 100%; height: auto; }
+/* dobra do meio do caderno aberto */
+.cs-notebook-page::after { content: ""; position: absolute; pointer-events: none; }
+.cs-notebook--wide .cs-notebook-page::after { top: 0; bottom: 0; left: 50%; width: 28px; translate: -50% 0; background: linear-gradient(90deg, transparent, rgb(0 0 0 / .14) 45%, rgb(0 0 0 / .2) 50%, rgb(0 0 0 / .14) 55%, transparent); }
+.cs-notebook--tall .cs-notebook-page::after { left: 0; right: 0; top: 49%; height: 26px; translate: 0 -50%; background: linear-gradient(180deg, transparent, rgb(0 0 0 / .14) 45%, rgb(0 0 0 / .2) 50%, rgb(0 0 0 / .14) 55%, transparent); }
+/* elástico na borda */
+.cs-notebook::before { content: ""; position: absolute; z-index: 1; pointer-events: none; background: #15181d; box-shadow: 0 0 0 1px rgb(255 255 255 / .04); }
+.cs-notebook--wide::before { top: -2px; bottom: -2px; right: 9%; width: clamp(5px, .5vw, 7px); border-radius: 3px; }
+.cs-notebook--tall::before { left: -2px; right: -2px; bottom: 9%; height: clamp(5px, .5vw, 7px); border-radius: 3px; }
+
+/* problema: 4 cards lado a lado */
+.cs-pains--row { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.cs-pains--row .cs-pain, .cs-pains--row .cs-pain:nth-child(n+4) { grid-column: auto; grid-template-rows: auto 1fr; }
+.cs-legacy + .cs-cap { text-align: center; }
+
+/* quem usa: perfil, objetivos, necessidades e dores num quadro 2 × 2 */
+.cs-persona-grid {
+  margin-top: var(--cs-gap-block);
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+  border: 1px solid var(--color-border); border-radius: 16px; overflow: hidden;
+  background: var(--color-surface-band);
+}
+.cs-persona-grid > div { display: grid; align-content: start; gap: 14px; padding: clamp(20px, 2.4vw, 28px); }
+.cs-persona-grid > div:nth-child(odd) { border-right: 1px solid var(--color-border); }
+.cs-persona-grid > div:nth-child(n+3) { border-top: 1px solid var(--color-border); }
+
+/* falas da equipe */
+.cs-voices { list-style: none; margin: 32px 0 0; padding: 0; display: grid; }
+.cs-voices > li { display: grid; gap: 8px; padding: 20px 0 20px 28px; position: relative; }
+.cs-voices > li + li { border-top: 1px solid var(--color-border); }
+.cs-voices > li::before { content: ""; position: absolute; left: 0; top: 20px; bottom: 20px; width: 3px; border-radius: 2px; background: var(--color-text); }
+.cs-voices blockquote { margin: 0; font-style: italic; color: var(--color-text-muted); }
+.cs-voices blockquote p { margin: 0; }
+
+/* imagens do design system e da padronização */
+.cs-media { margin-top: var(--cs-gap-block); }
+.cs-shot--flat { background: transparent; border-radius: 14px; }   /* corta os cantos escuros que vêm do Figma */
+.cs-sub + .cs-flow { margin-top: 32px; }
+.cs-media-pair { margin-top: clamp(20px, 2.4vw, 32px); display: grid; gap: clamp(20px, 2.4vw, 32px); align-items: start; }
+.cs-media-pair--ds { grid-template-columns: minmax(0, 666fr) minmax(0, 394fr); }
+.cs-media-pair--padrao { grid-template-columns: minmax(0, 437fr) minmax(0, 622fr); }
+.cs-media-cap { margin: 0; display: grid; gap: 10px; }
+.cs-media-cap figcaption { font-family: var(--text-body-family); font-size: 14px; line-height: 1.5; font-style: italic; color: var(--color-text-muted); }
+
+/* áreas do MVP (Figma): cadastro alto à esquerda, pagamento e cálculo à direita; gestão e cobrança embaixo */
+.cs-areas { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.cs-areas .cs-area, .cs-areas .cs-area:nth-child(n+4) { grid-column: auto; }
+.cs-areas .cs-area:nth-child(1) { grid-column: 1; grid-row: 1 / span 2; }
+.cs-areas .cs-area:nth-child(2) { grid-column: 2 / span 2; grid-row: 1; }
+.cs-areas .cs-area:nth-child(3) { grid-column: 2 / span 2; grid-row: 2; }
+.cs-areas .cs-area:nth-child(4) { grid-column: 1 / span 2; grid-row: 3; }
+.cs-areas .cs-area:nth-child(5) { grid-column: 3; grid-row: 3; }
+.cs-area { background: var(--color-surface-band); }
+
+/* fluxos em destaque: tela à esquerda, texto à direita */
+.cs-flow { margin-top: clamp(48px, 6vw, 80px); }
+.cs-flow-title {
+  margin: 0; display: flex; align-items: center; gap: 10px;
+  font-family: var(--text-section-family); font-weight: var(--text-section-weight); font-size: var(--text-section-size);
+  line-height: var(--text-section-lh); letter-spacing: var(--text-section-ls); text-transform: uppercase; color: var(--color-text);
+}
+.cs-flow-title svg { width: 20px; height: 20px; color: var(--case-accent); }
+.cs-flow-intro { margin: 24px 0 0; }
+.cs-flow-row {
+  margin-top: clamp(32px, 4vw, 56px);
+  display: grid; grid-template-columns: minmax(0, 700fr) minmax(0, 359fr); gap: clamp(24px, 3vw, 40px); align-items: start;
+}
+.cs-flow-text { display: grid; gap: 14px; }
+.cs-flow-text p { margin: 0; }
+.cs-flow-row > .cs-shot { border-radius: 10px; box-shadow: 0 0 0 1px var(--color-border); }
+.cs-mphones { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(12px, 1.6vw, 24px); }
+.cs-mphone { position: relative; margin: 0; overflow: hidden; border-radius: clamp(14px, 1.8vw, 22px); box-shadow: 0 0 0 1px var(--color-border); background: #fff; }
+.cs-mphone img { display: block; width: 100%; height: auto; transition: scale .6s var(--ease-out); }
+.cs-mphone:hover img { scale: 1.02; }
+.cs-mphone .cs-expand--photo { width: 22px; height: 22px; }
+
+@media (max-width: 900px) {
+  .cs-notebooks { grid-template-columns: 1fr 1fr; }
+  .cs-notebook--tall { grid-row: span 2; }
+  .cs-flow-row { grid-template-columns: 1fr; gap: 16px; }
+  .cs-flow-row .cs-flow-text { order: -1; }
+  .cs-areas { grid-template-columns: 1fr; }
+  .cs-areas .cs-area:nth-child(n) { grid-column: 1; grid-row: auto; }
+}
+@media (max-width: 640px) {
+  .cs-notebooks { grid-template-columns: 1fr; gap: 28px; padding-inline: 6px; }
+  .cs-notebook--tall { grid-row: auto; width: 82%; justify-self: center; }
+  .cs-persona-grid { grid-template-columns: 1fr; }
+  .cs-persona-grid > div:nth-child(odd) { border-right: 0; }
+  .cs-persona-grid > div:nth-child(n+2) { border-top: 1px solid var(--color-border); }
+  .cs-media-pair--ds, .cs-media-pair--padrao { grid-template-columns: 1fr; }
+  .cs-media-pair--ds .cs-media-cap:last-child { width: 60%; }
+  .cs-voices > li { padding-left: 20px; }
+  .cs-rowlist > li { grid-template-columns: 36px minmax(0, 1fr); }
+}
+@media (prefers-reduced-motion: reduce) { .cs-notebook { rotate: none; } }
+
+/* celular: título do case e texto corrido um degrau menores */
+@media (max-width: 640px) {
+  .case-view { --text-body-size: 15px; }
+  .case-view .case-page-title { font-size: 28px; line-height: 1.18; }
+  .cs-stat-n { font-size: 32px; }
+}
+
+/* capa do case SGDAE: vitrine do design system, na proporção do Figma */
+#case-sgdae .laptop-screen img { aspect-ratio: 2940 / 1850; }
+.case--sgdae .mock-screen img { object-position: top left; }
+
+/* dores: em telas médias viram um quadro 2 × 2 (um só contorno, divisórias por dentro);
+   no celular, uma lista com divisórias, sem cards altos */
+@media (max-width: 1200px) {
+  .cs-pains--row { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0; border: 1px solid var(--color-border); border-radius: 16px; overflow: hidden; background: var(--color-bg); }
+  .cs-pains--row .cs-pain { border: 0; border-radius: 0; background: transparent; }
+  .cs-pains--row .cs-pain:nth-child(odd) { border-right: 1px solid var(--color-border); }
+  .cs-pains--row .cs-pain:nth-child(n+3) { border-top: 1px solid var(--color-border); }
+}
+@media (max-width: 640px) {
+  .cs-pains--row { grid-template-columns: 1fr; border: 0; border-radius: 0; background: transparent; }
+  .cs-pains--row .cs-pain { padding: 16px 0; gap: 6px; border: 0 !important; border-top: 1px solid var(--color-border) !important; }
+  .cs-pains--row .cs-pain:last-child { border-bottom: 1px solid var(--color-border) !important; }
+}
+
+/* áreas do sistema (Figma 376:4378): card com contorno, contagem em texto normal e pílulas com borda */
+.cs-areas .cs-area { gap: 8px; padding: 16px; border-radius: 16px; background: rgb(140 140 140 / .06); border: 1px solid rgb(140 140 140 / .25); }
+.cs-areas .cs-area:nth-child(5) { align-self: start; }
+.cs-areas .cs-area { min-width: 0; }
+.cs-area-top { align-items: flex-start; }
+.cs-area-top .ds-label { min-width: 0; }
+.cs-area-n { white-space: nowrap; flex-shrink: 0; }
+.cs-area-n { font-family: var(--text-body-family); font-size: 16px; line-height: 1.6; color: var(--color-text-muted); }
+.cs-area-mods { margin: 0; gap: 8px; }
+.cs-area-mods li { padding: 6px 12px; border-radius: 999px; background: rgb(140 140 140 / .06); border: 1px solid rgb(140 140 140 / .25); font-family: var(--text-body-family); font-weight: 600; font-size: 14px; line-height: 1.2; color: var(--color-text); }
+
+/* todos os ícones na cor do texto do título ao lado */
+.cs-highlight svg, .cs-quote footer svg, .cs-ph-label svg, .cs-cycle-loop svg, .cs-solves-k svg, .cs-flow-title svg { color: var(--color-text); }
+.cs-flow-title { color: var(--color-text); }
+
+/* ---------- case Cabine de fotos ---------- */
+.case--cabine .mock-screen { aspect-ratio: 1280 / 758; }
+.cs-pair { margin-top: var(--cs-gap-block); display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(16px, 2vw, 24px); align-items: start; }
+.cs-pair .cs-media-cap { margin: 0; display: grid; gap: 10px; }
+.cs-pair figcaption { font-family: var(--text-body-family); font-size: 14px; line-height: 1.5; color: var(--color-text-muted); }
+.cs-pair--figma { grid-template-columns: minmax(0, 1126fr) minmax(0, 393fr); align-items: end; }
+.cs-flow-n { font-family: var(--text-label-family); font-weight: var(--text-label-weight); font-size: var(--text-label-size); color: var(--color-text-muted); letter-spacing: var(--text-label-ls); }
+.cs-flow-row--text { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; margin-top: 24px; }
+.cs-prompt { margin: 0; padding: 20px 24px; border-radius: 16px; background: var(--color-surface-band); border-left: 3px solid var(--case-accent); }
+.cs-prompt p { margin: 0; font-style: italic; }
+.cs-chain { list-style: none; margin: 24px 0 0; padding: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.cs-chain li { display: inline-flex; align-items: center; gap: 8px; font-family: var(--text-body-family); font-weight: 600; font-size: 14px; line-height: 1.2; color: var(--color-text); }
+.cs-chain li > span, .cs-chain li { padding: 0; }
+.cs-chain li::before { content: none; }
+.cs-chain li { padding: 8px 14px; border-radius: 999px; background: rgb(140 140 140 / .06); border: 1px solid rgb(140 140 140 / .25); }
+.cs-chain li + li { position: relative; margin-left: 22px; }
+.cs-chain li + li::after { content: "→"; position: absolute; left: -22px; width: 22px; text-align: center; font-weight: 400; color: var(--color-text-muted); }
+.cs-decisions { margin-top: var(--cs-gap-block); display: grid; grid-template-columns: minmax(0, 1fr) minmax(220px, 300px); gap: clamp(32px, 5vw, 64px); align-items: start; }
+.cs-decision-list { list-style: none; margin: 0; padding: 0; display: grid; }
+.cs-decision-list > li { display: grid; gap: 8px; padding-block: 20px; border-bottom: 1px solid var(--color-border); }
+.cs-decision-list > li:first-child { padding-top: 0; }
+.cs-decision-list > li:last-child { border-bottom: 0; }
+.cs-decision-list p { margin: 0; }
+.cs-decision-phone { position: sticky; top: calc(var(--nav-h, 60px) + 24px); display: grid; gap: 12px; }
+.cs-decision-phone .cs-cap { margin: 0; text-align: center; font-size: 14px; }
+.cs-highlight-text { margin: 24px 0 0; padding: 20px 24px; border-radius: 16px; background: var(--color-surface-band); }
+.cs-iter { margin-top: var(--cs-gap-block); display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(32px, 4vw, 56px); }
+.cs-iter-item { display: grid; grid-template-columns: minmax(140px, 200px) minmax(0, 1fr); gap: clamp(20px, 2.4vw, 32px); align-items: start; }
+.cs-result { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: clamp(32px, 5vw, 64px); align-items: center; }
+.cs-result-n { margin: 8px 0 0; font-family: var(--text-display-family); font-weight: var(--text-display-weight); font-size: clamp(56px, 7vw, 96px); line-height: 1; letter-spacing: var(--text-display-ls); color: var(--color-text); }
+.cs-result-img { position: relative; margin: 0; }
+.cs-result-img img { display: block; width: 100%; height: auto; }
+.cs-learn { margin-top: var(--cs-gap-block); display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border: 1px solid var(--color-border); border-radius: 16px; overflow: hidden; }
+.cs-learn > div { display: grid; gap: 10px; align-content: start; padding: clamp(20px, 2.4vw, 28px); }
+.cs-learn > div:nth-child(odd) { border-right: 1px solid var(--color-border); }
+.cs-learn > div:nth-child(n+3) { border-top: 1px solid var(--color-border); }
+.cs-learn p { margin: 0; }
+@media (max-width: 900px) {
+  .cs-flow-row--text, .cs-decisions, .cs-iter, .cs-result { grid-template-columns: 1fr; }
+  .cs-decision-phone { position: static; max-width: 260px; justify-self: center; }
+}
+@media (max-width: 640px) {
+  .cs-pair { grid-template-columns: 1fr; }
+  .cs-pair--figma > :last-child { max-width: 260px; justify-self: center; }
+  .cs-iter-item { grid-template-columns: 120px minmax(0, 1fr); }
+  .cs-learn { grid-template-columns: 1fr; }
+  .cs-learn > div:nth-child(odd) { border-right: 0; }
+  .cs-learn > div:nth-child(n+2) { border-top: 1px solid var(--color-border); }
+  .cs-chain li + li { margin-left: 0; }
+  .cs-chain li + li::after { content: none; }
+  .cs-chain { flex-direction: column; align-items: flex-start; }
+}
+
+.case-card.no-ring:focus-visible { outline: none; }
+
+/* ---------- moldura única das imagens ----------
+   Todas as imagens dos cases ganham a mesma borda clarinha, desenhada POR CIMA da imagem (::after),
+   com o mesmo raio do recorte. Assim não sobra fresta do fundo nem pedaço de canto da imagem.
+   A máscara faz o Safari recortar certo os cantos arredondados mesmo com a imagem em zoom (hover). */
+.cs-shot, .cs-phone, .cs-mphone {
+  --frame-r: 12px;
+  position: relative; overflow: hidden; border: 0; box-shadow: none; background: transparent;
+  border-radius: var(--frame-r);
+  -webkit-mask-image: -webkit-radial-gradient(white, black); isolation: isolate;
+}
+.cs-shot::after, .cs-phone::after, .cs-mphone::after {
+  content: ""; position: absolute; inset: 0; z-index: 2; pointer-events: none;
+  border-radius: inherit; box-shadow: inset 0 0 0 1px rgb(0 0 0 / .09);
+}
+:root[data-theme="dark"] .cs-shot::after, :root[data-theme="dark"] .cs-phone::after, :root[data-theme="dark"] .cs-mphone::after { box-shadow: inset 0 0 0 1px rgb(255 255 255 / .12); }
+.cs-shot img, .cs-phone img, .cs-mphone img { border-radius: 0; }
+.cs-shot .cs-expand--photo, .cs-phone .cs-expand--photo, .cs-mphone .cs-expand--photo { z-index: 3; }
+.cs-flow-row > .cs-shot { box-shadow: none; }
+.cs-phone, .cs-mphone { --frame-r: clamp(14px, 1.8vw, 22px); }
+.cs-hero-phones .cs-phone { --frame-r: 4.5cqh; }
+.cs-phones .cs-phone { --frame-r: calc(var(--pw) * .075); }
+.cs-shot--flat { --frame-r: 14px; }
+
+/* ---------- topo com imagem de mockup pronta (Figma): mesma altura do notebook dos outros cases ---------- */
+.cs-hero-img { aspect-ratio: 3 / 2; display: flex; align-items: center; justify-content: center; }
+.cs-hero-img > .cs-photo { position: relative; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
+.cs-hero-img img { display: block; max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; filter: drop-shadow(0 24px 32px rgb(0 0 0 / .18)); }
+
+/* ---------- case Cabine (Figma 340:3459) ---------- */
+.cs-numlist { list-style: none; margin: 32px 0 0; padding: 0; display: grid; gap: 24px; }
+.cs-numlist > li { display: grid; grid-template-columns: 40px minmax(0, 1fr); align-items: baseline; }
+.cs-numlist-n { font-family: var(--text-label-family); font-weight: var(--text-label-weight); font-size: var(--text-label-size); letter-spacing: var(--text-label-ls); color: var(--color-text); }
+.cs-numlist p { margin: 0; }
+.cs-numlist strong { font-weight: 700; color: var(--color-text); }
+.cs-step-block { margin-top: clamp(40px, 4vw, 48px); display: grid; gap: 16px; }
+.cs-step-block > p { margin: 0; }
+.cs-step-block .cs-table-wrap, .cs-step-block .cs-shot, .cs-step-block .cs-chat, .cs-step-block .cs-iter { margin-top: 16px; }
+.cs-chat { display: grid; gap: 32px; }
+.cs-chat-row { display: grid; grid-template-columns: 48px minmax(0, 1fr); gap: 32px; align-items: start; }
+.cs-chat-av { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; display: block; }
+.cs-chat-av--claude { display: grid; place-items: center; background: #f0eee6; color: #1a1a1a; }
+.cs-chat-av--claude svg { width: 28px; height: 28px; fill: currentColor; }
+.cs-chat-body { display: grid; gap: 8px; }
+.cs-chat-body p { margin: 0; }
+.cs-chat-prompt { margin: 0; font-style: italic; color: var(--color-text-muted); }
+.cs-chat-prompt p { margin: 0; }
+.cs-chat-prompt ul, .cs-chat-prompt ol { margin: 4px 0 8px; padding-left: 22px; }
+.cs-shot--figma { --frame-r: 16px; }
+@media (min-width: 641px) { .cs-table--3 th, .cs-table--3 td { width: 33.33%; } }
+.cs-iter { margin-top: 0; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.cs-iter-item { grid-template-columns: minmax(0, 247fr) minmax(0, 279fr); gap: 16px; align-items: start; }
+.cs-iter-item .cs-head { padding-top: 17px; gap: 8px; }
+.cs-iter-item .cs-head p { margin: 0; }
+.cs-iter-phone { position: relative; margin: 0; }
+.cs-iter-phone img { display: block; width: 100%; height: auto; filter: drop-shadow(0 18px 24px rgb(0 0 0 / .2)); }
+#cb-resultado .cs-result { grid-template-columns: minmax(0, 650fr) minmax(0, 434fr); gap: 16px; }
+@media (max-width: 900px) {
+  .cs-iter { grid-template-columns: 1fr; gap: 40px; }
+  #cb-resultado .cs-result { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .cs-iter-item { grid-template-columns: 140px minmax(0, 1fr); }
+  .cs-chat-row { grid-template-columns: 40px minmax(0, 1fr); gap: 16px; }
+  .cs-chat-av { width: 40px; height: 40px; }
+  .cs-numlist > li { grid-template-columns: 32px minmax(0, 1fr); }
+}
+
+/* ajustes cabine / topo com imagem */
+.cs-step-block .cs-media { margin-top: 16px; }
+.cs-hero-img img, .cs-iter-phone img { filter: none; }
+.cs-hero-img { aspect-ratio: auto; }
+.cs-hero-img img { max-height: none; width: 100%; }
+#case-onibus .cs-hero-img img { width: auto; max-width: 100%; max-height: 348px; margin-inline: auto; }
+.cs-iter-phone .cs-expand--photo { right: 9%; bottom: 5%; }
+/* primeira seção logo depois da ficha: mesmo respiro dos outros cases */
+
+
+/* =========================================================
+   Topo dos cases: medidas únicas, iguais em todas as páginas
+   - área do mockup sempre na mesma proporção (3:2), centralizada
+   - topo → ficha: 80px | ficha → primeira seção ("O que eu fiz" / "Objetivo"): 80px
+   - celular: 48px nos dois
+   ========================================================= */
+.case-view { --top-gap: 80px; }
+@media (max-width: 640px) { .case-view { --top-gap: 48px; } }
+.case-view .case-hero-shot { aspect-ratio: 3 / 2; display: flex; align-items: center; justify-content: center; }
+.case-view .case-hero-shot > .laptop { width: 100%; }
+.case-view .case-facts { margin-top: var(--top-gap) !important; }
+.case-view .case-role { margin-top: var(--top-gap) !important; }
+.case-view .case-page { padding-bottom: 0; }
+#case-cabine .cs-body > .cs-section:first-child { margin-top: 0; padding-top: var(--top-gap); }
+/* conteúdo do case Cabine: 80 entre seções, 32 entre título, texto e itens (Figma 340:3459) */
+#case-cabine .cs-section { padding-block: var(--top-gap); }
+#case-cabine .cs-head { gap: 32px; }
+#case-cabine .cs-numlist { margin-top: 32px; gap: 32px; }
+#case-cabine .cs-step-block { margin-top: 48px; }
+@media (max-width: 640px) { #case-cabine .cs-head, #case-cabine .cs-numlist { gap: 24px; } }
