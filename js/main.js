@@ -206,24 +206,10 @@
      de forma linear, sem "ímã" nem trava entre as seções.
      As páginas dos cases e o visualizador de imagens têm rolagem própria (prevent).
      --------------------------------------------------------- */
-  var lenis = null;
-  if (!reduceMotion && window.Lenis) {
-    lenis = new window.Lenis({
-      // rolagem nativa da roda/trackpad, igual à das páginas dos cases (mesma força em todo o site).
-      // O Lenis fica só para as rolagens animadas (links do menu e abas da pilha).
-      smoothWheel: false,
-      prevent: function (node) { return node.classList && (node.classList.contains("case-view") || node.classList.contains("vw") || node.id === "mobile-panel"); }
-    });
-    (function raf(time) { lenis.raf(time); requestAnimationFrame(raf); })(performance.now());
-    // com um case aberto (ou o visualizador), a página de trás não rola
-    new MutationObserver(function () {
-      var cl = document.documentElement.classList;
-      if (cl.contains("case-open") || cl.contains("vw-open")) lenis.stop(); else lenis.start();
-    }).observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
-  }
+  // Rolagem 100% nativa do navegador em todo o site (igual à das páginas dos cases).
+  // Sem biblioteca de rolagem: no iPhone ela fazia a página voltar para o topo.
   function smoothTo(y) {
-    if (lenis) lenis.scrollTo(y, { duration: 1.2 });
-    else window.scrollTo({ top: y, behavior: reduceMotion ? "auto" : "smooth" });
+    window.scrollTo({ top: y, behavior: reduceMotion ? "auto" : "smooth" });
   }
 
   // links do menu e da hero: rolagem suave até a seção, com a navegação à mostra
@@ -431,7 +417,14 @@
   if (deckLive) {
     deck.classList.add("is-live");
     measureDeck();
-    window.addEventListener("resize", measureDeck);
+    // no celular, a barra de endereço aparece e some ao rolar e muda a altura da tela:
+    // só remede a pilha quando a largura muda ou a altura muda muito (girar o aparelho)
+    var lastW = window.innerWidth, lastH = window.innerHeight;
+    window.addEventListener("resize", function () {
+      var w = window.innerWidth, h = window.innerHeight;
+      if (w === lastW && Math.abs(h - lastH) < 160) { updateDeck(); return; }
+      lastW = w; lastH = h; measureDeck();
+    });
     window.addEventListener("load", measureDeck);
     // clicar na aba de um card que ficou atrás leva até ele
     deckItems.forEach(function (it, i) {

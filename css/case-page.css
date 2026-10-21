@@ -228,7 +228,8 @@
    e o espaço aperta, elas diminuem juntas até 120px. Abaixo disso, a etapa quebra:
    as telas ficam centralizadas e o texto vai para baixo. --n = quantidade de telas da etapa. */
 .cs-step-body--phones { display: block; container-type: inline-size; }
-.cs-step-grid { display: grid; grid-template-columns: max-content minmax(0, 340px); justify-content: space-between; gap: 48px; align-items: start; }
+/* colunas fixas (sem max-content): o texto nunca fica com largura zero, em nenhum navegador */
+.cs-step-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(240px, 340px); gap: 48px; align-items: start; }
 .cs-phones {
   --pw: clamp(120px, (100cqw - 388px - (var(--n) - 1) * 14px) / var(--n), 168px);
   display: flex; gap: 14px; align-items: flex-start;
@@ -258,7 +259,7 @@
   .cs-step-grid[data-n="1"] > .cs-step-text { width: 100%; max-width: 560px; }
 }
 
-.cs-phones .cs-phone { flex: 0 0 var(--pw); border-radius: calc(var(--pw) * .075); }   /* canto proporcional à tela */
+.cs-phones .cs-phone { flex: 0 0 var(--pw, 168px); border-radius: calc(var(--pw, 168px) * .075); }   /* canto proporcional à tela (168px se o navegador não calcular --pw) */
 
 /* texto da etapa: tópicos e, embaixo, os destaques num bloco neutro com estrela */
 .cs-step-text { display: grid; gap: 16px; align-content: start; }
