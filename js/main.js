@@ -209,8 +209,9 @@
   var lenis = null;
   if (!reduceMotion && window.Lenis) {
     lenis = new window.Lenis({
-      duration: 1.1,
-      easing: function (t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); },
+      // mais suave: cada giro da roda anda menos (wheelMultiplier) e a página desliza até parar (lerp)
+      lerp: 0.08,
+      wheelMultiplier: 0.8,
       smoothWheel: true,
       prevent: function (node) { return node.classList && (node.classList.contains("case-view") || node.classList.contains("vw") || node.id === "mobile-panel"); }
     });

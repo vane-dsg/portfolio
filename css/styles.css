@@ -1021,5 +1021,5 @@ html.figma-on, html.figma-on * { cursor: none !important; }
 
 /* celulares com a tela de verdade: fundo escuro atrás da imagem (nada claro aparece entre a borda e a tela)
    e recorte que o Safari respeita quando o card mexe o mockup no hover */
-.mock-phone--shot { background: #1c1917; -webkit-mask-image: -webkit-radial-gradient(white, black); isolation: isolate; }
-.mock-screen { -webkit-mask-image: -webkit-radial-gradient(white, black); isolation: isolate; }
+.mock-phone--shot { background: #1c1917; -webkit-mask-image: -webkit-radial-gradient(white, black); mask-image: radial-gradient(white, black); isolation: isolate; }
+.mock-screen { -webkit-mask-image: -webkit-radial-gradient(white, black); mask-image: radial-gradient(white, black); isolation: isolate; }

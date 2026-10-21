@@ -34,5 +34,9 @@ html = html.replace("          <!-- @cards -->", cards.join("\n"));
 html = html.replace("  <!-- @paginas -->", paginas.join("\n\n"));
 html = html.replace("<!DOCTYPE html>", "<!DOCTYPE html>\n<!-- ARQUIVO GERADO por build.mjs. Edite src/index.html e src/cases/*.html -->");
 
+// versão nos arquivos de CSS e JS: o navegador baixa a versão nova a cada build (sem cache antigo)
+const v = Date.now().toString(36);
+html = html.replace(/(href|src)="((?:css|js)\/[^"?]+\.(?:css|js))"/g, `$1="$2?v=${v}"`);
+
 writeFileSync(new URL("index.html", import.meta.url), html);
 console.log(`index.html gerado com ${ordem.length} cases: ${ordem.join(", ")}`);

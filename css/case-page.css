@@ -845,7 +845,7 @@
   --frame-r: 12px;
   position: relative; overflow: hidden; border: 0; box-shadow: none; background: transparent;
   border-radius: var(--frame-r);
-  -webkit-mask-image: -webkit-radial-gradient(white, black); isolation: isolate;
+  -webkit-mask-image: -webkit-radial-gradient(white, black); mask-image: radial-gradient(white, black); isolation: isolate;
 }
 .cs-shot::after, .cs-phone::after, .cs-mphone::after {
   content: ""; position: absolute; inset: 0; z-index: 2; pointer-events: none;
