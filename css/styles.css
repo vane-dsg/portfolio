@@ -751,6 +751,7 @@ html.lenis, html.lenis body { height: auto; }
 .case-card--pink  { --cursor-color: #db2777; }
 
 .has-figma-cursor .case-card, .has-figma-cursor .case-card * { cursor: none; }
+html.figma-on, html.figma-on * { cursor: none !important; }
 
 .figma-cursor {
   position: fixed; top: 0; left: 0; z-index: 100;

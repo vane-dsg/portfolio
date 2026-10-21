@@ -32,19 +32,9 @@
     var stepHeads = [].slice.call(view.querySelectorAll(".cs-step-head"));
     // o que passa por baixo do título preso é recortado na linha de baixo dele, com os cantos
     // arredondados (a tela parece entrar numa janela, em vez de ser cortada reta)
-    function updateStuck() {
-      stepHeads.forEach(function (h) {
-        var edge = h.getBoundingClientRect().bottom;
-        h.parentElement.querySelectorAll(".cs-step-body > *:not(.cs-step-grid), .cs-step-grid > *").forEach(function (el) {
-          var r = el.getBoundingClientRect();
-          var cut = edge - r.top;
-          if (cut > 0 && r.bottom > edge) {
-            var round = el.classList.contains("cs-shot") ? " round 8px" : "";
-            el.style.clipPath = "inset(" + cut.toFixed(1) + "px 0 0 0" + round + ")";
-          } else if (el.style.clipPath) el.style.clipPath = "";
-        });
-      });
-    }
+    // o título da etapa fica preso no topo com fundo sólido: o conteúdo passa por baixo dele, sem recorte
+    // (o recorte antigo por clip-path ficava desatualizado com o parallax e escondia o texto)
+    function updateStuck() {}
     var wide = window.matchMedia("(min-width: 901px)");   // no celular a tela e o texto ficam empilhados: sem parallax
     function updateParallax() {
       if (!parallax.length) return;

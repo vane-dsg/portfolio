@@ -477,6 +477,9 @@
         }
       }
       cursor.classList.toggle("is-on", !!card);
+      // com a etiqueta à mostra, a seta do sistema some em qualquer elemento (não depende do :hover,
+      // que o navegador só atualiza quando o mouse mexe, e por isso falhava ao rolar com o mouse parado)
+      document.documentElement.classList.toggle("figma-on", !!card);
     };
     window.addEventListener("pointermove", function (e) {
       if (e.pointerType !== "mouse") return;
@@ -490,7 +493,7 @@
       requestAnimationFrame(function () { scrollTick = false; syncCursor(); });
     }, { passive: true, capture: true });
     document.documentElement.addEventListener("mouseleave", function () {
-      currentCard = null; cursor.classList.remove("is-on");
+      currentCard = null; cursor.classList.remove("is-on"); document.documentElement.classList.remove("figma-on");
     });
   }
 })();
