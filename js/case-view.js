@@ -264,6 +264,10 @@
     var hadState = history.state && history.state.caseId;
     closeCase();
     if (hadState) history.back();
+    // case aberto direto pelo endereço (…#case-x): tira o #case-x da barra de endereço ao fechar
+    else if (/^#case-/.test(location.hash)) {
+      try { history.replaceState(null, "", location.pathname + location.search); } catch (err) {}
+    }
   }
 
   document.querySelectorAll("[data-case-close]").forEach(function (btn) {

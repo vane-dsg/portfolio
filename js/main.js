@@ -218,8 +218,9 @@
      --------------------------------------------------------- */
   // Rolagem 100% nativa do navegador em todo o site (igual à das páginas dos cases).
   // Sem biblioteca de rolagem: no iPhone ela fazia a página voltar para o topo.
+  var jumpNow = false;   // true: vai direto, sem animar (ao chegar pela troca de idioma)
   function smoothTo(y) {
-    window.scrollTo({ top: y, behavior: reduceMotion ? "auto" : "smooth" });
+    window.scrollTo({ top: y, behavior: reduceMotion || jumpNow ? "auto" : "smooth" });
   }
 
   // links do menu e da hero: rolagem suave até a seção, com a navegação à mostra
@@ -241,6 +242,17 @@
   });
   window.addEventListener("resize", updateHero);
   window.addEventListener("load", updateHero);
+  // chegou com #trabalho ou #sobre (ex.: trocou de idioma): vai para a seção com a mesma conta do menu,
+  // depois que a pilha de cards já mediu a altura (o pulo automático do navegador para no lugar errado)
+  if (/^#(trabalho|sobre)$/.test(location.hash)) {
+    window.addEventListener("load", function () {
+      requestAnimationFrame(function () {
+        var link = document.querySelector('.nav-links a[href$="' + location.hash + '"]');
+        if (!link) return;
+        jumpNow = true; link.click(); jumpNow = false;
+      });
+    });
+  }
   window.addEventListener("scroll", function () {
     if (!ticking) { window.requestAnimationFrame(onScroll); ticking = true; }
   }, { passive: true });
@@ -282,12 +294,22 @@
     { text: "Hallo, ich heiße", lang: "de" },
     { text: "こんにちは、私は", lang: "ja" }
   ];
-  /* Troca de idioma: leva junto o case aberto (ou a seção do endereço) */
+  /* Troca de idioma: a outra página abre onde a pessoa está agora.
+     Case aberto → mesmo case. Fora dos cases → mesma seção (início, trabalho ou sobre mim).
+     Usa o que está na tela, não o endereço (o #case-x pode ter ficado de uma visita anterior). */
   document.querySelectorAll(".lang-opt").forEach(function (a) {
     a.addEventListener("click", function (e) {
-      if (a.classList.contains("is-active")) { e.preventDefault(); return; }
-      var hash = location.hash;
-      if (hash) { e.preventDefault(); location.href = a.getAttribute("href").split("#")[0] + hash; }
+      e.preventDefault();
+      if (a.classList.contains("is-active")) return;
+      var hash = "";
+      var openView = document.querySelector(".case-view:not([hidden])");
+      if (openView) hash = "#" + openView.id;
+      else {
+        var active = document.querySelector(".nav-links .nav-link.is-active");
+        var sec = active && active.getAttribute("data-section");
+        if (sec && sec !== "inicio") hash = "#" + sec;
+      }
+      location.href = a.getAttribute("href").split("#")[0] + hash;
     });
   });
 
