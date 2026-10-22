@@ -26,6 +26,8 @@
     .no-anim, .no-anim *, .no-anim *::before, .no-anim *::after { transition: none !important; }
   </style>
 
+  <link rel="alternate" hreflang="pt-BR" href="index.html">
+  <link rel="alternate" hreflang="en" href="en.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Arbutus+Slab&family=DM+Mono:wght@400;500&family=DM+Sans:ital,opsz,wght@0,9..40,400..800;1,9..40,400&family=Inter+Tight:wght@500;600;700&display=swap">
@@ -52,6 +54,12 @@
           <i data-lucide="moon" class="theme-icon is-moon" aria-hidden="true"></i>
           <i data-lucide="sun" class="theme-icon is-sun" aria-hidden="true"></i>
         </button>
+        <!-- idioma: cada língua é uma página (index.html e en.html). O link leva o case aberto junto (js/main.js). -->
+        <div class="lang-switch" role="group" aria-label="Idioma">
+          <a class="lang-opt is-active" href="index.html" hreflang="pt-BR" lang="pt-BR" aria-current="page" title="Português">PT</a>
+          <span class="lang-sep" aria-hidden="true"></span>
+          <a class="lang-opt" href="en.html" hreflang="en" lang="en" title="English">EN</a>
+        </div>
         <button class="btn btn-outline btn-icon nav-menu-btn" id="menu-btn" type="button"
                 aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-panel">
           <i data-lucide="menu" aria-hidden="true"></i>

@@ -14,11 +14,13 @@ src/
     cabine.html
     onibus.html
     _modelo.html      modelo para criar um case novo
+  en/                 versão em inglês: mesma estrutura (en/index.html e en/cases/*.html)
 css/                  tokens.css (design system), styles.css (home), case-page.css (páginas dos cases)
 js/                   main.js (home, pilha, rolagem), case-view.js (abrir e fechar case), viewer.js (zoom das imagens)
 assets/               imagens (assets/cases/<case>/)
-index.html            GERADO. Não edite este arquivo.
-build.mjs             monta o index.html
+index.html            GERADO (português). Não edite este arquivo.
+en.html               GERADO (inglês). Não edite este arquivo.
+build.mjs             monta o index.html e o en.html
 DESIGN-SYSTEM.md      documentação do design system
 .claude/skills/       skill com as regras dos cases (para o Claude Code)
 ```
@@ -29,13 +31,17 @@ DESIGN-SYSTEM.md      documentação do design system
 2. No terminal, dentro da pasta do projeto: `node build.mjs`
 3. Abra o `index.html` com o Live Server (VS Code) para ver.
 
+Mudou um texto em português? Mude também o mesmo trecho em `src/en/`, senão o inglês fica desatualizado.
+O botão PT | EN leva para a outra página e mantém o case aberto.
+
 ## Criar um case novo
 
 1. Copie `src/cases/_modelo.html` para `src/cases/<nome>.html`.
 2. Siga as instruções do topo do arquivo (trocar SLUG, textos e imagens).
 3. Coloque as imagens em `assets/cases/<nome>/` (.webp).
-4. Adicione `<nome>` em `src/cases/ordem.txt`.
-5. Rode `node build.mjs`.
+4. Crie a versão em inglês em `src/en/cases/<nome>.html` (o build avisa se faltar).
+5. Adicione `<nome>` em `src/cases/ordem.txt`.
+6. Rode `node build.mjs`.
 
 Com o Claude Code: entregue os insumos (contexto, imagens, Figma, .md) e peça
 "crie o case <nome> seguindo a skill case-portfolio-vanessa".

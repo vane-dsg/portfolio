@@ -123,6 +123,39 @@ a { color: inherit; }
 :root[data-theme="dark"] .theme-toggle .is-sun { display: block; }
 :root[data-theme="dark"] .theme-toggle .is-moon { display: none; }
 
+/* troca de idioma PT | EN: controle segmentado, a língua atual fica preenchida */
+.lang-switch {
+  display: inline-flex; align-items: center; gap: 2px;
+  height: 36px; padding: 3px;
+  border: 1px solid var(--border); border-radius: 999px;
+  background: var(--card);
+}
+.lang-opt {
+  display: inline-flex; align-items: center; justify-content: center;
+  height: 28px; min-width: 36px; padding: 0 10px; border-radius: 999px;
+  font: 600 13px/1 var(--font-sans); letter-spacing: .02em;
+  color: var(--muted-foreground); text-decoration: none;
+  transition: background-color .15s, color .15s;
+}
+.lang-opt:hover { color: var(--foreground); }
+.lang-opt.is-active { background: var(--accent); color: var(--foreground); }
+.lang-opt:focus-visible { outline: none; box-shadow: 0 0 0 2px var(--background), 0 0 0 4px var(--ring); }
+.lang-sep { width: 1px; height: 14px; background: var(--border); }
+/* celular: o controle fica mais compacto e o nome não quebra em duas linhas */
+@media (max-width: 640px) {
+  .nav-brand { white-space: nowrap; }
+  .nav-actions { gap: 4px; }
+  .lang-switch { height: 32px; padding: 2px; gap: 0; }
+  .lang-opt { height: 26px; min-width: 30px; padding: 0 7px; font-size: 12px; }
+  .lang-sep { height: 12px; margin-inline: 1px; }
+}
+/* telas bem estreitas (320px): margens e botões um pouco menores para caber o menu */
+@media (max-width: 359px) {
+  .nav-inner { padding-inline: 16px; column-gap: 8px; }
+  .site-nav .nav-brand { font-size: 15px; }
+  .nav-actions .btn-icon { width: 36px; height: 36px; }
+}
+
 /* troca de tema suave (js/main.js)
    1. navegadores com View Transitions: fade da página inteira, um pouco mais lento que o padrão
    2. sem suporte: as cores de todos os elementos fazem a transição juntas */

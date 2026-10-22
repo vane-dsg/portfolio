@@ -1,0 +1,1340 @@
+<!DOCTYPE html>
+<!-- ARQUIVO GERADO por build.mjs. Edite os arquivos em src/ -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Vanessa Sousa · UX/UI Designer</title>
+  <meta name="description" content="Vanessa Sousa, UX/UI Designer in Brazil. 4+ years designing web and mobile products.">
+  <!-- marca que o JavaScript está ativo (as pílulas usam isso) -->
+  <script>document.documentElement.classList.add("js");</script>
+  <!-- tema: abre no tema do aparelho (claro ou escuro), aplicado antes de desenhar, sem piscar.
+       Enquanto a página carrega, nada faz transição de cor (classe no-anim, tirada em js/main.js). -->
+  <meta name="color-scheme" content="light dark">
+  <script>
+    (function () {
+      var d = document.documentElement;
+      var dark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+      d.setAttribute("data-theme", dark ? "dark" : "light");
+      d.classList.add("no-anim");
+    })();
+  </script>
+  <style>
+    /* cor do fundo já no tema certo, antes do CSS carregar. Fica no body (não no html): assim a cor
+       passa para a tela inteira e a grade quadriculada, que fica atrás do conteúdo, continua visível */
+    html[data-theme="light"] body { background-color: #fafafa; }
+    html[data-theme="dark"] body { background-color: #171717; }
+    .no-anim, .no-anim *, .no-anim *::before, .no-anim *::after { transition: none !important; }
+  </style>
+
+  <link rel="alternate" hreflang="pt-BR" href="index.html">
+  <link rel="alternate" hreflang="en" href="en.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Arbutus+Slab&family=DM+Mono:wght@400;500&family=DM+Sans:ital,opsz,wght@0,9..40,400..800;1,9..40,400&family=Inter+Tight:wght@500;600;700&display=swap">
+  <link rel="stylesheet" href="css/tokens.css?v=mvjtfwu4">
+  <link rel="stylesheet" href="css/styles.css?v=mvjtfwu4">
+  <link rel="stylesheet" href="css/case-page.css?v=mvjtfwu4">
+</head>
+<body>
+<!--BODY-START-->
+  <!-- ================= Navigation ================= -->
+  <header class="site-nav" id="site-nav">
+    <nav class="container nav-inner" aria-label="Main">
+      <a href="en.html#inicio" class="nav-brand">Vanessa Sousa</a>
+
+      <ul class="nav-links">
+        <li><a class="nav-link is-active" href="en.html#inicio" data-section="inicio">Home</a></li>
+        <li><a class="nav-link" href="en.html#trabalho" data-section="trabalho">Work</a></li>
+        <li><a class="nav-link" href="en.html#sobre" data-section="sobre">About me</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <!-- tema claro/escuro (js/main.js). Mostra a lua no claro e o sol no escuro. -->
+        <button class="btn btn-ghost btn-icon theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark mode">
+          <i data-lucide="moon" class="theme-icon is-moon" aria-hidden="true"></i>
+          <i data-lucide="sun" class="theme-icon is-sun" aria-hidden="true"></i>
+        </button>
+        <!-- idioma: cada língua é uma página (index.html e en.html). O link leva o case aberto junto (js/main.js). -->
+        <div class="lang-switch" role="group" aria-label="Language">
+          <a class="lang-opt" href="index.html" hreflang="pt-BR" lang="pt-BR" title="Português">PT</a> <span class="lang-sep" aria-hidden="true"></span> <a class="lang-opt is-active" href="en.html" hreflang="en" lang="en" aria-current="page" title="English">EN</a>
+        </div>
+        <button class="btn btn-outline btn-icon nav-menu-btn" id="menu-btn" type="button"
+                aria-label="Open menu" aria-expanded="false" aria-controls="mobile-panel">
+          <i data-lucide="menu" aria-hidden="true"></i>
+        </button>
+      </div>
+    </nav>
+
+    <div class="mobile-panel" id="mobile-panel">
+      <a class="nav-link is-active" href="en.html#inicio" data-section="inicio">Home</a> <a class="nav-link" href="en.html#trabalho" data-section="trabalho">Work</a> <a class="nav-link" href="en.html#sobre" data-section="sobre">About me</a>
+    </div>
+  </header>
+  <!-- fundo escuro e desfocado do menu mobile (toque fecha o menu) -->
+  <div class="nav-backdrop" id="nav-backdrop" aria-hidden="true"></div>
+
+  <main>
+    <!-- ================= Header / Hero ================= -->
+    <section class="hero hero--v2" id="inicio" aria-labelledby="hero-title">
+      <div class="container hero-inner">
+        <div class="hero-main">
+          <div class="intro">
+            <img class="intro-avatar" src="assets/avatar-pb.webp" width="50" height="50" alt="">
+            <p class="intro-line">
+              <span class="sr-only">Hi, my name is</span>
+              <!-- a saudação muda de idioma (js/main.js) -->
+              <span class="greeting" id="greeting" aria-hidden="true"><span class="greeting-word" lang="en">Hi, my name is</span></span> <span class="intro-name">Vanessa</span>
+            </p>
+          </div>
+
+          <h1 class="hero-title" id="hero-title">
+            <span class="hl">I make <mark class="mark serif">complex products</mark></span> <span class="hl">feel <em class="accent">obvious.</em></span>
+          </h1>
+
+          <p class="lede">4+ years designing web and mobile products, creating intuitive experiences that users <em>enjoy</em> using.</p>
+        </div>
+
+        <p class="location">UX/UI Designer <span class="location-dot" aria-hidden="true"></span> Brazil</p>
+        <!-- versão 2 da hero: o rótulo acima vira pílulas (troque "hero--v2" por "hero" para voltar) -->
+        <ul class="hero-pills" aria-label="About me">
+          <li class="hero-pill">UX/UI Designer</li>
+        </ul>
+      </div>
+
+      <!-- convite para rolar até os projetos -->
+      <a class="hero-scroll" href="#trabalho"> See my work <i data-lucide="arrow-down" aria-hidden="true"></i> </a>
+    </section>
+
+    <!-- ================= Projetos: sobem por cima da hero, que recua e some (js/main.js) ================= -->
+    <section class="sheet" id="trabalho" aria-labelledby="trabalho-title">
+      <div class="container">
+        <h2 class="sr-only" id="trabalho-title">Featured projects</h2>
+
+        <!-- Cards dos cases em pilha, no formato de pasta (aba com um título curto em cima).
+             Ao rolar, cada card sobe por cima do anterior, que recua e fica com a aba à mostra (js/main.js).
+             Sem movimento (prefers-reduced-motion), viram uma lista comum. -->
+        <div class="deck" data-deck>
+          <ul class="deck-stage">
+          <li class="deck-item case--dividas" style="--i:0">
+            <button class="case-tab" type="button" tabindex="-1" aria-hidden="true"><span class="tab-fl"></span><i data-lucide="briefcase" class="case-tab-ic"></i><span class="case-tab-text">Debt requests</span></button>
+            <a class="case-card case--dividas" href="#case-dividas" data-case="case-dividas" data-cursor="View case">
+              <div class="case-panel">
+                <h3 class="case-title">Redesigning how a state submits debts for collection</h3>
+                <p class="case-desc">I evolved a submission flow into a system where public servants register, track and fix their requests <strong>on their own.</strong></p>
+                <ul class="case-tags" aria-label="Tags">
+                  <li>Public sector</li><li>Problem solving</li>
+                </ul>
+                <span class="btn btn-outline case-btn">View case <i data-lucide="arrow-right" aria-hidden="true"></i></span>
+              </div>
+              <div class="case-visual">
+                <div class="case-mock mock-laptop" aria-hidden="true">
+                  <div class="mock-screen">
+                    <img src="assets/cases/v2/03-depois.webp" width="1738" height="978" alt="" decoding="async">
+                  </div>
+                </div>
+              </div>
+            </a>
+          </li>
+          <li class="deck-item case--sgdae" style="--i:1">
+            <button class="case-tab" type="button" tabindex="-1" aria-hidden="true"><span class="tab-fl"></span><i data-lucide="briefcase" class="case-tab-ic"></i><span class="case-tab-text">Public debt management</span></button>
+            <a class="case-card case--sgdae" href="#case-sgdae" data-case="case-sgdae" data-cursor="View case">
+              <div class="case-panel">
+                <h3 class="case-title">A state's public debt management system</h3>
+                <p class="case-desc">I built from scratch a system that brings together a state's entire public debt cycle, replacing a legacy system.</p>
+                <ul class="case-tags" aria-label="Tags">
+                  <li>Design System</li><li>Complex system</li>
+                </ul>
+                <span class="btn btn-outline case-btn">View case <i data-lucide="arrow-right" aria-hidden="true"></i></span>
+              </div>
+              <div class="case-visual">
+                <div class="case-mock mock-laptop" aria-hidden="true">
+                  <div class="mock-screen">
+                    <img src="assets/cases/sgdae/capa-ds.webp" width="2100" height="1321" alt="" decoding="async">
+                  </div>
+                </div>
+              </div>
+            </a>
+          </li>
+          <li class="deck-item case--onibus" style="--i:2">
+            <button class="case-tab" type="button" tabindex="-1" aria-hidden="true"><span class="tab-fl"></span><i data-lucide="user" class="case-tab-ic"></i><span class="case-tab-text">Meu Ônibus</span></button>
+            <a class="case-card case--onibus" href="#case-onibus" data-case="case-onibus" data-cursor="View case">
+              <div class="case-panel">
+                <h3 class="case-title">Redesigning the Meu Ônibus public transit app</h3>
+                <p class="case-desc">A redesign focused on rethinking the whole experience to meet <strong>users' real needs.</strong></p>
+                <ul class="case-tags" aria-label="Tags">
+                  <li>Mobile</li><li>User research</li>
+                </ul>
+                <span class="btn btn-outline case-btn">View case <i data-lucide="arrow-right" aria-hidden="true"></i></span>
+              </div>
+              <div class="case-visual">
+              <div class="case-mock case-mock--back mock-phone mock-phone--shot" aria-hidden="true">
+                <img src="assets/cases/onibus/carteira.webp" width="786" height="1704" alt="" decoding="async">
+              </div>
+              <div class="case-mock mock-phone mock-phone--shot" aria-hidden="true">
+                <img src="assets/cases/onibus/inicio-depois.webp" width="786" height="1704" alt="" decoding="async">
+              </div>
+              </div>
+            </a>
+          </li>
+          <li class="deck-item case--cabine" style="--i:3">
+            <button class="case-tab" type="button" tabindex="-1" aria-hidden="true"><span class="tab-fl"></span><i data-lucide="user" class="case-tab-ic"></i><span class="case-tab-text">Photo booth</span></button>
+            <a class="case-card case--cabine" href="#case-cabine" data-case="case-cabine" data-cursor="View case">
+              <div class="case-panel">
+                <h3 class="case-title">Photo booth for a design event</h3>
+                <p class="case-desc">Built with AI, without coding, a booth that ran on its own at the event and generated <strong>more than 50 photo sessions.</strong></p>
+                <ul class="case-tags" aria-label="Tags">
+                  <li>Design with AI</li><li>Volunteer project</li>
+                </ul>
+                <span class="btn btn-outline case-btn">View case <i data-lucide="arrow-right" aria-hidden="true"></i></span>
+              </div>
+              <div class="case-visual">
+                <div class="case-mock case-mock--back mock-phone mock-phone--shot" aria-hidden="true">
+                  <img src="assets/cases/cabine/celular-camera.webp" width="590" height="1278" alt="" decoding="async">
+                </div>
+                <div class="case-mock mock-phone mock-phone--shot" aria-hidden="true">
+                  <img src="assets/cases/cabine/celular-templates.webp" width="590" height="1278" alt="" decoding="async">
+                </div>
+              </div>
+            </a>
+          </li>
+
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= Sobre mim: entra do mesmo jeito que os projetos ([data-rise]) ================= -->
+    <section class="sheet about" id="sobre" aria-labelledby="sobre-title">
+      <div class="container">
+        <h2 class="sr-only" id="sobre-title">About me</h2>
+
+        <!-- foto em polaroid, bio e ações -->
+        <div class="about-intro" data-rise>
+          <figure class="polaroid" data-cursor="that's me">
+            <img src="assets/vanessa-sobre.webp" width="843" height="1053" alt="Vanessa Sousa smiling, with red hair and a purple UXFor t-shirt." loading="lazy" decoding="async">
+          </figure>
+          <div class="about-text">
+            <h3 class="about-name">Vanessa Sousa</h3>
+            <p class="ds-body">Hi! 👋 I'm a UX/UI Designer and I've been designing products since 2021. I believe in user-centered design, and my goal is to design screens that people enjoy using. I love teaching (talks, workshops, classes...) about what I study, especially design systems and AI in the context of interfaces and user experience.</p>
+            <ul class="about-meta">
+              <li><i data-lucide="heart-handshake" aria-hidden="true"></i>Volunteer at <a class="about-link" href="https://www.instagram.com/uxfor.br/" target="_blank" rel="noopener">@uxfor.br</a></li>
+              <li><i data-lucide="graduation-cap" aria-hidden="true"></i>Systems Analysis and Development ∙ Unifor</li>
+            </ul>
+            <div class="about-actions">
+              <!-- o PDF do currículo entra em assets/ na migração para o Claude Code -->
+              <a class="btn btn-default" href="assets/curriculo-vanessa-sousa.pdf" download><i data-lucide="download" aria-hidden="true"></i>Download resume (PT)</a> <a class="btn btn-outline" href="https://www.linkedin.com/in/vsousarte/" target="_blank" rel="noopener"><svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Experiência em linha do tempo -->
+        <section class="about-block" aria-labelledby="sobre-exp" data-rise>
+          <h3 class="ds-section" id="sobre-exp">Experience</h3>
+          <ol class="timeline">
+            <li class="is-now">
+              <span class="timeline-when">Jun 2025 · present</span>
+              <div class="timeline-body">
+                <h4 class="ds-label">Ceará State Attorney General's Office</h4>
+                <p class="about-role">UX/UI Designer · Fortaleza</p>
+                <p class="ds-body">I designed the design system and every screen of the State Tax Debt System (SGDAE) and the Portal das Origens. I map pain points, flows and business rules with users, and helped establish the design process and a UX culture in the organization.</p>
+              </div>
+            </li>
+            <li>
+              <span class="timeline-when">Jan · Nov 2023</span>
+              <div class="timeline-body">
+                <h4 class="ds-label">Cotabox</h4>
+                <p class="about-role">São Paulo · remote</p>
+                <p class="ds-body">I improved a B2B product following the company's design system and design process, working with the product and development teams.</p>
+              </div>
+            </li>
+            <li>
+              <span class="timeline-when">Feb 2022 · 2025</span>
+              <div class="timeline-body">
+                <h4 class="ds-label">Iracema Institute for Research and Innovation</h4>
+                <p class="about-role">Ceará</p>
+                <p class="ds-body">I ran research and usability tests on accessibility, health and urban mobility projects, mostly with blind or low-vision users. I designed, prototyped and tested web and mobile screens together with the developers.</p>
+              </div>
+            </li>
+            <li>
+              <span class="timeline-when">Since 2020</span>
+              <div class="timeline-body">
+                <h4 class="ds-label">Freelancer</h4>
+                <p class="ds-body">UX/UI projects and graphic work: social media posts, illustrations and layout design.</p>
+              </div>
+            </li>
+          </ol>
+        </section>
+
+        <!-- Habilidades e ferramentas -->
+        <section class="about-block" aria-labelledby="sobre-skills" data-rise>
+          <h3 class="ds-section" id="sobre-skills">Skills and tools</h3>
+          <div class="about-skills">
+            <div><h4 class="ds-label">Design</h4><ul class="about-tags"><li class="ds-tag">Product Design</li><li class="ds-tag">UX Research</li><li class="ds-tag">Usability testing</li><li class="ds-tag">Design systems</li><li class="ds-tag">Interaction Design</li><li class="ds-tag">Wireframes and prototypes</li><li class="ds-tag">AI in the design process</li></ul></div>
+            <div><h4 class="ds-label">Tools</h4><ul class="about-tags"><li class="ds-tag about-tag"><svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15.852 8.981h-4.588V0h4.588c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.491-4.49 4.491zM12.735 7.51h3.117c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019h-3.117V7.51zm0 1.471H8.148c-2.476 0-4.49-2.014-4.49-4.49S5.672 0 8.148 0h4.588v8.981zm-4.587-7.51c-1.665 0-3.019 1.355-3.019 3.019s1.354 3.02 3.019 3.02h3.117V1.471H8.148zm4.587 15.019H8.148c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h4.588v8.98zM8.148 8.981c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h3.117V8.981H8.148zM8.172 24c-2.489 0-4.515-2.014-4.515-4.49s2.014-4.49 4.49-4.49h4.588v4.441c0 2.503-2.047 4.539-4.563 4.539zm-.024-7.51a3.023 3.023 0 0 0-3.019 3.019c0 1.665 1.365 3.019 3.044 3.019 1.705 0 3.093-1.376 3.093-3.068v-2.97H8.148zm7.704 0h-.098c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h.098c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.49-4.49 4.49zm-.097-7.509c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h.098c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019h-.098z"/></svg>Figma</li><li class="ds-tag about-tag"><svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15.852 8.981h-4.588V0h4.588c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.491-4.49 4.491zM12.735 7.51h3.117c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019h-3.117V7.51zm0 1.471H8.148c-2.476 0-4.49-2.014-4.49-4.49S5.672 0 8.148 0h4.588v8.981zm-4.587-7.51c-1.665 0-3.019 1.355-3.019 3.019s1.354 3.02 3.019 3.02h3.117V1.471H8.148zm4.587 15.019H8.148c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h4.588v8.98zM8.148 8.981c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h3.117V8.981H8.148zM8.172 24c-2.489 0-4.515-2.014-4.515-4.49s2.014-4.49 4.49-4.49h4.588v4.441c0 2.503-2.047 4.539-4.563 4.539zm-.024-7.51a3.023 3.023 0 0 0-3.019 3.019c0 1.665 1.365 3.019 3.044 3.019 1.705 0 3.093-1.376 3.093-3.068v-2.97H8.148zm7.704 0h-.098c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h.098c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.49-4.49 4.49zm-.097-7.509c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h.098c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019h-.098z"/></svg>FigJam</li><li class="ds-tag about-tag"><svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22.84 2.9982v17.9987c.0086 1.6473-1.3197 2.9897-2.967 2.9984a2.9808 2.9808 0 01-.3677-.0208c-1.528-.226-2.6477-1.5558-2.6105-3.1V3.1204c-.0369-1.5458 1.0856-2.8762 2.6157-3.1 1.6361-.1915 3.1178.9796 3.3093 2.6158.014.1201.0208.241.0202.3619zM4.1326 18.0548c-1.6417 0-2.9726 1.331-2.9726 2.9726C1.16 22.6691 2.4909 24 4.1326 24s2.9726-1.3309 2.9726-2.9726-1.331-2.9726-2.9726-2.9726zm7.8728-9.0098c-.0171 0-.0342 0-.0513.0003-1.6495.0904-2.9293 1.474-2.891 3.1256v7.9846c0 2.167.9535 3.4825 2.3505 3.763 1.6118.3266 3.1832-.7152 3.5098-2.327.04-.1974.06-.3983.0593-.5998v-8.9585c.003-1.6474-1.33-2.9852-2.9773-2.9882z"/></svg>Google Analytics</li><li class="ds-tag about-tag"><i data-lucide="scan-eye" aria-hidden="true"></i>Clarity</li><li class="ds-tag about-tag"><svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19.57 17.04l-1.997-1.316-1.665 2.782-1.937-.567-1.706 2.604.087.82 9.274-1.71-.538-5.794zm-8.649-2.498l1.488-.204c.241.108.409.15.697.223.45.117.97.23 1.741-.16.18-.088.553-.43.704-.625l6.096-1.106.622 7.527-10.444 1.882zm11.325-2.712l-.602.115L20.488 0 .789 2.285l2.427 19.693 2.306-.334c-.184-.263-.471-.581-.96-.989-.68-.564-.44-1.522-.039-2.127.53-1.022 3.26-2.322 3.106-3.956-.056-.594-.15-1.368-.702-1.898-.02.22.017.432.017.432s-.227-.289-.34-.683c-.112-.15-.2-.199-.319-.4-.085.233-.073.503-.073.503s-.186-.437-.216-.807c-.11.166-.137.48-.137.48s-.241-.69-.186-1.062c-.11-.323-.436-.965-.343-2.424.6.421 1.924.321 2.44-.439.171-.251.288-.939-.086-2.293-.24-.868-.835-2.16-1.066-2.651l-.028.02c.122.395.374 1.223.47 1.625.293 1.218.372 1.642.234 2.204-.116.488-.397.808-1.107 1.165-.71.358-1.653-.514-1.713-.562-.69-.55-1.224-1.447-1.284-1.883-.062-.477.275-.763.445-1.153-.243.07-.514.192-.514.192s.323-.334.722-.624c.165-.109.262-.178.436-.323a9.762 9.762 0 0 0-.456.003s.42-.227.855-.392c-.318-.014-.623-.003-.623-.003s.937-.419 1.678-.727c.509-.208 1.006-.147 1.286.257.367.53.752.817 1.569.996.501-.223.653-.337 1.284-.509.554-.61.99-.688.99-.688s-.216.198-.274.51c.314-.249.66-.455.66-.455s-.134.164-.259.426l.03.043c.366-.22.797-.394.797-.394s-.123.156-.268.358c.277-.002.838.012 1.056.037 1.285.028 1.552-1.374 2.045-1.55.618-.22.894-.353 1.947.68.903.888 1.609 2.477 1.259 2.833-.294.295-.874-.115-1.516-.916a3.466 3.466 0 0 1-.716-1.562 1.533 1.533 0 0 0-.497-.85s.23.51.23.96c0 .246.03 1.165.424 1.68-.039.076-.057.374-.1.43-.458-.554-1.443-.95-1.604-1.067.544.445 1.793 1.468 2.273 2.449.453.927.186 1.777.416 1.997.065.063.976 1.197 1.15 1.767.306.994.019 2.038-.381 2.685l-1.117.174c-.163-.045-.273-.068-.42-.153.08-.143.241-.5.243-.572l-.063-.111c-.348.492-.93.97-1.414 1.245-.633.359-1.363.304-1.838.156-1.348-.415-2.623-1.327-2.93-1.566 0 0-.01.191.048.234.34.383 1.119 1.077 1.872 1.56l-1.605.177.759 5.908c-.337.048-.39.071-.757.124-.325-1.147-.946-1.895-1.624-2.332-.599-.384-1.424-.47-2.214-.314l-.05.059a2.851 2.851 0 0 1 1.863.444c.654.413 1.181 1.481 1.375 2.124.248.822.42 1.7-.248 2.632-.476.662-1.864 1.028-2.986.237.3.481.705.876 1.25.95.809.11 1.577-.03 2.106-.574.452-.464.69-1.434.628-2.456l.714-.104.258 1.834 11.827-1.424zM15.05 6.848c-.034.075-.085.125-.007.37l.004.014.013.032.032.073c.14.287.295.558.552.696.067-.011.136-.019.207-.023.242-.01.395.028.492.08.009-.048.01-.119.005-.222-.018-.364.072-.982-.626-1.308-.264-.122-.634-.084-.757.068a.302.302 0 0 1 .058.013c.186.066.06.13.027.207m1.958 3.392c-.092-.05-.52-.03-.821.005-.574.068-1.193.267-1.328.372-.247.191-.135.523.047.66.511.382.96.638 1.432.575.29-.038.546-.497.728-.914.124-.288.124-.598-.058-.698m-5.077-2.942c.162-.154-.805-.355-1.556.156-.554.378-.571 1.187-.041 1.646.053.046.096.078.137.104a4.77 4.77 0 0 1 1.396-.412c.113-.125.243-.345.21-.745-.044-.542-.455-.456-.146-.749"/></svg>Datadog</li><li class="ds-tag about-tag"><svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M10.53 10.73c-.1-.31-.19-.61-.29-.92-.1-.31-.19-.6-.27-.89-.08-.28-.15-.54-.22-.78h-.02c-.09.43-.2.86-.34 1.29-.15.48-.3.98-.46 1.48-.14.51-.29.98-.44 1.4h2.54c-.06-.211-.14-.46-.23-.721-.09-.269-.18-.559-.27-.859zM19.75.3H4.25C1.9.3 0 2.2 0 4.55v14.9c0 2.35 1.9 4.25 4.25 4.25h15.5c2.35 0 4.25-1.9 4.25-4.25V4.55C24 2.2 22.1.3 19.75.3zM14.7 16.83h-2.091c-.069.01-.139-.04-.159-.11l-.82-2.38H7.91l-.76 2.35c-.02.09-.1.15-.19.141H5.08c-.11 0-.14-.061-.11-.18L8.19 7.38c.03-.1.06-.21.1-.33.04-.21.06-.43.06-.65-.01-.05.03-.1.08-.11h2.59c.08 0 .12.03.13.08l3.65 10.3c.03.109 0 .16-.1.16zm3.4-.15c0 .11-.039.16-.129.16H16.01c-.1 0-.15-.061-.15-.16v-7.7c0-.1.041-.14.131-.14h1.98c.09 0 .129.05.129.14v7.7zm-.209-9.03c-.231.24-.571.37-.911.35-.33.01-.65-.12-.891-.35-.23-.25-.35-.58-.34-.92-.01-.34.12-.66.359-.89.242-.23.562-.35.892-.35.391 0 .689.12.91.35.22.24.34.56.33.89.01.34-.11.67-.349.92z"/></svg>Illustrator</li><li class="ds-tag about-tag"><svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9.85 8.42c-.37-.15-.77-.21-1.18-.2-.26 0-.49 0-.68.01-.2-.01-.34 0-.41.01v3.36c.14.01.27.02.39.02h.53c.39 0 .78-.06 1.15-.18.32-.09.6-.28.82-.53.21-.25.31-.59.31-1.03.01-.31-.07-.62-.23-.89-.17-.26-.41-.46-.7-.57zM19.75.3H4.25C1.9.3 0 2.2 0 4.55v14.899c0 2.35 1.9 4.25 4.25 4.25h15.5c2.35 0 4.25-1.9 4.25-4.25V4.55C24 2.2 22.1.3 19.75.3zm-7.391 11.65c-.399.56-.959.98-1.609 1.22-.68.25-1.43.34-2.25.34-.24 0-.4 0-.5-.01s-.24-.01-.43-.01v3.209c.01.07-.04.131-.11.141H5.52c-.08 0-.12-.041-.12-.131V6.42c0-.07.03-.11.1-.11.17 0 .33 0 .56-.01.24-.01.49-.01.76-.02s.56-.01.87-.02c.31-.01.61-.01.91-.01.82 0 1.5.1 2.06.31.5.17.96.45 1.34.82.32.32.57.71.73 1.14.149.42.229.85.229 1.3.001.86-.199 1.57-.6 2.13zm7.091 3.89c-.28.4-.671.709-1.12.891-.49.209-1.09.318-1.811.318-.459 0-.91-.039-1.359-.129-.35-.061-.7-.17-1.02-.32-.07-.039-.121-.109-.111-.189v-1.74c0-.029.011-.07.041-.09.029-.02.06-.01.09.01.39.23.8.391 1.24.49.379.1.779.15 1.18.15.38 0 .65-.051.83-.141.16-.07.27-.24.27-.42 0-.141-.08-.27-.24-.4-.16-.129-.489-.279-.979-.471-.51-.18-.979-.42-1.42-.719-.31-.221-.569-.51-.761-.85-.159-.32-.239-.67-.229-1.021 0-.43.12-.84.341-1.21.25-.4.619-.72 1.049-.92.469-.239 1.059-.349 1.769-.349.41 0 .83.03 1.24.09.3.04.59.12.86.23.039.01.08.05.1.09.01.04.02.08.02.12v1.63c0 .04-.02.08-.05.1-.09.02-.14.02-.18 0-.3-.16-.62-.27-.96-.34-.37-.08-.74-.13-1.12-.13-.2-.01-.41.02-.601.07-.129.03-.24.1-.31.2-.05.08-.08.18-.08.27s.04.18.101.26c.09.11.209.2.34.27.229.12.47.23.709.33.541.18 1.061.43 1.541.73.33.209.6.49.789.83.16.318.24.67.23 1.029.011.471-.129.94-.389 1.331z"/></svg>Photoshop</li></ul></div>
+            <div><h4 class="ds-label">AI</h4><ul class="about-tags"><li class="ds-tag about-tag"><svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m4.7144 15.9555 4.7174-2.6471.079-.2307-.079-.1275h-.2307l-.7893-.0486-2.6956-.0729-2.3375-.0971-2.2646-.1214-.5707-.1215-.5343-.7042.0546-.3522.4797-.3218.686.0608 1.5179.1032 2.2767.1578 1.6514.0972 2.4468.255h.3886l.0546-.1579-.1336-.0971-.1032-.0972L6.973 9.8356l-2.55-1.6879-1.3356-.9714-.7225-.4918-.3643-.4614-.1578-1.0078.6557-.7225.8803.0607.2246.0607.8925.686 1.9064 1.4754 2.4893 1.8336.3643.3035.1457-.1032.0182-.0728-.164-.2733-1.3539-2.4467-1.445-2.4893-.6435-1.032-.17-.6194c-.0607-.255-.1032-.4674-.1032-.7285L6.287.1335 6.6997 0l.9957.1336.419.3642.6192 1.4147 1.0018 2.2282 1.5543 3.0296.4553.8985.2429.8318.091.255h.1579v-.1457l.1275-1.706.2368-2.0947.2307-2.6957.0789-.7589.3764-.9107.7468-.4918.5828.2793.4797.686-.0668.4433-.2853 1.8517-.5586 2.9021-.3643 1.9429h.2125l.2429-.2429.9835-1.3053 1.6514-2.0643.7286-.8196.85-.9046.5464-.4311h1.0321l.759 1.1293-.34 1.1657-1.0625 1.3478-.8804 1.1414-1.2628 1.7-.7893 1.36.0729.1093.1882-.0183 2.8535-.607 1.5421-.2794 1.8396-.3157.8318.3886.091.3946-.3278.8075-1.967.4857-2.3072.4614-3.4364.8136-.0425.0304.0486.0607 1.5482.1457.6618.0364h1.621l3.0175.2247.7892.522.4736.6376-.079.4857-1.2142.6193-1.6393-.3886-3.825-.9107-1.3113-.3279h-.1822v.1093l1.0929 1.0686 2.0035 1.8092 2.5075 2.3314.1275.5768-.3218.4554-.34-.0486-2.2039-1.6575-.85-.7468-1.9246-1.621h-.1275v.17l.4432.6496 2.3436 3.5214.1214 1.0807-.17.3521-.6071.2125-.6679-.1214-1.3721-1.9246L14.38 17.959l-1.1414-1.9428-.1397.079-.674 7.2552-.3156.3703-.7286.2793-.6071-.4614-.3218-.7468.3218-1.4753.3886-1.9246.3157-1.53.2853-1.9004.17-.6314-.0121-.0425-.1397.0182-1.4328 1.9672-2.1796 2.9446-1.7243 1.8456-.4128.164-.7164-.3704.0667-.6618.4008-.5889 2.386-3.0357 1.4389-1.882.929-1.0868-.0062-.1579h-.0546l-6.3385 4.1164-1.1293.1457-.4857-.4554.0608-.7467.2307-.2429 1.9064-1.3114Z"/></svg>Claude</li><li class="ds-tag about-tag"><svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.0729zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.872zm16.5963 3.8558L13.1038 8.364 15.1192 7.2a.0757.0757 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.407-.667zm2.0107-3.0231l-.142-.0852-4.7735-2.7818a.7759.7759 0 0 0-.7854 0L9.409 9.2297V6.8974a.0662.0662 0 0 1 .0284-.0615l4.8303-2.7866a4.4992 4.4992 0 0 1 6.6802 4.66zM8.3065 12.863l-2.02-1.1638a.0804.0804 0 0 1-.038-.0567V6.0742a4.4992 4.4992 0 0 1 7.3757-3.4537l-.142.0805L8.704 5.459a.7948.7948 0 0 0-.3927.6813zm1.0976-2.3654l2.602-1.4998 2.6069 1.4998v2.9994l-2.5974 1.4997-2.6067-1.4997Z"/></svg>ChatGPT</li><li class="ds-tag about-tag"><svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15.852 8.981h-4.588V0h4.588c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.491-4.49 4.491zM12.735 7.51h3.117c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019h-3.117V7.51zm0 1.471H8.148c-2.476 0-4.49-2.014-4.49-4.49S5.672 0 8.148 0h4.588v8.981zm-4.587-7.51c-1.665 0-3.019 1.355-3.019 3.019s1.354 3.02 3.019 3.02h3.117V1.471H8.148zm4.587 15.019H8.148c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h4.588v8.98zM8.148 8.981c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h3.117V8.981H8.148zM8.172 24c-2.489 0-4.515-2.014-4.515-4.49s2.014-4.49 4.49-4.49h4.588v4.441c0 2.503-2.047 4.539-4.563 4.539zm-.024-7.51a3.023 3.023 0 0 0-3.019 3.019c0 1.665 1.365 3.019 3.044 3.019 1.705 0 3.093-1.376 3.093-3.068v-2.97H8.148zm7.704 0h-.098c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h.098c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.49-4.49 4.49zm-.097-7.509c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h.098c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019h-.098z"/></svg>Figma Make</li><li class="ds-tag about-tag"><svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14.066 6.028v2.22h5.729q.075-.001.148.005l-5.853 5.752a2 2 0 0 1-.024-.309V8.247h-2.353v5.45c0 2.322 1.935 4.222 4.258 4.222h5.675v-2.22h-5.675q-.03 0-.059-.003l5.729-5.629q.006.082.006.166v5.465H24v-5.465a4.204 4.204 0 0 0-4.205-4.205zM0 8.245l8.28 9.266c.839.94 2.396.346 2.396-.914V8.245H8.19v5.44l-4.86-5.44Z"/></svg>v0</li><li class="ds-tag about-tag"><svg class="brand-icon" viewBox="0 0 256 261" aria-hidden="true" focusable="false"><path d="M76.812 0c42.423 0 76.813 34.48 76.813 77.015v29.27h25.563c42.423 0 76.812 34.481 76.812 77.015s-34.39 77.015-76.812 77.015H0v-183.3C0 34.48 34.39 0 76.812 0"/></svg>Lovable</li></ul></div>
+            <div><h4 class="ds-label">I also know</h4><ul class="about-tags"><li class="ds-tag about-tag"><svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z"/></svg>HTML</li><li class="ds-tag about-tag"><svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M0 0v20.16A3.84 3.84 0 0 0 3.84 24h16.32A3.84 3.84 0 0 0 24 20.16V3.84A3.84 3.84 0 0 0 20.16 0Zm14.256 13.08c1.56 0 2.28 1.08 2.304 2.64h-1.608c.024-.288-.048-.6-.144-.84-.096-.192-.288-.264-.552-.264-.456 0-.696.264-.696.84-.024.576.288.888.768 1.08.72.288 1.608.744 1.92 1.296q.432.648.432 1.656c0 1.608-.912 2.592-2.496 2.592-1.656 0-2.4-1.032-2.424-2.688h1.68c0 .792.264 1.176.792 1.176.264 0 .456-.072.552-.24.192-.312.24-1.176-.048-1.512-.312-.408-.912-.6-1.32-.816q-.828-.396-1.224-.936c-.24-.36-.36-.888-.36-1.536 0-1.44.936-2.472 2.424-2.448m5.4 0c1.584 0 2.304 1.08 2.328 2.64h-1.608c0-.288-.048-.6-.168-.84-.096-.192-.264-.264-.528-.264-.48 0-.72.264-.72.84s.288.888.792 1.08c.696.288 1.608.744 1.92 1.296.264.432.408.984.408 1.656.024 1.608-.888 2.592-2.472 2.592-1.68 0-2.424-1.056-2.448-2.688h1.68c0 .744.264 1.176.792 1.176.264 0 .456-.072.552-.24.216-.312.264-1.176-.048-1.512-.288-.408-.888-.6-1.32-.816-.552-.264-.96-.576-1.2-.936s-.36-.888-.36-1.536c-.024-1.44.912-2.472 2.4-2.448m-11.031.018c.711-.006 1.419.198 1.839.63.432.432.672 1.128.648 1.992H9.336c.024-.456-.096-.792-.432-.96-.312-.144-.768-.048-.888.24-.12.264-.192.576-.168.864v3.504c0 .744.264 1.128.768 1.128a.65.65 0 0 0 .552-.264c.168-.24.192-.552.168-.84h1.776c.096 1.632-.984 2.712-2.568 2.688-1.536 0-2.496-.864-2.472-2.472v-4.032c0-.816.24-1.44.696-1.848.432-.408 1.146-.624 1.857-.63"/></svg>CSS</li><li class="ds-tag about-tag"><svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65l.046.067zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.711-.33.689-1.18.601-1.566.48-.396-.196-.597-.466-.83-.855-.063-.105-.11-.196-.127-.196l-1.825 1.125c.305.63.75 1.172 1.324 1.517.855.51 2.004.675 3.207.405.783-.226 1.458-.691 1.811-1.411.51-.93.402-2.07.397-3.346.012-2.054 0-4.109 0-6.179l.004-.056z"/></svg>JavaScript</li><li class="ds-tag about-tag"><svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M11.915 0 11.7.215C9.515 2.4 7.47 6.39 6.046 10.483c-1.064 1.024-3.633 2.81-3.711 3.551-.093.87 1.746 2.611 1.55 3.235-.198.625-1.304 1.408-1.014 1.939.1.188.823.011 1.277-.491a13.389 13.389 0 0 0-.017 2.14c.076.906.27 1.668.643 2.232.372.563.956.911 1.667.911.397 0 .727-.114 1.024-.264.298-.149.571-.33.91-.5.68-.34 1.634-.666 3.53-.604 1.903.062 2.872.39 3.559.704.687.314 1.15.664 1.925.664.767 0 1.395-.336 1.807-.9.412-.563.631-1.33.72-2.24.06-.623.055-1.32 0-2.066.454.45 1.117.604 1.213.424.29-.53-.816-1.314-1.013-1.937-.198-.624 1.642-2.366 1.549-3.236-.08-.748-2.707-2.568-3.748-3.586C16.428 6.374 14.308 2.394 12.13.215zm.175 6.038a2.95 2.95 0 0 1 2.943 2.942 2.95 2.95 0 0 1-2.943 2.943A2.95 2.95 0 0 1 9.148 8.98a2.95 2.95 0 0 1 2.942-2.942zM8.685 7.983a3.515 3.515 0 0 0-.145.997c0 1.951 1.6 3.55 3.55 3.55 1.95 0 3.55-1.598 3.55-3.55 0-.329-.046-.648-.132-.951.334.095.64.208.915.336a42.699 42.699 0 0 1 2.042 5.829c.678 2.545 1.01 4.92.846 6.607-.082.844-.29 1.51-.606 1.94-.315.431-.713.651-1.315.651-.593 0-.932-.27-1.673-.61-.741-.338-1.825-.694-3.792-.758-1.974-.064-3.073.293-3.821.669-.375.188-.659.373-.911.5s-.466.2-.752.2c-.53 0-.876-.209-1.16-.64-.285-.43-.474-1.101-.545-1.948-.141-1.693.176-4.069.823-6.614a43.155 43.155 0 0 1 1.934-5.783c.348-.167.749-.31 1.192-.425zm-3.382 4.362a.216.216 0 0 1 .13.031c-.166.56-.323 1.116-.463 1.665a33.849 33.849 0 0 0-.547 2.555 3.9 3.9 0 0 0-.2-.39c-.58-1.012-.914-1.642-1.16-2.08.315-.24 1.679-1.755 2.24-1.781zm13.394.01c.562.027 1.926 1.543 2.24 1.783-.246.438-.58 1.068-1.16 2.08a4.428 4.428 0 0 0-.163.309 32.354 32.354 0 0 0-.562-2.49 40.579 40.579 0 0 0-.482-1.652.216.216 0 0 1 .127-.03z"/></svg>Java</li><li class="ds-tag about-tag"><svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14.314 0L2.3 12 6 15.7 21.684.013h-7.357zm.014 11.072L7.857 17.53l6.47 6.47H21.7l-6.46-6.468 6.46-6.46h-7.37z"/></svg>Flutter</li></ul></div>
+          </div>
+        </section>
+
+        <!-- Fora do trabalho -->
+        <section class="about-block" aria-labelledby="sobre-fora" data-rise>
+          <h3 class="ds-section" id="sobre-fora">Outside of work</h3>
+          <ul class="about-hobbies">
+            <li><i data-lucide="book-open" aria-hidden="true"></i>I love reading all kinds of things</li>
+            <li><i data-lucide="dumbbell" aria-hidden="true"></i>I go to the gym (almost) every day</li>
+            <li><i data-lucide="music" aria-hidden="true"></i>I like instrumental and experimental music</li>
+            <li><i data-lucide="trees" aria-hidden="true"></i>Resting outdoors</li>
+            <li><i data-lucide="coffee" aria-hidden="true"></i>I love overpriced coffee shops</li>
+            <li><i data-lucide="cookie" aria-hidden="true"></i>Hooked on anything with cheese and guava paste</li>
+          </ul>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= Rodapé ================= -->
+  <footer class="site-footer">
+    <div class="container site-footer-inner">
+      <p>Developed by Vanessa Sousa</p>
+      <a class="site-footer-top" href="#inicio">Back to top <i data-lucide="arrow-up" aria-hidden="true"></i></a>
+    </div>
+  </footer>
+
+  <!-- ================= Página do case 1 =================
+       Abre por cima do site com uma transição tipo "smart animate":
+       o fundo cresce a partir do card e título e tags viajam
+       até a nova posição (js/case-view.js). Os elementos com data-flip
+       são os que "viajam"; os com data-fade só aparecem. -->
+  <div class="case-view case--dividas" id="case-dividas" role="dialog" aria-modal="true" aria-labelledby="case-dividas-title" hidden>
+    <div class="case-view-bg" aria-hidden="true"></div>
+    <!-- barra fixa da página do case: aparece depois do mockup grande (js/case-page.js) -->
+    <!-- barra fixa da página do case: igual à navegação do site, some ao rolar para baixo
+         e volta ao rolar para cima (js/case-page.js) -->
+    <div class="case-bar">
+      <div class="container case-bar-inner">
+        <button class="case-back case-bar-back" type="button" data-case-close><i data-lucide="arrow-left" aria-hidden="true"></i>Back</button>
+        <!-- tema claro/escuro também dentro do case (mesmo comportamento do botão da navegação) -->
+        <button class="btn btn-ghost btn-icon theme-toggle" type="button" aria-label="Switch to dark mode">
+          <i data-lucide="moon" class="theme-icon is-moon" aria-hidden="true"></i>
+          <i data-lucide="sun" class="theme-icon is-sun" aria-hidden="true"></i>
+        </button>
+        <div class="lang-switch" role="group" aria-label="Language">
+          <a class="lang-opt" href="index.html" hreflang="pt-BR" lang="pt-BR" title="Português">PT</a>
+          <span class="lang-sep" aria-hidden="true"></span>
+          <a class="lang-opt is-active" href="en.html" hreflang="en" lang="en" aria-current="page" title="English">EN</a>
+        </div>
+      </div>
+    </div>
+    <article class="case-view-scroll">
+      <!-- ================= Topo do case (Figma: Case PDO — Web 1440, nó 263:8) ================= -->
+      <div class="container case-page">
+        <!-- topo do case: mesma composição da barra (Voltar à esquerda, tema à direita) -->
+        <div class="case-top" data-fade>
+          <button class="case-back" type="button" data-case-close>
+            <i data-lucide="arrow-left" aria-hidden="true"></i> Back
+          </button>
+          <button class="btn btn-ghost btn-icon theme-toggle" type="button" aria-label="Switch to dark mode">
+            <i data-lucide="moon" class="theme-icon is-moon" aria-hidden="true"></i>
+            <i data-lucide="sun" class="theme-icon is-sun" aria-hidden="true"></i>
+          </button>
+          <div class="lang-switch" role="group" aria-label="Language">
+            <a class="lang-opt" href="index.html" hreflang="pt-BR" lang="pt-BR" title="Português">PT</a>
+            <span class="lang-sep" aria-hidden="true"></span>
+            <a class="lang-opt is-active" href="en.html" hreflang="en" lang="en" aria-current="page" title="English">EN</a>
+          </div>
+        </div>
+
+        <div class="cs-hero">
+          <div class="cs-hero-text">
+            <h1 class="case-page-title" id="case-dividas-title" data-flip="title">Redesigning how a state submits debts for collection</h1>
+            <p class="ds-body case-page-lede" data-fade>I evolved a submission flow into a system where public servants register, track and fix their requests <strong>on their own.</strong></p>
+            <ul class="case-tags case-page-tags" aria-label="Tags" data-flip="tags">
+              <li>Public sector</li><li>Problem solving</li>
+            </ul>
+          </div>
+
+          <!-- notebook com a tela nova (abre como foto) -->
+          <figure class="case-hero-shot" data-fade>
+            <div class="laptop">
+              <div class="laptop-screen cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge the requests screen">
+                <img src="assets/cases/v2/03-depois.webp" width="1738" height="978" alt="Redesigned requests screen: summary cards by status, search and the requests table.">
+                <span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span>
+              </div>
+              <div class="laptop-base" aria-hidden="true"></div>
+            </div>
+          </figure>
+        </div>
+
+        <dl class="case-facts case-facts--4" data-fade>
+          <div><dt>My role</dt><dd>UX/UI Designer</dd></div>
+          <div><dt>Client</dt><dd>Attorney General's Office</dd></div>
+          <div><dt>Team</dt><dd>1 designer, 1 requirements analyst, 4 devs and 2 QAs</dd></div>
+          <div><dt>Timeline</dt><dd>2 months</dd></div>
+        </dl>
+
+        <div class="case-role" data-fade>
+          <h2 class="ds-label">What I did</h2>
+          <p class="ds-body">I redesigned the flows and defined rules, fields and behaviors together with the attorney in charge, the department's coordination and the requirements and development teams.</p>
+        </div>
+      </div>
+
+      <!-- ================= Conteúdo do case =================
+           Roteiro: contexto → proto-personas → problema → redesenho do fluxo →
+           solução (antes e depois de cada etapa) → próximas iterações → o que vou medir.
+           Faixas (.is-band) seguem o Figma. Estilos de texto: css/tokens.css + DESIGN-SYSTEM.md -->
+      <div class="cs-body">
+
+        <!-- Contexto -->
+        <section class="cs-section is-band" id="cs-contexto" aria-labelledby="cs-contexto-t">
+          <div class="container">
+            <header class="cs-head" data-reveal>
+              <h2 class="ds-section" id="cs-contexto-t">Context</h2>
+              <p class="ds-body">When someone fails to pay an amount owed to the state (like a fine), the agency that issued the charge can't collect it on its own. That's the job of the Attorney General's Office: it receives and reviews the debt and, if everything is correct, registers it officially so the state can collect it. That's why every public agency has to send its debts there.</p>
+            </header>
+
+            <div class="cs-route">
+              <div class="cs-route-track" aria-hidden="true"><span></span><span class="is-me"></span><span></span></div>
+              <ol class="cs-cols cs-route-cols" aria-label="How a debt reaches collection" data-reveal>
+                <li>
+                  <div class="cs-item-head"><h3 class="ds-label">Debt at the source agency</h3></div>
+                  <p class="ds-body">A state agency (such as a department or public authority) issues fines that weren't paid, and the debt has to be sent to the Attorney General's Office to be collected.</p>
+                </li>
+                <li class="is-me">
+                  <div class="cs-item-head"><h3 class="ds-label">Debt request</h3><span class="ds-tag">We're here!</span></div>
+                  <p class="ds-body">The agency's public servant fills in the debt details, the debtors and the charges, and submits the request. Then they track its status and fix it or reply when the Attorney General's Office points out a problem.</p>
+                </li>
+                <li>
+                  <div class="cs-item-head"><h3 class="ds-label">Debt management</h3><i data-lucide="arrow-up-right" class="cs-item-go" aria-hidden="true"></i></div>
+                  <p class="ds-body">The request is either approved automatically or reviewed by the Attorney General's Office. Once registered, the debt is managed and collected by the state.</p>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </section>
+
+        <!-- Proto-personas -->
+        <section class="cs-section container" id="cs-personas" aria-labelledby="cs-personas-t">
+          <header class="cs-head" data-reveal>
+            <h2 class="ds-section" id="cs-personas-t">Proto-personas</h2>
+            <p class="ds-body">Given our timeline, almost everything I knew about these users came from the stakeholders, who closely followed their mistakes and questions.</p>
+          </header>
+
+          <div class="cs-personas" data-reveal>
+            <article class="cs-persona">
+              <div class="cs-persona-top">
+                <h3 class="ds-label cs-icon-label"><i data-lucide="user-star" aria-hidden="true"></i>Public servant at a state agency - who submits</h3>
+                <p class="ds-body">35 to 60 years old · not from the legal field · little digital familiarity</p>
+              </div>
+              <div class="cs-persona-goal">
+                <h4 class="ds-label cs-icon-label"><i data-lucide="sparkles" aria-hidden="true"></i>Goal</h4>
+                <p class="ds-body">Submit the right debt and know which stage it's in.</p>
+              </div>
+              <div class="cs-persona-cols">
+                <div>
+                  <h4 class="ds-label cs-icon-label"><i data-lucide="scan-heart" aria-hidden="true"></i>Needs</h4>
+                  <ul class="cs-list">
+                    <li>see only the fields that apply to their agency</li>
+                    <li>know what's missing before submitting</li>
+                    <li>track and fix the request after submitting</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="ds-label cs-icon-label"><i data-lucide="frown" aria-hidden="true"></i>Pain points</h4>
+                  <ul class="cs-list">
+                    <li>locked fields, or fields that don't apply to their agency</li>
+                    <li>no warning about what's missing to move on</li>
+                    <li>after submitting, can't see the status or fix mistakes</li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+
+            <article class="cs-persona">
+              <div class="cs-persona-top">
+                <h3 class="ds-label cs-icon-label"><i data-lucide="user-search" aria-hidden="true"></i>Debt analyst - who receives and corrects</h3>
+                <p class="ds-body">Works in the debt department of the Attorney General's Office · checks requests from every agency</p>
+              </div>
+              <div class="cs-persona-goal">
+                <h4 class="ds-label cs-icon-label"><i data-lucide="sparkles" aria-hidden="true"></i>Goal</h4>
+                <p class="ds-body">Find the errors and get the request ready to be registered.</p>
+              </div>
+              <div class="cs-persona-cols">
+                <div>
+                  <h4 class="ds-label cs-icon-label"><i data-lucide="scan-heart" aria-hidden="true"></i>Needs</h4>
+                  <ul class="cs-list">
+                    <li>point out the error to the agency inside the system;</li>
+                    <li>receive the fix in the system itself;</li>
+                    <li>stop editing the registration by hand.</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="ds-label cs-icon-label"><i data-lucide="frown" aria-hidden="true"></i>Pain points</h4>
+                  <ul class="cs-list">
+                    <li>opened a ticket for every error;</li>
+                    <li>the agency's reply came by email;</li>
+                    <li>edited the registration by hand.</li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+          </div>
+          <p class="ds-body cs-note" data-reveal>Before, both of them relied on tickets and emails to solve any error.</p>
+        </section>
+
+        <!-- Problema: quadro de análise (abre em tela cheia com zoom) -->
+        <section class="cs-section container" id="cs-problema" aria-labelledby="cs-problema-t">
+          <header class="cs-head" data-reveal>
+            <h2 class="ds-section" id="cs-problema-t">Problem</h2>
+            <p class="ds-body">I went through the submission flow in the old system as if I were a public servant, noting every point where they could struggle and listing possible solutions. What happened after submission was reported by the stakeholders.</p>
+          </header>
+          <div data-reveal>
+            <figure class="cs-diagram cs-diagram--board" data-viewer="diagram" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge the problems and solutions board">
+              <img src="assets/cases/v2/quadro-problemas.webp" width="5155" height="1709" loading="lazy" decoding="async" alt="Analysis board of the old system: the submission tabs with numbered points, red notes with the problems, green notes with the first solution ideas, and the correction cycle after submission.">
+              <span class="cs-expand" aria-hidden="true"><i data-lucide="maximize-2"></i></span>
+            </figure>
+            <p class="ds-body cs-cap">In red, the problems. In green, the first solution ideas.</p>
+          </div>
+        </section>
+
+        <!-- Redesenho do fluxo: decisões negociadas + fluxograma -->
+        <section class="cs-section is-band" id="cs-redesenho" aria-labelledby="cs-redesenho-t">
+          <div class="container">
+            <header class="cs-head" data-reveal>
+              <h2 class="ds-section" id="cs-redesenho-t">Redesigning the flow</h2>
+              <p class="ds-body">When I presented the solutions to the stakeholders, other questions came up from their requests, the deadline and what was technically feasible. These decisions were negotiated and shaped the final flow.</p>
+            </header>
+
+            <ol class="cs-decisions" data-reveal>
+              <li><h3 class="ds-label">01.&nbsp; Same visual foundation as the management system</h3><p class="ds-body">Both systems had to ship fast. So I <strong>reused flows, components and behaviors</strong> I had already designed for the Management System.</p></li>
+              <li><h3 class="ds-label">02.&nbsp; One registration per request</h3><p class="ds-body">This means attaching the same document and repeating the case number for each registration. We chose this because mixing several registrations in one form <strong>created conflicts</strong>. In return, filling in the form became <strong>more linear and intuitive</strong>.</p></li>
+              <li><h3 class="ds-label">03.&nbsp; Fields defined by the source agency</h3><p class="ds-body">In the Management System, which I also designed, people with permission <strong>choose which fields appear</strong> in each agency's request form when they register the debt source.</p></li>
+              <li><h3 class="ds-label">04.&nbsp; Request edit history</h3><p class="ds-body">Public servants could now request edits, so those edits had to be recorded. <strong>Together with the development team</strong>, given the deadline and technical feasibility, we decided each edit would become a new request, grouped under the original one with an expand arrow.</p></li>
+              <li><h3 class="ds-label">05.&nbsp; Request status timeline</h3><p class="ds-body">Someone suggested a history button next to the status, in a table that already had many columns and a lot of information. I suggested making the status pill itself clickable and leading to the history, <strong>without taking up more space</strong>.</p></li>
+            </ol>
+
+            <div data-reveal>
+              <figure class="cs-diagram cs-diagram--flow" data-viewer="diagram" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge the system flowchart">
+                <img src="assets/cases/v2/fluxograma.webp" width="4450" height="3155" loading="lazy" decoding="async" alt="System flowchart: access, a new request in 3 steps, search and tracking with statuses, editing the request, registrations and the conditions for review in the Management System.">
+                <span class="cs-expand" aria-hidden="true"><i data-lucide="maximize-2"></i></span>
+              </figure>
+            </div>
+          </div>
+        </section>
+
+        <!-- Solução: antes e depois de cada etapa. O título de cada etapa fica preso no topo
+             enquanto a tela e o texto sobem por baixo (parallax em js/case-page.js) -->
+        <section class="cs-section cs-solution" id="cs-solucao" aria-labelledby="cs-solucao-t">
+          <header class="container cs-head" data-reveal>
+            <h2 class="ds-section" id="cs-solucao-t">Solution</h2>
+            <p class="ds-body">The before and after of each step, in submission order.</p>
+          </header>
+
+          <div class="cs-steps">
+            <article class="cs-step">
+              <header class="cs-step-head"><div class="container"><h3 class="ds-section">01&nbsp; Debt details</h3><span class="ds-section">Before</span></div></header>
+              <div class="container cs-step-body">
+                <figure class="cs-shot cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge the old case registration screen"><img src="assets/cases/v2/01-antes.webp" width="1740" height="978" loading="lazy" decoding="async" alt="Old system: the Case Registration tab, with locked fields already filled in and the procedure type fixed as registration request."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure>
+                <ul class="cs-list cs-step-text">
+                  <li>Locked fields came prefilled with data the system already had. Since they couldn't be edited, they didn't need to be shown.</li>
+                  <li>The procedure type was always "registration request", which is exactly what the user is doing.</li>
+                  <li>Fields like license plate and chassis number showed up for every agency. The public servant had to know in advance which ones applied to their debt.</li>
+                  <li>Attachments were in a separate tab, and the public servant had to read a block of text to know what to attach.</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="cs-step">
+              <header class="cs-step-head"><div class="container"><h3 class="ds-section">01&nbsp; Debt details</h3><span class="ds-section">After</span></div></header>
+              <div class="container cs-step-body">
+                <figure class="cs-shot cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge the new debt details step"><img src="assets/cases/v2/01-depois.webp" width="1738" height="978" loading="lazy" decoding="async" alt="New form, step 1 of 3: debt details with the agency's fields, the declaration and the attachments in the same step."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure>
+                <ul class="cs-list cs-step-text">
+                  <li>Fields with information the system already had were removed from the screen, so the public servant only fills in what's needed.</li>
+                  <li>Only the fields defined for the agency appear, configured in the Management System.</li>
+                  <li>Attachments became a section of this step, and the document type is picked from a list.</li>
+                  <li>The other numbers became two optional fields, number type and number, for when they're still needed.</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="cs-step">
+              <header class="cs-step-head"><div class="container"><h3 class="ds-section">02&nbsp; Debtors and charges</h3><span class="ds-section">Before</span></div></header>
+              <div class="container cs-step-body">
+                <figure class="cs-shot cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge the old debt details screen"><img src="assets/cases/v2/02-antes.webp" width="1740" height="978" loading="lazy" decoding="async" alt="Old system: the Debt Details tab with 14 fields, debtor, co-obligor and the list of charges and registrations on the same screen."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure>
+                <ul class="cs-list cs-step-text">
+                  <li>14 fields showed up at once, several of them locked with no explanation.</li>
+                  <li>It only allowed one contact and one address per debtor, which made collection harder.</li>
+                  <li>The public servant registered the debtors in one tab and only linked them to the registration in the next one. They had to know in advance that each debtor could belong to a different registration.</li>
+                  <li>The charges shared the screen with the debt details and the link to the debtor.</li>
+                  <li>The list of charges didn't show the total, so the public servant couldn't check the final amount.</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="cs-step">
+              <header class="cs-step-head"><div class="container"><h3 class="ds-section">02.1&nbsp; Debtors</h3><span class="ds-section">After</span></div></header>
+              <div class="container cs-step-body">
+                <figure class="cs-shot cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge the new add debtor modal"><img src="assets/cases/v2/02-depois-devedores.webp" width="1738" height="978" loading="lazy" decoding="async" alt="New form, step 2: the Add debtor modal with address and contact sections, each with several items."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure>
+                <ul class="cs-list cs-step-text">
+                  <li>The debtor is added in its own modal, with contacts and addresses in separate sections.</li>
+                  <li>Each debtor accepts several contacts and addresses.</li>
+                  <li>The list shows who has already been added before moving on, and when it's empty the screen says what to do.</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="cs-step">
+              <header class="cs-step-head"><div class="container"><h3 class="ds-section">02.2&nbsp; Charges</h3><span class="ds-section">After</span></div></header>
+              <div class="container cs-step-body">
+                <figure class="cs-shot cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge the new charges step"><img src="assets/cases/v2/02-depois-debitos.webp" width="1738" height="978" loading="lazy" decoding="async" alt="New form, step 3: charges with inline fields, an Add button and the table with the total and the number of charges."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure>
+                <ul class="cs-list cs-step-text">
+                  <li>Charges got their own step, with the fields inline and the table right below.</li>
+                  <li>Add sits next to the charge fields, and Submit request is the primary action.</li>
+                  <li>The table shows the total and the number of charges, updated with every addition.</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="cs-step">
+              <header class="cs-step-head"><div class="container"><h3 class="ds-section">03&nbsp; Searching requests</h3><span class="ds-section">Before</span></div></header>
+              <div class="container cs-step-body">
+                <figure class="cs-shot cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge the old list of cases"><img src="assets/cases/v2/03-antes.webp" width="1738" height="978" loading="lazy" decoding="async" alt="Old system: list of received cases, with many columns and no request status."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure>
+                <p class="ds-body cs-step-text">After submitting, the public servant saw a list of cases that didn't show which stage their request was in.</p>
+              </div>
+            </article>
+
+            <article class="cs-step">
+              <header class="cs-step-head"><div class="container"><h3 class="ds-section">03&nbsp; Searching requests</h3><span class="ds-section">After</span></div></header>
+              <div class="container cs-step-body">
+                <figure class="cs-shot cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge the new request search"><img src="assets/cases/v2/03-depois.webp" width="1738" height="978" decoding="async" alt="New request search: summary cards by status at the top, search, filters and a table with each request's status."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure>
+                <p class="ds-body cs-step-text">A dedicated search for requests, with each one's status and summary cards at the top.</p>
+              </div>
+            </article>
+
+            <article class="cs-step">
+              <header class="cs-step-head"><div class="container"><h3 class="ds-section">04&nbsp; View</h3><span class="ds-section">Iteration</span></div></header>
+              <div class="container cs-step-body">
+                <figure class="cs-shot cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge the new view request screen"><img src="assets/cases/v2/04-visualizar.webp" width="1738" height="978" loading="lazy" decoding="async" alt="New request screen: sent for review status at the top, tabs for debt details, debtors, charges and history, and the attachments."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure>
+                <p class="ds-body cs-step-text">One screen brings together everything about the request, with the status at the top.</p>
+              </div>
+            </article>
+
+            <article class="cs-step cs-step--text">
+              <header class="cs-step-head"><div class="container"><h3 class="ds-section">05&nbsp; Edit/reply</h3><span class="ds-section">Before</span></div></header>
+              <div class="container cs-step-body">
+                <p class="ds-body cs-step-text">For each error, the analyst opened a ticket, waited for the reply by email and edited the registration by hand.</p>
+              </div>
+            </article>
+
+            <article class="cs-step">
+              <header class="cs-step-head"><div class="container"><h3 class="ds-section">05&nbsp; Edit/reply</h3><span class="ds-section">After</span></div></header>
+              <div class="container cs-step-body">
+                <figure class="cs-shot cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge the history with action required"><img src="assets/cases/v2/04-depois.webp" width="1738" height="978" loading="lazy" decoding="async" alt="Request history: action required notice with the analyst's message and the Reply and Edit buttons."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure>
+                <p class="ds-body cs-step-text">The analyst points out the error, and the public servant gets the notice in the system and by email, with a button that goes straight to the request, where they can edit it or just reply.</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- Próximas iterações -->
+        <section class="cs-section is-band" id="cs-proximas" aria-labelledby="cs-proximas-t">
+          <div class="container">
+            <header class="cs-head" data-reveal>
+              <h2 class="ds-section" id="cs-proximas-t">Next iterations</h2>
+              <p class="ds-body">What I would change in the next version.</p>
+            </header>
+            <ol class="cs-cols cs-next" data-reveal>
+              <li><h3 class="ds-label">01.&nbsp; Debtor in a drawer, with inline contact and address</h3><p class="ds-body">The drawer would keep the list of debtors in view and avoid opening one form on top of another to add contacts and addresses.</p></li>
+              <li><h3 class="ds-label">02.&nbsp; Review step before submitting</h3><p class="ds-body">A final read-only screen with all the filled-in data and shortcuts to edit, so the public servant could check the whole request before submitting.</p></li>
+              <li><h3 class="ds-label">03.&nbsp; Action required already showing the reason</h3><p class="ds-body">With the reason in the message itself, the public servant can decide right away whether they need to edit or just reply, without opening the request.</p></li>
+            </ol>
+          </div>
+        </section>
+
+        <!-- O que vou medir -->
+        <section class="cs-section container" id="cs-medir" aria-labelledby="cs-medir-t">
+          <header class="cs-head" data-reveal>
+            <h2 class="ds-section" id="cs-medir-t">What I'll measure after launch</h2>
+          </header>
+          <ol class="cs-measures" data-reveal>
+            <li class="ds-label">01.&nbsp; Time to submit a request.</li>
+            <li class="ds-label">02.&nbsp; Tickets and emails opened to register or fix requests.</li>
+            <li class="ds-label">03.&nbsp; Requests sent back with action required.</li>
+          </ol>
+        </section>
+
+        <footer class="cs-end container">
+          <button class="btn btn-outline" type="button" data-case-close><i data-lucide="arrow-left" aria-hidden="true"></i>Back to projects</button>
+        </footer>
+      </div>
+    </article>
+  </div>
+
+  <!-- ================= Página do case: Sistema de gestão da dívida ativa (SGDAE) =================
+       NDA: sem nome de estado, órgão ou sistema. Nas telas exportadas do Figma, a URL e os nomes
+       de órgãos reais foram trocados por textos neutros. -->
+  <div class="case-view case--sgdae" id="case-sgdae" role="dialog" aria-modal="true" aria-labelledby="case-sgdae-title" hidden>
+    <div class="case-view-bg" aria-hidden="true"></div>
+    <div class="case-bar">
+      <div class="container case-bar-inner">
+        <button class="case-back case-bar-back" type="button" data-case-close><i data-lucide="arrow-left" aria-hidden="true"></i>Back</button>
+        <button class="btn btn-ghost btn-icon theme-toggle" type="button" aria-label="Switch to dark mode">
+          <i data-lucide="moon" class="theme-icon is-moon" aria-hidden="true"></i>
+          <i data-lucide="sun" class="theme-icon is-sun" aria-hidden="true"></i>
+        </button>
+        <div class="lang-switch" role="group" aria-label="Language">
+          <a class="lang-opt" href="index.html" hreflang="pt-BR" lang="pt-BR" title="Português">PT</a>
+          <span class="lang-sep" aria-hidden="true"></span>
+          <a class="lang-opt is-active" href="en.html" hreflang="en" lang="en" aria-current="page" title="English">EN</a>
+        </div>
+      </div>
+    </div>
+    <article class="case-view-scroll">
+      <div class="container case-page">
+        <div class="case-top" data-fade>
+          <button class="case-back" type="button" data-case-close><i data-lucide="arrow-left" aria-hidden="true"></i>Back</button>
+          <button class="btn btn-ghost btn-icon theme-toggle" type="button" aria-label="Switch to dark mode">
+            <i data-lucide="moon" class="theme-icon is-moon" aria-hidden="true"></i>
+            <i data-lucide="sun" class="theme-icon is-sun" aria-hidden="true"></i>
+          </button>
+          <div class="lang-switch" role="group" aria-label="Language">
+            <a class="lang-opt" href="index.html" hreflang="pt-BR" lang="pt-BR" title="Português">PT</a>
+            <span class="lang-sep" aria-hidden="true"></span>
+            <a class="lang-opt is-active" href="en.html" hreflang="en" lang="en" aria-current="page" title="English">EN</a>
+          </div>
+        </div>
+
+        <div class="cs-hero">
+          <div class="cs-hero-text">
+            <h1 class="case-page-title" id="case-sgdae-title" data-flip="title">A state's public debt management system</h1>
+            <p class="ds-body case-page-lede" data-fade>I built from scratch a system that brings together a state's entire public debt cycle, replacing a legacy system.</p>
+            <ul class="case-tags case-page-tags" aria-label="Tags" data-flip="tags"><li>Design System</li><li>Complex system</li></ul>
+          </div>
+          <figure class="case-hero-shot" data-fade>
+            <div class="laptop">
+              <div class="laptop-screen cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge the design system showcase">
+                <img src="assets/cases/sgdae/capa-ds.webp" width="2100" height="1321" alt="The system's design system showcase: palette, buttons, controls, typography, table and fields.">
+                <span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span>
+              </div>
+              <div class="laptop-base" aria-hidden="true"></div>
+            </div>
+          </figure>
+        </div>
+
+        <dl class="case-facts case-facts--4" data-fade>
+          <div><dt>My role</dt><dd>Product Designer</dd></div>
+          <div><dt>Client</dt><dd>Attorney General's Office</dd></div>
+          <div><dt>Team</dt><dd>1 designer, 1 requirements analyst, 10 devs and 4 QAs</dd></div>
+          <div><dt>Timeline</dt><dd>1 year and 2 months</dd></div>
+        </dl>
+
+        <div class="case-role" data-fade>
+          <h2 class="ds-label">What I did</h2>
+          <p class="ds-body">I was the only designer on the project. I designed the flows, the web and mobile screens for the whole MVP and the design system, along with the <a class="cs-inline-link" href="#case-dividas" data-goto-case="case-dividas">request submission system <i data-lucide="arrow-up-right" aria-hidden="true"></i></a></p>
+        </div>
+        <ul class="cs-stats cs-stats--hero" data-fade aria-label="The project in numbers"><li><span class="cs-stat-n">21</span><span class="cs-stat-l">Modules</span></li><li><span class="cs-stat-n">~86</span><span class="cs-stat-l">User flows</span></li><li><span class="cs-stat-n">~370</span><span class="cs-stat-l">Screens (270 web, 100 mobile)</span></li><li><span class="cs-stat-n">60</span><span class="cs-stat-l">Design system components</span></li></ul>
+      </div>
+
+      <!-- Roteiro (Figma "Case PDO — Web (1440)"): contexto → metodologia → caderno → problema →
+           quem usa → design system → padronização → solução → próximos passos -->
+      <div class="cs-body">
+
+        <section class="cs-section is-band" id="sg-contexto" aria-labelledby="sg-contexto-t">
+          <div class="container">
+            <header class="cs-head" data-reveal>
+              <h2 class="ds-section" id="sg-contexto-t">Context</h2>
+              <p class="ds-body">The public debt registry gathers amounts that were not paid to the state and are then collected by the Attorney General's Office. It accounts for an important share of the state's revenue.</p>
+            </header>
+            <div class="cs-cols cs-cols--2" data-reveal>
+              <div class="cs-head"><h3 class="ds-label">How it was</h3><p class="ds-body">All management ran on a mainframe system, built and maintained by another state agency and split into several terminal applications.</p></div>
+              <div class="cs-head"><h3 class="ds-label">Goal</h3><p class="ds-body">Replace the legacy with a system owned by the Attorney General's Office, bringing the full debt cycle into one place.</p></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="cs-section container" id="sg-metodologia" aria-labelledby="sg-metodologia-t">
+          <header class="cs-head" data-reveal>
+            <h2 class="ds-section" id="sg-metodologia-t">Methodology</h2>
+            <p class="ds-body">The system has many flows, and each one went through the same cycle within the sprints, with meetings twice a week. The deadline was tight, so stakeholders only saw high-fidelity, prototyped screens.</p>
+          </header>
+          <ol class="cs-rowlist" data-reveal><li><span class="cs-rowlist-n">01</span><div><h3 class="ds-label">Planning</h3><p class="ds-body">We defined which module would be designed in the sprint.</p></div></li><li><span class="cs-rowlist-n">02</span><div><h3 class="ds-label">Understand the problem</h3><p class="ds-body">Meeting with the stakeholders and conversations with subject matter experts.</p></div></li><li><span class="cs-rowlist-n">03</span><div><h3 class="ds-label">High fidelity</h3><p class="ds-body">I designed the screens straight in high fidelity, already prototyped.</p></div></li><li><span class="cs-rowlist-n">04</span><div><h3 class="ds-label">Review</h3><p class="ds-body">In the next meeting, corrections and change requests to the flow came up.</p></div></li><li><span class="cs-rowlist-n">05</span><div><h3 class="ds-label">Adjustments</h3><p class="ds-body">I made the adjustments and brought the new version to the next meeting, until the flow was closed.</p></div></li></ol>
+          <p class="ds-body cs-cycle-loop" data-reveal><i data-lucide="refresh-cw" aria-hidden="true"></i>The cycle repeated for every module.</p>
+        </section>
+
+        <section class="cs-section container" id="sg-caderno" aria-labelledby="sg-caderno-t">
+          <header class="cs-head" data-reveal>
+            <h2 class="ds-section" id="sg-caderno-t">My notebook</h2>
+            <p class="ds-body">Diagrams and journey maps weren't an expected deliverable, but I needed them to understand the rules of each module and user story. So I did everything in my notebook, during and after the meetings.</p>
+          </header>
+          <div class="cs-notebooks" data-reveal><figure class="cs-notebook cs-notebook--tall cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge notebook photo 1"><span class="cs-notebook-page"><img src="assets/cases/sgdae/caderno-1.webp" width="1039" height="1280" loading="lazy" decoding="async" alt="Notebook page with the payments flow drawn by hand: searching registrations, deduction type, classification and installments."></span><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><figure class="cs-notebook cs-notebook--wide cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge notebook photo 2"><span class="cs-notebook-page"><img src="assets/cases/sgdae/caderno-2.webp" width="1280" height="997" loading="lazy" decoding="async" alt="Notebook page with sketches of search screens, filters and reports, and notes with open questions."></span><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><figure class="cs-notebook cs-notebook--wide cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge notebook photo 3"><span class="cs-notebook-page"><img src="assets/cases/sgdae/caderno-3.webp" width="1280" height="1056" loading="lazy" decoding="async" alt="Notebook page with a list of adjustments and questions about forms, filters and mobile."></span><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure></div>
+        </section>
+
+        <section class="cs-section container" id="sg-problema" aria-labelledby="sg-problema-t">
+          <header class="cs-head" data-reveal>
+            <h2 class="ds-section" id="sg-problema-t">Problem</h2>
+            <p class="ds-body">What made managing public debt slow and hard to control.</p>
+          </header>
+          <ul class="cs-pains cs-pains--row" data-reveal><li class="cs-pain"><h3 class="ds-label">Fragmented management</h3><p class="ds-body">Registration, payments, installments and collection lived in separate applications, each with its own login. There was no single view of the debt.</p></li><li class="cs-pain"><h3 class="ds-label">External dependency</h3><p class="ds-body">The legacy was maintained by another agency, on an old platform that was hard to evolve. Some operations depended on tickets, and any improvement was out of the users' control.</p></li><li class="cs-pain"><h3 class="ds-label">Manual processes</h3><p class="ds-body">Calculations done outside the system, no simulation, documents put together by hand and paper processes made the work slow and error-prone.</p></li><li class="cs-pain"><h3 class="ds-label">Little traceability</h3><p class="ds-body">It was hard to understand the status of a debt and follow its stages, with no clear history or reports.</p></li></ul>
+          <div class="cs-legacy" data-reveal>
+            <figure class="cs-shot cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge the legacy debtor search screen"><img src="assets/cases/sgdae/legado-1-consulta-devedores.webp" width="1176" height="1009" loading="lazy" decoding="async" alt="Legacy terminal system: registration search with a query menu. Data hidden."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><figure class="cs-shot cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge the legacy registration data screen"><img src="assets/cases/sgdae/legado-2-dados-cadastrais.webp" width="1176" height="1009" loading="lazy" decoding="async" alt="Legacy terminal system: registration data, with the fields hidden."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><figure class="cs-shot cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge the legacy outstanding balance screen"><img src="assets/cases/sgdae/legado-3-saldo-devedor.webp" width="1176" height="1009" loading="lazy" decoding="async" alt="Legacy terminal system: outstanding balance and installments, with no simulation. Amounts hidden."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure>
+          </div>
+          <p class="ds-body cs-cap" data-reveal>Legacy system: each piece of debt information on a different terminal screen.</p>
+        </section>
+
+        <section class="cs-section container" id="sg-quem" aria-labelledby="sg-quem-t">
+          <header class="cs-head" data-reveal>
+            <h2 class="ds-section" id="sg-quem-t">Who uses it</h2>
+            <p class="ds-body">In the public debt department, each public servant has different responsibilities, and what each one can do in the system is defined by their access profile. To understand the pain points of the team as a whole, I talked to the department's coordination, who closely follow the servants' work and gather the problems they report day to day.</p>
+          </header>
+          <div class="cs-persona-grid" data-reveal><div><h3 class="ds-label cs-icon-label"><i data-lucide="user-star" aria-hidden="true"></i>Public debt servant</h3><ul class="cs-list"><li>Uses the system every day and only accesses the features enabled for their profile</li><li>Knows the public debt rules well</li><li>Serves taxpayers, in person or at the virtual desk, who want to negotiate or understand the status of their debts</li></ul></div><div><h3 class="ds-label cs-icon-label"><i data-lucide="sparkles" aria-hidden="true"></i>Goals</h3><ul class="cs-list"><li>Give the taxpayer a clear answer on the spot</li><li>Resolve each case without depending on other systems or another agency</li><li>Be confident that amounts and documents are correct</li></ul></div><div><h3 class="ds-label cs-icon-label"><i data-lucide="scan-heart" aria-hidden="true"></i>Needs</h3><ul class="cs-list"><li>Quickly find the debt data</li><li>See everything about it in one place</li><li>Calculate amounts and payment terms in the system itself</li><li>Generate ready-made documents, without rework</li></ul></div><div><h3 class="ds-label cs-icon-label"><i data-lucide="frown" aria-hidden="true"></i>Pain points</h3><ul class="cs-list"><li>Information scattered across several applications</li><li>Not being able to tell the taxpayer how much they'll pay</li><li>Putting documents together by copying data from screens</li><li>Depending on tickets for operations like offsetting</li></ul></div></div>
+          <div class="cs-sub" data-reveal>
+            <h3 class="ds-section">What they say</h3>
+            <p class="ds-body">The pain points in the team's own words.</p>
+          </div>
+          <ul class="cs-voices" data-reveal><li><h3 class="ds-label">Information scattered across several systems</h3><blockquote class="ds-body"><p>“If I only want to access the debt system, I type ‘debt’ here and enter my username and password. If I want to look at payments, then I open another application. […] To see installments, that's yet another application.”</p></blockquote></li><li><h3 class="ds-label">Not being able to negotiate with the taxpayer</h3><blockquote class="ds-body"><p>“No, the system doesn't let you see when they can pay. […] There are several rules […] the system doesn't show, there's no screen for it. So you can't say how much the installment will be, for example, the taxpayer has to look at their own situation and do the math themselves.”</p></blockquote></li><li><h3 class="ds-label">Documents put together by hand</h3><blockquote class="ds-body"><p>“Since the system doesn't provide it, we just copy and paste […] and then we have to format it. Usually we send the one from the [taxpayer portal]. But sometimes they want something more detailed that isn't there.”</p></blockquote></li><li><h3 class="ds-label">Depending on another agency</h3><blockquote class="ds-body"><p>“For offsetting, we don't have access. We keep opening tickets. […] Sometimes it says it's being offset, but it actually isn't.”</p></blockquote></li></ul>
+        </section>
+
+        <section class="cs-section container" id="sg-ds" aria-labelledby="sg-ds-t">
+          <header class="cs-head" data-reveal>
+            <h2 class="ds-section" id="sg-ds-t">Design system</h2>
+            <p class="ds-body">The system is built in Angular, so I based most components on the PrimeNG library the team already used. That way, development didn't have to build components from scratch. For needs the library didn't cover, I created specific components, and I created the entire token structure, which is what gives the system its own identity on top of the library.</p>
+            <p class="ds-body">The design system evolved and was documented throughout the project, and today it's the reference handed over to development.</p>
+          </header>
+          <div class="cs-media" data-reveal><figure class="cs-shot cs-shot--flat cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge the design system overview"><img src="assets/cases/sgdae/ds-overview.webp" width="2858" height="1708" loading="lazy" decoding="async" alt="Design system overview: palette, buttons, controls, typography, table, fields, feedback, dialog, status and navigation."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure></div>
+          <div class="cs-media-pair cs-media-pair--ds" data-reveal>
+            <figure class="cs-media-cap"><figure class="cs-shot cs-shot--flat cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge the token organization"><img src="assets/cases/sgdae/ds-tokens.webp" width="666" height="915" loading="lazy" decoding="async" alt="Design system variables in Figma: Primitives, Semantic and Appearance collections, with surface and action tokens."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><figcaption>Token organization.</figcaption></figure>
+            <figure class="cs-media-cap"><figure class="cs-shot cs-shot--flat cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge the file organization"><img src="assets/cases/sgdae/ds-arquivo.webp" width="395" height="920" loading="lazy" decoding="async" alt="Design system file pages: styles, patterns and components."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><figcaption>File organization.</figcaption></figure>
+          </div>
+        </section>
+
+        <section class="cs-section container" id="sg-padrao" aria-labelledby="sg-padrao-t">
+          <header class="cs-head" data-reveal>
+            <h2 class="ds-section" id="sg-padrao-t">Standardization</h2>
+            <p class="ds-body">Every screen uses the same page layout component: side menu, top bar, page header and content area. On top of that base, most modules repeat the same screen types: search (list with filters), view (header and tabs), create or edit (form).</p>
+          </header>
+          <div class="cs-media" data-reveal><figure class="cs-shot cs-shot--flat cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge the search pattern"><img src="assets/cases/sgdae/ds-padrao-consulta.webp" width="2858" height="513" loading="lazy" decoding="async" alt="Search pattern on web: no filters, with the filter panel open, with filters applied and with many active filters."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure></div>
+          <div class="cs-media-pair cs-media-pair--padrao" data-reveal>
+            <figure class="cs-shot cs-shot--flat cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge the create and edit patterns"><img src="assets/cases/sgdae/ds-cadastro.webp" width="1137" height="1694" loading="lazy" decoding="async" alt="Create and edit patterns, and address and contact forms."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><figure class="cs-shot cs-shot--flat cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge the view and history pattern"><img src="assets/cases/sgdae/ds-historico.webp" width="2239" height="1718" loading="lazy" decoding="async" alt="View screen and history flow pattern, with the initial version and the improvements."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure>
+          </div>
+          <ul class="cs-cols cs-effects" data-reveal><li><h3 class="ds-label">For users</h3><p class="ds-body">Learning one module means learning them all. Actions and information are always in the same place.</p></li><li><h3 class="ds-label">For the team</h3><p class="ds-body">Developers implemented the structure once and reused it in other modules.</p></li><li><h3 class="ds-label">For the project</h3><p class="ds-body">It's what made it possible to deliver around 370 screens consistently.</p></li></ul>
+        </section>
+
+        <section class="cs-section container" id="sg-solucao" aria-labelledby="sg-solucao-t">
+          <header class="cs-head" data-reveal>
+            <h2 class="ds-section" id="sg-solucao-t">Solution</h2>
+            <p class="ds-body">The whole debt cycle in one system. The MVP has 21 modules, organized into five major areas.</p>
+          </header>
+          <ul class="cs-areas" data-reveal><li class="cs-area"><div class="cs-area-top"><h4 class="ds-label">Records and registration</h4><span class="cs-area-n">7 modules</span></div><p class="ds-body">From registration to the debt's full history.</p><ul class="cs-area-mods" aria-label="Modules"><li>Registration</li><li>Taxpayer</li><li>Debt source</li><li>Revenue types and products</li><li>Debt stages</li><li>Electronic ledger</li><li>Statute of limitations</li></ul></li><li class="cs-area"><div class="cs-area-top"><h4 class="ds-label">Payment and negotiation</h4><span class="cs-area-n">6 modules</span></div><p class="ds-body">Simulating and recording payments, agreements and guarantees.</p><ul class="cs-area-mods" aria-label="Modules"><li>Lump-sum payment</li><li>Installments</li><li>Offsetting</li><li>Deduction methods</li><li>Payment slips</li><li>Guarantees</li></ul></li><li class="cs-area"><div class="cs-area-top"><h4 class="ds-label">Calculation</h4><span class="cs-area-n">3 modules</span></div><p class="ds-body">Updating amounts with configurable rules.</p><ul class="cs-area-mods" aria-label="Modules"><li>Interest and inflation adjustment</li><li>Adjustment indexes</li><li>Charges and fees</li></ul></li><li class="cs-area"><div class="cs-area-top"><h4 class="ds-label">Management</h4><span class="cs-area-n">3 modules</span></div><p class="ds-body">Control, access and monitoring.</p><ul class="cs-area-mods" aria-label="Modules"><li>Reports</li><li>Users and permissions</li><li>Authentication</li></ul></li><li class="cs-area"><div class="cs-area-top"><h4 class="ds-label">Collection</h4><span class="cs-area-n">2 modules</span></div><p class="ds-body">Out-of-court collection actions.</p><ul class="cs-area-mods" aria-label="Modules"><li>Protest</li><li>Defaulter registry</li></ul></li></ul>
+
+          <div class="cs-sub" data-reveal><h3 class="ds-section">Highlighted flows</h3></div>
+
+          <div class="cs-flow">
+            <h4 class="cs-flow-title" data-reveal><i data-lucide="sparkle" aria-hidden="true"></i>Registration data</h4>
+              <div class="cs-flow-row" data-reveal>
+                <figure class="cs-shot cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge the registration search screen"><img src="assets/cases/sgdae/web-consulta-filtros.webp" width="2100" height="1186" loading="lazy" decoding="async" alt="Registration search screen with the side panel of search filters open."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure>
+                <div class="cs-flow-text"><p class="ds-body">Search accepts any debtor data. There are many possible search fields: if they stayed fixed at the top, they would push the list down, even when the analyst only wants to search by a registration number. That's why they went into a side panel.</p></div>
+              </div>
+              <div class="cs-flow-row" data-reveal>
+                <figure class="cs-shot cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge the registration details screen"><img src="assets/cases/sgdae/web-dados-gerais.webp" width="2100" height="1182" loading="lazy" decoding="async" alt="Registration details: tabs on the side and the general data, with the limitation period highlighted."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure>
+                <div class="cs-flow-text"><p class="ds-body">Tabs inside the registration instead of separate pages. People switch topics without losing the debtor's context. I ordered the tabs by frequency of use.</p></div>
+              </div>
+              <div class="cs-flow-row" data-reveal>
+                <figure class="cs-shot cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge the registration deductions tab"><img src="assets/cases/sgdae/web-deducoes-inscricao.webp" width="2100" height="1182" loading="lazy" decoding="async" alt="Deductions tab of the registration, with the deductions table and the amount summary next to it."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure>
+                <div class="cs-flow-text"><p class="ds-body">Statements, debt certificates (CDA) and installment agreements also come out ready from the system, without copying and formatting data from screens.</p></div>
+              </div>
+              <div class="cs-flow-row cs-flow-row--phones" data-reveal>
+                <div class="cs-mphones"><figure class="cs-mphone cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge the search on mobile"><img src="assets/cases/sgdae/mob-consulta.webp" width="639" height="1386" loading="lazy" decoding="async" alt="Registration search on mobile, as cards."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><figure class="cs-mphone cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge the debt data on mobile"><img src="assets/cases/sgdae/mob-dados.webp" width="640" height="1387" loading="lazy" decoding="async" alt="Debt data on mobile."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><figure class="cs-mphone cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge the deductions on mobile"><img src="assets/cases/sgdae/mob-deducoes.webp" width="634" height="1374" loading="lazy" decoding="async" alt="Deductions on mobile, with the amount summary at the top."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure></div>
+                <div class="cs-flow-text"><p class="ds-body">From what I saw of the team's routine, edits and new records would still be done on the computer. So I used graceful degradation: in 17 of the 21 modules, mobile only has viewing and history, for quick lookups when the need comes up.</p></div>
+              </div>
+          </div>
+
+          <div class="cs-flow">
+            <h4 class="cs-flow-title" data-reveal><i data-lucide="sparkle" aria-hidden="true"></i>Payment simulation</h4>
+            <p class="ds-body cs-flow-intro" data-reveal>Taxpayers went to the Attorney General's Office in person to ask how much they would pay in a lump sum, with a discount from a public notice, or in installments. The old system didn't do this calculation, and the taxpayer was often told to do the math on their own or to look for another system, after having already traveled there.</p>
+              <div class="cs-flow-row" data-reveal>
+                <figure class="cs-shot cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge the deductions search"><img src="assets/cases/sgdae/web-deducoes.webp" width="2100" height="1182" loading="lazy" decoding="async" alt="Deductions search split by type, with status, balance and days overdue."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure>
+                <div class="cs-flow-text"><p class="ds-body">Deductions are split by type, lump sum, installments and offsetting, with each one's status, balance and days overdue. The simulation starts here.</p></div>
+              </div>
+              <div class="cs-flow-row" data-reveal>
+                <figure class="cs-shot cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge the simulation screen"><img src="assets/cases/sgdae/web-simular.webp" width="2100" height="1182" loading="lazy" decoding="async" alt="Deduction simulation: selected registrations in the table and, beside it, payment type, discount and the summary with the original amount and the discounted amount."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure>
+                <div class="cs-flow-text"><p class="ds-body">Now the simulation happens on a single screen. The analyst selects the registrations, chooses the payment type and the discount, and the system calculates the rest.</p><p class="ds-body">The summary shows the original amount and the discounted amount. The simulation can be downloaded for the taxpayer or turned into an installment request.</p></div>
+              </div>
+          </div>
+        </section>
+
+        <section class="cs-section is-band" id="sg-proximos" aria-labelledby="sg-proximos-t">
+          <div class="container">
+            <header class="cs-head" data-reveal><h2 class="ds-section" id="sg-proximos-t">Next steps</h2></header>
+            <ol class="cs-rowlist" data-reveal><li><span class="cs-rowlist-n">01</span><div><p class="ds-body">Follow users as they use the system, to gather real feedback.</p></div></li><li><span class="cs-rowlist-n">02</span><div><p class="ds-body">Run usability tests after launch, starting with viewing a registration, the most used flow. Then the payment simulation, measuring how many taxpayer inquiries turn into deductions.</p></div></li><li><span class="cs-rowlist-n">03</span><div><p class="ds-body">Improve the flow and usability of some form screens, to make the forms less dense.</p></div></li></ol>
+          </div>
+        </section>
+
+        <footer class="cs-end container">
+          <button class="btn btn-outline" type="button" data-case-close><i data-lucide="arrow-left" aria-hidden="true"></i>Back to projects</button>
+        </footer>
+      </div>
+    </article>
+  </div>
+
+  <!-- ================= Página do case 2: Meu Ônibus =================
+       Mesma estrutura e componentes do case 1. Telas de celular em fila no antes e depois.
+       Cor de destaque do projeto: #38C8C7 (.case--onibus em css/styles.css). -->
+  <div class="case-view case--onibus" id="case-onibus" role="dialog" aria-modal="true" aria-labelledby="case-onibus-title" hidden>
+    <div class="case-view-bg" aria-hidden="true"></div>
+    <div class="case-bar">
+      <div class="container case-bar-inner">
+        <button class="case-back case-bar-back" type="button" data-case-close><i data-lucide="arrow-left" aria-hidden="true"></i>Back</button>
+        <button class="btn btn-ghost btn-icon theme-toggle" type="button" aria-label="Switch to dark mode">
+          <i data-lucide="moon" class="theme-icon is-moon" aria-hidden="true"></i>
+          <i data-lucide="sun" class="theme-icon is-sun" aria-hidden="true"></i>
+        </button>
+        <div class="lang-switch" role="group" aria-label="Language">
+          <a class="lang-opt" href="index.html" hreflang="pt-BR" lang="pt-BR" title="Português">PT</a>
+          <span class="lang-sep" aria-hidden="true"></span>
+          <a class="lang-opt is-active" href="en.html" hreflang="en" lang="en" aria-current="page" title="English">EN</a>
+        </div>
+      </div>
+    </div>
+    <article class="case-view-scroll">
+      <div class="container case-page">
+        <div class="case-top" data-fade>
+          <button class="case-back" type="button" data-case-close>
+            <i data-lucide="arrow-left" aria-hidden="true"></i> Back
+          </button>
+          <button class="btn btn-ghost btn-icon theme-toggle" type="button" aria-label="Switch to dark mode">
+            <i data-lucide="moon" class="theme-icon is-moon" aria-hidden="true"></i>
+            <i data-lucide="sun" class="theme-icon is-sun" aria-hidden="true"></i>
+          </button>
+          <div class="lang-switch" role="group" aria-label="Language">
+            <a class="lang-opt" href="index.html" hreflang="pt-BR" lang="pt-BR" title="Português">PT</a>
+            <span class="lang-sep" aria-hidden="true"></span>
+            <a class="lang-opt is-active" href="en.html" hreflang="en" lang="en" aria-current="page" title="English">EN</a>
+          </div>
+        </div>
+
+        <div class="cs-hero">
+          <div class="cs-hero-text">
+            <h1 class="case-page-title" id="case-onibus-title" data-flip="title">Redesigning the Meu Ônibus public transit app</h1>
+            <p class="ds-body case-page-lede" data-fade>A redesign focused on rethinking the whole experience to meet <strong>users' real needs.</strong></p>
+            <ul class="case-tags case-page-tags" aria-label="Tags" data-flip="tags">
+              <li>Mobile</li><li>User research</li>
+            </ul>
+          </div>
+          <figure class="case-hero-shot cs-hero-img" data-fade>
+            <div class="cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge the new home screen and the wallet"><img src="assets/cases/onibus/hero-phones.webp" width="1697" height="1398" decoding="async" alt="Two phones with the redesigned app: the home screen with the map and the nearest stop, and the wallet with the transit cards."></div>
+          </figure>
+        </div>
+
+        <dl class="case-facts" data-fade>
+          <div><dt>My role</dt><dd>UX/UI Designer</dd></div>
+          <div><dt>Type</dt><dd>Personal project</dd></div>
+          <div><dt>Timeline</dt><dd>3 months</dd></div>
+        </dl>
+
+        <div class="case-role" data-fade>
+          <h2 class="ds-label">What I did</h2>
+          <p class="ds-body">I ran the user research, created the persona and the journey map, and redesigned the app's flows and screens, from sketches to final screens.</p>
+        </div>
+      </div>
+
+      <!-- Roteiro: contexto → pesquisa → persona → problema → rascunhos e prioridades →
+           solução (antes e depois) → conclusão -->
+      <div class="cs-body">
+
+        <!-- Contexto -->
+        <section class="cs-section is-band" id="on-contexto" aria-labelledby="on-contexto-t">
+          <div class="container">
+            <header class="cs-head" data-reveal>
+              <h2 class="ds-section" id="on-contexto-t">Context</h2>
+              <p class="ds-body">Meu Ônibus ("My Bus") is the public transit app of Fortaleza, built to bring together two everyday tasks for bus riders in one place.</p>
+            </header>
+
+            <div class="cs-stack cs-context" data-reveal>
+              <div class="cs-head">
+                <h3 class="ds-label">What the app does</h3>
+                <ul class="cs-context-list">
+                  <li><h4 class="ds-label cs-icon-label"><i data-lucide="clock" aria-hidden="true"></i>Bus times at stops</h4><p class="ds-body">Shows in real time when each bus arrives at the stop.</p></li>
+                  <li><h4 class="ds-label cs-icon-label"><i data-lucide="credit-card" aria-hidden="true"></i>Card top-up</h4><p class="ds-body">Tops up the transit card without going to a service point.</p></li>
+                </ul>
+              </div>
+              <div class="cs-head">
+                <h3 class="ds-label">Main problems</h3>
+                <ul class="cs-context-list">
+                  <li><h4 class="ds-label cs-icon-label"><i data-lucide="circle-alert" aria-hidden="true"></i>Usability issues</h4><p class="ds-body">Over time, the flows became confusing, the information poorly organized and the interface unintuitive.</p></li>
+                  <li><h4 class="ds-label cs-icon-label"><i data-lucide="split" aria-hidden="true"></i>Two apps</h4><p class="ds-body">The features were split: one app to check and top up the cards and another one just for bus times.</p></li>
+                </ul>
+              </div>
+            </div>
+            <p class="ds-body cs-note" data-reveal>This is an unofficial redesign, made as a study. It has no connection with the app or with the people who build it.</p>
+          </div>
+        </section>
+
+        <!-- Pesquisa -->
+        <section class="cs-section container" id="on-pesquisa" aria-labelledby="on-pesquisa-t">
+          <header class="cs-head" data-reveal>
+            <h2 class="ds-section" id="on-pesquisa-t">Research</h2>
+            <p class="ds-body">I use the app every day, so I started with my own experience. Then I checked whether other users went through the same.</p>
+          </header>
+          <div class="cs-stack" data-reveal>
+            <div class="cs-head">
+              <h3 class="ds-label">Store reviews</h3>
+              <p class="ds-body">I analyzed the top reviews of both apps on the App Store and Play Store. I kept the ones that explained where users got stuck and discarded vague ones, like "the app is bad" or "it freezes too much".</p>
+              <div class="cs-quotes">
+                <blockquote class="cs-quote">
+                  <p class="ds-body">"When it opens, it could quickly show the bus stops and their times, but it takes several taps to see the information."</p>
+                  <footer><i data-lucide="star" aria-hidden="true"></i>1.0 · helpful to 317 people</footer>
+                </blockquote>
+                <blockquote class="cs-quote">
+                  <p class="ds-body">"Checking the balance is complicated, it takes several taps, and the font color doesn't contrast well with the background."</p>
+                  <footer><i data-lucide="star" aria-hidden="true"></i>1.0 · helpful to 159 people</footer>
+                </blockquote>
+              </div>
+            </div>
+            <div class="cs-head">
+              <h3 class="ds-label">In-person observation</h3>
+              <p class="ds-body">5 people used the app's main features while I watched, following this script:</p>
+              <ol class="cs-list cs-questions">
+                                <li>What is it like to check the bus time?</li>
+                <li>What is it like to check the transit card balance?</li>
+                <li>What is it like to top up the card?</li>
+              </ol>
+            </div>
+          </div>
+          <div data-reveal>
+            <figure class="cs-diagram cs-diagram--research" data-viewer="diagram" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge the in-person research board">
+              <img src="assets/cases/onibus/pesquisa-quadro.webp" width="3520" height="2188" loading="lazy" decoding="async" alt="In-person research board: each question in the script with the participants' answers and the solution ideas that came up.">
+              <span class="cs-expand" aria-hidden="true"><i data-lucide="maximize-2"></i></span>
+            </figure>
+            <p class="ds-body cs-cap">In purple, the answers. In green, the ideas that came up.</p>
+          </div>
+        </section>
+
+        <!-- Persona -->
+        <section class="cs-section container" id="on-persona" aria-labelledby="on-persona-t">
+          <header class="cs-head" data-reveal>
+            <h2 class="ds-section" id="on-persona-t">Persona</h2>
+            <p class="ds-body">I created the persona from the research, mainly from the in-person sessions. It helped me decide which problems to prioritize.</p>
+          </header>
+          <div class="cs-personas" data-reveal>
+            <article class="cs-persona">
+              <div class="cs-persona-top">
+                <div class="cs-persona-id">
+                  <img class="cs-persona-photo" src="assets/cases/onibus/persona.webp" width="321" height="321" alt="Photo of the persona Ana Carolina.">
+                  <div>
+                    <h3 class="ds-label">Ana Carolina, 20 years old</h3>
+                    <p class="ds-body">Advertising student in Fortaleza · lives far from downtown · takes the bus to college every day</p>
+                  </div>
+                </div>
+              </div>
+              <blockquote class="cs-persona-quote">
+                <p class="ds-body">"It's so frustrating when the app says the bus is coming and it takes another 20 minutes! (...) Imagine getting on the bus and finding out there's no credit on your card!"</p>
+              </blockquote>
+              <div class="cs-persona-cols cs-persona-cols--3">
+                <div>
+                  <h4 class="ds-label cs-icon-label"><i data-lucide="sparkles" aria-hidden="true"></i>Goals</h4>
+                  <ul class="cs-list">
+                    <li>get to and from college quickly, making the most of her time</li>
+                    <li>have reliable times and routes to plan her trip</li>
+                    <li>top up her card easily, without going to a service point</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="ds-label cs-icon-label"><i data-lucide="frown" aria-hidden="true"></i>Frustrations</h4>
+                  <ul class="cs-list">
+                    <li>needs several taps to see her card balance</li>
+                    <li>has to leave the app and open another one to top up</li>
+                    <li>has trusted the prediction before and the bus never showed up or took too long</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="ds-label cs-icon-label"><i data-lucide="smartphone" aria-hidden="true"></i>Behaviors</h4>
+                  <ul class="cs-list">
+                    <li>uses the app every day to check predictions and plan her trip</li>
+                    <li>prefers apps that save time and simplify her routine</li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- Mapa de jornada -->
+        <section class="cs-section container" id="on-jornada" aria-labelledby="on-jornada-t">
+          <header class="cs-head" data-reveal>
+            <h2 class="ds-section" id="on-jornada-t">Journey map</h2>
+            <p class="ds-body">What the user does, thinks and feels at each stage, and what could be better.</p>
+          </header>
+          <div data-reveal>
+            <figure class="cs-diagram cs-diagram--journey" data-viewer="diagram" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge the journey map">
+              <img src="assets/cases/onibus/jornada.webp" width="3950" height="1920" loading="lazy" decoding="async" alt="Journey map in five stages (opening the app, finding the stop, checking times, viewing the balance and topping up), with what the user does, thinks, feels and the improvements.">
+              <span class="cs-expand" aria-hidden="true"><i data-lucide="maximize-2"></i></span>
+            </figure>
+          </div>
+        </section>
+
+        <!-- Principais problemas -->
+        <section class="cs-section container" id="on-problema" aria-labelledby="on-problema-t">
+          <header class="cs-head" data-reveal>
+            <h2 class="ds-section" id="on-problema-t">Main problems</h2>
+            <p class="ds-body">After the whole research phase, I could define which pain points mattered most.</p>
+          </header>
+          <ol class="cs-decisions" data-reveal>
+            <li><h3 class="ds-label">01.&nbsp; Balance and top-up</h3><p class="ds-body"><strong>Checking the balance takes several taps</strong>, and the top-up flow is slow and confusing.</p></li>
+            <li><h3 class="ds-label">02.&nbsp; Split apps</h3><p class="ds-body">To top up, the user <strong>has to leave Meu Ônibus and open another app.</strong></p></li>
+            <li><h3 class="ds-label">03.&nbsp; Usability and navigation</h3><p class="ds-body">Routes that are hard to find, a confusing interface and too many taps.</p></li>
+            <li><h3 class="ds-label">04.&nbsp; Design and accessibility</h3><p class="ds-body">Low contrast and text in a color close to the background, hard to read for older people and people with low vision.</p></li>
+          </ol>
+        </section>
+
+        <!-- Wireframes -->
+        <section class="cs-section is-band" id="on-rascunhos" aria-labelledby="on-rascunhos-t">
+          <div class="container">
+            <header class="cs-head" data-reveal>
+              <h2 class="ds-section" id="on-rascunhos-t">Wireframes</h2>
+              <p class="ds-body">I sketched the new flows by hand before moving to Figma.</p>
+            </header>
+            <ol class="cs-decisions" data-reveal>
+              <li><h3 class="ds-label">01.&nbsp; Fewer taps in the old flow</h3><p class="ds-body">I revisited the old flow to shorten it and make tasks <strong>simpler.</strong></p></li>
+              <li><h3 class="ds-label">02.&nbsp; Balance and top-up first</h3><p class="ds-body">I prioritized <strong>checking the balance and topping up</strong>: seeing the balance took several taps, and topping up required another app.</p></li>
+            </ol>
+            <div data-reveal>
+              <figure class="cs-diagram cs-diagram--sketch" data-viewer="diagram" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge the wireframes">
+                <img src="assets/cases/onibus/rascunhos.webp" width="3898" height="1462" loading="lazy" decoding="async" alt="Hand-drawn wireframes of the new flows: home screen with balance and search, line search and result, and top-up with amounts and payment methods.">
+                <span class="cs-expand" aria-hidden="true"><i data-lucide="maximize-2"></i></span>
+              </figure>
+            </div>
+          </div>
+        </section>
+
+        <!-- Solução: antes e depois, com as telas do fluxo em fila -->
+        <section class="cs-section cs-solution" id="on-solucao" aria-labelledby="on-solucao-t">
+          <header class="container cs-head" data-reveal>
+            <h2 class="ds-section" id="on-solucao-t">Result</h2>
+            <p class="ds-body">The before and after of each flow.</p>
+          </header>
+          <div class="cs-steps">
+            <article class="cs-step">
+              <header class="cs-step-head"><div class="container"><h3 class="ds-section">01&nbsp; Home</h3><span class="ds-section">Before</span></div></header>
+              <div class="container cs-step-body cs-step-body--phones"><div class="cs-step-grid" data-n="2"><div class="cs-phones"><figure class="cs-phone cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge: old home screen, zoomed-out map"><img src="assets/cases/onibus/inicio-antes-1.webp" width="591" height="1280" loading="lazy" decoding="async" alt="Old app when opened: a map of South America, far from the city."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><figure class="cs-phone cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge: old home screen, map full of markers"><img src="assets/cases/onibus/inicio-antes-2.webp" width="591" height="1280" loading="lazy" decoding="async" alt="Old app with the map zoomed in: dozens of overlapping bus markers."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure></div>
+                <div class="cs-step-text"><ul class="cs-list"><li>When you open the app, the map shows up far from the city. You have to zoom into the circle to see nearby stops.</li><li>Once zoomed in, there are so many markers that the map gets confusing.</li></ul></div></div></div>
+            </article>
+            <article class="cs-step">
+              <header class="cs-step-head"><div class="container"><h3 class="ds-section">01&nbsp; Home</h3><span class="ds-section">After</span></div></header>
+              <div class="container cs-step-body cs-step-body--phones"><div class="cs-step-grid" data-n="1"><div class="cs-phones"><figure class="cs-phone cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge: new home screen"><img src="assets/cases/onibus/inicio-depois.webp" width="786" height="1704" loading="lazy" decoding="async" alt="New home screen: card balance at the top, search and a map with the nearest stop, the lines and the time until each bus arrives."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure></div>
+                <div class="cs-step-text"><p class="ds-body">The app opens right at the nearest stop, with the lines that stop there and how long until each bus arrives.</p><p class="ds-body cs-highlight"><i data-lucide="star" aria-hidden="true"></i><span>The main card's balance sits at the top of the home screen, with zero taps.</span></p></div></div></div>
+            </article>
+            <article class="cs-step">
+              <header class="cs-step-head"><div class="container"><h3 class="ds-section">02&nbsp; Search</h3><span class="ds-section">Before</span></div></header>
+              <div class="container cs-step-body cs-step-body--phones"><div class="cs-step-grid" data-n="4"><div class="cs-phones"><figure class="cs-phone cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge: old search with wrong results"><img src="assets/cases/onibus/pesquisa-antes-1.webp" width="739" height="1600" loading="lazy" decoding="async" alt="Old search for the number 029 returning results from other places in the world."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><figure class="cs-phone cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge: old search without the search field"><img src="assets/cases/onibus/pesquisa-antes-2.webp" width="739" height="1600" loading="lazy" decoding="async" alt="Old search where the field disappears while typing."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><figure class="cs-phone cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge: choosing the line direction"><img src="assets/cases/onibus/pesquisa-antes-3.webp" width="720" height="1561" loading="lazy" decoding="async" alt="Choose your route modal, to pick the line direction."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><figure class="cs-phone cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge: line on the map with low contrast"><img src="assets/cases/onibus/pesquisa-antes-4.webp" width="720" height="1561" loading="lazy" decoding="async" alt="Line on the map with low contrast and the list of buses below."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure></div>
+                <div class="cs-step-text"><ul class="cs-list"><li>Search fails if the right filter isn't chosen first. I searched for the line number with the "Local" filter selected and found nothing.</li><li>The search field disappears while typing.</li><li>After choosing a direction, you have to search everything again to switch.</li><li>Contrast is poor, and the map markers open the same screen under any filter.</li></ul></div></div></div>
+            </article>
+            <article class="cs-step">
+              <header class="cs-step-head"><div class="container"><h3 class="ds-section">02&nbsp; Search</h3><span class="ds-section">After</span></div></header>
+              <div class="container cs-step-body cs-step-body--phones"><div class="cs-step-grid" data-n="3"><div class="cs-phones"><figure class="cs-phone cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge: search by lines"><img src="assets/cases/onibus/pesquisa-linhas.webp" width="786" height="1704" loading="lazy" decoding="async" alt="New search on the Lines tab, with suggested lines."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><figure class="cs-phone cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge: search by stops"><img src="assets/cases/onibus/pesquisa-paradas.webp" width="786" height="1704" loading="lazy" decoding="async" alt="New search on the Stops tab, with suggested stops and the lines at each one."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><figure class="cs-phone cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge: search by trip"><img src="assets/cases/onibus/pesquisa-viagem.webp" width="786" height="1704" loading="lazy" decoding="async" alt="New search on the Trip tab, with origin, destination and line combinations."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure></div>
+                <div class="cs-step-text"><ul class="cs-list"><li>Lines, stops and trip became tabs of the same search, and each one shows suggestions before you type.</li><li>On the Trip tab, the user enters where they are and where they're going and sees the line combinations with the total time.</li></ul></div></div></div>
+            </article>
+            <article class="cs-step">
+              <header class="cs-step-head"><div class="container"><h3 class="ds-section">02.1&nbsp; Search results</h3><span class="ds-section">After</span></div></header>
+              <div class="container cs-step-body cs-step-body--phones"><div class="cs-step-grid" data-n="3"><div class="cs-phones"><figure class="cs-phone cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge: line route"><img src="assets/cases/onibus/linha.webp" width="786" height="1704" loading="lazy" decoding="async" alt="Route of the Náutico line with every stop and the Switch direction button."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><figure class="cs-phone cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge: lines at a stop"><img src="assets/cases/onibus/parada.webp" width="786" height="1704" loading="lazy" decoding="async" alt="Avenida 13 de Maio stop with every line and the time for each one."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><figure class="cs-phone cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge: trip route"><img src="assets/cases/onibus/viagem.webp" width="786" height="1704" loading="lazy" decoding="async" alt="Trip route on the map, with arrival time and where to get off."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure></div>
+                <div class="cs-step-text"><ul class="cs-list"><li>The line shows the full route, and you can switch direction on the same screen.</li><li>The stop shows every line that stops there and how long until each one arrives.</li><li>The trip shows the route on the map, the arrival time and where to get off.</li></ul></div></div></div>
+            </article>
+            <article class="cs-step">
+              <header class="cs-step-head"><div class="container"><h3 class="ds-section">03&nbsp; Balance and top-up</h3><span class="ds-section">Before</span></div></header>
+              <div class="container cs-step-body cs-step-body--phones"><div class="cs-step-grid" data-n="4"><div class="cs-phones"><figure class="cs-phone cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge: notice about leaving for another app"><img src="assets/cases/onibus/recarga-antes-1.webp" width="739" height="1600" loading="lazy" decoding="async" alt="Old app notice saying the user will be taken to another environment to top up."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><figure class="cs-phone cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge: top-up app"><img src="assets/cases/onibus/recarga-antes-2.webp" width="739" height="1600" loading="lazy" decoding="async" alt="Home screen of the top-up app, with several card and QR code buttons."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><figure class="cs-phone cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge: choosing the card"><img src="assets/cases/onibus/recarga-antes-3.webp" width="739" height="1600" loading="lazy" decoding="async" alt="List of cards that has to be chosen before seeing the balance. Names and numbers blurred."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><figure class="cs-phone cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge: balance at the bottom of the screen"><img src="assets/cases/onibus/recarga-antes-4.webp" width="739" height="1600" loading="lazy" decoding="async" alt="Card screen with the balance at the bottom, after three buttons. Number blurred."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure></div>
+                <div class="cs-step-text"><ul class="cs-list"><li>To top up, the user left Meu Ônibus and had to use another app.</li><li>Even in the top-up app, the balance was hidden among several buttons.</li><li>You had to choose the card before seeing the balance, one extra tap.</li><li>The balance, the most sought-after information, was at the bottom of the screen.</li></ul></div></div></div>
+            </article>
+            <article class="cs-step">
+              <header class="cs-step-head"><div class="container"><h3 class="ds-section">03&nbsp; Wallet</h3><span class="ds-section">After</span></div></header>
+              <div class="container cs-step-body cs-step-body--phones"><div class="cs-step-grid" data-n="1"><div class="cs-phones"><figure class="cs-phone cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge: new wallet"><img src="assets/cases/onibus/carteira.webp" width="786" height="1704" loading="lazy" decoding="async" alt="New wallet with the student card and the transit voucher, each one's balance and the Top up button."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure></div>
+                <div class="cs-step-text"><p class="ds-body">The wallet brings the transit cards together, each with its balance and a top-up button.</p><p class="ds-body cs-highlight"><i data-lucide="star" aria-hidden="true"></i><span>The user picks the card they check most, and its balance shows up on the home screen.</span></p></div></div></div>
+            </article>
+            <article class="cs-step cs-step--free">
+              <header class="cs-step-head"><div class="container"><h3 class="ds-section">03.1&nbsp; Top-up</h3><span class="ds-section">After</span></div></header>
+              <div class="container cs-step-body cs-step-body--phones"><div class="cs-step-grid" data-n="3"><div class="cs-phones"><figure class="cs-phone cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge: new top-up on one screen"><img src="assets/cases/onibus/recarga-completa.webp" width="786" height="2104" loading="lazy" decoding="async" alt="New top-up on one screen: suggested amounts, custom amount, payment methods and auto top-up."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><figure class="cs-phone cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge: auto top-up"><img src="assets/cases/onibus/recarga-auto.webp" width="786" height="1914" loading="lazy" decoding="async" alt="Auto top-up turned on, with the saved credit cards."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><figure class="cs-phone cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge: payment confirmed"><img src="assets/cases/onibus/recarga-ok.webp" width="786" height="1704" loading="lazy" decoding="async" alt="Payment confirmed screen."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure></div>
+                <div class="cs-step-text"><p class="ds-body cs-highlight"><i data-lucide="star" aria-hidden="true"></i><span>The whole top-up flow on a single screen, inside Meu Ônibus: amount, payment method and confirmation.</span></p><p class="ds-body cs-highlight"><i data-lucide="star" aria-hidden="true"></i><span>Auto top-up: the user saves a credit card, and the transit card is topped up automatically when the balance drops below one fare.</span></p></div></div></div>
+            </article>
+          </div>
+        </section>
+
+        <!-- O que mudou no uso do app -->
+        <section class="cs-section container" id="on-mudou" aria-labelledby="on-mudou-t">
+          <header class="cs-head" data-reveal>
+            <h2 class="ds-section" id="on-mudou-t">What changed in using the app</h2>
+          </header>
+          <div class="cs-table-wrap" data-reveal>
+              <table class="cs-table" aria-labelledby="on-mudou-t">
+                <thead><tr><th scope="col">Task</th><th scope="col">Before</th><th scope="col">After</th></tr></thead>
+                <tbody>
+                  <tr><th scope="row">Check the balance</th><td data-label="Before">At least 3 to 4 steps, in another app, with the balance at the bottom of the screen</td><td data-label="After"><strong>On the home screen, with zero taps</strong></td></tr>
+                  <tr><th scope="row">Top up the card</th><td data-label="Before">Leave Meu Ônibus and use another app</td><td data-label="After"><strong>On a single screen, inside the app, with an auto top-up option</strong></td></tr>
+                  <tr><th scope="row">Find the nearest stop</th><td data-label="Before">Zoom into the map until you find the stops</td><td data-label="After">The app opens at the nearest stop, with each bus's time</td></tr>
+                  <tr><th scope="row">Search for a line</th><td data-label="Before">Failed without the right filter, and the field disappeared while typing</td><td data-label="After">Tabs for lines, stops and trip, with suggestions before typing</td></tr>
+                  <tr><th scope="row">Switch direction</th><td data-label="Before">Redo the whole search</td><td data-label="After">A button on the line screen itself</td></tr>
+                </tbody>
+              </table>
+          </div>
+        </section>
+
+        <!-- Conclusão -->
+        <section class="cs-section is-band" id="on-conclusao" aria-labelledby="on-conclusao-t">
+          <div class="container">
+            <header class="cs-head" data-reveal>
+              <h2 class="ds-section" id="on-conclusao-t">Conclusion</h2>
+              <p class="ds-body">Listening to and watching other users was essential to propose solutions that hit the mark, before assuming anything.</p>
+            </header>
+          </div>
+        </section>
+
+        <footer class="cs-end container">
+          <button class="btn btn-outline" type="button" data-case-close><i data-lucide="arrow-left" aria-hidden="true"></i>Back to projects</button>
+        </footer>
+      </div>
+    </article>
+  </div>
+
+  <!-- ================= Página do case: Cabine de fotos da UXFor ================= -->
+  <div class="case-view case--cabine" id="case-cabine" role="dialog" aria-modal="true" aria-labelledby="case-cabine-title" hidden>
+    <div class="case-view-bg" aria-hidden="true"></div>
+    <div class="case-bar">
+      <div class="container case-bar-inner">
+        <button class="case-back case-bar-back" type="button" data-case-close><i data-lucide="arrow-left" aria-hidden="true"></i>Back</button>
+        <button class="btn btn-ghost btn-icon theme-toggle" type="button" aria-label="Switch to dark mode">
+          <i data-lucide="moon" class="theme-icon is-moon" aria-hidden="true"></i>
+          <i data-lucide="sun" class="theme-icon is-sun" aria-hidden="true"></i>
+        </button>
+        <div class="lang-switch" role="group" aria-label="Language">
+          <a class="lang-opt" href="index.html" hreflang="pt-BR" lang="pt-BR" title="Português">PT</a>
+          <span class="lang-sep" aria-hidden="true"></span>
+          <a class="lang-opt is-active" href="en.html" hreflang="en" lang="en" aria-current="page" title="English">EN</a>
+        </div>
+      </div>
+    </div>
+    <article class="case-view-scroll">
+      <div class="container case-page">
+        <div class="case-top" data-fade>
+          <button class="case-back" type="button" data-case-close><i data-lucide="arrow-left" aria-hidden="true"></i>Back</button>
+          <button class="btn btn-ghost btn-icon theme-toggle" type="button" aria-label="Switch to dark mode">
+            <i data-lucide="moon" class="theme-icon is-moon" aria-hidden="true"></i>
+            <i data-lucide="sun" class="theme-icon is-sun" aria-hidden="true"></i>
+          </button>
+          <div class="lang-switch" role="group" aria-label="Language">
+            <a class="lang-opt" href="index.html" hreflang="pt-BR" lang="pt-BR" title="Português">PT</a>
+            <span class="lang-sep" aria-hidden="true"></span>
+            <a class="lang-opt is-active" href="en.html" hreflang="en" lang="en" aria-current="page" title="English">EN</a>
+          </div>
+        </div>
+
+        <div class="cs-hero">
+          <div class="cs-hero-text">
+            <h1 class="case-page-title" id="case-cabine-title" data-flip="title">Photo booth for a design event</h1>
+            <p class="ds-body case-page-lede" data-fade>I created an AI-powered photo booth experience, from the visual concept to a working product, in a single day and without writing a line of code.</p>
+            <ul class="case-tags case-page-tags" aria-label="Tags" data-flip="tags"><li>Design with AI</li><li>Volunteer project</li></ul>
+          </div>
+          <figure class="case-hero-shot cs-hero-img" data-fade>
+            <div class="cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge the booth on the laptop and the phone"><img src="assets/cases/cabine/hero.webp" width="2131" height="1265" decoding="async" alt="Laptop showing the Your photos are ready screen and the QR code, next to a phone with the story templates."></div>
+          </figure>
+        </div>
+
+        <dl class="case-facts" data-fade>
+          <div><dt>My role</dt><dd>Idea, flow, UX/UI and directing the development with AI</dd></div>
+          <div><dt>Tools</dt><dd>Figma, Claude, VS Code, Supabase and GitHub Pages</dd></div>
+          <div><dt>Project type</dt><dd>Volunteer work</dd></div>
+        </dl>
+      </div>
+
+      <div class="cs-body">
+
+        <section class="cs-section container" id="cb-objetivo" aria-labelledby="cb-objetivo-t">
+          <header class="cs-head" data-fade>
+            <h2 class="ds-section" id="cb-objetivo-t">Goal</h2>
+            <p class="ds-body">I went to an event held in the same venue where our community event would take place a week later. There was a single-person study booth there, and we thought: why not use this space to make a photo booth for our event?</p>
+          </header>
+          <ol class="cs-numlist" data-fade><li><span class="cs-numlist-n">01</span><p class="ds-body">Give attendees a <strong>different and fun way</strong> to capture the event.</p></li><li><span class="cs-numlist-n">02</span><p class="ds-body">Every <strong>story posted</strong> would carry the event's visual identity and <a class="cs-inline-link" href="https://www.instagram.com/uxfor.br/" target="_blank" rel="noopener">@uxfor.br</a>.</p></li></ol>
+        </section>
+
+        <section class="cs-section is-band" id="cb-desafios" aria-labelledby="cb-desafios-t">
+          <div class="container">
+            <header class="cs-head" data-reveal><h2 class="ds-section" id="cb-desafios-t">Challenges</h2></header>
+            <ul class="cs-cols cs-effects" data-reveal><li><h3 class="ds-label">Quick to use, no instructions</h3><p class="ds-body">People walk in, take their photos and leave. The app had to be easy and intuitive.</p></li><li><h3 class="ds-label">Sending to the phone</h3><p class="ds-body">The photos had to leave the laptop and reach each person's phone, ready to post.</p></li><li><h3 class="ds-label">No budget</h3><p class="ds-body">A volunteer project, with no budget for paid hosting tools.</p></li></ul>
+          </div>
+        </section>
+
+        <section class="cs-section container" id="cb-processo" aria-labelledby="cb-processo-t">
+          <header class="cs-head" data-reveal><h2 class="ds-section" id="cb-processo-t">Process</h2></header>
+          <div class="cs-step-block">
+            <h3 class="ds-label" data-reveal>01. I started with the problem</h3>
+            <p class="ds-body" data-reveal>Before any screen, I wrote to the AI as if it were a briefing: the setting (a laptop in a booth, during an event), who would use it, what happened step by step and what people took home at the end. With that context, the AI had less to guess and asked about what was missing.</p>
+            <div class="cs-chat" data-reveal>
+              <div class="cs-chat-row"><img class="cs-chat-av" src="assets/avatar-pb.webp" width="48" height="48" alt=""><div class="cs-chat-body"><h4 class="ds-label">What I said</h4><blockquote class="cs-chat-prompt ds-body">
+                  <p>i want to build an app for the following scenario:</p>
+                  <ul><li>i'll leave my laptop in a booth during an event so people can go in and take photos</li><li>when they enter the booth they click take photo</li><li>the screen should behave like a real photo booth</li></ul>
+                  <ol><li>a 3 second countdown shows up so the person can get ready for the photo</li><li>this repeats 3 times (3 photos)</li><li>after taking the 3 photos, the system shows a qr code on the screen that can be scanned with a phone</li><li>when the qr code is opened on the phone, the photos show up inside the template i'll make (a template ready for instagram stories) and the separate photos too (individual photos)</li></ol>
+                  <p>my questions before starting this project:</p>
+                  <ol><li>how do i connect the system running on the web with the phone</li><li>can i keep the app local only? or would it be better to host it somewhere? (i thought about github)</li></ol>
+                </blockquote></div></div>
+              <div class="cs-chat-row"><span class="cs-chat-av cs-chat-av--claude"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m4.7144 15.9555 4.7174-2.6471.079-.2307-.079-.1275h-.2307l-.7893-.0486-2.6956-.0729-2.3375-.0971-2.2646-.1214-.5707-.1215-.5343-.7042.0546-.3522.4797-.3218.686.0608 1.5179.1032 2.2767.1578 1.6514.0972 2.4468.255h.3886l.0546-.1579-.1336-.0971-.1032-.0972L6.973 9.8356l-2.55-1.6879-1.3356-.9714-.7225-.4918-.3643-.4614-.1578-1.0078.6557-.7225.8803.0607.2246.0607.8925.686 1.9064 1.4754 2.4893 1.8336.3643.3035.1457-.1032.0182-.0728-.164-.2733-1.3539-2.4467-1.445-2.4893-.6435-1.032-.17-.6194c-.0607-.255-.1032-.4674-.1032-.7285L6.287.1335 6.6997 0l.9957.1336.419.3642.6192 1.4147 1.0018 2.2282 1.5543 3.0296.4553.8985.2429.8318.091.255h.1579v-.1457l.1275-1.706.2368-2.0947.2307-2.6957.0789-.7589.3764-.9107.7468-.4918.5828.2793.4797.686-.0668.4433-.2853 1.8517-.5586 2.9021-.3643 1.9429h.2125l.2429-.2429.9835-1.3053 1.6514-2.0643.7286-.8196.85-.9046.5464-.4311h1.0321l.759 1.1293-.34 1.1657-1.0625 1.3478-.8804 1.1414-1.2628 1.7-.7893 1.36.0729.1093.1882-.0183 2.8535-.607 1.5421-.2794 1.8396-.3157.8318.3886.091.3946-.3278.8075-1.967.4857-2.3072.4614-3.4364.8136-.0425.0304.0486.0607 1.5482.1457.6618.0364h1.621l3.0175.2247.7892.522.4736.6376-.079.4857-1.2142.6193-1.6393-.3886-3.825-.9107-1.3113-.3279h-.1822v.1093l1.0929 1.0686 2.0035 1.8092 2.5075 2.3314.1275.5768-.3218.4554-.34-.0486-2.2039-1.6575-.85-.7468-1.9246-1.621h-.1275v.17l.4432.6496 2.3436 3.5214.1214 1.0807-.17.3521-.6071.2125-.6679-.1214-1.3721-1.9246L14.38 17.959l-1.1414-1.9428-.1397.079-.674 7.2552-.3156.3703-.7286.2793-.6071-.4614-.3218-.7468.3218-1.4753.3886-1.9246.3157-1.53.2853-1.9004.17-.6314-.0121-.0425-.1397.0182-1.4328 1.9672-2.1796 2.9446-1.7243 1.8456-.4128.164-.7164-.3704.0667-.6618.4008-.5889 2.386-3.0357 1.4389-1.882.929-1.0868-.0062-.1579h-.0546l-6.3385 4.1164-1.1293.1457-.4857-.4554.0608-.7467.2307-.2429 1.9064-1.3114Z"/></svg></span><div class="cs-chat-body"><h4 class="ds-label">What Claude answered</h4><p class="ds-body">Based on my prompt, it walked me through the whole solution architecture: the initial flow, how to connect the web booth to the phone through a QR code, hosting the app, storing the photos in the cloud and making them available, plus anticipating technical limits, risks and error states. All of that before writing any code.</p></div></div>
+            </div>
+          </div>
+          <div class="cs-step-block">
+            <h3 class="ds-label" data-reveal>02. Design in Figma</h3>
+            <p class="ds-body" data-reveal>Based on the flow Claude gave me, I designed the waiting screen, the camera, the QR code screen and the phone page with the event's visual identity. Then I sent the frame links to the AI and asked it to build following that layout.</p>
+            <div class="cs-media" data-reveal><figure class="cs-shot cs-shot--flat cs-shot--figma cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge the screens in Figma"><img src="assets/cases/cabine/figma-frames.webp" width="2198" height="893" loading="lazy" decoding="async" alt="Screens designed in Figma: waiting screen, camera, countdown, photos ready with the QR code and the phone screens."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure></div>
+          </div>
+          <div class="cs-step-block">
+            <h3 class="ds-label" data-reveal>03. Deciding how to build it</h3>
+            <p class="ds-body" data-reveal>I didn't know the tools, so for each decision I asked the AI to show me the options and what changed with each one. The final call was mine.</p>
+            <div class="cs-table-wrap cs-table-wrap--3" data-reveal><table class="cs-table cs-table--3" aria-label="Build decisions"><thead><tr><th scope="col">Decision</th><th scope="col">Choice</th><th scope="col">Why</th></tr></thead><tbody><tr><th scope="row">Where to write the code</th><td data-label="Choice">A folder in VS Code, with HTML, CSS and JavaScript, no framework</td><td data-label="Why">A small site I could open and test on my own</td></tr><tr><th scope="row">Where to store the photos</th><td data-label="Choice">Supabase</td><td data-label="Why">Free, with enough storage for the event.</td></tr><tr><th scope="row">Where to publish</th><td data-label="Choice">GitHub Pages</td><td data-label="Why">Free and with https, which the camera requires</td></tr></tbody></table></div>
+          </div>
+          <div class="cs-step-block">
+            <h3 class="ds-label" data-reveal>04. Development</h3>
+            <p class="ds-body" data-reveal>I connected the project folder to Claude, and it created and edited the files there. My job was a loop: ask, test in VS Code and come back saying what was right and what had to change. In Supabase, I sent a screenshot of each step whenever I got stuck. I learned what a bucket is, what an access rule is for and which key can stay in the code.</p>
+          </div>
+          <div class="cs-step-block">
+            <h3 class="ds-label" data-reveal>05. Testing and bugs</h3>
+            <p class="ds-body" data-reveal>Nothing came out perfect the first time. For each bug, I told the AI what happened, where it happened and sent a screenshot.</p>
+            <div class="cs-table-wrap cs-table-wrap--3" data-reveal><table class="cs-table cs-table--3" aria-label="Bugs found in testing"><thead><tr><th scope="col">Bug</th><th scope="col">What happened</th><th scope="col">How it was fixed</th></tr></thead><tbody><tr><th scope="row">Filter on Safari</th><td data-label="What happened">Black and white photos were saved in color</td><td data-label="How it was fixed">The filter started being applied to the image itself, pixel by pixel</td></tr><tr><th scope="row">Grain on the phone</th><td data-label="What happened">In the camera preview, the filter moved around and was too strong</td><td data-label="How it was fixed">The effect was redone to stay still and lighter</td></tr><tr><th scope="row">Broken images</th><td data-label="What happened">Some of the template drawings didn't show up</td><td data-label="How it was fixed">The SVG files were simplified</td></tr></tbody></table></div>
+          </div>
+          <div class="cs-step-block">
+            <h3 class="ds-label" data-reveal>06. Iterations</h3>
+            <div class="cs-iter" data-reveal>
+              <div class="cs-iter-item"><figure class="cs-iter-phone cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge the camera on the phone"><img src="assets/cases/cabine/iter-camera.webp" width="588" height="1228" loading="lazy" decoding="async" alt="Booth camera open on the phone, with the filters and the shutter button."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><div class="cs-head"><h4 class="ds-label">During the event: photos from the phone</h4><p class="ds-body">I noticed some people might not go to the booth but would still want the template. So the site started working on phones too, and I spread QR codes to the site around the venue.</p></div></div>
+              <div class="cs-iter-item"><figure class="cs-iter-phone cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge the choice between camera and gallery"><img src="assets/cases/cabine/iter-escolha.webp" width="588" height="1228" loading="lazy" decoding="async" alt="Phone screen with the options Take photo and Choose from gallery."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><div class="cs-head"><h4 class="ds-label">After the event: photos from the gallery</h4><p class="ds-body">People wanted to keep using the template with photos they had already taken. So, before the camera, I added a screen with two options: take a photo or choose from the gallery. Choosing the gallery puts the selected photos into the story templates.</p></div></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="cs-section is-band" id="cb-resultado" aria-labelledby="cb-resultado-t">
+          <div class="container">
+            <div class="cs-result" data-reveal>
+              <div class="cs-head">
+                <h2 class="ds-section" id="cb-resultado-t">Result</h2>
+                <p class="cs-result-n">50+</p>
+                <p class="ds-body"><strong>Photo sessions at the event.</strong> Each session is someone who took (or chose) photos and got the story template ready, with the UXFor identity.</p>
+              </div>
+              <figure class="cs-result-img cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge the story mosaic"><img src="assets/cases/cabine/resultado-stories.webp" width="1489" height="1317" loading="lazy" decoding="async" alt="Mosaic of stories made in the booth, with faces blurred."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure>
+            </div>
+          </div>
+        </section>
+
+        <section class="cs-section container" id="cb-aprendi" aria-labelledby="cb-aprendi-t">
+          <header class="cs-head" data-reveal><h2 class="ds-section" id="cb-aprendi-t">What I learned</h2></header>
+          <ol class="cs-numlist" data-reveal><li><span class="cs-numlist-n">01</span><p class="ds-body">AI writes the code, but the design decisions are still mine. I was the one who saw what to build, how each screen should be, when something was wrong and what to change after people used it.</p></li><li><span class="cs-numlist-n">02</span><p class="ds-body">A good prompt looks like a briefing. Setting, who uses it, what happens and the expected result. The more context, the less the AI has to guess.</p></li><li><span class="cs-numlist-n">03</span><p class="ds-body">Test and fix after every answer.</p></li><li><span class="cs-numlist-n">04</span><p class="ds-body">The idea worked because it was a simple project. It was a small site, with no login and no payments. If there were sensitive data, someone who knows code would need to review what the AI wrote, especially for security.</p></li></ol>
+        </section>
+
+        <footer class="cs-end container">
+          <button class="btn btn-outline" type="button" data-case-close><i data-lucide="arrow-left" aria-hidden="true"></i>Back to projects</button>
+        </footer>
+      </div>
+    </article>
+  </div>
+
+<!--BODY-END-->
+
+  <script src="https://cdn.jsdelivr.net/npm/lucide@1.48.0/dist/umd/lucide.min.js"></script>
+  <script src="js/main.js?v=mvjtfwu4"></script>
+  <script src="js/grid-trail.js?v=mvjtfwu4"></script>
+  <script src="js/case-view.js?v=mvjtfwu4"></script>
+  <script src="js/case-page.js?v=mvjtfwu4"></script>
+  <script src="js/viewer.js?v=mvjtfwu4"></script>
+  <script src="js/smooth-wheel.js?v=mvjtfwu4"></script>
+</body>
+</html>

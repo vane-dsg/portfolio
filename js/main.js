@@ -5,6 +5,9 @@
   if (window.lucide) window.lucide.createIcons();
 
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  // idioma da página (index.html = português, en.html = inglês)
+  var EN = /^en/i.test(document.documentElement.lang);
+  function tr(pt, en) { return EN ? en : pt; }
 
   /* ---------------------------------------------------------
      Hero: entrada com "slide up text".
@@ -59,7 +62,7 @@
   function syncThemeBtn() {
     var dark = currentTheme() === "dark";
     themeBtns.forEach(function (b) {
-      b.setAttribute("aria-label", dark ? "Ativar modo claro" : "Ativar modo escuro");
+      b.setAttribute("aria-label", dark ? tr("Ativar modo claro", "Switch to light mode") : tr("Ativar modo escuro", "Switch to dark mode"));
       b.setAttribute("aria-pressed", String(dark));
     });
   }
@@ -130,7 +133,7 @@
     if (backdrop) backdrop.classList.toggle("is-open", open);
     document.documentElement.style.overflow = open ? "hidden" : ""; // página não rola com o menu aberto
     menuBtn.setAttribute("aria-expanded", String(open));
-    menuBtn.setAttribute("aria-label", open ? "Fechar menu" : "Abrir menu");
+    menuBtn.setAttribute("aria-label", open ? tr("Fechar menu", "Close menu") : tr("Abrir menu", "Open menu"));
     setMenuIcon(open);
   }
 
@@ -279,11 +282,21 @@
     { text: "Hallo, ich heiße", lang: "de" },
     { text: "こんにちは、私は", lang: "ja" }
   ];
+  /* Troca de idioma: leva junto o case aberto (ou a seção do endereço) */
+  document.querySelectorAll(".lang-opt").forEach(function (a) {
+    a.addEventListener("click", function (e) {
+      if (a.classList.contains("is-active")) { e.preventDefault(); return; }
+      var hash = location.hash;
+      if (hash) { e.preventDefault(); location.href = a.getAttribute("href").split("#")[0] + hash; }
+    });
+  });
+
   var GREETING_INTERVAL = 2600; // ms que cada idioma fica na tela
 
   var greetBox = document.getElementById("greeting");
   if (greetBox) {
-    var gi = 0;
+    // começa pela saudação no idioma da página
+    var gi = Math.max(0, GREETINGS.findIndex(function (g) { return g.lang.slice(0, 2) === (EN ? "en" : "pt"); }));
     var fitWidth = function () {
       var w = greetBox.querySelector(".greeting-word:not(.is-leaving)");
       if (w) greetBox.style.width = w.offsetWidth + "px";

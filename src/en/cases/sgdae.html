@@ -1,0 +1,236 @@
+<!-- =========================================================
+     Case: sgdae
+     Este arquivo tem duas partes:
+     1. @card   → o card do case na pilha da home
+     2. @pagina → a página do case (abre ao clicar no card)
+     Depois de editar, rode: node build.mjs
+     ========================================================= -->
+
+<!-- @card -->
+          <li class="deck-item case--sgdae">
+            <button class="case-tab" type="button" tabindex="-1" aria-hidden="true"><span class="tab-fl"></span><i data-lucide="briefcase" class="case-tab-ic"></i><span class="case-tab-text">Public debt management</span></button>
+            <a class="case-card case--sgdae" href="#case-sgdae" data-case="case-sgdae" data-cursor="View case">
+              <div class="case-panel">
+                <h3 class="case-title">A state's public debt management system</h3>
+                <p class="case-desc">I built from scratch a system that brings together a state's entire public debt cycle, replacing a legacy system.</p>
+                <ul class="case-tags" aria-label="Tags">
+                  <li>Design System</li><li>Complex system</li>
+                </ul>
+                <span class="btn btn-outline case-btn">View case <i data-lucide="arrow-right" aria-hidden="true"></i></span>
+              </div>
+              <div class="case-visual">
+                <div class="case-mock mock-laptop" aria-hidden="true">
+                  <div class="mock-screen">
+                    <img src="assets/cases/sgdae/capa-ds.webp" width="2100" height="1321" alt="" decoding="async">
+                  </div>
+                </div>
+              </div>
+            </a>
+          </li>
+
+<!-- @pagina -->
+  <!-- ================= Página do case: Sistema de gestão da dívida ativa (SGDAE) =================
+       NDA: sem nome de estado, órgão ou sistema. Nas telas exportadas do Figma, a URL e os nomes
+       de órgãos reais foram trocados por textos neutros. -->
+  <div class="case-view case--sgdae" id="case-sgdae" role="dialog" aria-modal="true" aria-labelledby="case-sgdae-title" hidden>
+    <div class="case-view-bg" aria-hidden="true"></div>
+    <div class="case-bar">
+      <div class="container case-bar-inner">
+        <button class="case-back case-bar-back" type="button" data-case-close><i data-lucide="arrow-left" aria-hidden="true"></i>Back</button>
+        <button class="btn btn-ghost btn-icon theme-toggle" type="button" aria-label="Switch to dark mode">
+          <i data-lucide="moon" class="theme-icon is-moon" aria-hidden="true"></i>
+          <i data-lucide="sun" class="theme-icon is-sun" aria-hidden="true"></i>
+        </button>
+        <div class="lang-switch" role="group" aria-label="Language">
+          <a class="lang-opt" href="index.html" hreflang="pt-BR" lang="pt-BR" title="Português">PT</a>
+          <span class="lang-sep" aria-hidden="true"></span>
+          <a class="lang-opt is-active" href="en.html" hreflang="en" lang="en" aria-current="page" title="English">EN</a>
+        </div>
+      </div>
+    </div>
+    <article class="case-view-scroll">
+      <div class="container case-page">
+        <div class="case-top" data-fade>
+          <button class="case-back" type="button" data-case-close><i data-lucide="arrow-left" aria-hidden="true"></i>Back</button>
+          <button class="btn btn-ghost btn-icon theme-toggle" type="button" aria-label="Switch to dark mode">
+            <i data-lucide="moon" class="theme-icon is-moon" aria-hidden="true"></i>
+            <i data-lucide="sun" class="theme-icon is-sun" aria-hidden="true"></i>
+          </button>
+          <div class="lang-switch" role="group" aria-label="Language">
+            <a class="lang-opt" href="index.html" hreflang="pt-BR" lang="pt-BR" title="Português">PT</a>
+            <span class="lang-sep" aria-hidden="true"></span>
+            <a class="lang-opt is-active" href="en.html" hreflang="en" lang="en" aria-current="page" title="English">EN</a>
+          </div>
+        </div>
+
+        <div class="cs-hero">
+          <div class="cs-hero-text">
+            <h1 class="case-page-title" id="case-sgdae-title" data-flip="title">A state's public debt management system</h1>
+            <p class="ds-body case-page-lede" data-fade>I built from scratch a system that brings together a state's entire public debt cycle, replacing a legacy system.</p>
+            <ul class="case-tags case-page-tags" aria-label="Tags" data-flip="tags"><li>Design System</li><li>Complex system</li></ul>
+          </div>
+          <figure class="case-hero-shot" data-fade>
+            <div class="laptop">
+              <div class="laptop-screen cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge the design system showcase">
+                <img src="assets/cases/sgdae/capa-ds.webp" width="2100" height="1321" alt="The system's design system showcase: palette, buttons, controls, typography, table and fields.">
+                <span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span>
+              </div>
+              <div class="laptop-base" aria-hidden="true"></div>
+            </div>
+          </figure>
+        </div>
+
+        <dl class="case-facts case-facts--4" data-fade>
+          <div><dt>My role</dt><dd>Product Designer</dd></div>
+          <div><dt>Client</dt><dd>Attorney General's Office</dd></div>
+          <div><dt>Team</dt><dd>1 designer, 1 requirements analyst, 10 devs and 4 QAs</dd></div>
+          <div><dt>Timeline</dt><dd>1 year and 2 months</dd></div>
+        </dl>
+
+        <div class="case-role" data-fade>
+          <h2 class="ds-label">What I did</h2>
+          <p class="ds-body">I was the only designer on the project. I designed the flows, the web and mobile screens for the whole MVP and the design system, along with the <a class="cs-inline-link" href="#case-dividas" data-goto-case="case-dividas">request submission system <i data-lucide="arrow-up-right" aria-hidden="true"></i></a></p>
+        </div>
+        <ul class="cs-stats cs-stats--hero" data-fade aria-label="The project in numbers"><li><span class="cs-stat-n">21</span><span class="cs-stat-l">Modules</span></li><li><span class="cs-stat-n">~86</span><span class="cs-stat-l">User flows</span></li><li><span class="cs-stat-n">~370</span><span class="cs-stat-l">Screens (270 web, 100 mobile)</span></li><li><span class="cs-stat-n">60</span><span class="cs-stat-l">Design system components</span></li></ul>
+      </div>
+
+      <!-- Roteiro (Figma "Case PDO — Web (1440)"): contexto → metodologia → caderno → problema →
+           quem usa → design system → padronização → solução → próximos passos -->
+      <div class="cs-body">
+
+        <section class="cs-section is-band" id="sg-contexto" aria-labelledby="sg-contexto-t">
+          <div class="container">
+            <header class="cs-head" data-reveal>
+              <h2 class="ds-section" id="sg-contexto-t">Context</h2>
+              <p class="ds-body">The public debt registry gathers amounts that were not paid to the state and are then collected by the Attorney General's Office. It accounts for an important share of the state's revenue.</p>
+            </header>
+            <div class="cs-cols cs-cols--2" data-reveal>
+              <div class="cs-head"><h3 class="ds-label">How it was</h3><p class="ds-body">All management ran on a mainframe system, built and maintained by another state agency and split into several terminal applications.</p></div>
+              <div class="cs-head"><h3 class="ds-label">Goal</h3><p class="ds-body">Replace the legacy with a system owned by the Attorney General's Office, bringing the full debt cycle into one place.</p></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="cs-section container" id="sg-metodologia" aria-labelledby="sg-metodologia-t">
+          <header class="cs-head" data-reveal>
+            <h2 class="ds-section" id="sg-metodologia-t">Methodology</h2>
+            <p class="ds-body">The system has many flows, and each one went through the same cycle within the sprints, with meetings twice a week. The deadline was tight, so stakeholders only saw high-fidelity, prototyped screens.</p>
+          </header>
+          <ol class="cs-rowlist" data-reveal><li><span class="cs-rowlist-n">01</span><div><h3 class="ds-label">Planning</h3><p class="ds-body">We defined which module would be designed in the sprint.</p></div></li><li><span class="cs-rowlist-n">02</span><div><h3 class="ds-label">Understand the problem</h3><p class="ds-body">Meeting with the stakeholders and conversations with subject matter experts.</p></div></li><li><span class="cs-rowlist-n">03</span><div><h3 class="ds-label">High fidelity</h3><p class="ds-body">I designed the screens straight in high fidelity, already prototyped.</p></div></li><li><span class="cs-rowlist-n">04</span><div><h3 class="ds-label">Review</h3><p class="ds-body">In the next meeting, corrections and change requests to the flow came up.</p></div></li><li><span class="cs-rowlist-n">05</span><div><h3 class="ds-label">Adjustments</h3><p class="ds-body">I made the adjustments and brought the new version to the next meeting, until the flow was closed.</p></div></li></ol>
+          <p class="ds-body cs-cycle-loop" data-reveal><i data-lucide="refresh-cw" aria-hidden="true"></i>The cycle repeated for every module.</p>
+        </section>
+
+        <section class="cs-section container" id="sg-caderno" aria-labelledby="sg-caderno-t">
+          <header class="cs-head" data-reveal>
+            <h2 class="ds-section" id="sg-caderno-t">My notebook</h2>
+            <p class="ds-body">Diagrams and journey maps weren't an expected deliverable, but I needed them to understand the rules of each module and user story. So I did everything in my notebook, during and after the meetings.</p>
+          </header>
+          <div class="cs-notebooks" data-reveal><figure class="cs-notebook cs-notebook--tall cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge notebook photo 1"><span class="cs-notebook-page"><img src="assets/cases/sgdae/caderno-1.webp" width="1039" height="1280" loading="lazy" decoding="async" alt="Notebook page with the payments flow drawn by hand: searching registrations, deduction type, classification and installments."></span><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><figure class="cs-notebook cs-notebook--wide cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge notebook photo 2"><span class="cs-notebook-page"><img src="assets/cases/sgdae/caderno-2.webp" width="1280" height="997" loading="lazy" decoding="async" alt="Notebook page with sketches of search screens, filters and reports, and notes with open questions."></span><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><figure class="cs-notebook cs-notebook--wide cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge notebook photo 3"><span class="cs-notebook-page"><img src="assets/cases/sgdae/caderno-3.webp" width="1280" height="1056" loading="lazy" decoding="async" alt="Notebook page with a list of adjustments and questions about forms, filters and mobile."></span><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure></div>
+        </section>
+
+        <section class="cs-section container" id="sg-problema" aria-labelledby="sg-problema-t">
+          <header class="cs-head" data-reveal>
+            <h2 class="ds-section" id="sg-problema-t">Problem</h2>
+            <p class="ds-body">What made managing public debt slow and hard to control.</p>
+          </header>
+          <ul class="cs-pains cs-pains--row" data-reveal><li class="cs-pain"><h3 class="ds-label">Fragmented management</h3><p class="ds-body">Registration, payments, installments and collection lived in separate applications, each with its own login. There was no single view of the debt.</p></li><li class="cs-pain"><h3 class="ds-label">External dependency</h3><p class="ds-body">The legacy was maintained by another agency, on an old platform that was hard to evolve. Some operations depended on tickets, and any improvement was out of the users' control.</p></li><li class="cs-pain"><h3 class="ds-label">Manual processes</h3><p class="ds-body">Calculations done outside the system, no simulation, documents put together by hand and paper processes made the work slow and error-prone.</p></li><li class="cs-pain"><h3 class="ds-label">Little traceability</h3><p class="ds-body">It was hard to understand the status of a debt and follow its stages, with no clear history or reports.</p></li></ul>
+          <div class="cs-legacy" data-reveal>
+            <figure class="cs-shot cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge the legacy debtor search screen"><img src="assets/cases/sgdae/legado-1-consulta-devedores.webp" width="1176" height="1009" loading="lazy" decoding="async" alt="Legacy terminal system: registration search with a query menu. Data hidden."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><figure class="cs-shot cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge the legacy registration data screen"><img src="assets/cases/sgdae/legado-2-dados-cadastrais.webp" width="1176" height="1009" loading="lazy" decoding="async" alt="Legacy terminal system: registration data, with the fields hidden."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><figure class="cs-shot cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge the legacy outstanding balance screen"><img src="assets/cases/sgdae/legado-3-saldo-devedor.webp" width="1176" height="1009" loading="lazy" decoding="async" alt="Legacy terminal system: outstanding balance and installments, with no simulation. Amounts hidden."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure>
+          </div>
+          <p class="ds-body cs-cap" data-reveal>Legacy system: each piece of debt information on a different terminal screen.</p>
+        </section>
+
+        <section class="cs-section container" id="sg-quem" aria-labelledby="sg-quem-t">
+          <header class="cs-head" data-reveal>
+            <h2 class="ds-section" id="sg-quem-t">Who uses it</h2>
+            <p class="ds-body">In the public debt department, each public servant has different responsibilities, and what each one can do in the system is defined by their access profile. To understand the pain points of the team as a whole, I talked to the department's coordination, who closely follow the servants' work and gather the problems they report day to day.</p>
+          </header>
+          <div class="cs-persona-grid" data-reveal><div><h3 class="ds-label cs-icon-label"><i data-lucide="user-star" aria-hidden="true"></i>Public debt servant</h3><ul class="cs-list"><li>Uses the system every day and only accesses the features enabled for their profile</li><li>Knows the public debt rules well</li><li>Serves taxpayers, in person or at the virtual desk, who want to negotiate or understand the status of their debts</li></ul></div><div><h3 class="ds-label cs-icon-label"><i data-lucide="sparkles" aria-hidden="true"></i>Goals</h3><ul class="cs-list"><li>Give the taxpayer a clear answer on the spot</li><li>Resolve each case without depending on other systems or another agency</li><li>Be confident that amounts and documents are correct</li></ul></div><div><h3 class="ds-label cs-icon-label"><i data-lucide="scan-heart" aria-hidden="true"></i>Needs</h3><ul class="cs-list"><li>Quickly find the debt data</li><li>See everything about it in one place</li><li>Calculate amounts and payment terms in the system itself</li><li>Generate ready-made documents, without rework</li></ul></div><div><h3 class="ds-label cs-icon-label"><i data-lucide="frown" aria-hidden="true"></i>Pain points</h3><ul class="cs-list"><li>Information scattered across several applications</li><li>Not being able to tell the taxpayer how much they'll pay</li><li>Putting documents together by copying data from screens</li><li>Depending on tickets for operations like offsetting</li></ul></div></div>
+          <div class="cs-sub" data-reveal>
+            <h3 class="ds-section">What they say</h3>
+            <p class="ds-body">The pain points in the team's own words.</p>
+          </div>
+          <ul class="cs-voices" data-reveal><li><h3 class="ds-label">Information scattered across several systems</h3><blockquote class="ds-body"><p>“If I only want to access the debt system, I type ‘debt’ here and enter my username and password. If I want to look at payments, then I open another application. […] To see installments, that's yet another application.”</p></blockquote></li><li><h3 class="ds-label">Not being able to negotiate with the taxpayer</h3><blockquote class="ds-body"><p>“No, the system doesn't let you see when they can pay. […] There are several rules […] the system doesn't show, there's no screen for it. So you can't say how much the installment will be, for example, the taxpayer has to look at their own situation and do the math themselves.”</p></blockquote></li><li><h3 class="ds-label">Documents put together by hand</h3><blockquote class="ds-body"><p>“Since the system doesn't provide it, we just copy and paste […] and then we have to format it. Usually we send the one from the [taxpayer portal]. But sometimes they want something more detailed that isn't there.”</p></blockquote></li><li><h3 class="ds-label">Depending on another agency</h3><blockquote class="ds-body"><p>“For offsetting, we don't have access. We keep opening tickets. […] Sometimes it says it's being offset, but it actually isn't.”</p></blockquote></li></ul>
+        </section>
+
+        <section class="cs-section container" id="sg-ds" aria-labelledby="sg-ds-t">
+          <header class="cs-head" data-reveal>
+            <h2 class="ds-section" id="sg-ds-t">Design system</h2>
+            <p class="ds-body">The system is built in Angular, so I based most components on the PrimeNG library the team already used. That way, development didn't have to build components from scratch. For needs the library didn't cover, I created specific components, and I created the entire token structure, which is what gives the system its own identity on top of the library.</p>
+            <p class="ds-body">The design system evolved and was documented throughout the project, and today it's the reference handed over to development.</p>
+          </header>
+          <div class="cs-media" data-reveal><figure class="cs-shot cs-shot--flat cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge the design system overview"><img src="assets/cases/sgdae/ds-overview.webp" width="2858" height="1708" loading="lazy" decoding="async" alt="Design system overview: palette, buttons, controls, typography, table, fields, feedback, dialog, status and navigation."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure></div>
+          <div class="cs-media-pair cs-media-pair--ds" data-reveal>
+            <figure class="cs-media-cap"><figure class="cs-shot cs-shot--flat cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge the token organization"><img src="assets/cases/sgdae/ds-tokens.webp" width="666" height="915" loading="lazy" decoding="async" alt="Design system variables in Figma: Primitives, Semantic and Appearance collections, with surface and action tokens."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><figcaption>Token organization.</figcaption></figure>
+            <figure class="cs-media-cap"><figure class="cs-shot cs-shot--flat cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge the file organization"><img src="assets/cases/sgdae/ds-arquivo.webp" width="395" height="920" loading="lazy" decoding="async" alt="Design system file pages: styles, patterns and components."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><figcaption>File organization.</figcaption></figure>
+          </div>
+        </section>
+
+        <section class="cs-section container" id="sg-padrao" aria-labelledby="sg-padrao-t">
+          <header class="cs-head" data-reveal>
+            <h2 class="ds-section" id="sg-padrao-t">Standardization</h2>
+            <p class="ds-body">Every screen uses the same page layout component: side menu, top bar, page header and content area. On top of that base, most modules repeat the same screen types: search (list with filters), view (header and tabs), create or edit (form).</p>
+          </header>
+          <div class="cs-media" data-reveal><figure class="cs-shot cs-shot--flat cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge the search pattern"><img src="assets/cases/sgdae/ds-padrao-consulta.webp" width="2858" height="513" loading="lazy" decoding="async" alt="Search pattern on web: no filters, with the filter panel open, with filters applied and with many active filters."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure></div>
+          <div class="cs-media-pair cs-media-pair--padrao" data-reveal>
+            <figure class="cs-shot cs-shot--flat cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge the create and edit patterns"><img src="assets/cases/sgdae/ds-cadastro.webp" width="1137" height="1694" loading="lazy" decoding="async" alt="Create and edit patterns, and address and contact forms."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><figure class="cs-shot cs-shot--flat cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge the view and history pattern"><img src="assets/cases/sgdae/ds-historico.webp" width="2239" height="1718" loading="lazy" decoding="async" alt="View screen and history flow pattern, with the initial version and the improvements."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure>
+          </div>
+          <ul class="cs-cols cs-effects" data-reveal><li><h3 class="ds-label">For users</h3><p class="ds-body">Learning one module means learning them all. Actions and information are always in the same place.</p></li><li><h3 class="ds-label">For the team</h3><p class="ds-body">Developers implemented the structure once and reused it in other modules.</p></li><li><h3 class="ds-label">For the project</h3><p class="ds-body">It's what made it possible to deliver around 370 screens consistently.</p></li></ul>
+        </section>
+
+        <section class="cs-section container" id="sg-solucao" aria-labelledby="sg-solucao-t">
+          <header class="cs-head" data-reveal>
+            <h2 class="ds-section" id="sg-solucao-t">Solution</h2>
+            <p class="ds-body">The whole debt cycle in one system. The MVP has 21 modules, organized into five major areas.</p>
+          </header>
+          <ul class="cs-areas" data-reveal><li class="cs-area"><div class="cs-area-top"><h4 class="ds-label">Records and registration</h4><span class="cs-area-n">7 modules</span></div><p class="ds-body">From registration to the debt's full history.</p><ul class="cs-area-mods" aria-label="Modules"><li>Registration</li><li>Taxpayer</li><li>Debt source</li><li>Revenue types and products</li><li>Debt stages</li><li>Electronic ledger</li><li>Statute of limitations</li></ul></li><li class="cs-area"><div class="cs-area-top"><h4 class="ds-label">Payment and negotiation</h4><span class="cs-area-n">6 modules</span></div><p class="ds-body">Simulating and recording payments, agreements and guarantees.</p><ul class="cs-area-mods" aria-label="Modules"><li>Lump-sum payment</li><li>Installments</li><li>Offsetting</li><li>Deduction methods</li><li>Payment slips</li><li>Guarantees</li></ul></li><li class="cs-area"><div class="cs-area-top"><h4 class="ds-label">Calculation</h4><span class="cs-area-n">3 modules</span></div><p class="ds-body">Updating amounts with configurable rules.</p><ul class="cs-area-mods" aria-label="Modules"><li>Interest and inflation adjustment</li><li>Adjustment indexes</li><li>Charges and fees</li></ul></li><li class="cs-area"><div class="cs-area-top"><h4 class="ds-label">Management</h4><span class="cs-area-n">3 modules</span></div><p class="ds-body">Control, access and monitoring.</p><ul class="cs-area-mods" aria-label="Modules"><li>Reports</li><li>Users and permissions</li><li>Authentication</li></ul></li><li class="cs-area"><div class="cs-area-top"><h4 class="ds-label">Collection</h4><span class="cs-area-n">2 modules</span></div><p class="ds-body">Out-of-court collection actions.</p><ul class="cs-area-mods" aria-label="Modules"><li>Protest</li><li>Defaulter registry</li></ul></li></ul>
+
+          <div class="cs-sub" data-reveal><h3 class="ds-section">Highlighted flows</h3></div>
+
+          <div class="cs-flow">
+            <h4 class="cs-flow-title" data-reveal><i data-lucide="sparkle" aria-hidden="true"></i>Registration data</h4>
+              <div class="cs-flow-row" data-reveal>
+                <figure class="cs-shot cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge the registration search screen"><img src="assets/cases/sgdae/web-consulta-filtros.webp" width="2100" height="1186" loading="lazy" decoding="async" alt="Registration search screen with the side panel of search filters open."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure>
+                <div class="cs-flow-text"><p class="ds-body">Search accepts any debtor data. There are many possible search fields: if they stayed fixed at the top, they would push the list down, even when the analyst only wants to search by a registration number. That's why they went into a side panel.</p></div>
+              </div>
+              <div class="cs-flow-row" data-reveal>
+                <figure class="cs-shot cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge the registration details screen"><img src="assets/cases/sgdae/web-dados-gerais.webp" width="2100" height="1182" loading="lazy" decoding="async" alt="Registration details: tabs on the side and the general data, with the limitation period highlighted."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure>
+                <div class="cs-flow-text"><p class="ds-body">Tabs inside the registration instead of separate pages. People switch topics without losing the debtor's context. I ordered the tabs by frequency of use.</p></div>
+              </div>
+              <div class="cs-flow-row" data-reveal>
+                <figure class="cs-shot cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge the registration deductions tab"><img src="assets/cases/sgdae/web-deducoes-inscricao.webp" width="2100" height="1182" loading="lazy" decoding="async" alt="Deductions tab of the registration, with the deductions table and the amount summary next to it."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure>
+                <div class="cs-flow-text"><p class="ds-body">Statements, debt certificates (CDA) and installment agreements also come out ready from the system, without copying and formatting data from screens.</p></div>
+              </div>
+              <div class="cs-flow-row cs-flow-row--phones" data-reveal>
+                <div class="cs-mphones"><figure class="cs-mphone cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge the search on mobile"><img src="assets/cases/sgdae/mob-consulta.webp" width="639" height="1386" loading="lazy" decoding="async" alt="Registration search on mobile, as cards."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><figure class="cs-mphone cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge the debt data on mobile"><img src="assets/cases/sgdae/mob-dados.webp" width="640" height="1387" loading="lazy" decoding="async" alt="Debt data on mobile."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><figure class="cs-mphone cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge the deductions on mobile"><img src="assets/cases/sgdae/mob-deducoes.webp" width="634" height="1374" loading="lazy" decoding="async" alt="Deductions on mobile, with the amount summary at the top."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure></div>
+                <div class="cs-flow-text"><p class="ds-body">From what I saw of the team's routine, edits and new records would still be done on the computer. So I used graceful degradation: in 17 of the 21 modules, mobile only has viewing and history, for quick lookups when the need comes up.</p></div>
+              </div>
+          </div>
+
+          <div class="cs-flow">
+            <h4 class="cs-flow-title" data-reveal><i data-lucide="sparkle" aria-hidden="true"></i>Payment simulation</h4>
+            <p class="ds-body cs-flow-intro" data-reveal>Taxpayers went to the Attorney General's Office in person to ask how much they would pay in a lump sum, with a discount from a public notice, or in installments. The old system didn't do this calculation, and the taxpayer was often told to do the math on their own or to look for another system, after having already traveled there.</p>
+              <div class="cs-flow-row" data-reveal>
+                <figure class="cs-shot cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge the deductions search"><img src="assets/cases/sgdae/web-deducoes.webp" width="2100" height="1182" loading="lazy" decoding="async" alt="Deductions search split by type, with status, balance and days overdue."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure>
+                <div class="cs-flow-text"><p class="ds-body">Deductions are split by type, lump sum, installments and offsetting, with each one's status, balance and days overdue. The simulation starts here.</p></div>
+              </div>
+              <div class="cs-flow-row" data-reveal>
+                <figure class="cs-shot cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge the simulation screen"><img src="assets/cases/sgdae/web-simular.webp" width="2100" height="1182" loading="lazy" decoding="async" alt="Deduction simulation: selected registrations in the table and, beside it, payment type, discount and the summary with the original amount and the discounted amount."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure>
+                <div class="cs-flow-text"><p class="ds-body">Now the simulation happens on a single screen. The analyst selects the registrations, chooses the payment type and the discount, and the system calculates the rest.</p><p class="ds-body">The summary shows the original amount and the discounted amount. The simulation can be downloaded for the taxpayer or turned into an installment request.</p></div>
+              </div>
+          </div>
+        </section>
+
+        <section class="cs-section is-band" id="sg-proximos" aria-labelledby="sg-proximos-t">
+          <div class="container">
+            <header class="cs-head" data-reveal><h2 class="ds-section" id="sg-proximos-t">Next steps</h2></header>
+            <ol class="cs-rowlist" data-reveal><li><span class="cs-rowlist-n">01</span><div><p class="ds-body">Follow users as they use the system, to gather real feedback.</p></div></li><li><span class="cs-rowlist-n">02</span><div><p class="ds-body">Run usability tests after launch, starting with viewing a registration, the most used flow. Then the payment simulation, measuring how many taxpayer inquiries turn into deductions.</p></div></li><li><span class="cs-rowlist-n">03</span><div><p class="ds-body">Improve the flow and usability of some form screens, to make the forms less dense.</p></div></li></ol>
+          </div>
+        </section>
+
+        <footer class="cs-end container">
+          <button class="btn btn-outline" type="button" data-case-close><i data-lucide="arrow-left" aria-hidden="true"></i>Back to projects</button>
+        </footer>
+      </div>
+    </article>
+  </div>

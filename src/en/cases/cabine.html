@@ -1,0 +1,167 @@
+<!-- =========================================================
+     Case: cabine
+     Este arquivo tem duas partes:
+     1. @card   → o card do case na pilha da home
+     2. @pagina → a página do case (abre ao clicar no card)
+     Depois de editar, rode: node build.mjs
+     ========================================================= -->
+
+<!-- @card -->
+          <li class="deck-item case--cabine">
+            <button class="case-tab" type="button" tabindex="-1" aria-hidden="true"><span class="tab-fl"></span><i data-lucide="user" class="case-tab-ic"></i><span class="case-tab-text">Photo booth</span></button>
+            <a class="case-card case--cabine" href="#case-cabine" data-case="case-cabine" data-cursor="View case">
+              <div class="case-panel">
+                <h3 class="case-title">Photo booth for a design event</h3>
+                <p class="case-desc">Built with AI, without coding, a booth that ran on its own at the event and generated <strong>more than 50 photo sessions.</strong></p>
+                <ul class="case-tags" aria-label="Tags">
+                  <li>Design with AI</li><li>Volunteer project</li>
+                </ul>
+                <span class="btn btn-outline case-btn">View case <i data-lucide="arrow-right" aria-hidden="true"></i></span>
+              </div>
+              <div class="case-visual">
+                <div class="case-mock case-mock--back mock-phone mock-phone--shot" aria-hidden="true">
+                  <img src="assets/cases/cabine/celular-camera.webp" width="590" height="1278" alt="" decoding="async">
+                </div>
+                <div class="case-mock mock-phone mock-phone--shot" aria-hidden="true">
+                  <img src="assets/cases/cabine/celular-templates.webp" width="590" height="1278" alt="" decoding="async">
+                </div>
+              </div>
+            </a>
+          </li>
+
+<!-- @pagina -->
+  <!-- ================= Página do case: Cabine de fotos da UXFor ================= -->
+  <div class="case-view case--cabine" id="case-cabine" role="dialog" aria-modal="true" aria-labelledby="case-cabine-title" hidden>
+    <div class="case-view-bg" aria-hidden="true"></div>
+    <div class="case-bar">
+      <div class="container case-bar-inner">
+        <button class="case-back case-bar-back" type="button" data-case-close><i data-lucide="arrow-left" aria-hidden="true"></i>Back</button>
+        <button class="btn btn-ghost btn-icon theme-toggle" type="button" aria-label="Switch to dark mode">
+          <i data-lucide="moon" class="theme-icon is-moon" aria-hidden="true"></i>
+          <i data-lucide="sun" class="theme-icon is-sun" aria-hidden="true"></i>
+        </button>
+        <div class="lang-switch" role="group" aria-label="Language">
+          <a class="lang-opt" href="index.html" hreflang="pt-BR" lang="pt-BR" title="Português">PT</a>
+          <span class="lang-sep" aria-hidden="true"></span>
+          <a class="lang-opt is-active" href="en.html" hreflang="en" lang="en" aria-current="page" title="English">EN</a>
+        </div>
+      </div>
+    </div>
+    <article class="case-view-scroll">
+      <div class="container case-page">
+        <div class="case-top" data-fade>
+          <button class="case-back" type="button" data-case-close><i data-lucide="arrow-left" aria-hidden="true"></i>Back</button>
+          <button class="btn btn-ghost btn-icon theme-toggle" type="button" aria-label="Switch to dark mode">
+            <i data-lucide="moon" class="theme-icon is-moon" aria-hidden="true"></i>
+            <i data-lucide="sun" class="theme-icon is-sun" aria-hidden="true"></i>
+          </button>
+          <div class="lang-switch" role="group" aria-label="Language">
+            <a class="lang-opt" href="index.html" hreflang="pt-BR" lang="pt-BR" title="Português">PT</a>
+            <span class="lang-sep" aria-hidden="true"></span>
+            <a class="lang-opt is-active" href="en.html" hreflang="en" lang="en" aria-current="page" title="English">EN</a>
+          </div>
+        </div>
+
+        <div class="cs-hero">
+          <div class="cs-hero-text">
+            <h1 class="case-page-title" id="case-cabine-title" data-flip="title">Photo booth for a design event</h1>
+            <p class="ds-body case-page-lede" data-fade>I created an AI-powered photo booth experience, from the visual concept to a working product, in a single day and without writing a line of code.</p>
+            <ul class="case-tags case-page-tags" aria-label="Tags" data-flip="tags"><li>Design with AI</li><li>Volunteer project</li></ul>
+          </div>
+          <figure class="case-hero-shot cs-hero-img" data-fade>
+            <div class="cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge the booth on the laptop and the phone"><img src="assets/cases/cabine/hero.webp" width="2131" height="1265" decoding="async" alt="Laptop showing the Your photos are ready screen and the QR code, next to a phone with the story templates."></div>
+          </figure>
+        </div>
+
+        <dl class="case-facts" data-fade>
+          <div><dt>My role</dt><dd>Idea, flow, UX/UI and directing the development with AI</dd></div>
+          <div><dt>Tools</dt><dd>Figma, Claude, VS Code, Supabase and GitHub Pages</dd></div>
+          <div><dt>Project type</dt><dd>Volunteer work</dd></div>
+        </dl>
+      </div>
+
+      <div class="cs-body">
+
+        <section class="cs-section container" id="cb-objetivo" aria-labelledby="cb-objetivo-t">
+          <header class="cs-head" data-fade>
+            <h2 class="ds-section" id="cb-objetivo-t">Goal</h2>
+            <p class="ds-body">I went to an event held in the same venue where our community event would take place a week later. There was a single-person study booth there, and we thought: why not use this space to make a photo booth for our event?</p>
+          </header>
+          <ol class="cs-numlist" data-fade><li><span class="cs-numlist-n">01</span><p class="ds-body">Give attendees a <strong>different and fun way</strong> to capture the event.</p></li><li><span class="cs-numlist-n">02</span><p class="ds-body">Every <strong>story posted</strong> would carry the event's visual identity and <a class="cs-inline-link" href="https://www.instagram.com/uxfor.br/" target="_blank" rel="noopener">@uxfor.br</a>.</p></li></ol>
+        </section>
+
+        <section class="cs-section is-band" id="cb-desafios" aria-labelledby="cb-desafios-t">
+          <div class="container">
+            <header class="cs-head" data-reveal><h2 class="ds-section" id="cb-desafios-t">Challenges</h2></header>
+            <ul class="cs-cols cs-effects" data-reveal><li><h3 class="ds-label">Quick to use, no instructions</h3><p class="ds-body">People walk in, take their photos and leave. The app had to be easy and intuitive.</p></li><li><h3 class="ds-label">Sending to the phone</h3><p class="ds-body">The photos had to leave the laptop and reach each person's phone, ready to post.</p></li><li><h3 class="ds-label">No budget</h3><p class="ds-body">A volunteer project, with no budget for paid hosting tools.</p></li></ul>
+          </div>
+        </section>
+
+        <section class="cs-section container" id="cb-processo" aria-labelledby="cb-processo-t">
+          <header class="cs-head" data-reveal><h2 class="ds-section" id="cb-processo-t">Process</h2></header>
+          <div class="cs-step-block">
+            <h3 class="ds-label" data-reveal>01. I started with the problem</h3>
+            <p class="ds-body" data-reveal>Before any screen, I wrote to the AI as if it were a briefing: the setting (a laptop in a booth, during an event), who would use it, what happened step by step and what people took home at the end. With that context, the AI had less to guess and asked about what was missing.</p>
+            <div class="cs-chat" data-reveal>
+              <div class="cs-chat-row"><img class="cs-chat-av" src="assets/avatar-pb.webp" width="48" height="48" alt=""><div class="cs-chat-body"><h4 class="ds-label">What I said</h4><blockquote class="cs-chat-prompt ds-body">
+                  <p>i want to build an app for the following scenario:</p>
+                  <ul><li>i'll leave my laptop in a booth during an event so people can go in and take photos</li><li>when they enter the booth they click take photo</li><li>the screen should behave like a real photo booth</li></ul>
+                  <ol><li>a 3 second countdown shows up so the person can get ready for the photo</li><li>this repeats 3 times (3 photos)</li><li>after taking the 3 photos, the system shows a qr code on the screen that can be scanned with a phone</li><li>when the qr code is opened on the phone, the photos show up inside the template i'll make (a template ready for instagram stories) and the separate photos too (individual photos)</li></ol>
+                  <p>my questions before starting this project:</p>
+                  <ol><li>how do i connect the system running on the web with the phone</li><li>can i keep the app local only? or would it be better to host it somewhere? (i thought about github)</li></ol>
+                </blockquote></div></div>
+              <div class="cs-chat-row"><span class="cs-chat-av cs-chat-av--claude"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m4.7144 15.9555 4.7174-2.6471.079-.2307-.079-.1275h-.2307l-.7893-.0486-2.6956-.0729-2.3375-.0971-2.2646-.1214-.5707-.1215-.5343-.7042.0546-.3522.4797-.3218.686.0608 1.5179.1032 2.2767.1578 1.6514.0972 2.4468.255h.3886l.0546-.1579-.1336-.0971-.1032-.0972L6.973 9.8356l-2.55-1.6879-1.3356-.9714-.7225-.4918-.3643-.4614-.1578-1.0078.6557-.7225.8803.0607.2246.0607.8925.686 1.9064 1.4754 2.4893 1.8336.3643.3035.1457-.1032.0182-.0728-.164-.2733-1.3539-2.4467-1.445-2.4893-.6435-1.032-.17-.6194c-.0607-.255-.1032-.4674-.1032-.7285L6.287.1335 6.6997 0l.9957.1336.419.3642.6192 1.4147 1.0018 2.2282 1.5543 3.0296.4553.8985.2429.8318.091.255h.1579v-.1457l.1275-1.706.2368-2.0947.2307-2.6957.0789-.7589.3764-.9107.7468-.4918.5828.2793.4797.686-.0668.4433-.2853 1.8517-.5586 2.9021-.3643 1.9429h.2125l.2429-.2429.9835-1.3053 1.6514-2.0643.7286-.8196.85-.9046.5464-.4311h1.0321l.759 1.1293-.34 1.1657-1.0625 1.3478-.8804 1.1414-1.2628 1.7-.7893 1.36.0729.1093.1882-.0183 2.8535-.607 1.5421-.2794 1.8396-.3157.8318.3886.091.3946-.3278.8075-1.967.4857-2.3072.4614-3.4364.8136-.0425.0304.0486.0607 1.5482.1457.6618.0364h1.621l3.0175.2247.7892.522.4736.6376-.079.4857-1.2142.6193-1.6393-.3886-3.825-.9107-1.3113-.3279h-.1822v.1093l1.0929 1.0686 2.0035 1.8092 2.5075 2.3314.1275.5768-.3218.4554-.34-.0486-2.2039-1.6575-.85-.7468-1.9246-1.621h-.1275v.17l.4432.6496 2.3436 3.5214.1214 1.0807-.17.3521-.6071.2125-.6679-.1214-1.3721-1.9246L14.38 17.959l-1.1414-1.9428-.1397.079-.674 7.2552-.3156.3703-.7286.2793-.6071-.4614-.3218-.7468.3218-1.4753.3886-1.9246.3157-1.53.2853-1.9004.17-.6314-.0121-.0425-.1397.0182-1.4328 1.9672-2.1796 2.9446-1.7243 1.8456-.4128.164-.7164-.3704.0667-.6618.4008-.5889 2.386-3.0357 1.4389-1.882.929-1.0868-.0062-.1579h-.0546l-6.3385 4.1164-1.1293.1457-.4857-.4554.0608-.7467.2307-.2429 1.9064-1.3114Z"/></svg></span><div class="cs-chat-body"><h4 class="ds-label">What Claude answered</h4><p class="ds-body">Based on my prompt, it walked me through the whole solution architecture: the initial flow, how to connect the web booth to the phone through a QR code, hosting the app, storing the photos in the cloud and making them available, plus anticipating technical limits, risks and error states. All of that before writing any code.</p></div></div>
+            </div>
+          </div>
+          <div class="cs-step-block">
+            <h3 class="ds-label" data-reveal>02. Design in Figma</h3>
+            <p class="ds-body" data-reveal>Based on the flow Claude gave me, I designed the waiting screen, the camera, the QR code screen and the phone page with the event's visual identity. Then I sent the frame links to the AI and asked it to build following that layout.</p>
+            <div class="cs-media" data-reveal><figure class="cs-shot cs-shot--flat cs-shot--figma cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge the screens in Figma"><img src="assets/cases/cabine/figma-frames.webp" width="2198" height="893" loading="lazy" decoding="async" alt="Screens designed in Figma: waiting screen, camera, countdown, photos ready with the QR code and the phone screens."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure></div>
+          </div>
+          <div class="cs-step-block">
+            <h3 class="ds-label" data-reveal>03. Deciding how to build it</h3>
+            <p class="ds-body" data-reveal>I didn't know the tools, so for each decision I asked the AI to show me the options and what changed with each one. The final call was mine.</p>
+            <div class="cs-table-wrap cs-table-wrap--3" data-reveal><table class="cs-table cs-table--3" aria-label="Build decisions"><thead><tr><th scope="col">Decision</th><th scope="col">Choice</th><th scope="col">Why</th></tr></thead><tbody><tr><th scope="row">Where to write the code</th><td data-label="Choice">A folder in VS Code, with HTML, CSS and JavaScript, no framework</td><td data-label="Why">A small site I could open and test on my own</td></tr><tr><th scope="row">Where to store the photos</th><td data-label="Choice">Supabase</td><td data-label="Why">Free, with enough storage for the event.</td></tr><tr><th scope="row">Where to publish</th><td data-label="Choice">GitHub Pages</td><td data-label="Why">Free and with https, which the camera requires</td></tr></tbody></table></div>
+          </div>
+          <div class="cs-step-block">
+            <h3 class="ds-label" data-reveal>04. Development</h3>
+            <p class="ds-body" data-reveal>I connected the project folder to Claude, and it created and edited the files there. My job was a loop: ask, test in VS Code and come back saying what was right and what had to change. In Supabase, I sent a screenshot of each step whenever I got stuck. I learned what a bucket is, what an access rule is for and which key can stay in the code.</p>
+          </div>
+          <div class="cs-step-block">
+            <h3 class="ds-label" data-reveal>05. Testing and bugs</h3>
+            <p class="ds-body" data-reveal>Nothing came out perfect the first time. For each bug, I told the AI what happened, where it happened and sent a screenshot.</p>
+            <div class="cs-table-wrap cs-table-wrap--3" data-reveal><table class="cs-table cs-table--3" aria-label="Bugs found in testing"><thead><tr><th scope="col">Bug</th><th scope="col">What happened</th><th scope="col">How it was fixed</th></tr></thead><tbody><tr><th scope="row">Filter on Safari</th><td data-label="What happened">Black and white photos were saved in color</td><td data-label="How it was fixed">The filter started being applied to the image itself, pixel by pixel</td></tr><tr><th scope="row">Grain on the phone</th><td data-label="What happened">In the camera preview, the filter moved around and was too strong</td><td data-label="How it was fixed">The effect was redone to stay still and lighter</td></tr><tr><th scope="row">Broken images</th><td data-label="What happened">Some of the template drawings didn't show up</td><td data-label="How it was fixed">The SVG files were simplified</td></tr></tbody></table></div>
+          </div>
+          <div class="cs-step-block">
+            <h3 class="ds-label" data-reveal>06. Iterations</h3>
+            <div class="cs-iter" data-reveal>
+              <div class="cs-iter-item"><figure class="cs-iter-phone cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge the camera on the phone"><img src="assets/cases/cabine/iter-camera.webp" width="588" height="1228" loading="lazy" decoding="async" alt="Booth camera open on the phone, with the filters and the shutter button."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><div class="cs-head"><h4 class="ds-label">During the event: photos from the phone</h4><p class="ds-body">I noticed some people might not go to the booth but would still want the template. So the site started working on phones too, and I spread QR codes to the site around the venue.</p></div></div>
+              <div class="cs-iter-item"><figure class="cs-iter-phone cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge the choice between camera and gallery"><img src="assets/cases/cabine/iter-escolha.webp" width="588" height="1228" loading="lazy" decoding="async" alt="Phone screen with the options Take photo and Choose from gallery."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><div class="cs-head"><h4 class="ds-label">After the event: photos from the gallery</h4><p class="ds-body">People wanted to keep using the template with photos they had already taken. So, before the camera, I added a screen with two options: take a photo or choose from the gallery. Choosing the gallery puts the selected photos into the story templates.</p></div></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="cs-section is-band" id="cb-resultado" aria-labelledby="cb-resultado-t">
+          <div class="container">
+            <div class="cs-result" data-reveal>
+              <div class="cs-head">
+                <h2 class="ds-section" id="cb-resultado-t">Result</h2>
+                <p class="cs-result-n">50+</p>
+                <p class="ds-body"><strong>Photo sessions at the event.</strong> Each session is someone who took (or chose) photos and got the story template ready, with the UXFor identity.</p>
+              </div>
+              <figure class="cs-result-img cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge the story mosaic"><img src="assets/cases/cabine/resultado-stories.webp" width="1489" height="1317" loading="lazy" decoding="async" alt="Mosaic of stories made in the booth, with faces blurred."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure>
+            </div>
+          </div>
+        </section>
+
+        <section class="cs-section container" id="cb-aprendi" aria-labelledby="cb-aprendi-t">
+          <header class="cs-head" data-reveal><h2 class="ds-section" id="cb-aprendi-t">What I learned</h2></header>
+          <ol class="cs-numlist" data-reveal><li><span class="cs-numlist-n">01</span><p class="ds-body">AI writes the code, but the design decisions are still mine. I was the one who saw what to build, how each screen should be, when something was wrong and what to change after people used it.</p></li><li><span class="cs-numlist-n">02</span><p class="ds-body">A good prompt looks like a briefing. Setting, who uses it, what happens and the expected result. The more context, the less the AI has to guess.</p></li><li><span class="cs-numlist-n">03</span><p class="ds-body">Test and fix after every answer.</p></li><li><span class="cs-numlist-n">04</span><p class="ds-body">The idea worked because it was a simple project. It was a small site, with no login and no payments. If there were sensitive data, someone who knows code would need to review what the AI wrote, especially for security.</p></li></ol>
+        </section>
+
+        <footer class="cs-end container">
+          <button class="btn btn-outline" type="button" data-case-close><i data-lucide="arrow-left" aria-hidden="true"></i>Back to projects</button>
+        </footer>
+      </div>
+    </article>
+  </div>

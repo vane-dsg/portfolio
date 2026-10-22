@@ -935,3 +935,7 @@
 #case-cabine .cs-numlist { margin-top: 32px; gap: 32px; }
 #case-cabine .cs-step-block { margin-top: 48px; }
 @media (max-width: 640px) { #case-cabine .cs-head, #case-cabine .cs-numlist { gap: 24px; } }
+/* idioma ao lado do tema, no topo e na barra fixa dos cases */
+.case-bar .lang-switch { margin-left: -8px; }
+.case-top .theme-toggle { margin-left: auto; }
+.case-top .lang-switch { margin-left: -8px; }

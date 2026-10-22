@@ -13,6 +13,7 @@
   var EASE = "cubic-bezier(.32, .72, 0, 1)";   // igual a js/case-view.js
   var DUR = 600;
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var EN = /^en/i.test(document.documentElement.lang);
   var root = document.documentElement;
 
   /* ---------- estrutura (criada uma vez) ---------- */
@@ -24,7 +25,7 @@
   vw.innerHTML =
     '<div class="vw-backdrop"></div>' +
     '<div class="vw-stage"><img class="vw-img" alt="" draggable="false"></div>' +
-    '<button class="vw-close vw-chrome" type="button" aria-label="Fechar"><i data-lucide="x" aria-hidden="true"></i></button>' +
+    '<button class="vw-close vw-chrome" type="button" aria-label="' + (EN ? "Close" : "Fechar") + '"><i data-lucide="x" aria-hidden="true"></i></button>' +
     '<p class="vw-hint vw-chrome" aria-hidden="true"></p>';
   document.body.appendChild(vw);
   if (window.lucide) window.lucide.createIcons();
@@ -94,7 +95,7 @@
     };
     img.src = src.currentSrc || src.src;
     img.alt = src.alt || "";
-    vw.setAttribute("aria-label", trigger.getAttribute("aria-label") || "Imagem ampliada");
+    vw.setAttribute("aria-label", trigger.getAttribute("aria-label") || (EN ? "Enlarged image" : "Imagem ampliada"));
     hint.innerHTML = "";
     vw.className = "vw is-" + st.mode;
     vw.hidden = false;

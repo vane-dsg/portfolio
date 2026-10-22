@@ -1,0 +1,399 @@
+<!-- =========================================================
+     Case: dividas
+     Este arquivo tem duas partes:
+     1. @card   → o card do case na pilha da home
+     2. @pagina → a página do case (abre ao clicar no card)
+     Depois de editar, rode: node build.mjs
+     ========================================================= -->
+
+<!-- @card -->
+          <li class="deck-item case--dividas">
+            <button class="case-tab" type="button" tabindex="-1" aria-hidden="true"><span class="tab-fl"></span><i data-lucide="briefcase" class="case-tab-ic"></i><span class="case-tab-text">Debt requests</span></button>
+            <a class="case-card case--dividas" href="#case-dividas" data-case="case-dividas" data-cursor="View case">
+              <div class="case-panel">
+                <h3 class="case-title">Redesigning how a state submits debts for collection</h3>
+                <p class="case-desc">I evolved a submission flow into a system where public servants register, track and fix their requests <strong>on their own.</strong></p>
+                <ul class="case-tags" aria-label="Tags">
+                  <li>Public sector</li><li>Problem solving</li>
+                </ul>
+                <span class="btn btn-outline case-btn">View case <i data-lucide="arrow-right" aria-hidden="true"></i></span>
+              </div>
+              <div class="case-visual">
+                <div class="case-mock mock-laptop" aria-hidden="true">
+                  <div class="mock-screen">
+                    <img src="assets/cases/v2/03-depois.webp" width="1738" height="978" alt="" decoding="async">
+                  </div>
+                </div>
+              </div>
+            </a>
+          </li>
+
+<!-- @pagina -->
+  <!-- ================= Página do case 1 =================
+       Abre por cima do site com uma transição tipo "smart animate":
+       o fundo cresce a partir do card e título e tags viajam
+       até a nova posição (js/case-view.js). Os elementos com data-flip
+       são os que "viajam"; os com data-fade só aparecem. -->
+  <div class="case-view case--dividas" id="case-dividas" role="dialog" aria-modal="true" aria-labelledby="case-dividas-title" hidden>
+    <div class="case-view-bg" aria-hidden="true"></div>
+    <!-- barra fixa da página do case: aparece depois do mockup grande (js/case-page.js) -->
+    <!-- barra fixa da página do case: igual à navegação do site, some ao rolar para baixo
+         e volta ao rolar para cima (js/case-page.js) -->
+    <div class="case-bar">
+      <div class="container case-bar-inner">
+        <button class="case-back case-bar-back" type="button" data-case-close><i data-lucide="arrow-left" aria-hidden="true"></i>Back</button>
+        <!-- tema claro/escuro também dentro do case (mesmo comportamento do botão da navegação) -->
+        <button class="btn btn-ghost btn-icon theme-toggle" type="button" aria-label="Switch to dark mode">
+          <i data-lucide="moon" class="theme-icon is-moon" aria-hidden="true"></i>
+          <i data-lucide="sun" class="theme-icon is-sun" aria-hidden="true"></i>
+        </button>
+        <div class="lang-switch" role="group" aria-label="Language">
+          <a class="lang-opt" href="index.html" hreflang="pt-BR" lang="pt-BR" title="Português">PT</a>
+          <span class="lang-sep" aria-hidden="true"></span>
+          <a class="lang-opt is-active" href="en.html" hreflang="en" lang="en" aria-current="page" title="English">EN</a>
+        </div>
+      </div>
+    </div>
+    <article class="case-view-scroll">
+      <!-- ================= Topo do case (Figma: Case PDO — Web 1440, nó 263:8) ================= -->
+      <div class="container case-page">
+        <!-- topo do case: mesma composição da barra (Voltar à esquerda, tema à direita) -->
+        <div class="case-top" data-fade>
+          <button class="case-back" type="button" data-case-close>
+            <i data-lucide="arrow-left" aria-hidden="true"></i> Back
+          </button>
+          <button class="btn btn-ghost btn-icon theme-toggle" type="button" aria-label="Switch to dark mode">
+            <i data-lucide="moon" class="theme-icon is-moon" aria-hidden="true"></i>
+            <i data-lucide="sun" class="theme-icon is-sun" aria-hidden="true"></i>
+          </button>
+          <div class="lang-switch" role="group" aria-label="Language">
+            <a class="lang-opt" href="index.html" hreflang="pt-BR" lang="pt-BR" title="Português">PT</a>
+            <span class="lang-sep" aria-hidden="true"></span>
+            <a class="lang-opt is-active" href="en.html" hreflang="en" lang="en" aria-current="page" title="English">EN</a>
+          </div>
+        </div>
+
+        <div class="cs-hero">
+          <div class="cs-hero-text">
+            <h1 class="case-page-title" id="case-dividas-title" data-flip="title">Redesigning how a state submits debts for collection</h1>
+            <p class="ds-body case-page-lede" data-fade>I evolved a submission flow into a system where public servants register, track and fix their requests <strong>on their own.</strong></p>
+            <ul class="case-tags case-page-tags" aria-label="Tags" data-flip="tags">
+              <li>Public sector</li><li>Problem solving</li>
+            </ul>
+          </div>
+
+          <!-- notebook com a tela nova (abre como foto) -->
+          <figure class="case-hero-shot" data-fade>
+            <div class="laptop">
+              <div class="laptop-screen cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge the requests screen">
+                <img src="assets/cases/v2/03-depois.webp" width="1738" height="978" alt="Redesigned requests screen: summary cards by status, search and the requests table.">
+                <span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span>
+              </div>
+              <div class="laptop-base" aria-hidden="true"></div>
+            </div>
+          </figure>
+        </div>
+
+        <dl class="case-facts case-facts--4" data-fade>
+          <div><dt>My role</dt><dd>UX/UI Designer</dd></div>
+          <div><dt>Client</dt><dd>Attorney General's Office</dd></div>
+          <div><dt>Team</dt><dd>1 designer, 1 requirements analyst, 4 devs and 2 QAs</dd></div>
+          <div><dt>Timeline</dt><dd>2 months</dd></div>
+        </dl>
+
+        <div class="case-role" data-fade>
+          <h2 class="ds-label">What I did</h2>
+          <p class="ds-body">I redesigned the flows and defined rules, fields and behaviors together with the attorney in charge, the department's coordination and the requirements and development teams.</p>
+        </div>
+      </div>
+
+      <!-- ================= Conteúdo do case =================
+           Roteiro: contexto → proto-personas → problema → redesenho do fluxo →
+           solução (antes e depois de cada etapa) → próximas iterações → o que vou medir.
+           Faixas (.is-band) seguem o Figma. Estilos de texto: css/tokens.css + DESIGN-SYSTEM.md -->
+      <div class="cs-body">
+
+        <!-- Contexto -->
+        <section class="cs-section is-band" id="cs-contexto" aria-labelledby="cs-contexto-t">
+          <div class="container">
+            <header class="cs-head" data-reveal>
+              <h2 class="ds-section" id="cs-contexto-t">Context</h2>
+              <p class="ds-body">When someone fails to pay an amount owed to the state (like a fine), the agency that issued the charge can't collect it on its own. That's the job of the Attorney General's Office: it receives and reviews the debt and, if everything is correct, registers it officially so the state can collect it. That's why every public agency has to send its debts there.</p>
+            </header>
+
+            <div class="cs-route">
+              <div class="cs-route-track" aria-hidden="true"><span></span><span class="is-me"></span><span></span></div>
+              <ol class="cs-cols cs-route-cols" aria-label="How a debt reaches collection" data-reveal>
+                <li>
+                  <div class="cs-item-head"><h3 class="ds-label">Debt at the source agency</h3></div>
+                  <p class="ds-body">A state agency (such as a department or public authority) issues fines that weren't paid, and the debt has to be sent to the Attorney General's Office to be collected.</p>
+                </li>
+                <li class="is-me">
+                  <div class="cs-item-head"><h3 class="ds-label">Debt request</h3><span class="ds-tag">We're here!</span></div>
+                  <p class="ds-body">The agency's public servant fills in the debt details, the debtors and the charges, and submits the request. Then they track its status and fix it or reply when the Attorney General's Office points out a problem.</p>
+                </li>
+                <li>
+                  <div class="cs-item-head"><h3 class="ds-label">Debt management</h3><i data-lucide="arrow-up-right" class="cs-item-go" aria-hidden="true"></i></div>
+                  <p class="ds-body">The request is either approved automatically or reviewed by the Attorney General's Office. Once registered, the debt is managed and collected by the state.</p>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </section>
+
+        <!-- Proto-personas -->
+        <section class="cs-section container" id="cs-personas" aria-labelledby="cs-personas-t">
+          <header class="cs-head" data-reveal>
+            <h2 class="ds-section" id="cs-personas-t">Proto-personas</h2>
+            <p class="ds-body">Given our timeline, almost everything I knew about these users came from the stakeholders, who closely followed their mistakes and questions.</p>
+          </header>
+
+          <div class="cs-personas" data-reveal>
+            <article class="cs-persona">
+              <div class="cs-persona-top">
+                <h3 class="ds-label cs-icon-label"><i data-lucide="user-star" aria-hidden="true"></i>Public servant at a state agency - who submits</h3>
+                <p class="ds-body">35 to 60 years old · not from the legal field · little digital familiarity</p>
+              </div>
+              <div class="cs-persona-goal">
+                <h4 class="ds-label cs-icon-label"><i data-lucide="sparkles" aria-hidden="true"></i>Goal</h4>
+                <p class="ds-body">Submit the right debt and know which stage it's in.</p>
+              </div>
+              <div class="cs-persona-cols">
+                <div>
+                  <h4 class="ds-label cs-icon-label"><i data-lucide="scan-heart" aria-hidden="true"></i>Needs</h4>
+                  <ul class="cs-list">
+                    <li>see only the fields that apply to their agency</li>
+                    <li>know what's missing before submitting</li>
+                    <li>track and fix the request after submitting</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="ds-label cs-icon-label"><i data-lucide="frown" aria-hidden="true"></i>Pain points</h4>
+                  <ul class="cs-list">
+                    <li>locked fields, or fields that don't apply to their agency</li>
+                    <li>no warning about what's missing to move on</li>
+                    <li>after submitting, can't see the status or fix mistakes</li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+
+            <article class="cs-persona">
+              <div class="cs-persona-top">
+                <h3 class="ds-label cs-icon-label"><i data-lucide="user-search" aria-hidden="true"></i>Debt analyst - who receives and corrects</h3>
+                <p class="ds-body">Works in the debt department of the Attorney General's Office · checks requests from every agency</p>
+              </div>
+              <div class="cs-persona-goal">
+                <h4 class="ds-label cs-icon-label"><i data-lucide="sparkles" aria-hidden="true"></i>Goal</h4>
+                <p class="ds-body">Find the errors and get the request ready to be registered.</p>
+              </div>
+              <div class="cs-persona-cols">
+                <div>
+                  <h4 class="ds-label cs-icon-label"><i data-lucide="scan-heart" aria-hidden="true"></i>Needs</h4>
+                  <ul class="cs-list">
+                    <li>point out the error to the agency inside the system;</li>
+                    <li>receive the fix in the system itself;</li>
+                    <li>stop editing the registration by hand.</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="ds-label cs-icon-label"><i data-lucide="frown" aria-hidden="true"></i>Pain points</h4>
+                  <ul class="cs-list">
+                    <li>opened a ticket for every error;</li>
+                    <li>the agency's reply came by email;</li>
+                    <li>edited the registration by hand.</li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+          </div>
+          <p class="ds-body cs-note" data-reveal>Before, both of them relied on tickets and emails to solve any error.</p>
+        </section>
+
+        <!-- Problema: quadro de análise (abre em tela cheia com zoom) -->
+        <section class="cs-section container" id="cs-problema" aria-labelledby="cs-problema-t">
+          <header class="cs-head" data-reveal>
+            <h2 class="ds-section" id="cs-problema-t">Problem</h2>
+            <p class="ds-body">I went through the submission flow in the old system as if I were a public servant, noting every point where they could struggle and listing possible solutions. What happened after submission was reported by the stakeholders.</p>
+          </header>
+          <div data-reveal>
+            <figure class="cs-diagram cs-diagram--board" data-viewer="diagram" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge the problems and solutions board">
+              <img src="assets/cases/v2/quadro-problemas.webp" width="5155" height="1709" loading="lazy" decoding="async" alt="Analysis board of the old system: the submission tabs with numbered points, red notes with the problems, green notes with the first solution ideas, and the correction cycle after submission.">
+              <span class="cs-expand" aria-hidden="true"><i data-lucide="maximize-2"></i></span>
+            </figure>
+            <p class="ds-body cs-cap">In red, the problems. In green, the first solution ideas.</p>
+          </div>
+        </section>
+
+        <!-- Redesenho do fluxo: decisões negociadas + fluxograma -->
+        <section class="cs-section is-band" id="cs-redesenho" aria-labelledby="cs-redesenho-t">
+          <div class="container">
+            <header class="cs-head" data-reveal>
+              <h2 class="ds-section" id="cs-redesenho-t">Redesigning the flow</h2>
+              <p class="ds-body">When I presented the solutions to the stakeholders, other questions came up from their requests, the deadline and what was technically feasible. These decisions were negotiated and shaped the final flow.</p>
+            </header>
+
+            <ol class="cs-decisions" data-reveal>
+              <li><h3 class="ds-label">01.&nbsp; Same visual foundation as the management system</h3><p class="ds-body">Both systems had to ship fast. So I <strong>reused flows, components and behaviors</strong> I had already designed for the Management System.</p></li>
+              <li><h3 class="ds-label">02.&nbsp; One registration per request</h3><p class="ds-body">This means attaching the same document and repeating the case number for each registration. We chose this because mixing several registrations in one form <strong>created conflicts</strong>. In return, filling in the form became <strong>more linear and intuitive</strong>.</p></li>
+              <li><h3 class="ds-label">03.&nbsp; Fields defined by the source agency</h3><p class="ds-body">In the Management System, which I also designed, people with permission <strong>choose which fields appear</strong> in each agency's request form when they register the debt source.</p></li>
+              <li><h3 class="ds-label">04.&nbsp; Request edit history</h3><p class="ds-body">Public servants could now request edits, so those edits had to be recorded. <strong>Together with the development team</strong>, given the deadline and technical feasibility, we decided each edit would become a new request, grouped under the original one with an expand arrow.</p></li>
+              <li><h3 class="ds-label">05.&nbsp; Request status timeline</h3><p class="ds-body">Someone suggested a history button next to the status, in a table that already had many columns and a lot of information. I suggested making the status pill itself clickable and leading to the history, <strong>without taking up more space</strong>.</p></li>
+            </ol>
+
+            <div data-reveal>
+              <figure class="cs-diagram cs-diagram--flow" data-viewer="diagram" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge the system flowchart">
+                <img src="assets/cases/v2/fluxograma.webp" width="4450" height="3155" loading="lazy" decoding="async" alt="System flowchart: access, a new request in 3 steps, search and tracking with statuses, editing the request, registrations and the conditions for review in the Management System.">
+                <span class="cs-expand" aria-hidden="true"><i data-lucide="maximize-2"></i></span>
+              </figure>
+            </div>
+          </div>
+        </section>
+
+        <!-- Solução: antes e depois de cada etapa. O título de cada etapa fica preso no topo
+             enquanto a tela e o texto sobem por baixo (parallax em js/case-page.js) -->
+        <section class="cs-section cs-solution" id="cs-solucao" aria-labelledby="cs-solucao-t">
+          <header class="container cs-head" data-reveal>
+            <h2 class="ds-section" id="cs-solucao-t">Solution</h2>
+            <p class="ds-body">The before and after of each step, in submission order.</p>
+          </header>
+
+          <div class="cs-steps">
+            <article class="cs-step">
+              <header class="cs-step-head"><div class="container"><h3 class="ds-section">01&nbsp; Debt details</h3><span class="ds-section">Before</span></div></header>
+              <div class="container cs-step-body">
+                <figure class="cs-shot cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge the old case registration screen"><img src="assets/cases/v2/01-antes.webp" width="1740" height="978" loading="lazy" decoding="async" alt="Old system: the Case Registration tab, with locked fields already filled in and the procedure type fixed as registration request."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure>
+                <ul class="cs-list cs-step-text">
+                  <li>Locked fields came prefilled with data the system already had. Since they couldn't be edited, they didn't need to be shown.</li>
+                  <li>The procedure type was always "registration request", which is exactly what the user is doing.</li>
+                  <li>Fields like license plate and chassis number showed up for every agency. The public servant had to know in advance which ones applied to their debt.</li>
+                  <li>Attachments were in a separate tab, and the public servant had to read a block of text to know what to attach.</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="cs-step">
+              <header class="cs-step-head"><div class="container"><h3 class="ds-section">01&nbsp; Debt details</h3><span class="ds-section">After</span></div></header>
+              <div class="container cs-step-body">
+                <figure class="cs-shot cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge the new debt details step"><img src="assets/cases/v2/01-depois.webp" width="1738" height="978" loading="lazy" decoding="async" alt="New form, step 1 of 3: debt details with the agency's fields, the declaration and the attachments in the same step."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure>
+                <ul class="cs-list cs-step-text">
+                  <li>Fields with information the system already had were removed from the screen, so the public servant only fills in what's needed.</li>
+                  <li>Only the fields defined for the agency appear, configured in the Management System.</li>
+                  <li>Attachments became a section of this step, and the document type is picked from a list.</li>
+                  <li>The other numbers became two optional fields, number type and number, for when they're still needed.</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="cs-step">
+              <header class="cs-step-head"><div class="container"><h3 class="ds-section">02&nbsp; Debtors and charges</h3><span class="ds-section">Before</span></div></header>
+              <div class="container cs-step-body">
+                <figure class="cs-shot cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge the old debt details screen"><img src="assets/cases/v2/02-antes.webp" width="1740" height="978" loading="lazy" decoding="async" alt="Old system: the Debt Details tab with 14 fields, debtor, co-obligor and the list of charges and registrations on the same screen."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure>
+                <ul class="cs-list cs-step-text">
+                  <li>14 fields showed up at once, several of them locked with no explanation.</li>
+                  <li>It only allowed one contact and one address per debtor, which made collection harder.</li>
+                  <li>The public servant registered the debtors in one tab and only linked them to the registration in the next one. They had to know in advance that each debtor could belong to a different registration.</li>
+                  <li>The charges shared the screen with the debt details and the link to the debtor.</li>
+                  <li>The list of charges didn't show the total, so the public servant couldn't check the final amount.</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="cs-step">
+              <header class="cs-step-head"><div class="container"><h3 class="ds-section">02.1&nbsp; Debtors</h3><span class="ds-section">After</span></div></header>
+              <div class="container cs-step-body">
+                <figure class="cs-shot cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge the new add debtor modal"><img src="assets/cases/v2/02-depois-devedores.webp" width="1738" height="978" loading="lazy" decoding="async" alt="New form, step 2: the Add debtor modal with address and contact sections, each with several items."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure>
+                <ul class="cs-list cs-step-text">
+                  <li>The debtor is added in its own modal, with contacts and addresses in separate sections.</li>
+                  <li>Each debtor accepts several contacts and addresses.</li>
+                  <li>The list shows who has already been added before moving on, and when it's empty the screen says what to do.</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="cs-step">
+              <header class="cs-step-head"><div class="container"><h3 class="ds-section">02.2&nbsp; Charges</h3><span class="ds-section">After</span></div></header>
+              <div class="container cs-step-body">
+                <figure class="cs-shot cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge the new charges step"><img src="assets/cases/v2/02-depois-debitos.webp" width="1738" height="978" loading="lazy" decoding="async" alt="New form, step 3: charges with inline fields, an Add button and the table with the total and the number of charges."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure>
+                <ul class="cs-list cs-step-text">
+                  <li>Charges got their own step, with the fields inline and the table right below.</li>
+                  <li>Add sits next to the charge fields, and Submit request is the primary action.</li>
+                  <li>The table shows the total and the number of charges, updated with every addition.</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="cs-step">
+              <header class="cs-step-head"><div class="container"><h3 class="ds-section">03&nbsp; Searching requests</h3><span class="ds-section">Before</span></div></header>
+              <div class="container cs-step-body">
+                <figure class="cs-shot cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge the old list of cases"><img src="assets/cases/v2/03-antes.webp" width="1738" height="978" loading="lazy" decoding="async" alt="Old system: list of received cases, with many columns and no request status."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure>
+                <p class="ds-body cs-step-text">After submitting, the public servant saw a list of cases that didn't show which stage their request was in.</p>
+              </div>
+            </article>
+
+            <article class="cs-step">
+              <header class="cs-step-head"><div class="container"><h3 class="ds-section">03&nbsp; Searching requests</h3><span class="ds-section">After</span></div></header>
+              <div class="container cs-step-body">
+                <figure class="cs-shot cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge the new request search"><img src="assets/cases/v2/03-depois.webp" width="1738" height="978" decoding="async" alt="New request search: summary cards by status at the top, search, filters and a table with each request's status."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure>
+                <p class="ds-body cs-step-text">A dedicated search for requests, with each one's status and summary cards at the top.</p>
+              </div>
+            </article>
+
+            <article class="cs-step">
+              <header class="cs-step-head"><div class="container"><h3 class="ds-section">04&nbsp; View</h3><span class="ds-section">Iteration</span></div></header>
+              <div class="container cs-step-body">
+                <figure class="cs-shot cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge the new view request screen"><img src="assets/cases/v2/04-visualizar.webp" width="1738" height="978" loading="lazy" decoding="async" alt="New request screen: sent for review status at the top, tabs for debt details, debtors, charges and history, and the attachments."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure>
+                <p class="ds-body cs-step-text">One screen brings together everything about the request, with the status at the top.</p>
+              </div>
+            </article>
+
+            <article class="cs-step cs-step--text">
+              <header class="cs-step-head"><div class="container"><h3 class="ds-section">05&nbsp; Edit/reply</h3><span class="ds-section">Before</span></div></header>
+              <div class="container cs-step-body">
+                <p class="ds-body cs-step-text">For each error, the analyst opened a ticket, waited for the reply by email and edited the registration by hand.</p>
+              </div>
+            </article>
+
+            <article class="cs-step">
+              <header class="cs-step-head"><div class="container"><h3 class="ds-section">05&nbsp; Edit/reply</h3><span class="ds-section">After</span></div></header>
+              <div class="container cs-step-body">
+                <figure class="cs-shot cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge the history with action required"><img src="assets/cases/v2/04-depois.webp" width="1738" height="978" loading="lazy" decoding="async" alt="Request history: action required notice with the analyst's message and the Reply and Edit buttons."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure>
+                <p class="ds-body cs-step-text">The analyst points out the error, and the public servant gets the notice in the system and by email, with a button that goes straight to the request, where they can edit it or just reply.</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- Próximas iterações -->
+        <section class="cs-section is-band" id="cs-proximas" aria-labelledby="cs-proximas-t">
+          <div class="container">
+            <header class="cs-head" data-reveal>
+              <h2 class="ds-section" id="cs-proximas-t">Next iterations</h2>
+              <p class="ds-body">What I would change in the next version.</p>
+            </header>
+            <ol class="cs-cols cs-next" data-reveal>
+              <li><h3 class="ds-label">01.&nbsp; Debtor in a drawer, with inline contact and address</h3><p class="ds-body">The drawer would keep the list of debtors in view and avoid opening one form on top of another to add contacts and addresses.</p></li>
+              <li><h3 class="ds-label">02.&nbsp; Review step before submitting</h3><p class="ds-body">A final read-only screen with all the filled-in data and shortcuts to edit, so the public servant could check the whole request before submitting.</p></li>
+              <li><h3 class="ds-label">03.&nbsp; Action required already showing the reason</h3><p class="ds-body">With the reason in the message itself, the public servant can decide right away whether they need to edit or just reply, without opening the request.</p></li>
+            </ol>
+          </div>
+        </section>
+
+        <!-- O que vou medir -->
+        <section class="cs-section container" id="cs-medir" aria-labelledby="cs-medir-t">
+          <header class="cs-head" data-reveal>
+            <h2 class="ds-section" id="cs-medir-t">What I'll measure after launch</h2>
+          </header>
+          <ol class="cs-measures" data-reveal>
+            <li class="ds-label">01.&nbsp; Time to submit a request.</li>
+            <li class="ds-label">02.&nbsp; Tickets and emails opened to register or fix requests.</li>
+            <li class="ds-label">03.&nbsp; Requests sent back with action required.</li>
+          </ol>
+        </section>
+
+        <footer class="cs-end container">
+          <button class="btn btn-outline" type="button" data-case-close><i data-lucide="arrow-left" aria-hidden="true"></i>Back to projects</button>
+        </footer>
+      </div>
+    </article>
+  </div>

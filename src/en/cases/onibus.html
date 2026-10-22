@@ -1,0 +1,347 @@
+<!-- =========================================================
+     Case: onibus
+     Este arquivo tem duas partes:
+     1. @card   → o card do case na pilha da home
+     2. @pagina → a página do case (abre ao clicar no card)
+     Depois de editar, rode: node build.mjs
+     ========================================================= -->
+
+<!-- @card -->
+          <li class="deck-item case--onibus">
+            <button class="case-tab" type="button" tabindex="-1" aria-hidden="true"><span class="tab-fl"></span><i data-lucide="user" class="case-tab-ic"></i><span class="case-tab-text">Meu Ônibus</span></button>
+            <a class="case-card case--onibus" href="#case-onibus" data-case="case-onibus" data-cursor="View case">
+              <div class="case-panel">
+                <h3 class="case-title">Redesigning the Meu Ônibus public transit app</h3>
+                <p class="case-desc">A redesign focused on rethinking the whole experience to meet <strong>users' real needs.</strong></p>
+                <ul class="case-tags" aria-label="Tags">
+                  <li>Mobile</li><li>User research</li>
+                </ul>
+                <span class="btn btn-outline case-btn">View case <i data-lucide="arrow-right" aria-hidden="true"></i></span>
+              </div>
+              <div class="case-visual">
+              <div class="case-mock case-mock--back mock-phone mock-phone--shot" aria-hidden="true">
+                <img src="assets/cases/onibus/carteira.webp" width="786" height="1704" alt="" decoding="async">
+              </div>
+              <div class="case-mock mock-phone mock-phone--shot" aria-hidden="true">
+                <img src="assets/cases/onibus/inicio-depois.webp" width="786" height="1704" alt="" decoding="async">
+              </div>
+              </div>
+            </a>
+          </li>
+
+<!-- @pagina -->
+  <!-- ================= Página do case 2: Meu Ônibus =================
+       Mesma estrutura e componentes do case 1. Telas de celular em fila no antes e depois.
+       Cor de destaque do projeto: #38C8C7 (.case--onibus em css/styles.css). -->
+  <div class="case-view case--onibus" id="case-onibus" role="dialog" aria-modal="true" aria-labelledby="case-onibus-title" hidden>
+    <div class="case-view-bg" aria-hidden="true"></div>
+    <div class="case-bar">
+      <div class="container case-bar-inner">
+        <button class="case-back case-bar-back" type="button" data-case-close><i data-lucide="arrow-left" aria-hidden="true"></i>Back</button>
+        <button class="btn btn-ghost btn-icon theme-toggle" type="button" aria-label="Switch to dark mode">
+          <i data-lucide="moon" class="theme-icon is-moon" aria-hidden="true"></i>
+          <i data-lucide="sun" class="theme-icon is-sun" aria-hidden="true"></i>
+        </button>
+        <div class="lang-switch" role="group" aria-label="Language">
+          <a class="lang-opt" href="index.html" hreflang="pt-BR" lang="pt-BR" title="Português">PT</a>
+          <span class="lang-sep" aria-hidden="true"></span>
+          <a class="lang-opt is-active" href="en.html" hreflang="en" lang="en" aria-current="page" title="English">EN</a>
+        </div>
+      </div>
+    </div>
+    <article class="case-view-scroll">
+      <div class="container case-page">
+        <div class="case-top" data-fade>
+          <button class="case-back" type="button" data-case-close>
+            <i data-lucide="arrow-left" aria-hidden="true"></i> Back
+          </button>
+          <button class="btn btn-ghost btn-icon theme-toggle" type="button" aria-label="Switch to dark mode">
+            <i data-lucide="moon" class="theme-icon is-moon" aria-hidden="true"></i>
+            <i data-lucide="sun" class="theme-icon is-sun" aria-hidden="true"></i>
+          </button>
+          <div class="lang-switch" role="group" aria-label="Language">
+            <a class="lang-opt" href="index.html" hreflang="pt-BR" lang="pt-BR" title="Português">PT</a>
+            <span class="lang-sep" aria-hidden="true"></span>
+            <a class="lang-opt is-active" href="en.html" hreflang="en" lang="en" aria-current="page" title="English">EN</a>
+          </div>
+        </div>
+
+        <div class="cs-hero">
+          <div class="cs-hero-text">
+            <h1 class="case-page-title" id="case-onibus-title" data-flip="title">Redesigning the Meu Ônibus public transit app</h1>
+            <p class="ds-body case-page-lede" data-fade>A redesign focused on rethinking the whole experience to meet <strong>users' real needs.</strong></p>
+            <ul class="case-tags case-page-tags" aria-label="Tags" data-flip="tags">
+              <li>Mobile</li><li>User research</li>
+            </ul>
+          </div>
+          <figure class="case-hero-shot cs-hero-img" data-fade>
+            <div class="cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge the new home screen and the wallet"><img src="assets/cases/onibus/hero-phones.webp" width="1697" height="1398" decoding="async" alt="Two phones with the redesigned app: the home screen with the map and the nearest stop, and the wallet with the transit cards."></div>
+          </figure>
+        </div>
+
+        <dl class="case-facts" data-fade>
+          <div><dt>My role</dt><dd>UX/UI Designer</dd></div>
+          <div><dt>Type</dt><dd>Personal project</dd></div>
+          <div><dt>Timeline</dt><dd>3 months</dd></div>
+        </dl>
+
+        <div class="case-role" data-fade>
+          <h2 class="ds-label">What I did</h2>
+          <p class="ds-body">I ran the user research, created the persona and the journey map, and redesigned the app's flows and screens, from sketches to final screens.</p>
+        </div>
+      </div>
+
+      <!-- Roteiro: contexto → pesquisa → persona → problema → rascunhos e prioridades →
+           solução (antes e depois) → conclusão -->
+      <div class="cs-body">
+
+        <!-- Contexto -->
+        <section class="cs-section is-band" id="on-contexto" aria-labelledby="on-contexto-t">
+          <div class="container">
+            <header class="cs-head" data-reveal>
+              <h2 class="ds-section" id="on-contexto-t">Context</h2>
+              <p class="ds-body">Meu Ônibus ("My Bus") is the public transit app of Fortaleza, built to bring together two everyday tasks for bus riders in one place.</p>
+            </header>
+
+            <div class="cs-stack cs-context" data-reveal>
+              <div class="cs-head">
+                <h3 class="ds-label">What the app does</h3>
+                <ul class="cs-context-list">
+                  <li><h4 class="ds-label cs-icon-label"><i data-lucide="clock" aria-hidden="true"></i>Bus times at stops</h4><p class="ds-body">Shows in real time when each bus arrives at the stop.</p></li>
+                  <li><h4 class="ds-label cs-icon-label"><i data-lucide="credit-card" aria-hidden="true"></i>Card top-up</h4><p class="ds-body">Tops up the transit card without going to a service point.</p></li>
+                </ul>
+              </div>
+              <div class="cs-head">
+                <h3 class="ds-label">Main problems</h3>
+                <ul class="cs-context-list">
+                  <li><h4 class="ds-label cs-icon-label"><i data-lucide="circle-alert" aria-hidden="true"></i>Usability issues</h4><p class="ds-body">Over time, the flows became confusing, the information poorly organized and the interface unintuitive.</p></li>
+                  <li><h4 class="ds-label cs-icon-label"><i data-lucide="split" aria-hidden="true"></i>Two apps</h4><p class="ds-body">The features were split: one app to check and top up the cards and another one just for bus times.</p></li>
+                </ul>
+              </div>
+            </div>
+            <p class="ds-body cs-note" data-reveal>This is an unofficial redesign, made as a study. It has no connection with the app or with the people who build it.</p>
+          </div>
+        </section>
+
+        <!-- Pesquisa -->
+        <section class="cs-section container" id="on-pesquisa" aria-labelledby="on-pesquisa-t">
+          <header class="cs-head" data-reveal>
+            <h2 class="ds-section" id="on-pesquisa-t">Research</h2>
+            <p class="ds-body">I use the app every day, so I started with my own experience. Then I checked whether other users went through the same.</p>
+          </header>
+          <div class="cs-stack" data-reveal>
+            <div class="cs-head">
+              <h3 class="ds-label">Store reviews</h3>
+              <p class="ds-body">I analyzed the top reviews of both apps on the App Store and Play Store. I kept the ones that explained where users got stuck and discarded vague ones, like "the app is bad" or "it freezes too much".</p>
+              <div class="cs-quotes">
+                <blockquote class="cs-quote">
+                  <p class="ds-body">"When it opens, it could quickly show the bus stops and their times, but it takes several taps to see the information."</p>
+                  <footer><i data-lucide="star" aria-hidden="true"></i>1.0 · helpful to 317 people</footer>
+                </blockquote>
+                <blockquote class="cs-quote">
+                  <p class="ds-body">"Checking the balance is complicated, it takes several taps, and the font color doesn't contrast well with the background."</p>
+                  <footer><i data-lucide="star" aria-hidden="true"></i>1.0 · helpful to 159 people</footer>
+                </blockquote>
+              </div>
+            </div>
+            <div class="cs-head">
+              <h3 class="ds-label">In-person observation</h3>
+              <p class="ds-body">5 people used the app's main features while I watched, following this script:</p>
+              <ol class="cs-list cs-questions">
+                                <li>What is it like to check the bus time?</li>
+                <li>What is it like to check the transit card balance?</li>
+                <li>What is it like to top up the card?</li>
+              </ol>
+            </div>
+          </div>
+          <div data-reveal>
+            <figure class="cs-diagram cs-diagram--research" data-viewer="diagram" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge the in-person research board">
+              <img src="assets/cases/onibus/pesquisa-quadro.webp" width="3520" height="2188" loading="lazy" decoding="async" alt="In-person research board: each question in the script with the participants' answers and the solution ideas that came up.">
+              <span class="cs-expand" aria-hidden="true"><i data-lucide="maximize-2"></i></span>
+            </figure>
+            <p class="ds-body cs-cap">In purple, the answers. In green, the ideas that came up.</p>
+          </div>
+        </section>
+
+        <!-- Persona -->
+        <section class="cs-section container" id="on-persona" aria-labelledby="on-persona-t">
+          <header class="cs-head" data-reveal>
+            <h2 class="ds-section" id="on-persona-t">Persona</h2>
+            <p class="ds-body">I created the persona from the research, mainly from the in-person sessions. It helped me decide which problems to prioritize.</p>
+          </header>
+          <div class="cs-personas" data-reveal>
+            <article class="cs-persona">
+              <div class="cs-persona-top">
+                <div class="cs-persona-id">
+                  <img class="cs-persona-photo" src="assets/cases/onibus/persona.webp" width="321" height="321" alt="Photo of the persona Ana Carolina.">
+                  <div>
+                    <h3 class="ds-label">Ana Carolina, 20 years old</h3>
+                    <p class="ds-body">Advertising student in Fortaleza · lives far from downtown · takes the bus to college every day</p>
+                  </div>
+                </div>
+              </div>
+              <blockquote class="cs-persona-quote">
+                <p class="ds-body">"It's so frustrating when the app says the bus is coming and it takes another 20 minutes! (...) Imagine getting on the bus and finding out there's no credit on your card!"</p>
+              </blockquote>
+              <div class="cs-persona-cols cs-persona-cols--3">
+                <div>
+                  <h4 class="ds-label cs-icon-label"><i data-lucide="sparkles" aria-hidden="true"></i>Goals</h4>
+                  <ul class="cs-list">
+                    <li>get to and from college quickly, making the most of her time</li>
+                    <li>have reliable times and routes to plan her trip</li>
+                    <li>top up her card easily, without going to a service point</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="ds-label cs-icon-label"><i data-lucide="frown" aria-hidden="true"></i>Frustrations</h4>
+                  <ul class="cs-list">
+                    <li>needs several taps to see her card balance</li>
+                    <li>has to leave the app and open another one to top up</li>
+                    <li>has trusted the prediction before and the bus never showed up or took too long</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="ds-label cs-icon-label"><i data-lucide="smartphone" aria-hidden="true"></i>Behaviors</h4>
+                  <ul class="cs-list">
+                    <li>uses the app every day to check predictions and plan her trip</li>
+                    <li>prefers apps that save time and simplify her routine</li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- Mapa de jornada -->
+        <section class="cs-section container" id="on-jornada" aria-labelledby="on-jornada-t">
+          <header class="cs-head" data-reveal>
+            <h2 class="ds-section" id="on-jornada-t">Journey map</h2>
+            <p class="ds-body">What the user does, thinks and feels at each stage, and what could be better.</p>
+          </header>
+          <div data-reveal>
+            <figure class="cs-diagram cs-diagram--journey" data-viewer="diagram" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge the journey map">
+              <img src="assets/cases/onibus/jornada.webp" width="3950" height="1920" loading="lazy" decoding="async" alt="Journey map in five stages (opening the app, finding the stop, checking times, viewing the balance and topping up), with what the user does, thinks, feels and the improvements.">
+              <span class="cs-expand" aria-hidden="true"><i data-lucide="maximize-2"></i></span>
+            </figure>
+          </div>
+        </section>
+
+        <!-- Principais problemas -->
+        <section class="cs-section container" id="on-problema" aria-labelledby="on-problema-t">
+          <header class="cs-head" data-reveal>
+            <h2 class="ds-section" id="on-problema-t">Main problems</h2>
+            <p class="ds-body">After the whole research phase, I could define which pain points mattered most.</p>
+          </header>
+          <ol class="cs-decisions" data-reveal>
+            <li><h3 class="ds-label">01.&nbsp; Balance and top-up</h3><p class="ds-body"><strong>Checking the balance takes several taps</strong>, and the top-up flow is slow and confusing.</p></li>
+            <li><h3 class="ds-label">02.&nbsp; Split apps</h3><p class="ds-body">To top up, the user <strong>has to leave Meu Ônibus and open another app.</strong></p></li>
+            <li><h3 class="ds-label">03.&nbsp; Usability and navigation</h3><p class="ds-body">Routes that are hard to find, a confusing interface and too many taps.</p></li>
+            <li><h3 class="ds-label">04.&nbsp; Design and accessibility</h3><p class="ds-body">Low contrast and text in a color close to the background, hard to read for older people and people with low vision.</p></li>
+          </ol>
+        </section>
+
+        <!-- Wireframes -->
+        <section class="cs-section is-band" id="on-rascunhos" aria-labelledby="on-rascunhos-t">
+          <div class="container">
+            <header class="cs-head" data-reveal>
+              <h2 class="ds-section" id="on-rascunhos-t">Wireframes</h2>
+              <p class="ds-body">I sketched the new flows by hand before moving to Figma.</p>
+            </header>
+            <ol class="cs-decisions" data-reveal>
+              <li><h3 class="ds-label">01.&nbsp; Fewer taps in the old flow</h3><p class="ds-body">I revisited the old flow to shorten it and make tasks <strong>simpler.</strong></p></li>
+              <li><h3 class="ds-label">02.&nbsp; Balance and top-up first</h3><p class="ds-body">I prioritized <strong>checking the balance and topping up</strong>: seeing the balance took several taps, and topping up required another app.</p></li>
+            </ol>
+            <div data-reveal>
+              <figure class="cs-diagram cs-diagram--sketch" data-viewer="diagram" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge the wireframes">
+                <img src="assets/cases/onibus/rascunhos.webp" width="3898" height="1462" loading="lazy" decoding="async" alt="Hand-drawn wireframes of the new flows: home screen with balance and search, line search and result, and top-up with amounts and payment methods.">
+                <span class="cs-expand" aria-hidden="true"><i data-lucide="maximize-2"></i></span>
+              </figure>
+            </div>
+          </div>
+        </section>
+
+        <!-- Solução: antes e depois, com as telas do fluxo em fila -->
+        <section class="cs-section cs-solution" id="on-solucao" aria-labelledby="on-solucao-t">
+          <header class="container cs-head" data-reveal>
+            <h2 class="ds-section" id="on-solucao-t">Result</h2>
+            <p class="ds-body">The before and after of each flow.</p>
+          </header>
+          <div class="cs-steps">
+            <article class="cs-step">
+              <header class="cs-step-head"><div class="container"><h3 class="ds-section">01&nbsp; Home</h3><span class="ds-section">Before</span></div></header>
+              <div class="container cs-step-body cs-step-body--phones"><div class="cs-step-grid" data-n="2"><div class="cs-phones"><figure class="cs-phone cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge: old home screen, zoomed-out map"><img src="assets/cases/onibus/inicio-antes-1.webp" width="591" height="1280" loading="lazy" decoding="async" alt="Old app when opened: a map of South America, far from the city."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><figure class="cs-phone cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge: old home screen, map full of markers"><img src="assets/cases/onibus/inicio-antes-2.webp" width="591" height="1280" loading="lazy" decoding="async" alt="Old app with the map zoomed in: dozens of overlapping bus markers."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure></div>
+                <div class="cs-step-text"><ul class="cs-list"><li>When you open the app, the map shows up far from the city. You have to zoom into the circle to see nearby stops.</li><li>Once zoomed in, there are so many markers that the map gets confusing.</li></ul></div></div></div>
+            </article>
+            <article class="cs-step">
+              <header class="cs-step-head"><div class="container"><h3 class="ds-section">01&nbsp; Home</h3><span class="ds-section">After</span></div></header>
+              <div class="container cs-step-body cs-step-body--phones"><div class="cs-step-grid" data-n="1"><div class="cs-phones"><figure class="cs-phone cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge: new home screen"><img src="assets/cases/onibus/inicio-depois.webp" width="786" height="1704" loading="lazy" decoding="async" alt="New home screen: card balance at the top, search and a map with the nearest stop, the lines and the time until each bus arrives."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure></div>
+                <div class="cs-step-text"><p class="ds-body">The app opens right at the nearest stop, with the lines that stop there and how long until each bus arrives.</p><p class="ds-body cs-highlight"><i data-lucide="star" aria-hidden="true"></i><span>The main card's balance sits at the top of the home screen, with zero taps.</span></p></div></div></div>
+            </article>
+            <article class="cs-step">
+              <header class="cs-step-head"><div class="container"><h3 class="ds-section">02&nbsp; Search</h3><span class="ds-section">Before</span></div></header>
+              <div class="container cs-step-body cs-step-body--phones"><div class="cs-step-grid" data-n="4"><div class="cs-phones"><figure class="cs-phone cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge: old search with wrong results"><img src="assets/cases/onibus/pesquisa-antes-1.webp" width="739" height="1600" loading="lazy" decoding="async" alt="Old search for the number 029 returning results from other places in the world."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><figure class="cs-phone cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge: old search without the search field"><img src="assets/cases/onibus/pesquisa-antes-2.webp" width="739" height="1600" loading="lazy" decoding="async" alt="Old search where the field disappears while typing."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><figure class="cs-phone cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge: choosing the line direction"><img src="assets/cases/onibus/pesquisa-antes-3.webp" width="720" height="1561" loading="lazy" decoding="async" alt="Choose your route modal, to pick the line direction."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><figure class="cs-phone cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge: line on the map with low contrast"><img src="assets/cases/onibus/pesquisa-antes-4.webp" width="720" height="1561" loading="lazy" decoding="async" alt="Line on the map with low contrast and the list of buses below."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure></div>
+                <div class="cs-step-text"><ul class="cs-list"><li>Search fails if the right filter isn't chosen first. I searched for the line number with the "Local" filter selected and found nothing.</li><li>The search field disappears while typing.</li><li>After choosing a direction, you have to search everything again to switch.</li><li>Contrast is poor, and the map markers open the same screen under any filter.</li></ul></div></div></div>
+            </article>
+            <article class="cs-step">
+              <header class="cs-step-head"><div class="container"><h3 class="ds-section">02&nbsp; Search</h3><span class="ds-section">After</span></div></header>
+              <div class="container cs-step-body cs-step-body--phones"><div class="cs-step-grid" data-n="3"><div class="cs-phones"><figure class="cs-phone cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge: search by lines"><img src="assets/cases/onibus/pesquisa-linhas.webp" width="786" height="1704" loading="lazy" decoding="async" alt="New search on the Lines tab, with suggested lines."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><figure class="cs-phone cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge: search by stops"><img src="assets/cases/onibus/pesquisa-paradas.webp" width="786" height="1704" loading="lazy" decoding="async" alt="New search on the Stops tab, with suggested stops and the lines at each one."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><figure class="cs-phone cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge: search by trip"><img src="assets/cases/onibus/pesquisa-viagem.webp" width="786" height="1704" loading="lazy" decoding="async" alt="New search on the Trip tab, with origin, destination and line combinations."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure></div>
+                <div class="cs-step-text"><ul class="cs-list"><li>Lines, stops and trip became tabs of the same search, and each one shows suggestions before you type.</li><li>On the Trip tab, the user enters where they are and where they're going and sees the line combinations with the total time.</li></ul></div></div></div>
+            </article>
+            <article class="cs-step">
+              <header class="cs-step-head"><div class="container"><h3 class="ds-section">02.1&nbsp; Search results</h3><span class="ds-section">After</span></div></header>
+              <div class="container cs-step-body cs-step-body--phones"><div class="cs-step-grid" data-n="3"><div class="cs-phones"><figure class="cs-phone cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge: line route"><img src="assets/cases/onibus/linha.webp" width="786" height="1704" loading="lazy" decoding="async" alt="Route of the Náutico line with every stop and the Switch direction button."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><figure class="cs-phone cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge: lines at a stop"><img src="assets/cases/onibus/parada.webp" width="786" height="1704" loading="lazy" decoding="async" alt="Avenida 13 de Maio stop with every line and the time for each one."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><figure class="cs-phone cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge: trip route"><img src="assets/cases/onibus/viagem.webp" width="786" height="1704" loading="lazy" decoding="async" alt="Trip route on the map, with arrival time and where to get off."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure></div>
+                <div class="cs-step-text"><ul class="cs-list"><li>The line shows the full route, and you can switch direction on the same screen.</li><li>The stop shows every line that stops there and how long until each one arrives.</li><li>The trip shows the route on the map, the arrival time and where to get off.</li></ul></div></div></div>
+            </article>
+            <article class="cs-step">
+              <header class="cs-step-head"><div class="container"><h3 class="ds-section">03&nbsp; Balance and top-up</h3><span class="ds-section">Before</span></div></header>
+              <div class="container cs-step-body cs-step-body--phones"><div class="cs-step-grid" data-n="4"><div class="cs-phones"><figure class="cs-phone cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge: notice about leaving for another app"><img src="assets/cases/onibus/recarga-antes-1.webp" width="739" height="1600" loading="lazy" decoding="async" alt="Old app notice saying the user will be taken to another environment to top up."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><figure class="cs-phone cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge: top-up app"><img src="assets/cases/onibus/recarga-antes-2.webp" width="739" height="1600" loading="lazy" decoding="async" alt="Home screen of the top-up app, with several card and QR code buttons."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><figure class="cs-phone cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge: choosing the card"><img src="assets/cases/onibus/recarga-antes-3.webp" width="739" height="1600" loading="lazy" decoding="async" alt="List of cards that has to be chosen before seeing the balance. Names and numbers blurred."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><figure class="cs-phone cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge: balance at the bottom of the screen"><img src="assets/cases/onibus/recarga-antes-4.webp" width="739" height="1600" loading="lazy" decoding="async" alt="Card screen with the balance at the bottom, after three buttons. Number blurred."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure></div>
+                <div class="cs-step-text"><ul class="cs-list"><li>To top up, the user left Meu Ônibus and had to use another app.</li><li>Even in the top-up app, the balance was hidden among several buttons.</li><li>You had to choose the card before seeing the balance, one extra tap.</li><li>The balance, the most sought-after information, was at the bottom of the screen.</li></ul></div></div></div>
+            </article>
+            <article class="cs-step">
+              <header class="cs-step-head"><div class="container"><h3 class="ds-section">03&nbsp; Wallet</h3><span class="ds-section">After</span></div></header>
+              <div class="container cs-step-body cs-step-body--phones"><div class="cs-step-grid" data-n="1"><div class="cs-phones"><figure class="cs-phone cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge: new wallet"><img src="assets/cases/onibus/carteira.webp" width="786" height="1704" loading="lazy" decoding="async" alt="New wallet with the student card and the transit voucher, each one's balance and the Top up button."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure></div>
+                <div class="cs-step-text"><p class="ds-body">The wallet brings the transit cards together, each with its balance and a top-up button.</p><p class="ds-body cs-highlight"><i data-lucide="star" aria-hidden="true"></i><span>The user picks the card they check most, and its balance shows up on the home screen.</span></p></div></div></div>
+            </article>
+            <article class="cs-step cs-step--free">
+              <header class="cs-step-head"><div class="container"><h3 class="ds-section">03.1&nbsp; Top-up</h3><span class="ds-section">After</span></div></header>
+              <div class="container cs-step-body cs-step-body--phones"><div class="cs-step-grid" data-n="3"><div class="cs-phones"><figure class="cs-phone cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge: new top-up on one screen"><img src="assets/cases/onibus/recarga-completa.webp" width="786" height="2104" loading="lazy" decoding="async" alt="New top-up on one screen: suggested amounts, custom amount, payment methods and auto top-up."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><figure class="cs-phone cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge: auto top-up"><img src="assets/cases/onibus/recarga-auto.webp" width="786" height="1914" loading="lazy" decoding="async" alt="Auto top-up turned on, with the saved credit cards."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure><figure class="cs-phone cs-photo" data-viewer="photo" data-cursor="Click to take a closer look" role="button" tabindex="0" aria-label="Enlarge: payment confirmed"><img src="assets/cases/onibus/recarga-ok.webp" width="786" height="1704" loading="lazy" decoding="async" alt="Payment confirmed screen."><span class="cs-expand cs-expand--photo" aria-hidden="true"><i data-lucide="maximize-2"></i></span></figure></div>
+                <div class="cs-step-text"><p class="ds-body cs-highlight"><i data-lucide="star" aria-hidden="true"></i><span>The whole top-up flow on a single screen, inside Meu Ônibus: amount, payment method and confirmation.</span></p><p class="ds-body cs-highlight"><i data-lucide="star" aria-hidden="true"></i><span>Auto top-up: the user saves a credit card, and the transit card is topped up automatically when the balance drops below one fare.</span></p></div></div></div>
+            </article>
+          </div>
+        </section>
+
+        <!-- O que mudou no uso do app -->
+        <section class="cs-section container" id="on-mudou" aria-labelledby="on-mudou-t">
+          <header class="cs-head" data-reveal>
+            <h2 class="ds-section" id="on-mudou-t">What changed in using the app</h2>
+          </header>
+          <div class="cs-table-wrap" data-reveal>
+              <table class="cs-table" aria-labelledby="on-mudou-t">
+                <thead><tr><th scope="col">Task</th><th scope="col">Before</th><th scope="col">After</th></tr></thead>
+                <tbody>
+                  <tr><th scope="row">Check the balance</th><td data-label="Before">At least 3 to 4 steps, in another app, with the balance at the bottom of the screen</td><td data-label="After"><strong>On the home screen, with zero taps</strong></td></tr>
+                  <tr><th scope="row">Top up the card</th><td data-label="Before">Leave Meu Ônibus and use another app</td><td data-label="After"><strong>On a single screen, inside the app, with an auto top-up option</strong></td></tr>
+                  <tr><th scope="row">Find the nearest stop</th><td data-label="Before">Zoom into the map until you find the stops</td><td data-label="After">The app opens at the nearest stop, with each bus's time</td></tr>
+                  <tr><th scope="row">Search for a line</th><td data-label="Before">Failed without the right filter, and the field disappeared while typing</td><td data-label="After">Tabs for lines, stops and trip, with suggestions before typing</td></tr>
+                  <tr><th scope="row">Switch direction</th><td data-label="Before">Redo the whole search</td><td data-label="After">A button on the line screen itself</td></tr>
+                </tbody>
+              </table>
+          </div>
+        </section>
+
+        <!-- Conclusão -->
+        <section class="cs-section is-band" id="on-conclusao" aria-labelledby="on-conclusao-t">
+          <div class="container">
+            <header class="cs-head" data-reveal>
+              <h2 class="ds-section" id="on-conclusao-t">Conclusion</h2>
+              <p class="ds-body">Listening to and watching other users was essential to propose solutions that hit the mark, before assuming anything.</p>
+            </header>
+          </div>
+        </section>
+
+        <footer class="cs-end container">
+          <button class="btn btn-outline" type="button" data-case-close><i data-lucide="arrow-left" aria-hidden="true"></i>Back to projects</button>
+        </footer>
+      </div>
+    </article>
+  </div>
